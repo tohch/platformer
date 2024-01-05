@@ -13,10 +13,6 @@ public class HeroInputReader : MonoBehaviour
     {
         var horizontal = Input.GetAxis("Horizontal");
         _hero.SetDirection(horizontal);
-        //if (Input.GetAxis("Horizontal"))
-        //{
-
-        //}
         //if (Input.GetKey(KeyCode.A))
         //{
         //    _hero.SetDirection(-1);
