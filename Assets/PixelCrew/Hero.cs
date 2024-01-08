@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -14,6 +15,12 @@ public class Hero : MonoBehaviour
     {
         _direction = direction;
     }
+
+    public void SaySomething()
+    {
+        Debug.Log("Say");
+    }
+
     private void Update()
     {
         if(_direction != 0) 
