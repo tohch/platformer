@@ -1,33 +1,34 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.UIElements;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Hero : MonoBehaviour
+namespace PixelCrew
 {
-    private float _direction;
-    
-    [SerializeField]
-    private float _speed;
-    
-    public void SetDirection(float direction)
+    public class Hero : MonoBehaviour
     {
-        _direction = direction;
-    }
+        private Vector2 _direction;
 
-    public void SaySomething()
-    {
-        Debug.Log("Say");
-    }
+        [SerializeField]
+        private float _speed;
 
-    private void Update()
-    {
-        if(_direction != 0) 
+        public void SetDirection(Vector2 direction)
         {
-            var delta = _direction * _speed * Time.deltaTime;
-            var newXPosition = transform.position.x + delta;
-            transform.position = new Vector3(newXPosition, transform.position.y, transform.position.z);
+            _direction = direction;
+        }
+
+        public void SaySomething()
+        {
+            Debug.Log("Say");
+        }
+
+        private void Update()
+        {
+            if (_direction.x != 0 || _direction.y != 0)
+            {
+                var deltaX = _direction.x * _speed * Time.deltaTime;
+                var deltaY = _direction.y * _speed * Time.deltaTime;
+                var newXPosition = transform.position.x + deltaX;
+                var newYPosition = transform.position.y + deltaY;
+                transform.position = new Vector3(newXPosition, newYPosition, transform.position.z);
+            }
         }
     }
 }

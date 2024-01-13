@@ -1,20 +1,30 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class HeroInputReader : MonoBehaviour
+namespace PixelCrew
 {
-    [SerializeField]
-    private Hero _hero;
-    //private void Awake()
-    //{
-    //    _hero = GetComponent<Hero>();
-    //}
-    private void Update()
+    public class HeroInputReader : MonoBehaviour
     {
-        var horizontal = Input.GetAxis("Horizontal");
-        _hero.SetDirection(horizontal);
-        if (Input.GetButtonUp("Fire1"))
+        [SerializeField]
+        private Hero _hero;
+        private HeroInputAction _inputActions;
+        private void Awake()
+        {
+            _inputActions = new HeroInputAction();
+            _inputActions.Hero.HorizontalMovement.performed += OnHorizontalMovement;
+            _inputActions.Hero.HorizontalMovement.canceled += OnHorizontalMovement;
+            _inputActions.Hero.SaySomething.performed += OnSaySomething;
+        }
+        private void OnEnable()
+        {
+            _inputActions.Enable();
+        }
+        private void OnHorizontalMovement(InputAction.CallbackContext context)
+        {
+            var direction = context.ReadValue<Vector2>();
+            _hero.SetDirection(direction);
+        }
+        private void OnSaySomething(InputAction.CallbackContext context)
         {
             _hero.SaySomething();
         }
