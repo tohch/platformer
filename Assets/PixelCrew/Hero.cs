@@ -8,27 +8,23 @@ namespace PixelCrew
 
         [SerializeField]
         private float _speed;
-
+        private Rigidbody2D _rigidbody;
         public void SetDirection(Vector2 direction)
         {
             _direction = direction;
         }
-
+        private void Awake()
+        {
+            _rigidbody = GetComponent<Rigidbody2D>();
+        }
         public void SaySomething()
         {
             Debug.Log("Say");
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
-            if (_direction.x != 0 || _direction.y != 0)
-            {
-                var deltaX = _direction.x * _speed * Time.deltaTime;
-                var deltaY = _direction.y * _speed * Time.deltaTime;
-                var newXPosition = transform.position.x + deltaX;
-                var newYPosition = transform.position.y + deltaY;
-                transform.position = new Vector3(newXPosition, newYPosition, transform.position.z);
-            }
+            _rigidbody.velocity = new Vector2(_direction.x * _speed, _rigidbody.velocity.y);
         }
     }
 }
