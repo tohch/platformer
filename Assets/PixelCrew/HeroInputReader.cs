@@ -5,8 +5,7 @@ namespace PixelCrew
 {
     public class HeroInputReader : MonoBehaviour
     {
-        [SerializeField]
-        private Hero _hero;
+        [SerializeField] private Hero _hero;
         private HeroInputAction _inputActions;
         private void Awake()
         {

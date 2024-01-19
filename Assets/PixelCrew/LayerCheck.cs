@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class LayerCheck : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private LayerMask _groundLayer;
+    private Collider2D _collider;
+    public bool IsTouchingLayer;
+    private void Awake()
     {
-        
+        _collider = GetComponent<Collider2D>();
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerStay2D(Collider2D other)
     {
-        
+        IsTouchingLayer = _collider.IsTouchingLayers(_groundLayer);
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        IsTouchingLayer = _collider.IsTouchingLayers(_groundLayer);
     }
 }
