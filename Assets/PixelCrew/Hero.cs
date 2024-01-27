@@ -8,7 +8,6 @@ namespace PixelCrew
 
         [SerializeField] private float _speed;
         [SerializeField] private float _jumpSpeed;
-
         [SerializeField] private LayerCheck _groundCheck;
 
         private Rigidbody2D _rigidbody;
