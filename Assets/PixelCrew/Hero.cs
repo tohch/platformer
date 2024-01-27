@@ -52,7 +52,7 @@ namespace PixelCrew
         {
             _direction = direction;
         }
-        private void OnDrawGizmos()
+        void OnDrawGizmos()
         {
             Gizmos.color = IsGounded() ? Color.green : Color.red;
             Gizmos.DrawSphere(transform.position + _groundCheckPositionDelta, _groundCheckRadius);
