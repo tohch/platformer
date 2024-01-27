@@ -26,7 +26,7 @@ namespace PixelCrew
         {
             Debug.Log("Say");
         }
-        private bool IsGounded()
+        private bool IsGrounded()
         {
             var hit = Physics2D.CircleCast(transform.position + _groundCheckPositionDelta, _groundCheckRadius, Vector2.down, 0, _groundLayer);
             return hit.collider != null;
@@ -37,7 +37,7 @@ namespace PixelCrew
             var isJumping = _direction.y > 0;
             if (isJumping)
             {
-                if (IsGounded())
+                if (IsGrounded() && _rigidbody.velocity.y <= 0.1f)
                 {
                     _rigidbody.AddForce(Vector2.up * _jumpSpeed, ForceMode2D.Impulse);
                 }
@@ -54,7 +54,7 @@ namespace PixelCrew
         }
         void OnDrawGizmos()
         {
-            Gizmos.color = IsGounded() ? Color.green : Color.red;
+            Gizmos.color = IsGrounded() ? Color.green : Color.red;
             Gizmos.DrawSphere(transform.position + _groundCheckPositionDelta, _groundCheckRadius);
         }
     }
