@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEditor.UIElements;
+using UnityEngine;
 
 namespace PixelCrew
 {
@@ -8,13 +10,14 @@ namespace PixelCrew
 
         [SerializeField] private float _speed;
         [SerializeField] private float _jumpSpeed;
-        [SerializeField] private LayerCheck _groundCheck;
+        [SerializeField] private LayerMask _groundLayer;
+        [SerializeField] private float _groundCheckRadius;
+        [SerializeField] private Vector3 _groundCheckPositionDelta;
 
+ 
         private Rigidbody2D _rigidbody;
-        public void SetDirection(Vector2 direction)
-        {
-            _direction = direction;
-        }
+
+
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
@@ -25,7 +28,8 @@ namespace PixelCrew
         }
         private bool IsGounded()
         {
-            return _groundCheck.IsTouchingLayer;
+            RaycastHit2D? hit = Physics2D.CircleCast(transform.position + _groundCheckPositionDelta, _groundCheckRadius, Vector2.down, 0, _groundLayer);
+            return hit != null;
         }
         private void FixedUpdate()
         {
@@ -42,6 +46,11 @@ namespace PixelCrew
             {
                 _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _rigidbody.velocity.y * 0.5f);
             }
+        }
+
+        internal void SetDirection(Vector2 direction)
+        {
+            _direction = direction;
         }
     }
 }
