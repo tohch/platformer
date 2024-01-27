@@ -28,8 +28,8 @@ namespace PixelCrew
         }
         private bool IsGounded()
         {
-            RaycastHit2D? hit = Physics2D.CircleCast(transform.position + _groundCheckPositionDelta, _groundCheckRadius, Vector2.down, 0, _groundLayer);
-            return hit != null;
+            var hit = Physics2D.CircleCast(transform.position + _groundCheckPositionDelta, _groundCheckRadius, Vector2.down, 0, _groundLayer);
+            return hit.collider != null;
         }
         private void FixedUpdate()
         {
@@ -51,6 +51,11 @@ namespace PixelCrew
         internal void SetDirection(Vector2 direction)
         {
             _direction = direction;
+        }
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = IsGounded() ? Color.green : Color.red;
+            Gizmos.DrawSphere(transform.position + _groundCheckPositionDelta, _groundCheckRadius);
         }
     }
 }
