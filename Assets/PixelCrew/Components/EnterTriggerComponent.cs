@@ -13,7 +13,7 @@ namespace PixelCrew.Components
         {
             if (other.gameObject.CompareTag(_tag))
             {
-                _action?.Invoke();
+                _action?.Invoke();//ReloadLevel
             }
         }
     }
