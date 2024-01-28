@@ -14,10 +14,7 @@ namespace PixelCrew
         [SerializeField] private float _groundCheckRadius;
         [SerializeField] private Vector3 _groundCheckPositionDelta;
 
- 
         private Rigidbody2D _rigidbody;
-
-
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
