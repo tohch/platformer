@@ -42,9 +42,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Layer1
+  - name: Background
     uniqueID: 2687399597
     locked: 0
-  - name: Layer2
+  - name: DecorBack
     uniqueID: 1646838471
+    locked: 0
+  - name: Level
+    uniqueID: 2112414681
+    locked: 0
+  - name: Props
+    uniqueID: 278806979
+    locked: 0
+  - name: Creatures
+    uniqueID: 4162098127
     locked: 0
