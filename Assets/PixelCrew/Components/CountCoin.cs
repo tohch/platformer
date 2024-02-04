@@ -7,11 +7,22 @@ namespace PixelCrew
 {
     public class CountCoin : MonoBehaviour
     {
-        [SerializeField] private HeroCountCoin _hero;
-
-        public void CoinCount()
+        [SerializeField] private float _coinGoldValue = 10f;
+        [SerializeField] private string _coinGoldName = "CoinGold";
+        [SerializeField] private float _coinSilverValue = 1f;
+        [SerializeField] private string _coinSilverName = "CoinSilver";
+        private float coinSum;
+        public void CoinSum()
         {
-            _hero.CoinSum(gameObject.tag);
+            if (gameObject.tag == _coinGoldName)
+            {
+                coinSum += _coinGoldValue;
+            }
+            if (gameObject.tag == _coinSilverName)
+            {
+                coinSum += _coinSilverValue;
+            }
+            Debug.Log(coinSum);
         }
     }
 }
