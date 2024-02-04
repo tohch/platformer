@@ -661,40 +661,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &302105025
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 302105031}
-  - component: {fileID: 302105030}
-  - component: {fileID: 302105029}
-  - component: {fileID: 302105028}
-  - component: {fileID: 302105027}
-  - component: {fileID: 302105026}
-  m_Layer: 0
-  m_Name: Coins_0 (5)
-  m_TagString: CoinGold
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &302105026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302105025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eaed460540388804e85759dbbbed60b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hero: {fileID: 1444679637}
 --- !u!114 &232823488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -723,7 +689,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 302105026}
-        m_MethodName: CoinSum
+        m_MethodName: CoinCount
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -733,6 +699,40 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &302105025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 302105031}
+  - component: {fileID: 302105030}
+  - component: {fileID: 302105029}
+  - component: {fileID: 302105028}
+  - component: {fileID: 302105026}
+  - component: {fileID: 232823488}
+  m_Layer: 0
+  m_Name: Coins_0 (5)
+  m_TagString: CoinGold
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &302105026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302105025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaed460540388804e85759dbbbed60b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hero: {fileID: 1444679637}
 --- !u!114 &302105028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -825,7 +825,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 36
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &477385709
 GameObject:
@@ -1587,7 +1587,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 786505016}
-        m_MethodName: CoinSum
+        m_MethodName: CoinCount
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1787,7 +1787,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 35
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1000285405
 GameObject:
@@ -2483,10 +2483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaed460540388804e85759dbbbed60b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coinGoldValue: 10
-  _coinGoldName: CoinGold
-  _coinSilverValue: 1
-  _coinSilverName: GoinSilver
+  _hero: {fileID: 1444679637}
 --- !u!114 &1438625069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2515,7 +2512,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1438625068}
-        m_MethodName: CoinSum
+        m_MethodName: CoinCount
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2617,7 +2614,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 35
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1444679629
 GameObject:
@@ -2634,6 +2631,7 @@ GameObject:
   - component: {fileID: 1444679635}
   - component: {fileID: 1444679634}
   - component: {fileID: 1444679636}
+  - component: {fileID: 1444679637}
   m_Layer: 0
   m_Name: Hero_0
   m_TagString: Player
@@ -2836,6 +2834,22 @@ MonoBehaviour:
   m_DefaultActionMap: Hero
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1444679637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444679629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2de400879fd4ad2448ce2afc7fe23620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coinGoldValue: 10
+  _coinGoldName: CoinGold
+  _coinSilverValue: 1
+  _coinSilverName: CoinSilver
 --- !u!1 &1447350412
 GameObject:
   m_ObjectHideFlags: 0
@@ -3033,10 +3047,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaed460540388804e85759dbbbed60b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coinGoldValue: 10
-  _coinGoldName: CoinGold
-  _coinSilverValue: 1
-  _coinSilverName: GoinSilver
+  _hero: {fileID: 1444679637}
 --- !u!114 &1651349215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3065,7 +3076,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1651349214}
-        m_MethodName: CoinSum
+        m_MethodName: CoinCount
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3167,7 +3178,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 34
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1664466850
 GameObject:
@@ -3575,10 +3586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaed460540388804e85759dbbbed60b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coinGoldValue: 10
-  _coinGoldName: CoinGold
-  _coinSilverValue: 1
-  _coinSilverName: GoinSilver
+  _hero: {fileID: 1444679637}
 --- !u!114 &1882624565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3607,7 +3615,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1882624564}
-        m_MethodName: CoinSum
+        m_MethodName: CoinCount
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3793,40 +3801,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1927884548
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1927884554}
-  - component: {fileID: 1927884553}
-  - component: {fileID: 1927884552}
-  - component: {fileID: 1927884551}
-  - component: {fileID: 1927884550}
-  - component: {fileID: 1927884549}
-  m_Layer: 0
-  m_Name: Coins_0 (2)
-  m_TagString: CoinSilver
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1927884549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1927884548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eaed460540388804e85759dbbbed60b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hero: {fileID: 1444679637}
 --- !u!114 &1902921730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3855,7 +3829,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1927884549}
-        m_MethodName: CoinSum
+        m_MethodName: CoinCount
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3865,6 +3839,40 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1927884548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1927884554}
+  - component: {fileID: 1927884553}
+  - component: {fileID: 1927884552}
+  - component: {fileID: 1927884551}
+  - component: {fileID: 1927884549}
+  - component: {fileID: 1902921730}
+  m_Layer: 0
+  m_Name: Coins_0 (2)
+  m_TagString: CoinSilver
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1927884549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927884548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaed460540388804e85759dbbbed60b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hero: {fileID: 1444679637}
 --- !u!114 &1927884551
 MonoBehaviour:
   m_ObjectHideFlags: 0

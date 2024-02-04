@@ -7,7 +7,7 @@ namespace PixelCrew
 {
     public class CountCoin : MonoBehaviour
     {
-        [SerializeField] private HeroCountCoin _hero;//add
+        [SerializeField] private HeroCountCoin _hero;
 
         public void CoinCount()
         {

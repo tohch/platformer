@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class HeroCountCoin : MonoBehaviour
 {
-    //add
     [SerializeField] private float _coinGoldValue;
     [SerializeField] private string _coinGoldName;
     [SerializeField] private float _coinSilverValue;
@@ -22,5 +21,4 @@ public class HeroCountCoin : MonoBehaviour
         }
         Debug.Log(coinSum);
     }
-    //add
 }
