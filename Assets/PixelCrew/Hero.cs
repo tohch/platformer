@@ -6,8 +6,6 @@ namespace PixelCrew
 {
     public class Hero : MonoBehaviour
     {
-        private Vector2 _direction;
-
         [SerializeField] private float _speed;
         [SerializeField] private float _jumpSpeed;
         [SerializeField] private LayerMask _groundLayer;
@@ -15,9 +13,18 @@ namespace PixelCrew
         [SerializeField] private Vector3 _groundCheckPositionDelta;
 
         private Rigidbody2D _rigidbody;
+        private Vector2 _direction;
+        private Animator _animator;
+        private SpriteRenderer _sprite;
+
+        private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
+        private static readonly int IsRunning = Animator.StringToHash("is-running");
+        private static readonly int VerticalVelocity = Animator.StringToHash("vertical-velocity");
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
+            _animator = GetComponent<Animator>();
+            _sprite = GetComponent<SpriteRenderer>();
         }
         public void SaySomething()
         {
@@ -32,9 +39,10 @@ namespace PixelCrew
         {
             _rigidbody.velocity = new Vector2(_direction.x * _speed, _rigidbody.velocity.y);
             var isJumping = _direction.y > 0;
+            var isGrounded = IsGrounded();
             if (isJumping)
             {
-                if (IsGrounded() && _rigidbody.velocity.y <= 0.1f)
+                if (isGrounded && _rigidbody.velocity.y <= 0.1f)
                 {
                     _rigidbody.AddForce(Vector2.up * _jumpSpeed, ForceMode2D.Impulse);
                 }
@@ -42,6 +50,23 @@ namespace PixelCrew
             else if (_rigidbody.velocity.y > 0)
             {
                 _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _rigidbody.velocity.y * 0.5f);
+            }
+            _animator.SetBool(IsGroundKey, isGrounded);
+            _animator.SetFloat(VerticalVelocity, _rigidbody.velocity.y);
+            _animator.SetBool(IsRunning, _direction.x != 0);
+
+            UpdateSpriteDirection();
+        }
+
+        private void UpdateSpriteDirection()
+        {
+            if (_direction.x > 0)
+            {
+                _sprite.flipX = false;
+            }
+            else if (_direction.x < 0)
+            {
+                _sprite.flipX = true;
             }
         }
 
