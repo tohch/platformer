@@ -18,18 +18,20 @@ namespace PixelCrew
         private int _currentSpriteIndex;
         private float _nexFrameTime;
 
-        private bool _isPlaying = true;
-
         private void Start()
         {
             _renderer = GetComponent<SpriteRenderer>();
-            _secondsPerFrame = 1f / _frameRate;
-            _nexFrameTime = Time.time + _secondsPerFrame;
         }
 
+        private void OnEnable()
+        {
+            _secondsPerFrame = 1f / _frameRate;
+            _nexFrameTime = Time.time + _secondsPerFrame;
+            _currentSpriteIndex = 0;
+        }
         private void Update()
         {
-            if (!_isPlaying || _nexFrameTime > Time.time) return;
+            if (_nexFrameTime > Time.time) return;
 
             if (_currentSpriteIndex >= _sprites.Length)
             {
@@ -39,7 +41,7 @@ namespace PixelCrew
                 }
                 else
                 {
-                    _isPlaying = false;
+                    enabled = false;
                     _onComplete?.Invoke();
                     return;
                 }
