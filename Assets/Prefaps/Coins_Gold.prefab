@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6634827028231298745
+--- !u!1 &8580913151218787586
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6634827028231298746}
-  - component: {fileID: 6634827028231298747}
-  - component: {fileID: 6634827028231298744}
+  - component: {fileID: 8580913151218787585}
+  - component: {fileID: 8580913151218787584}
+  - component: {fileID: 8580913151218787587}
   m_Layer: 0
   m_Name: Destroy
   m_TagString: Untagged
@@ -18,27 +18,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!4 &6634827028231298746
+--- !u!4 &8580913151218787585
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6634827028231298745}
+  m_GameObject: {fileID: 8580913151218787586}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6634827028636396606}
+  m_Father: {fileID: 8580913151660578693}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6634827028231298747
+--- !u!212 &8580913151218787584
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6634827028231298745}
+  m_GameObject: {fileID: 8580913151218787586}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -83,13 +83,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6634827028231298744
+--- !u!114 &8580913151218787587
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6634827028231298745}
+  m_GameObject: {fileID: 8580913151218787586}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25140021d1431e745aaa80b3570c1903, type: 3}
@@ -105,7 +105,7 @@ MonoBehaviour:
   _onComplete:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6634827028636396605}
+      - m_Target: {fileID: 8580913151660578694}
         m_MethodName: DestoryObject
         m_Mode: 1
         m_Arguments:
@@ -116,7 +116,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &6634827028636396601
+--- !u!1 &8580913151660578690
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,13 +124,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6634827028636396606}
-  - component: {fileID: 6634827028636396607}
-  - component: {fileID: 6634827028636396604}
-  - component: {fileID: 6634827028636396605}
-  - component: {fileID: 6634827028636396602}
-  - component: {fileID: 6634827028636396603}
-  - component: {fileID: 6634827028636396600}
+  - component: {fileID: 8580913151660578693}
+  - component: {fileID: 8580913151660578692}
+  - component: {fileID: 8580913151660578695}
+  - component: {fileID: 8580913151660578694}
+  - component: {fileID: 8580913151660578689}
+  - component: {fileID: 8580913151660578691}
   m_Layer: 0
   m_Name: Coins_Gold
   m_TagString: CoinGold
@@ -138,28 +137,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6634827028636396606
+--- !u!4 &8580913151660578693
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6634827028636396601}
+  m_GameObject: {fileID: 8580913151660578690}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.31, y: 0.77, z: 0}
+  m_LocalPosition: {x: -4.27, y: 0.77, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6634827028231298746}
+  - {fileID: 8580913151218787585}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6634827028636396607
+--- !u!212 &8580913151660578692
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6634827028636396601}
+  m_GameObject: {fileID: 8580913151660578690}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -204,13 +203,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &6634827028636396604
+--- !u!58 &8580913151660578695
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6634827028636396601}
+  m_GameObject: {fileID: 8580913151660578690}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -220,26 +219,26 @@ CircleCollider2D:
   m_Offset: {x: 0.012823403, y: 0.014426351}
   serializedVersion: 2
   m_Radius: 0.1698539
---- !u!114 &6634827028636396605
+--- !u!114 &8580913151660578694
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6634827028636396601}
+  m_GameObject: {fileID: 8580913151660578690}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f92d58dd6d932d949b981a3278ec964a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectToDestory: {fileID: 6634827028636396601}
---- !u!114 &6634827028636396602
+  _objectToDestory: {fileID: 8580913151660578690}
+--- !u!114 &8580913151660578689
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6634827028636396601}
+  m_GameObject: {fileID: 8580913151660578690}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04ca2d78ec0dfb64dae08246b8267515, type: 3}
@@ -249,18 +248,7 @@ MonoBehaviour:
   _action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6634827028636396603}
-        m_MethodName: CoinCount
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6634827028231298745}
+      - m_Target: {fileID: 8580913151218787586}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -271,7 +259,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 6634827028636396607}
+      - m_Target: {fileID: 8580913151660578692}
         m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
@@ -282,26 +270,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6634827028636396603
+--- !u!114 &8580913151660578691
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6634827028636396601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eaed460540388804e85759dbbbed60b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hero: {fileID: 8759803221388157400, guid: 417838e26f8fdc046b0bedcc954262c2, type: 3}
---- !u!114 &6634827028636396600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6634827028636396601}
+  m_GameObject: {fileID: 8580913151660578690}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25140021d1431e745aaa80b3570c1903, type: 3}
