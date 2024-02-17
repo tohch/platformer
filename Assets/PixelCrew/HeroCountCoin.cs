@@ -11,6 +11,7 @@ public class HeroCountCoin : MonoBehaviour
     [SerializeField] private string _coinSilverName;
 
     private float coinSum;
+
     public void CoinSum(string tag)
     {
         if (tag == _coinGoldName)
@@ -26,10 +27,10 @@ public class HeroCountCoin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-            if (other.gameObject.CompareTag(_coinGoldName) || other.gameObject.CompareTag(_coinSilverName))
-            {
-                CoinSum(other.gameObject.tag);
-            }
+        if (other.gameObject.CompareTag(_coinGoldName) || other.gameObject.CompareTag(_coinSilverName))
+        {
+            CoinSum(other.gameObject.tag);
+        }
     }
 
 }

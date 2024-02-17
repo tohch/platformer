@@ -11,5 +11,9 @@ namespace PixelCrew
         {
             Destroy(_objectToDestory);
         }
+        public void OnDisableCollide()
+        {
+            gameObject.GetComponent<Collider2D>().enabled = false;
+        }
     }
 }

@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - CoinSilver
   - CoinGold
+  - CoinDestroy
   layers:
   - Default
   - TransparentFX
