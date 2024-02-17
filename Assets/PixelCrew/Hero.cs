@@ -8,7 +8,7 @@ namespace PixelCrew
     {
         //a2
         //l1
-        //m4
+        //m5
         [SerializeField] private float _speed;
         [SerializeField] private float _jumpSpeed;
         [SerializeField] private LayerMask _groundLayer;
