@@ -75,7 +75,7 @@ namespace PixelCrew
             _direction = direction;
         }
 
-        //отрисовать колайд для прыжка.
+        //отрисовать колайд для разрешения прыжка.
         void OnDrawGizmos()
         {
             Gizmos.color = IsGrounded() ? Color.green : Color.red;
