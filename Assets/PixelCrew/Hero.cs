@@ -6,9 +6,7 @@ namespace PixelCrew
 {
     public class Hero : MonoBehaviour
     {
-        //m3
-        //a2
-        //m2
+        //mv1
         [SerializeField] private float _speed;
         [SerializeField] private float _jumpSpeed;
         [SerializeField] private LayerMask _groundLayer;
