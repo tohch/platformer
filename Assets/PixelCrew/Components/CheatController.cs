@@ -19,7 +19,10 @@ namespace PixelCrew
         {
             Keyboard.current.onTextInput += OnTextInput;
         }
-
+        private void OnDestroy()
+        {
+            Keyboard.current.onTextInput -= OnTextInput;
+        }
         private void OnTextInput(char inputChar)
         {
             _currentInput += inputChar;
