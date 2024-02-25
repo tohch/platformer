@@ -8,6 +8,7 @@ namespace PixelCrew
     {
         [SerializeField] private float _speed;
         [SerializeField] private float _jumpSpeed;
+        [SerializeField] private float _damageJumpSpeed;
         [SerializeField] private LayerMask _groundLayer;
         [SerializeField] private float _groundCheckRadius;
         [SerializeField] private Vector3 _groundCheckPositionDelta;
@@ -23,6 +24,7 @@ namespace PixelCrew
         private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
         private static readonly int IsRunning = Animator.StringToHash("is-running");
         private static readonly int VerticalVelocity = Animator.StringToHash("vertical-velocity");
+        private static readonly int Hit = Animator.StringToHash("hit");
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
@@ -58,6 +60,7 @@ namespace PixelCrew
         {
             var yVelocity = _rigidbody.velocity.y;
             var isJumpPressing = _direction.y > 0;
+   
 
             if (_isGrounded) _allowDoubleJump = true;
             
@@ -69,7 +72,6 @@ namespace PixelCrew
             {
                 yVelocity *= 0.5f;
             }
-
             return yVelocity;
         }
 
@@ -77,15 +79,16 @@ namespace PixelCrew
         {
             var isFalling = _rigidbody.velocity.y <= 0.001f;
             if (!isFalling) return yVelocity;
-
             if (_isGrounded)
             {
                 yVelocity += _jumpSpeed;
-            } else if (_allowDoubleJump)
+            } 
+            else if (_allowDoubleJump)
             {
                 yVelocity = _jumpSpeed;
                 _allowDoubleJump = false;
             }
+
             return yVelocity;
         }
 
@@ -109,6 +112,13 @@ namespace PixelCrew
         {
             Gizmos.color = IsGrounded() ? Color.green : Color.red;
             Gizmos.DrawSphere(transform.position + _groundCheckPositionDelta, _groundCheckRadius);
+        }
+        public void TakeDamage()
+        {
+            _animator.SetTrigger(Hit);
+            var isJumpPressing = _direction.y > 0;
+            if (!isJumpPressing)
+                _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageJumpSpeed);
         }
     }
 }
