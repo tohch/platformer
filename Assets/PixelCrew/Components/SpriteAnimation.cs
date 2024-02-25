@@ -50,5 +50,6 @@ namespace PixelCrew
             _nexFrameTime += _secondsPerFrame;
             _currentSpriteIndex++;
         }
+
     }
 }
