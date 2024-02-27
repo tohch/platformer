@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PixelCrew.Components;
+using System;
 using UnityEditor.UIElements;
 using UnityEngine;
 
@@ -12,7 +13,10 @@ namespace PixelCrew
         [SerializeField] private LayerMask _groundLayer;
         [SerializeField] private float _groundCheckRadius;
         [SerializeField] private Vector3 _groundCheckPositionDelta;
+        [SerializeField] private float _interactionRadius;
+        [SerializeField] private LayerMask _interactionLayer;
 
+        private Collider2D[] _interactionResult = new Collider2D[1];
         private Rigidbody2D _rigidbody;
         private Vector2 _direction;
         private Animator _animator;
@@ -119,6 +123,20 @@ namespace PixelCrew
             var isJumpPressing = _direction.y > 0;
             if (!isJumpPressing)
                 _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageJumpSpeed);
+        }
+
+        public void Interact()
+        {
+            var size = Physics2D.OverlapCircleNonAlloc(transform.position, _interactionRadius, 
+                                                       _interactionResult, _interactionLayer);
+            for(int i = 0; i < size; i++)
+            {
+                var interactable = _interactionResult[i].GetComponent<InteractableComponent>();
+                if (interactable != null)
+                {
+                    interactable.Interact();
+                }
+            }
         }
     }
 }
