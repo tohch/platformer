@@ -243,6 +243,7 @@ MonoBehaviour:
   _onComplete:
     m_PersistentCalls:
       m_Calls: []
+  myArray: []
 --- !u!212 &9620309
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -719,6 +720,7 @@ MonoBehaviour:
   _onComplete:
     m_PersistentCalls:
       m_Calls: []
+  myArray: []
 --- !u!212 &111927472
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2483,6 +2485,7 @@ MonoBehaviour:
   _onComplete:
     m_PersistentCalls:
       m_Calls: []
+  myArray: []
 --- !u!212 &874668076
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5273,6 +5276,7 @@ MonoBehaviour:
   _onComplete:
     m_PersistentCalls:
       m_Calls: []
+  myArray: []
 --- !u!212 &1249307716
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5627,6 +5631,7 @@ MonoBehaviour:
   _onComplete:
     m_PersistentCalls:
       m_Calls: []
+  myArray: []
 --- !u!212 &1318873706
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5732,6 +5737,7 @@ MonoBehaviour:
   _onComplete:
     m_PersistentCalls:
       m_Calls: []
+  myArray: []
 --- !u!212 &1348445578
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5969,6 +5975,7 @@ MonoBehaviour:
   _onComplete:
     m_PersistentCalls:
       m_Calls: []
+  myArray: []
 --- !u!212 &1397701552
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6795,6 +6802,7 @@ MonoBehaviour:
   _onComplete:
     m_PersistentCalls:
       m_Calls: []
+  myArray: []
 --- !u!212 &1623258486
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7529,6 +7537,9 @@ MonoBehaviour:
   _onComplete:
     m_PersistentCalls:
       m_Calls: []
+  myArray:
+  - name: 
+    list: 01000000
 --- !u!212 &1783298992
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7699,6 +7710,7 @@ MonoBehaviour:
   _onComplete:
     m_PersistentCalls:
       m_Calls: []
+  myArray: []
 --- !u!1001 &1835592936
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7808,6 +7820,7 @@ MonoBehaviour:
   _onComplete:
     m_PersistentCalls:
       m_Calls: []
+  myArray: []
 --- !u!212 &1841118529
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12324,6 +12337,7 @@ MonoBehaviour:
   _onComplete:
     m_PersistentCalls:
       m_Calls: []
+  myArray: []
 --- !u!212 &8759803220147432976
 SpriteRenderer:
   m_ObjectHideFlags: 0

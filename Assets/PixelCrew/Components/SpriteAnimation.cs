@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -12,6 +12,8 @@ namespace PixelCrew
         [SerializeField] private bool _loop;
         [SerializeField] private Sprite[] _sprites;
         [SerializeField] private UnityEvent _onComplete;
+        [SerializeField] private SubSprites[] myArray;
+
 
         private SpriteRenderer _renderer;
         private float _secondsPerFrame;
@@ -21,6 +23,7 @@ namespace PixelCrew
         private void Start()
         {
             _renderer = GetComponent<SpriteRenderer>();
+            //myArray2.Add(34);
         }
 
         private void OnEnable()
@@ -31,6 +34,12 @@ namespace PixelCrew
         }
         private void Update()
         {
+            //Debug.Log(myArray[0].list[0]);
+            if(myArray.Length != 0) 
+            {
+                if (myArray[0].sprites.Length != 0)
+                    Debug.Log(myArray[0].sprites[0]);
+            }
             if (_nexFrameTime > Time.time) return;
 
             if (_currentSpriteIndex >= _sprites.Length)
@@ -51,5 +60,12 @@ namespace PixelCrew
             _currentSpriteIndex++;
         }
 
+    }
+
+    [Serializable]
+    public class SubSprites
+    {
+        public string name; // дополнительное поле, чтобы в инсекторе отобразить имя массива для удобства
+        public int[] sprites;
     }
 }
