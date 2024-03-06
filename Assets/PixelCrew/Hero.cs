@@ -1,5 +1,6 @@
 ﻿using PixelCrew.Components;
 using System;
+using TMPro;
 using UnityEditor.UIElements;
 using UnityEngine;
 
@@ -23,8 +24,7 @@ namespace PixelCrew
         private SpriteRenderer _sprite;
         private bool _isGrounded;
         private bool _allowDoubleJump;
-
-
+        private bool _isTakeDamage;
         private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
         private static readonly int IsRunning = Animator.StringToHash("is-running");
         private static readonly int VerticalVelocity = Animator.StringToHash("vertical-velocity");
@@ -49,11 +49,10 @@ namespace PixelCrew
             var xVelocity = _direction.x * _speed;
             var yVelocity = CalculateYVelocity();
             _rigidbody.velocity = new Vector2(xVelocity, yVelocity);
-           
             _animator.SetBool(IsGroundKey, _isGrounded);
             _animator.SetFloat(VerticalVelocity, _rigidbody.velocity.y);
             _animator.SetBool(IsRunning, _direction.x != 0);
-
+            Debug.Log(_rigidbody.velocity.y);
             UpdateSpriteDirection();
         }
         private void Update()
@@ -72,7 +71,7 @@ namespace PixelCrew
             {
                 yVelocity = CalculateJumpVelocity(yVelocity);
             }
-            else if (_rigidbody.velocity.y > 0)
+            else if (_rigidbody.velocity.y > 0 && !_isTakeDamage)
             {
                 yVelocity *= 0.5f;
             }
@@ -116,6 +115,14 @@ namespace PixelCrew
         {
             Gizmos.color = IsGrounded() ? Color.green : Color.red;
             Gizmos.DrawSphere(transform.position + _groundCheckPositionDelta, _groundCheckRadius);
+        }
+        public void OnTakeDamageFlag()
+        {
+            _isTakeDamage = true;
+        }
+        public void OffTakeDamageFlag()
+        {
+            _isTakeDamage = false;
         }
         public void TakeDamage()
         {

@@ -12219,5 +12219,65 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8759803221388157401, guid: 417838e26f8fdc046b0bedcc954262c2,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759803221388157401, guid: 417838e26f8fdc046b0bedcc954262c2,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionId
+      value: a8773a90-b839-44d9-84e6-cf55956b1ed6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759803221388157401, guid: 417838e26f8fdc046b0bedcc954262c2,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionName
+      value: Hero/Interact[/Keyboard/e]
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759803221388157401, guid: 417838e26f8fdc046b0bedcc954262c2,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759803221388157401, guid: 417838e26f8fdc046b0bedcc954262c2,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759803221388157401, guid: 417838e26f8fdc046b0bedcc954262c2,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 620691108}
+    - target: {fileID: 8759803221388157401, guid: 417838e26f8fdc046b0bedcc954262c2,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759803221388157401, guid: 417838e26f8fdc046b0bedcc954262c2,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnInteract
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759803221388157401, guid: 417838e26f8fdc046b0bedcc954262c2,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759803221388157404, guid: 417838e26f8fdc046b0bedcc954262c2,
+        type: 3}
+      propertyPath: _damageJumpSpeed
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759803221388157404, guid: 417838e26f8fdc046b0bedcc954262c2,
+        type: 3}
+      propertyPath: _interactionRadius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759803221388157404, guid: 417838e26f8fdc046b0bedcc954262c2,
+        type: 3}
+      propertyPath: _interactionLayer.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 417838e26f8fdc046b0bedcc954262c2, type: 3}
