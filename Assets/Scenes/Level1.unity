@@ -12290,6 +12290,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8759803221388157404, guid: 417838e26f8fdc046b0bedcc954262c2,
         type: 3}
+      propertyPath: _damageJumpSpeed
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759803221388157404, guid: 417838e26f8fdc046b0bedcc954262c2,
+        type: 3}
       propertyPath: _interactionRadius
       value: 1
       objectReference: {fileID: 0}
