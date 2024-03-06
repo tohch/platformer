@@ -138,5 +138,10 @@ namespace PixelCrew
                 }
             }
         }
+        public void SayCoins()
+        {
+            var coins = gameObject.GetComponent<CoinsComponent>();
+            Debug.Log(coins.Coins);
+        }
     }
 }

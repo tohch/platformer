@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 8759803221388157406}
   - component: {fileID: 8759803221388157407}
   - component: {fileID: 8759803221388157401}
-  - component: {fileID: 8759803221388157400}
   - component: {fileID: 8759803221388157403}
   - component: {fileID: 7881726506497201624}
+  - component: {fileID: 412492402}
   m_Layer: 0
   m_Name: Hero_0
   m_TagString: Player
@@ -109,6 +109,10 @@ MonoBehaviour:
     m_Bits: 1024
   _groundCheckRadius: 0.31
   _groundCheckPositionDelta: {x: 0, y: -0.12, z: 0}
+  _interactionRadius: 1
+  _interactionLayer:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!114 &8759803221388157405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,27 +219,26 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 0dcf3974-6219-4001-974b-d3fb031687be
     m_ActionName: Hero/SaySomething[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8759803221388157405}
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a8773a90-b839-44d9-84e6-cf55956b1ed6
+    m_ActionName: Hero/Interact[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &8759803221388157400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8759803221388157376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef489f791aae3e24ea8d1d320ba295c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _coinGoldValue: 10
-  _coinGoldName: CoinGold
-  _coinSilverValue: 1
-  _coinSilverName: CoinSilver
 --- !u!95 &8759803221388157403
 Animator:
   serializedVersion: 3
@@ -287,6 +290,33 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_MethodName: Reload
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &412492402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8759803221388157376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 312c10306e7788247acda03b631cbf2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coins: 0
+  _onSayCoins:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8759803221388157404}
+        m_MethodName: SayCoins
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
