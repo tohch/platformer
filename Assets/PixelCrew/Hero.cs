@@ -52,7 +52,6 @@ namespace PixelCrew
             _animator.SetBool(IsGroundKey, _isGrounded);
             _animator.SetFloat(VerticalVelocity, _rigidbody.velocity.y);
             _animator.SetBool(IsRunning, _direction.x != 0);
-            Debug.Log(_rigidbody.velocity.y);
             UpdateSpriteDirection();
         }
         private void Update()
