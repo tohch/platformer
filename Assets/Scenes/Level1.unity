@@ -1420,6 +1420,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &412492408 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8759803221388157404, guid: 417838e26f8fdc046b0bedcc954262c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 8759803220147432973}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374f93268e403a94d840cc4ad61ae3fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &415717634
 GameObject:
   m_ObjectHideFlags: 0
@@ -12154,6 +12166,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 412492402, guid: 417838e26f8fdc046b0bedcc954262c2, type: 3}
+      propertyPath: _onSayCoins.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 412492402, guid: 417838e26f8fdc046b0bedcc954262c2, type: 3}
+      propertyPath: _onSayCoins.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 412492402, guid: 417838e26f8fdc046b0bedcc954262c2, type: 3}
+      propertyPath: _onSayCoins.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 412492408}
+    - target: {fileID: 412492402, guid: 417838e26f8fdc046b0bedcc954262c2, type: 3}
+      propertyPath: _onSayCoins.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SayCoins
+      objectReference: {fileID: 0}
+    - target: {fileID: 412492402, guid: 417838e26f8fdc046b0bedcc954262c2, type: 3}
+      propertyPath: _onSayCoins.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7881726506497201624, guid: 417838e26f8fdc046b0bedcc954262c2,
         type: 3}
       propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target

@@ -143,5 +143,9 @@ namespace PixelCrew
             var coins = gameObject.GetComponent<CoinsComponent>();
             Debug.Log(coins.Coins);
         }
+        public void SaySomethingMSG(int msg)
+        {
+            Debug.Log(msg + " - msg");
+        }
     }
 }

@@ -12,6 +12,7 @@ namespace PixelCrew.Components
     {
         [SerializeField] private int _coins;
         [SerializeField] private UnityEvent _onSayCoins;
+        [SerializeField] private ParamEvent _saySomething;
         public int Coins
         {
             get
@@ -23,7 +24,9 @@ namespace PixelCrew.Components
         {
             _coins += coinValue;
             _onSayCoins?.Invoke();
+            _saySomething?.Invoke(_coins);
         }
     }
-
+    [Serializable]
+    public class ParamEvent : UnityEvent<int> { }
 }
