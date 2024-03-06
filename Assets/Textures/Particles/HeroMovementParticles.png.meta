@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e6fbed6c47ae9ec459e0d5583766a822
+guid: 6ce6fd774edc62748b00fd3305fc1c59
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -56,6 +56,24 @@ TextureImporter:
   - first:
       213: -6792048984003556220
     second: HeroMovementParticles_17
+  - first:
+      213: 5853168902673609442
+    second: HeroMovementParticles_18
+  - first:
+      213: -1087031202716084486
+    second: HeroMovementParticles_19
+  - first:
+      213: 889174113880921832
+    second: HeroMovementParticles_20
+  - first:
+      213: -1518293404913387255
+    second: HeroMovementParticles_21
+  - first:
+      213: -2738925706953349646
+    second: HeroMovementParticles_22
+  - first:
+      213: -4982885492600755949
+    second: HeroMovementParticles_23
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -99,7 +117,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 30
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -146,10 +164,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 40
-        width: 52
+        width: 40
         height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -165,12 +183,12 @@ TextureImporter:
       name: HeroMovementParticles_1
       rect:
         serializedVersion: 2
-        x: 52
+        x: 40
         y: 40
-        width: 52
+        width: 40
         height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -186,12 +204,12 @@ TextureImporter:
       name: HeroMovementParticles_2
       rect:
         serializedVersion: 2
-        x: 104
+        x: 80
         y: 40
-        width: 52
+        width: 40
         height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -207,12 +225,12 @@ TextureImporter:
       name: HeroMovementParticles_3
       rect:
         serializedVersion: 2
-        x: 156
+        x: 120
         y: 40
-        width: 52
+        width: 40
         height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -228,12 +246,12 @@ TextureImporter:
       name: HeroMovementParticles_4
       rect:
         serializedVersion: 2
-        x: 208
+        x: 160
         y: 40
-        width: 52
+        width: 40
         height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -249,12 +267,12 @@ TextureImporter:
       name: HeroMovementParticles_5
       rect:
         serializedVersion: 2
-        x: 260
+        x: 200
         y: 40
-        width: 52
+        width: 40
         height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -270,12 +288,12 @@ TextureImporter:
       name: HeroMovementParticles_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 20
-        width: 52
+        x: 240
+        y: 40
+        width: 40
         height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -291,12 +309,12 @@ TextureImporter:
       name: HeroMovementParticles_7
       rect:
         serializedVersion: 2
-        x: 52
-        y: 20
-        width: 52
+        x: 280
+        y: 40
+        width: 40
         height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -312,12 +330,12 @@ TextureImporter:
       name: HeroMovementParticles_8
       rect:
         serializedVersion: 2
-        x: 104
+        x: 0
         y: 20
-        width: 52
+        width: 40
         height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -333,12 +351,12 @@ TextureImporter:
       name: HeroMovementParticles_9
       rect:
         serializedVersion: 2
-        x: 156
+        x: 40
         y: 20
-        width: 52
+        width: 40
         height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -354,12 +372,12 @@ TextureImporter:
       name: HeroMovementParticles_10
       rect:
         serializedVersion: 2
-        x: 208
+        x: 80
         y: 20
-        width: 52
+        width: 40
         height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -375,12 +393,12 @@ TextureImporter:
       name: HeroMovementParticles_11
       rect:
         serializedVersion: 2
-        x: 260
+        x: 120
         y: 20
-        width: 52
+        width: 40
         height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -396,12 +414,12 @@ TextureImporter:
       name: HeroMovementParticles_12
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 52
+        x: 160
+        y: 20
+        width: 40
         height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -417,12 +435,12 @@ TextureImporter:
       name: HeroMovementParticles_13
       rect:
         serializedVersion: 2
-        x: 52
-        y: 0
-        width: 52
+        x: 200
+        y: 20
+        width: 40
         height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -438,12 +456,12 @@ TextureImporter:
       name: HeroMovementParticles_14
       rect:
         serializedVersion: 2
-        x: 104
-        y: 0
-        width: 52
+        x: 240
+        y: 20
+        width: 40
         height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -459,12 +477,12 @@ TextureImporter:
       name: HeroMovementParticles_15
       rect:
         serializedVersion: 2
-        x: 156
-        y: 0
-        width: 52
+        x: 280
+        y: 20
+        width: 40
         height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -480,12 +498,12 @@ TextureImporter:
       name: HeroMovementParticles_16
       rect:
         serializedVersion: 2
-        x: 208
+        x: 0
         y: 0
-        width: 52
+        width: 40
         height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -501,12 +519,12 @@ TextureImporter:
       name: HeroMovementParticles_17
       rect:
         serializedVersion: 2
-        x: 260
+        x: 40
         y: 0
-        width: 52
+        width: 40
         height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -514,6 +532,132 @@ TextureImporter:
       bones: []
       spriteID: 48c4a635f6bcdb1a0800000000000000
       internalID: -6792048984003556220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroMovementParticles_18
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 40
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e239360b12aa3150800000000000000
+      internalID: 5853168902673609442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroMovementParticles_19
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 40
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af6975661e61ae0f0800000000000000
+      internalID: -1087031202716084486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroMovementParticles_20
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 40
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e65851452bf65c00800000000000000
+      internalID: 889174113880921832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroMovementParticles_21
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 40
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 909b1574130fdeae0800000000000000
+      internalID: -1518293404913387255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroMovementParticles_22
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 40
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f52cdab4916df9d0800000000000000
+      internalID: -2738925706953349646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroMovementParticles_23
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 0
+        width: 40
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 319a5118b0c39dab0800000000000000
+      internalID: -4982885492600755949
       vertices: []
       indices: 
       edges: []
