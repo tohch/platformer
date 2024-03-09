@@ -26,7 +26,6 @@ namespace PixelCrew
         private void Start()
         {
             _renderer = GetComponent<SpriteRenderer>();
-            //myArray2.Add(34);
         }
 
         private void OnEnable()
