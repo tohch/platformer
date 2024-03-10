@@ -20,6 +20,7 @@ namespace PixelCrew
         [SerializeField] private SpawnComponent _footStepParticles;
         [SerializeField] private ParticleSystem _hitParticles;
 
+        public int _coins;
         private Collider2D[] _interactionResult = new Collider2D[1];
         private Rigidbody2D _rigidbody;
         private Vector2 _direction;
@@ -131,11 +132,21 @@ namespace PixelCrew
             if (!isJumpPressing)
                 _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageJumpSpeed);
 
-            SpawnCoins();
+            if (_coins > 0)
+            {
+                SpawnCoins();
+            }
         }
 
         private void SpawnCoins()
         {
+            var numCoinsToDispose = Mathf.Min(_coins, 5);
+            _coins -= numCoinsToDispose;
+
+            var burst = _hitParticles.emission.GetBurst(0);
+            burst.count = numCoinsToDispose;
+            _hitParticles.emission.SetBurst(0, burst);
+
             _hitParticles.gameObject.SetActive(true);
             _hitParticles.Play();
         }
@@ -155,8 +166,7 @@ namespace PixelCrew
         }
         public void SayCoins()
         {
-            var coins = gameObject.GetComponent<CoinsComponent>();
-            Debug.Log(coins.Coins);
+            Debug.Log(_coins);
         }
 
         public void SpawnFootDust()

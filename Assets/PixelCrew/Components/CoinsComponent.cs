@@ -10,18 +10,12 @@ namespace PixelCrew.Components
 {
     public class CoinsComponent : MonoBehaviour
     {
-        [SerializeField] private int _coins;
         [SerializeField] private UnityEvent _onSayCoins;
-        public int Coins
-        {
-            get
-            {
-                return _coins;
-            }
-        }
+        [SerializeField] private Hero _hero;
+
         public void ApplyCoin(int coinValue)
         {
-            _coins += coinValue;
+            _hero._coins += coinValue;
             _onSayCoins?.Invoke();
         }
     }
