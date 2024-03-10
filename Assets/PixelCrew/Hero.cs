@@ -18,6 +18,7 @@ namespace PixelCrew
         [SerializeField] private LayerMask _interactionLayer;
 
         [SerializeField] private SpawnComponent _footStepParticles;
+        [SerializeField] private ParticleSystem _hitParticles;
 
         private Collider2D[] _interactionResult = new Collider2D[1];
         private Rigidbody2D _rigidbody;
@@ -129,6 +130,14 @@ namespace PixelCrew
             var isJumpPressing = _direction.y > 0;
             if (!isJumpPressing)
                 _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageJumpSpeed);
+
+            SpawnCoins();
+        }
+
+        private void SpawnCoins()
+        {
+            _hitParticles.gameObject.SetActive(true);
+            _hitParticles.Play();
         }
 
         public void Interact()
