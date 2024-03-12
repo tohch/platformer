@@ -18,6 +18,7 @@ namespace PixelCrew
         [SerializeField] private LayerMask _interactionLayer;
 
         [SerializeField] private SpawnComponent _footStepParticles;
+        [SerializeField] private SpawnComponent _footJumpParticles;
         [SerializeField] private ParticleSystem _hitParticles;
 
         public int _coins;
@@ -172,6 +173,11 @@ namespace PixelCrew
         public void SpawnFootDust()
         {
             _footStepParticles.Spawn();
+        }
+
+        public void SpawnFootJumpDust()
+        {
+            _footJumpParticles.Spawn();
         }
     }
 }
