@@ -19,7 +19,10 @@ namespace PixelCrew
 
         [SerializeField] private SpawnComponent _footStepParticles;
         [SerializeField] private SpawnComponent _footJumpParticles;
+        [SerializeField] private SpawnComponent _footFallParticles;
         [SerializeField] private ParticleSystem _hitParticles;
+
+        [SerializeField] private float _limitSpeedForFallDust;
 
         public int _coins;
         private Collider2D[] _interactionResult = new Collider2D[1];
@@ -33,6 +36,10 @@ namespace PixelCrew
         private static readonly int IsRunning = Animator.StringToHash("is-running");
         private static readonly int VerticalVelocity = Animator.StringToHash("vertical-velocity");
         private static readonly int Hit = Animator.StringToHash("hit");
+
+        private float _fallVelocity;
+        private bool _isFall = false;
+
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
@@ -52,6 +59,7 @@ namespace PixelCrew
             var xVelocity = _direction.x * _speed;
             var yVelocity = CalculateYVelocity();
             _rigidbody.velocity = new Vector2(xVelocity, yVelocity);
+            _isFall = IsFall(_rigidbody.velocity.y);
             _animator.SetBool(IsGroundKey, _isGrounded);
             _animator.SetFloat(VerticalVelocity, _rigidbody.velocity.y);
             _animator.SetBool(IsRunning, _direction.x != 0);
@@ -87,11 +95,13 @@ namespace PixelCrew
             if (_isGrounded)
             {
                 yVelocity += _jumpSpeed;
+                SpawnFootJumpDust();
             } 
             else if (_allowDoubleJump)
             {
                 yVelocity = _jumpSpeed;
                 _allowDoubleJump = false;
+                SpawnFootJumpDust();
             }
 
             return yVelocity;
@@ -178,6 +188,22 @@ namespace PixelCrew
         public void SpawnFootJumpDust()
         {
             _footJumpParticles.Spawn();
+        }
+        public void SpawnFootFallDust()
+        {
+            if(_isFall)
+                _footFallParticles.Spawn();
+        }
+
+        public bool IsFall(float fallVelocity)
+        {
+            bool isFall = false;
+            if (fallVelocity <= 0 && _fallVelocity <= _limitSpeedForFallDust)
+            {
+                isFall = true;
+            }
+            _fallVelocity = fallVelocity;
+            return isFall;
         }
     }
 }
