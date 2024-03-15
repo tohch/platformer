@@ -40,6 +40,9 @@ namespace PixelCrew
         private float _fallVelocity;
         private bool _isFall = false;
 
+        private bool _isCarry = false;
+        private GameObject _objectCarry;
+
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
@@ -64,6 +67,7 @@ namespace PixelCrew
             _animator.SetFloat(VerticalVelocity, _rigidbody.velocity.y);
             _animator.SetBool(IsRunning, _direction.x != 0);
             UpdateSpriteDirection();
+            OnCarry(_objectCarry, _isCarry);
         }
         private void Update()
         {
@@ -204,6 +208,32 @@ namespace PixelCrew
             }
             _fallVelocity = fallVelocity;
             return isFall;
+        }
+        public void OnCarry(GameObject gameObject, bool isCarry)
+        {
+            if (gameObject != null)
+            {
+                var collider = gameObject.GetComponent<Collider2D>();
+                var rigidbody = gameObject.GetComponent<Rigidbody2D>();
+                if (isCarry)
+                {
+                    collider.enabled = false;
+                    rigidbody.isKinematic = true; ;
+                    //gameObject.transform.position = this.gameObject.transform.position;
+                    gameObject.transform.position = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 0.1f);
+                }
+                else if (!isCarry)
+                {
+                    collider.enabled = true;
+                    rigidbody.isKinematic = false;
+                    //rigidbody.simulated = true;
+                }
+            }
+        }
+        public void SwitchCarry(GameObject gameObject)
+        {
+            _isCarry = !_isCarry;
+            _objectCarry = gameObject;
         }
     }
 }

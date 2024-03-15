@@ -8,6 +8,7 @@ TagManager:
   - CoinSilver
   - CoinGold
   - CoinDestroy
+  - Barrel
   layers:
   - Default
   - TransparentFX
