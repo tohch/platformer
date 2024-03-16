@@ -175,7 +175,7 @@ namespace PixelCrew
                 var interactable = _interactionResult[i].GetComponent<InteractableComponent>();
                 if (interactable != null)
                 {
-                    interactable.Interact();
+                    interactable.Interact(gameObject);
                 }
             }
         }
@@ -219,14 +219,12 @@ namespace PixelCrew
                 {
                     collider.enabled = false;
                     rigidbody.isKinematic = true; ;
-                    //gameObject.transform.position = this.gameObject.transform.position;
                     gameObject.transform.position = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 0.1f);
                 }
                 else if (!isCarry)
                 {
                     collider.enabled = true;
                     rigidbody.isKinematic = false;
-                    //rigidbody.simulated = true;
                 }
             }
         }
