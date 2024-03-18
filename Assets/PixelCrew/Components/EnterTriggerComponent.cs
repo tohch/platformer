@@ -17,10 +17,5 @@ namespace PixelCrew.Components
                 _action?.Invoke(other.gameObject);
             }
         }
-        [Serializable]
-        public class EnterEvent : UnityEvent<GameObject>
-        {
-
-        }
     }
 }

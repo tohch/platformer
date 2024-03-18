@@ -7,15 +7,15 @@ using UnityEngine;
 
 namespace PixelCrew.Components
 {
-    public class DamageComponent : MonoBehaviour
+    public class ModifyHealthComponent : MonoBehaviour
     {
-        [SerializeField] private int _damage;
-        public void ApplyDamage(GameObject target)
+        [SerializeField] private int _hpDelta;
+        public void Apply(GameObject target)
         {
             var healthComponent = target.GetComponent<HealthComponent>();
             if(healthComponent != null )
             {
-                healthComponent.ApplyDamage(_damage);
+                healthComponent.ModifyHealth(_hpDelta);
             }
         }
     }
