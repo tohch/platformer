@@ -227,6 +227,11 @@ namespace PixelCrew
                     rigidbody.isKinematic = false;
                 }
             }
+            if (_objectCarry != null && !_isCarry)
+            {
+                _objectCarry.GetComponent<Collider2D>().enabled = true;
+                _objectCarry.GetComponent<Rigidbody2D>().isKinematic = false;
+            }
         }
         public void SwitchCarry(GameObject gameObject)
         {
