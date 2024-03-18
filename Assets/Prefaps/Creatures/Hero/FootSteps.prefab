@@ -97,31 +97,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _frameRate: 10
-  _loop: 0
-  _allowNextClip: 0
-  _sprites:
-  - name: run
-    sprites:
+  _clips:
+  - _name: step
+    _sprites:
     - {fileID: 4716773049418320119, guid: de922c461ed8e864288f9e757e734225, type: 3}
     - {fileID: 8634202229885734896, guid: de922c461ed8e864288f9e757e734225, type: 3}
     - {fileID: -8145059721611515994, guid: de922c461ed8e864288f9e757e734225, type: 3}
     - {fileID: -4435477336047617310, guid: de922c461ed8e864288f9e757e734225, type: 3}
     - {fileID: 2168303866098090482, guid: de922c461ed8e864288f9e757e734225, type: 3}
     - {fileID: 8770716251710208624, guid: de922c461ed8e864288f9e757e734225, type: 3}
-  _onComplete:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6941705258411062510}
-        m_MethodName: DestoryObject
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+    _loop: 0
+    _allowNextClip: 0
+    _onComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6941705258411062510}
+          m_MethodName: DestoryObject
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &6941705258411062510
 MonoBehaviour:
   m_ObjectHideFlags: 0

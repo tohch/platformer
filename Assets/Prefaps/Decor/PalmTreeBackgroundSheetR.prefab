@@ -96,14 +96,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _frameRate: 10
-  _loop: 1
-  _sprites:
-  - name: stay
-    sprites:
+  _clips:
+  - _name: idle
+    _sprites:
     - {fileID: -6024505487453159095, guid: 5e7d9ef4ccd4d00448f66614c3a4adf7, type: 3}
     - {fileID: 3531074664856275464, guid: 5e7d9ef4ccd4d00448f66614c3a4adf7, type: 3}
     - {fileID: 802857254159732353, guid: 5e7d9ef4ccd4d00448f66614c3a4adf7, type: 3}
     - {fileID: 1278475588773109743, guid: 5e7d9ef4ccd4d00448f66614c3a4adf7, type: 3}
-  _onComplete:
-    m_PersistentCalls:
-      m_Calls: []
+    _loop: 1
+    _allowNextClip: 0
+    _onComplete:
+      m_PersistentCalls:
+        m_Calls: []
