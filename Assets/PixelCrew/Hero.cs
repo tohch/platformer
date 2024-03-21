@@ -17,14 +17,15 @@ namespace PixelCrew
         [SerializeField] private float _interactionRadius;
         [SerializeField] private LayerMask _interactionLayer;
 
+        [SerializeField] private float _limitSpeedForFallDust;
+        public int _coins;
+
+        [Space] [Header("Particles")]
         [SerializeField] private SpawnComponent _footStepParticles;
         [SerializeField] private SpawnComponent _footJumpParticles;
         [SerializeField] private SpawnComponent _footFallParticles;
         [SerializeField] private ParticleSystem _hitParticles;
 
-        [SerializeField] private float _limitSpeedForFallDust;
-
-        public int _coins;
         private Collider2D[] _interactionResult = new Collider2D[1];
         private Rigidbody2D _rigidbody;
         private Vector2 _direction;
