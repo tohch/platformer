@@ -1,4 +1,5 @@
 ﻿using PixelCrew.Components;
+using PixelCrew.Utils;
 using System;
 using TMPro;
 using UnityEditor.UIElements;
@@ -17,8 +18,10 @@ namespace PixelCrew
         [SerializeField] private float _interactionRadius;
         [SerializeField] private LayerMask _interactionLayer;
 
+        [SerializeField] private float _slamDownVelocity;
         [SerializeField] private float _limitSpeedForFallDust;
         public int _coins;
+
 
         [Space] [Header("Particles")]
         [SerializeField] private SpawnComponent _footStepParticles;
@@ -196,8 +199,8 @@ namespace PixelCrew
         }
         public void SpawnFootFallDust()
         {
-            if(_isFall)
-                _footFallParticles.Spawn();
+            //if(_isFall)
+               // _footFallParticles.Spawn();
         }
 
         public bool IsFall(float fallVelocity)
@@ -238,6 +241,18 @@ namespace PixelCrew
         {
             _isCarry = !_isCarry;
             _objectCarry = gameObject;
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (other.gameObject.IsInLaver(_groundLayer))
+            {
+                var contact = other.contacts[0];
+                if (contact.relativeVelocity.y >= _slamDownVelocity)
+                {
+                    _footFallParticles.Spawn();
+                }
+            }
         }
     }
 }
