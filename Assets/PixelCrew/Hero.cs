@@ -21,7 +21,6 @@ namespace PixelCrew
         [SerializeField] private float _slamDownVelocity;
         public int _coins;
 
-
         [Space] [Header("Particles")]
         [SerializeField] private SpawnComponent _footStepParticles;
         [SerializeField] private SpawnComponent _footJumpParticles;
