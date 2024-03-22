@@ -1,6 +1,7 @@
 ﻿using PixelCrew.Components;
 using PixelCrew.Utils;
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -21,7 +22,8 @@ namespace PixelCrew
         [SerializeField] private float _slamDownVelocity;
         public int _coins;
 
-        [Space] [Header("Particles")]
+        [Space]
+        [Header("Particles")]
         [SerializeField] private SpawnComponent _footStepParticles;
         [SerializeField] private SpawnComponent _footJumpParticles;
         [SerializeField] private SpawnComponent _footFallParticles;
@@ -40,12 +42,13 @@ namespace PixelCrew
         private static readonly int Hit = Animator.StringToHash("hit");
 
         private bool _isCarry = false;
-        private GameObject _objectCarry;
+        private List<GameObject> _objectCarry;
 
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
+            _objectCarry = new List<GameObject>();
         }
         public void SaySomething()
         {
@@ -75,10 +78,10 @@ namespace PixelCrew
         {
             var yVelocity = _rigidbody.velocity.y;
             var isJumpPressing = _direction.y > 0;
-   
+
 
             if (_isGrounded) _allowDoubleJump = true;
-            
+
             if (isJumpPressing)
             {
                 yVelocity = CalculateJumpVelocity(yVelocity);
@@ -98,7 +101,7 @@ namespace PixelCrew
             {
                 yVelocity += _jumpSpeed;
                 SpawnFootJumpDust();
-            } 
+            }
             else if (_allowDoubleJump)
             {
                 yVelocity = _jumpSpeed;
@@ -166,9 +169,9 @@ namespace PixelCrew
 
         public void Interact()
         {
-            var size = Physics2D.OverlapCircleNonAlloc(transform.position, _interactionRadius, 
+            var size = Physics2D.OverlapCircleNonAlloc(transform.position, _interactionRadius,
                                                        _interactionResult, _interactionLayer);
-            for(int i = 0; i < size; i++)
+            for (int i = 0; i < size; i++)
             {
                 var interactable = _interactionResult[i].GetComponent<InteractableComponent>();
                 if (interactable != null)
@@ -191,34 +194,36 @@ namespace PixelCrew
         {
             _footJumpParticles.Spawn();
         }
-        public void OnCarry(GameObject gameObject, bool isCarry)
+        public void OnCarry(List<GameObject> gameObject, bool isCarry)
         {
-            if (gameObject != null)
+            if (gameObject.Count > 0)
             {
-                var collider = gameObject.GetComponent<Collider2D>();
-                var rigidbody = gameObject.GetComponent<Rigidbody2D>();
+                var collider = gameObject[0].GetComponent<Collider2D>();
+                var rigidbody = gameObject[0].GetComponent<Rigidbody2D>();
                 if (isCarry)
                 {
                     collider.enabled = false;
                     rigidbody.isKinematic = true; ;
-                    gameObject.transform.position = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 0.1f);
+                    gameObject[0].transform.position = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 0.1f);
                 }
                 else if (!isCarry)
                 {
-                    collider.enabled = true;
-                    rigidbody.isKinematic = false;
+                    foreach (var objectCarry in _objectCarry)
+                    {
+                        if (objectCarry != null && !_isCarry)
+                        {
+                            objectCarry.GetComponent<Collider2D>().enabled = true;
+                            objectCarry.GetComponent<Rigidbody2D>().isKinematic = false;
+                        }
+                    }
+                    _objectCarry.Clear();
                 }
-            }
-            if (_objectCarry != null && !_isCarry)
-            {
-                _objectCarry.GetComponent<Collider2D>().enabled = true;
-                _objectCarry.GetComponent<Rigidbody2D>().isKinematic = false;
             }
         }
         public void SwitchCarry(GameObject gameObject)
         {
             _isCarry = !_isCarry;
-            _objectCarry = gameObject;
+            _objectCarry.Add(gameObject);
         }
 
         private void OnCollisionEnter2D(Collision2D other)
