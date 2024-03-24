@@ -237,5 +237,10 @@ namespace PixelCrew
                 }
             }
         }
+
+        public void Attack()
+        {
+        
+        }
     }
 }
