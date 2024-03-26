@@ -159,7 +159,6 @@ namespace PixelCrew
                 SpawnCoins();
             }
         }
-
         private void SpawnCoins()
         {
             var numCoinsToDispose = Mathf.Min(_coins, 5);
