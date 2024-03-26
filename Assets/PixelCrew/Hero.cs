@@ -253,7 +253,6 @@ namespace PixelCrew
                 var hp = go.GetComponent<HealthComponent>();
                 if(hp != null)
                 {
-                    //atack
                     hp.ModifyHealth(_damage);
                 }
             }
