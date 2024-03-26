@@ -3,6 +3,7 @@ using PixelCrew.Utils;
 using System;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 
@@ -22,8 +23,10 @@ namespace PixelCrew
         [SerializeField] private float _slamDownVelocity;
         public int _coins;
 
-        [Space]
-        [Header("Particles")]
+        [SerializeField] private CheckCircleOverlap _attackRange;
+        [SerializeField] private int _damage;
+
+        [Space] [Header("Particles")]
         [SerializeField] private SpawnComponent _footStepParticles;
         [SerializeField] private SpawnComponent _footJumpParticles;
         [SerializeField] private SpawnComponent _footFallParticles;
@@ -40,6 +43,7 @@ namespace PixelCrew
         private static readonly int IsRunning = Animator.StringToHash("is-running");
         private static readonly int VerticalVelocity = Animator.StringToHash("vertical-velocity");
         private static readonly int Hit = Animator.StringToHash("hit");
+        private static readonly int AttackKey = Animator.StringToHash("attack");
 
         private bool _isCarry = false;
         private List<GameObject> _objectCarry;
@@ -128,11 +132,13 @@ namespace PixelCrew
         {
             _direction = direction;
         }
+#if UNITY_EDITOR
         void OnDrawGizmos()
         {
-            Gizmos.color = IsGrounded() ? Color.green : Color.red;
-            Gizmos.DrawSphere(transform.position + _groundCheckPositionDelta, _groundCheckRadius);
+            Handles.color = IsGrounded() ? HandlesUtils.TransparentGreen : HandlesUtils.TransparentRed;
+            Handles.DrawSolidDisc(transform.position + _groundCheckPositionDelta, Vector3.forward, _groundCheckRadius);
         }
+#endif
         public void OnTakeDamageFlag()
         {
             _isTakeDamage = true;
@@ -240,7 +246,16 @@ namespace PixelCrew
 
         public void Attack()
         {
-        
+            _animator.SetTrigger(AttackKey);
+            var gos = _attackRange.GetObjectsInRange();
+            foreach (var go in gos)
+            {
+                var hp = go.GetComponent<HealthComponent>();
+                if(hp != null)
+                {
+                    hp.ModifyHealth(_damage);
+                }
+            }
         }
     }
 }
