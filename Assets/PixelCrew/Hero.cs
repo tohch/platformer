@@ -246,13 +246,18 @@ namespace PixelCrew
         public void Attack()
         {
             _animator.SetTrigger(AttackKey);
+        }
+
+        public void OnAttackEnemy()
+        {
             var gos = _attackRange.GetObjectsInRange();
             foreach (var go in gos)
             {
                 var hp = go.GetComponent<HealthComponent>();
-                if(hp != null)
+                if (hp != null && go.CompareTag("Enemy"))
                 {
-                    hp.ModifyHealth(_damage);
+                    if (hp.Health > 0)
+                        hp.ModifyHealth(-_damage);
                 }
             }
         }
