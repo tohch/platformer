@@ -45,6 +45,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 574688313}
   _prefab: {fileID: 8998524652103983389, guid: 8b2918af067f5574dae2fbbbb104e3b2, type: 3}
+--- !u!1 &590092369
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 590092371}
+  - component: {fileID: 590092370}
+  m_Layer: 0
+  m_Name: AttackRange
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &590092371
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590092369}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.6, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8759803221388157378}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &590092370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590092369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d23f5fe76a8c8c4cb9526b6819c17f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _radius: 0.2
 --- !u!1 &1226417819
 GameObject:
   m_ObjectHideFlags: 0
@@ -4966,7 +5010,7 @@ GameObject:
   - component: {fileID: 7881726506497201624}
   - component: {fileID: 412492402}
   m_Layer: 0
-  m_Name: Hero_0
+  m_Name: Hero
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4987,6 +5031,7 @@ Transform:
   - {fileID: 2075160675}
   - {fileID: 574688313}
   - {fileID: 1226417820}
+  - {fileID: 590092371}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5064,12 +5109,14 @@ MonoBehaviour:
   _interactionLayer:
     serializedVersion: 2
     m_Bits: 2048
+  _slamDownVelocity: 20
+  _coins: 0
+  _attackRange: {fileID: 590092370}
+  _damage: 1
   _footStepParticles: {fileID: 1310496347}
   _footJumpParticles: {fileID: 574688312}
   _footFallParticles: {fileID: 1226417821}
   _hitParticles: {fileID: 2075160677}
-  _limitSpeedForFallDust: -20
-  _coins: 0
 --- !u!114 &8759803221388157405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5191,6 +5238,21 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: a8773a90-b839-44d9-84e6-cf55956b1ed6
     m_ActionName: Hero/Interact[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8759803221388157405}
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2be5902c-2c82-44ca-9b84-8d51797aa079
+    m_ActionName: Hero/Attack[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero
@@ -5206,7 +5268,7 @@ Animator:
   m_GameObject: {fileID: 8759803221388157376}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ab68c4cdade1bfc4faf33163e4bccd12, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0b663d7555527e74f9be596308bb0196, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEditor;
+using UnityEditor.Animations;
 using UnityEditor.UIElements;
 using UnityEngine;
 
@@ -14,11 +15,15 @@ namespace PixelCrew
         [SerializeField] private float _speed;
         [SerializeField] private float _jumpSpeed;
         [SerializeField] private float _damageJumpSpeed;
+
         [SerializeField] private LayerMask _groundLayer;
         [SerializeField] private float _groundCheckRadius;
         [SerializeField] private Vector3 _groundCheckPositionDelta;
         [SerializeField] private float _interactionRadius;
         [SerializeField] private LayerMask _interactionLayer;
+
+        [SerializeField] private AnimatorController _armed;
+        [SerializeField] private AnimatorController _disarmed;
 
         [SerializeField] private float _slamDownVelocity;
         public int _coins;
@@ -44,6 +49,8 @@ namespace PixelCrew
         private static readonly int VerticalVelocity = Animator.StringToHash("vertical-velocity");
         private static readonly int Hit = Animator.StringToHash("hit");
         private static readonly int AttackKey = Animator.StringToHash("attack");
+
+        private bool _isArmed;
 
         private bool _isCarry = false;
         private List<GameObject> _objectCarry;
@@ -245,6 +252,8 @@ namespace PixelCrew
 
         public void Attack()
         {
+            if (!_isArmed) return;
+
             _animator.SetTrigger(AttackKey);
         }
 
@@ -260,6 +269,12 @@ namespace PixelCrew
                         hp.ModifyHealth(-_damage);
                 }
             }
+        }
+
+        public void ArmHero()
+        {
+            _isArmed = true;
+            _animator.runtimeAnimatorController = _armed;
         }
     }
 }
