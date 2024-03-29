@@ -35,6 +35,7 @@ namespace PixelCrew
         [SerializeField] private SpawnComponent _footStepParticles;
         [SerializeField] private SpawnComponent _footJumpParticles;
         [SerializeField] private SpawnComponent _footFallParticles;
+        [SerializeField] private SpawnComponent _SwordEffectsAttack1Particles;
         [SerializeField] private ParticleSystem _hitParticles;
 
         private Collider2D[] _interactionResult = new Collider2D[1];
@@ -205,6 +206,10 @@ namespace PixelCrew
         public void SpawnFootJumpDust()
         {
             _footJumpParticles.Spawn();
+        }
+        public void SpawnSwordEffectsAttack1()
+        {
+            _SwordEffectsAttack1Particles.Spawn();
         }
         public void OnCarry(List<GameObject> gameObject, bool isCarry)
         {
