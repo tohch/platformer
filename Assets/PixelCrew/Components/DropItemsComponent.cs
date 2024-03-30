@@ -20,15 +20,24 @@ namespace PixelCrew.Components
         {
             for (int i = 0; i < _totalNumberDropItems; i++)
             {
+                int indexItem = GetRandomIndex(_typeItems);
                 _positionNextItem = gameObject.transform.transform;
-                //foreach (var item in _typeItems)
-                //{
-                    _positionNextItem.position = new Vector3(_positionNextItem.position.x + 0.2f, _positionNextItem.position.y, _positionNextItem.position.z);
-                    var instance = Instantiate(_typeItems[0].Prefab, _positionNextItem.position, Quaternion.identity);
-                //}
+                _positionNextItem.position = new Vector3(_positionNextItem.position.x + 0.2f, _positionNextItem.position.y, _positionNextItem.position.z);
+                var instance = Instantiate(_typeItems[indexItem].Prefab, _positionNextItem.position, Quaternion.identity);
             }
         }
-
+        private int GetRandomIndex(Item[] typeItems)
+        {
+            Item[] chances = typeItems;
+            int chance = UnityEngine.Random.Range(0, 100) + 1;
+            for (int index = 0; index < chances.Length; index++)
+            {
+                var ch = chances[index].Chance;
+                if (chance <= ch)
+                    return index;
+            }
+            return UnityEngine.Random.Range(0, chances.Length);
+        }
     }
     [Serializable]
     public class Item
@@ -38,6 +47,7 @@ namespace PixelCrew.Components
         [SerializeField] private GameObject _prefab;
         public string Name => _name;
         public GameObject Prefab => _prefab;
+        public int Chance => _chance;
     }
 
 }
