@@ -11,7 +11,6 @@ namespace PixelCrew.Components
         [SerializeField] private int _totalNumberDropItems;
         [SerializeField] private Item[] _typeItems;
         private Transform _positionNextItem;
-        private Transform _trarget;
         private void Awake()
         {
             _trarget = gameObject.transform.transform;
