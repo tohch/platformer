@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 096835dc53fe49c49990c3048c9f4f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _totalNumberDropItems: 10
+  _totalNumberDropItems: 1
   _typeItems:
   - _chance: 30
     _name: gold
