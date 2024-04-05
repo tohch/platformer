@@ -14,8 +14,6 @@ namespace Assets.PixelCrew.Components
 
         public void Teleport(GameObject target)
         {
-            Debug.Log("tel");
-            //VisibleSprite(target);
             StartCoroutine("VisibleSprite", target);
             target.transform.position = _destTrasform.position;
         }
