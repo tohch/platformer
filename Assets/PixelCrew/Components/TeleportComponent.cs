@@ -14,11 +14,11 @@ namespace Assets.PixelCrew.Components
 
         public void Teleport(GameObject target)
         {
-            StartCoroutine("VisibleSprite", target);
+            StartCoroutine(VisibleSprite(target));
             target.transform.position = _destTrasform.position;
         }
 
-        public IEnumerator VisibleSprite(GameObject target)
+        private IEnumerator VisibleSprite(GameObject target)
         {
             SpriteRenderer sprite = target.GetComponent<SpriteRenderer>();
             Color color = sprite.material.color;
