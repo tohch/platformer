@@ -14,13 +14,15 @@ namespace PixelCrew.Components
         [SerializeField] private UnityEvent _onDamage;
         [SerializeField] private UnityEvent _onHeal;
         [SerializeField] private UnityEvent _onDie;
+        [SerializeField] private HealthCangeEven _onChage;
 
         public int Health => _health;
 
         public void ModifyHealth(int healthDelta)
         {
             _health += healthDelta;
-            
+            _onChage?.Invoke(_health);
+
             if (healthDelta < 0)
                 _onDamage?.Invoke();
 
@@ -31,6 +33,15 @@ namespace PixelCrew.Components
             {
                 _onDie?.Invoke();
             }
+        }
+        [Serializable]
+        public class HealthCangeEven : UnityEvent<int>
+        {
+        }
+
+        internal void SetHealth(int health)
+        {
+            _health = health;
         }
     }
 }

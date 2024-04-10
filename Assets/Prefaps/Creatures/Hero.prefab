@@ -70,7 +70,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 590092369}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.657, y: 0, z: 0}
+  m_LocalPosition: {x: 0.66, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8759803221388157378}
@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d23f5fe76a8c8c4cb9526b6819c17f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radius: 0.2
+  _radius: 0.3
 --- !u!1 &1226417819
 GameObject:
   m_ObjectHideFlags: 0
@@ -5151,14 +5151,13 @@ MonoBehaviour:
     m_Bits: 1024
   _groundCheckRadius: 0.31
   _groundCheckPositionDelta: {x: 0, y: -0.12, z: 0}
-  _interactionRadius: 1
+  _interactionRadius: 0.4
   _interactionLayer:
     serializedVersion: 2
     m_Bits: 2048
   _armed: {fileID: 9100000, guid: 0b663d7555527e74f9be596308bb0196, type: 2}
   _disarmed: {fileID: 9100000, guid: ab68c4cdade1bfc4faf33163e4bccd12, type: 2}
   _slamDownVelocity: 20
-  _coins: 0
   _attackRange: {fileID: 590092370}
   _damage: 1
   _footStepParticles: {fileID: 1310496347}
@@ -5362,6 +5361,20 @@ MonoBehaviour:
       - m_Target: {fileID: 0}
         m_MethodName: Reload
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onChage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8759803221388157404}
+        m_MethodName: OnHealthChanged
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
