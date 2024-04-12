@@ -279,7 +279,7 @@ namespace PixelCrew
             _animator.SetTrigger(AttackKey);
         }
 
-        public void OnAttackEnemy()
+        public void OnDoAttack()
         {
             var gos = _attackRange.GetObjectsInRange();
             foreach (var go in gos)

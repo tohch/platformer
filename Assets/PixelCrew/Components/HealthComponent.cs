@@ -39,7 +39,8 @@ namespace PixelCrew.Components
         {
         }
 #if UNITY_EDITOR
-        private void Update()
+        [ContextMenu("Update Health")]
+        private void UpdateHealth()
         {
             _onChange?.Invoke(_health);
         }
