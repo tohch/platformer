@@ -51,8 +51,6 @@ namespace PixelCrew
         private static readonly int Hit = Animator.StringToHash("hit");
         private static readonly int AttackKey = Animator.StringToHash("attack");
 
-        //public int _coins;
-        //private bool _isArmed;
         private GameSession _session;
         public GameSession Session 
         {
@@ -214,7 +212,6 @@ namespace PixelCrew
         }
         public void SayCoins()
         {
-            //Debug.Log(_coins);
             Debug.Log(_session.Data.Coins);
         }
 
@@ -300,7 +297,6 @@ namespace PixelCrew
         {
             _session.Data.IsArmed = true;
             UpdateHeroWeapon();
-            //_animator.runtimeAnimatorController = _armed;
         }
 
         private void UpdateHeroWeapon()
