@@ -115,11 +115,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 84
-        width: 32
-        height: 11
+        y: 86
+        width: 96
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -135,12 +135,12 @@ TextureImporter:
       name: Platforms (32x32)_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 84
-        width: 32
+        x: 32
+        y: 52
+        width: 96
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -156,10 +156,10 @@ TextureImporter:
       name: Platforms (32x32)_2
       rect:
         serializedVersion: 2
-        x: 96
-        y: 84
+        x: 128
+        y: 86
         width: 32
-        height: 11
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,7 +178,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 84
+        y: 52
         width: 32
         height: 11
       alignment: 0
@@ -190,90 +190,6 @@ TextureImporter:
       bones: []
       spriteID: 66faa67fd514779e0800000000000000
       internalID: -1623757268805046426
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Platforms (32x32)_8
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 52
-        width: 32
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9aa70543c6d5bf5d0800000000000000
-      internalID: -3027723605160985943
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Platforms (32x32)_9
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 52
-        width: 32
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1fa943142ced61120800000000000000
-      internalID: 2384337978638244593
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Platforms (32x32)_10
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 52
-        width: 32
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dde61b3969f397dd0800000000000000
-      internalID: -2487887403189965091
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Platforms (32x32)_11
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 52
-        width: 32
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aceff172d642ac9a0800000000000000
-      internalID: -6212112684777734454
       vertices: []
       indices: 
       edges: []

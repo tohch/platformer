@@ -22,6 +22,7 @@ namespace PixelCrew
         [SerializeField] private Vector3 _groundCheckPositionDelta;
         [SerializeField] private float _interactionRadius;
         [SerializeField] private LayerMask _interactionLayer;
+        [SerializeField] private float _damageVelocity;
 
         [SerializeField] private AnimatorController _armed;
         [SerializeField] private AnimatorController _disarmed;
@@ -60,12 +61,14 @@ namespace PixelCrew
 
         private bool _isCarry = false;
         private List<GameObject> _objectCarry;
+        private HealthComponent healthComponent;
 
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
             _objectCarry = new List<GameObject>();
+            healthComponent = GetComponent<HealthComponent>();
         }
         private void Start()
         {
@@ -268,6 +271,10 @@ namespace PixelCrew
                 if (contact.relativeVelocity.y >= _slamDownVelocity)
                 {
                     _footFallParticles.Spawn();
+                }
+                if(contact.relativeVelocity.y >= _damageVelocity)
+                {
+                    healthComponent.ModifyHealth(-1);
                 }
             }
         }
