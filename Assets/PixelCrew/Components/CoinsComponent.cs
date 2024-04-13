@@ -15,7 +15,8 @@ namespace PixelCrew.Components
 
         public void ApplyCoin(int coinValue)
         {
-            _hero._coins += coinValue;
+            //_hero._coins += coinValue;
+            _hero.Session.Data.Coins += coinValue;
             _onSayCoins?.Invoke();
         }
     }
