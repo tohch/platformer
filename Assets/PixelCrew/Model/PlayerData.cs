@@ -9,13 +9,9 @@ namespace PixelCrew.Model
     [Serializable]
     public class PlayerData
     {
-        public int Coins { get => _coins; set => _coins = value; }
-        public int Hp { get => _hp; set => _hp = value; }
-        public bool IsArmed { get => _isArmed; set => _isArmed = value; }
-
-        private int _coins;
-        private int _hp;
-        private bool _isArmed;
+        public int Coins;
+        public int Hp;
+        public bool IsArmed;
 
         public PlayerData() { }
         public PlayerData(int coins, int hp, bool isArmed)
@@ -27,7 +23,7 @@ namespace PixelCrew.Model
 
         public PlayerData Clone()
         {
-            return new PlayerData(_coins, _hp, _isArmed);
+            return new PlayerData(Coins, Hp, IsArmed);
         }
 
         

@@ -18,7 +18,7 @@ namespace PixelCrew.Components
             var session = FindObjectOfType<GameSession>();
             //DestroyImmediate(session);
             //Destroy(session);
-            //session.Data = _playerData;
+            session.Data = _playerData;
 
             var scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);
