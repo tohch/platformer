@@ -5155,6 +5155,7 @@ MonoBehaviour:
   _interactionLayer:
     serializedVersion: 2
     m_Bits: 2048
+  _damageVelocity: 40
   _armed: {fileID: 9100000, guid: 0b663d7555527e74f9be596308bb0196, type: 2}
   _disarmed: {fileID: 9100000, guid: ab68c4cdade1bfc4faf33163e4bccd12, type: 2}
   _slamDownVelocity: 20
@@ -5369,7 +5370,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _onChage:
+  _onChange:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8759803221388157404}
