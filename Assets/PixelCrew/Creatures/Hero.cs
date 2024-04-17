@@ -9,17 +9,12 @@ using UnityEditor.Animations;
 using UnityEditor.UIElements;
 using UnityEngine;
 
-namespace PixelCrew
+namespace PixelCrew.Creatures
 {
-    public class Hero : MonoBehaviour
+    public class Hero : Creature
     {
-        [SerializeField] private float _speed;
-        [SerializeField] private float _jumpSpeed;
-        [SerializeField] private float _damageJumpSpeed;
-
-        [SerializeField] private LayerMask _groundLayer;
-        [SerializeField] private float _groundCheckRadius;
-        [SerializeField] private Vector3 _groundCheckPositionDelta;
+        //[SerializeField] private float _groundCheckRadius;
+        //[SerializeField] private Vector3 _groundCheckPositionDelta;
         [SerializeField] private float _interactionRadius;
         [SerializeField] private LayerMask _interactionLayer;
         [SerializeField] private float _damageVelocity;
@@ -29,30 +24,24 @@ namespace PixelCrew
 
         [SerializeField] private float _slamDownVelocity;
 
-        [SerializeField] private CheckCircleOverlap _attackRange;
-        [SerializeField] private int _damage;
+        
+        
 
         [Space] [Header("Particles")]
-        [SerializeField] private SpawnComponent _footStepParticles;
-        [SerializeField] private SpawnComponent _footJumpParticles;
-        [SerializeField] private SpawnComponent _footFallParticles;
-        [SerializeField] private SpawnComponent _SwordEffectsAttack1Particles;
+        //[SerializeField] private SpawnComponent _footStepParticles;
+        //[SerializeField] private SpawnComponent _footJumpParticles;
+        //[SerializeField] private SpawnComponent _footFallParticles;
+        //[SerializeField] private SpawnComponent _SwordEffectsAttack1Particles;
         [SerializeField] private ParticleSystem _hitParticles;
 
         private Collider2D[] _interactionResult = new Collider2D[1];
-        private Rigidbody2D _rigidbody;
-        private Vector2 _direction;
-        private Animator _animator;
-        private bool _isGrounded;
+        
         private bool _allowDoubleJump;
+        private bool _isOnWall;
         private bool _isTakeDamage;
-        private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
-        private static readonly int IsRunning = Animator.StringToHash("is-running");
-        private static readonly int VerticalVelocity = Animator.StringToHash("vertical-velocity");
-        private static readonly int Hit = Animator.StringToHash("hit");
-        private static readonly int AttackKey = Animator.StringToHash("attack");
-
+        
         private GameSession _session;
+        private float _defaultGravityScale;
         public GameSession Session 
         {
             get { return _session; }
@@ -63,13 +52,14 @@ namespace PixelCrew
         private List<GameObject> _objectCarry;
         private HealthComponent healthComponent;
 
-        private void Awake()
+        protected override void Awake()
         {
-            _rigidbody = GetComponent<Rigidbody2D>();
-            _animator = GetComponent<Animator>();
+            base.Awake();
             _objectCarry = new List<GameObject>();
             healthComponent = GetComponent<HealthComponent>();
+            _defaultGravityScale = _rigidbody.gravityScale;//Возможно лишний
         }
+
         private void Start()
         {
             _session = FindObjectOfType<GameSession>();
