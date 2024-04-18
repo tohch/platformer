@@ -12,10 +12,30 @@ namespace PixelCrew
         //TO DO: Сверить
         [SerializeField] private float _groundCheckRadius;
         [SerializeField] private Vector3 _groundCheckPositionDelta;
-        public bool IsGrounded()
+        [SerializeField] LayerMask[] _groundLayers;
+        public bool IsTouchingLayer { get; set; }
+        private void Update()
         {
-            var hit = Physics2D.CircleCast(transform.position + _groundCheckPositionDelta, _groundCheckRadius, Vector2.down, 0, _groundLayer);
-            return hit.collider != null;
+            foreach (var groundLayer in _groundLayers)
+            {
+                var hit = Physics2D.CircleCast(transform.position + _groundCheckPositionDelta, _groundCheckRadius, Vector2.down, 0, groundLayer);
+                IsTouchingLayer = hit.collider != null;
+            }
+
         }
+        //public bool IsGrounded()
+        //{
+        //    var hit = Physics2D.CircleCast(transform.position + _groundCheckPositionDelta, _groundCheckRadius, Vector2.down, 0, _groundLayer);
+        //    return hit.collider != null;
+        //}
+        //public bool IsTouchingLayer()
+        //{
+        //    foreach(var groundLayer in _groundLayers)
+        //    {
+        //        var hit = Physics2D.CircleCast(transform.position + _groundCheckPositionDelta, _groundCheckRadius, Vector2.down, 0, groundLayer);
+        //        return hit.collider != null;
+        //    }
+        //    return false;
+        //}
     }
 }

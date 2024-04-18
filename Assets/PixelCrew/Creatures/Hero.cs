@@ -17,6 +17,7 @@ namespace PixelCrew.Creatures
         //[SerializeField] private Vector3 _groundCheckPositionDelta;
         [SerializeField] private float _interactionRadius;
         [SerializeField] private LayerMask _interactionLayer;
+        [SerializeField] private LayerCheck _wallCheck;
         [SerializeField] private float _damageVelocity;
 
         [SerializeField] private AnimatorController _armed;
@@ -81,57 +82,69 @@ namespace PixelCrew.Creatures
             var hit = Physics2D.CircleCast(transform.position + _groundCheckPositionDelta, _groundCheckRadius, Vector2.down, 0, _groundLayer);
             return hit.collider != null;
         }
-        private void FixedUpdate()
+        protected override void FixedUpdate()
         {
-            var xVelocity = _direction.x * _speed;
-            var yVelocity = CalculateYVelocity();
-            _rigidbody.velocity = new Vector2(xVelocity, yVelocity);
-            _animator.SetBool(IsGroundKey, _isGrounded);
-            _animator.SetFloat(VerticalVelocity, _rigidbody.velocity.y);
-            _animator.SetBool(IsRunning, _direction.x != 0);
-            UpdateSpriteDirection();
+            base.FixedUpdate();
             OnCarry(_objectCarry, _isCarry);
         }
-        private void Update()
+        protected override void Update()
         {
-            _isGrounded = IsGrounded();
+            base.Update();
+
+            if (_wallCheck.IsTouchingLayer && _direction.x == transform.localScale.x)
+            {
+                _isOnWall = true;
+                _rigidbody.gravityScale = 0;
+            }
+            else
+            {
+                _isOnWall = false;
+                _rigidbody.gravityScale = _defaultGravityScale;
+            }
         }
-        private float CalculateYVelocity()
+        protected override float CalculateYVelocity()
         {
-            var yVelocity = _rigidbody.velocity.y;
+            //var yVelocity = _rigidbody.velocity.y;
+            //var isJumpPressing = _direction.y > 0;
+
+            //if (_isGrounded) _allowDoubleJump = true;
+
+            //if (isJumpPressing)
+            //{
+            //    yVelocity = CalculateJumpVelocity(yVelocity);
+            //}
+            //else if (_rigidbody.velocity.y > 0 && !_isTakeDamage)
+            //{
+            //    yVelocity *= 0.5f;
+            //}
+            //return yVelocity;
             var isJumpPressing = _direction.y > 0;
 
-
-            if (_isGrounded) _allowDoubleJump = true;
-
-            if (isJumpPressing)
+            if (_isGrounded || _isOnWall)
             {
-                yVelocity = CalculateJumpVelocity(yVelocity);
+                _allowDoubleJump = true;
             }
-            else if (_rigidbody.velocity.y > 0 && !_isTakeDamage)
+
+            if (!isJumpPressing && _isOnWall)
             {
-                yVelocity *= 0.5f;
+                return 0f;
             }
-            return yVelocity;
+
+
+            return base.CalculateYVelocity();
         }
 
-        private float CalculateJumpVelocity(float yVelocity)
+        protected override float CalculateJumpVelocity(float yVelocity)
         {
-            var isFalling = _rigidbody.velocity.y <= 0.001f;
-            if (!isFalling) return yVelocity;
-            if (_isGrounded)
+            if (!_isGrounded && _allowDoubleJump)
             {
-                yVelocity += _jumpSpeed;
-                SpawnFootJumpDust();
-            }
-            else if (_allowDoubleJump)
-            {
-                yVelocity = _jumpSpeed;
+                //SpawnFootJumpDust();
+                _particles.Spawn("Jump");
                 _allowDoubleJump = false;
-                SpawnFootJumpDust();
+                return _jumpSpeed;
             }
 
-            return yVelocity;
+            return base.CalculateJumpVelocity(yVelocity);
         }
 
         private void UpdateSpriteDirection()
@@ -146,10 +159,7 @@ namespace PixelCrew.Creatures
             }
         }
 
-        internal void SetDirection(Vector2 direction)
-        {
-            _direction = direction;
-        }
+
 #if UNITY_EDITOR
         void OnDrawGizmos()
         {
