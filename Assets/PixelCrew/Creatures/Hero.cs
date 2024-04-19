@@ -25,7 +25,7 @@ namespace PixelCrew.Creatures
         [SerializeField] private AnimatorController _armed;
         [SerializeField] private AnimatorController _disarmed;
 
-        [SerializeField] private float _damageVelocity;
+        //[SerializeField] private float _damageVelocity;
 
         [Space] [Header("Particles")]
         [SerializeField] private ParticleSystem _hitParticles;

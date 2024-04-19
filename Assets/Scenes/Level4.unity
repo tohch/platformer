@@ -206,6 +206,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8759803221388157401, guid: 417838e26f8fdc046b0bedcc954262c2,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759803221388157404, guid: 417838e26f8fdc046b0bedcc954262c2,
+        type: 3}
+      propertyPath: _groundCheck
+      value: 
+      objectReference: {fileID: 2127112547}
     - target: {fileID: 8759803221388157404, guid: 417838e26f8fdc046b0bedcc954262c2,
         type: 3}
       propertyPath: _slamDownVelocity
@@ -4882,6 +4892,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 168648884}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2127112546 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8759803221388157376, guid: 417838e26f8fdc046b0bedcc954262c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 168648884}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2127112547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2127112546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 971b4b1f80131214b874db8266563fa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _groundCheckRadius: 0
+  _groundCheckPositionDelta: {x: 0, y: 0, z: 0}
+  _groundLayers:
+  - serializedVersion: 2
+    m_Bits: 1024
+  - serializedVersion: 2
+    m_Bits: 16
+  - serializedVersion: 2
+    m_Bits: 2048
 --- !u!1001 &2903260430133886410
 PrefabInstance:
   m_ObjectHideFlags: 0

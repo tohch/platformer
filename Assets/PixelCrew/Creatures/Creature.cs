@@ -13,7 +13,7 @@ namespace PixelCrew.Creatures
         [Header("Params")]
         [SerializeField] private float _speed;
         [SerializeField] protected float _jumpSpeed;
-        [SerializeField] private float _damageVelocity;
+        [SerializeField] protected float _damageVelocity;
         [SerializeField] private int _damage;
 
         [Header("Checkers")]
@@ -27,7 +27,7 @@ namespace PixelCrew.Creatures
         protected Animator _animator;
         protected bool _isGrounded;
         private bool _isJumping;
-        private bool _isTakeDamage;
+        private bool _isTakeDamage = false;
 
         private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
         private static readonly int IsRunning = Animator.StringToHash("is-running");
