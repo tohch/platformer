@@ -9,33 +9,37 @@ namespace PixelCrew
 {
     public class LayerCheck : MonoBehaviour
     {
-        //TO DO: Сверить
-        [SerializeField] private float _groundCheckRadius;
-        [SerializeField] private Vector3 _groundCheckPositionDelta;
-        [SerializeField] LayerMask[] _groundLayers;
-        public bool IsTouchingLayer { get; set; }
-        private void Update()
-        {
-            foreach (var groundLayer in _groundLayers)
-            {
-                var hit = Physics2D.CircleCast(transform.position + _groundCheckPositionDelta, _groundCheckRadius, Vector2.down, 0, groundLayer);
-                IsTouchingLayer = hit.collider != null;
-            }
+        //[SerializeField] LayerMask _groundLayers;
+        //[SerializeField] private bool _isTouchingLayer;
+        //public bool IsTouchingLayer 
+        //{
+        //    get => _isTouchingLayer;
+        //    set => _isTouchingLayer = value;
+        //}
+        //private void Update()
+        //{
+        //    var hit = Physics2D.CircleCast(transform.position + gameObject.GetComponent<Transform>().localPosition, gameObject.GetComponent<CircleCollider2D>().radius, Vector2.down, 0, _groundLayers);
+        //    _isTouchingLayer = hit.collider != null;
 
+        //}
+        [SerializeField] private LayerMask _layer;
+        [SerializeField] private bool _isTouchingLayer;
+        private Collider2D _collider;
+
+        public bool IsTouchingLayer => _isTouchingLayer;
+
+        private void Awake()
+        {
+            _collider = GetComponent<Collider2D>();
         }
-        //public bool IsGrounded()
-        //{
-        //    var hit = Physics2D.CircleCast(transform.position + _groundCheckPositionDelta, _groundCheckRadius, Vector2.down, 0, _groundLayer);
-        //    return hit.collider != null;
-        //}
-        //public bool IsTouchingLayer()
-        //{
-        //    foreach(var groundLayer in _groundLayers)
-        //    {
-        //        var hit = Physics2D.CircleCast(transform.position + _groundCheckPositionDelta, _groundCheckRadius, Vector2.down, 0, groundLayer);
-        //        return hit.collider != null;
-        //    }
-        //    return false;
-        //}
+
+        private void OnTriggerStay2D(Collider2D collision)
+        {
+            _isTouchingLayer = _collider.IsTouchingLayers(_layer);
+        }
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            _isTouchingLayer = _collider.IsTouchingLayers(_layer);
+        }
     }
 }
