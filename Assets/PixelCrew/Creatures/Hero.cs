@@ -13,33 +13,32 @@ namespace PixelCrew.Creatures
 {
     public class Hero : Creature
     {
-        //[SerializeField] private float _groundCheckRadius;
-        //[SerializeField] private Vector3 _groundCheckPositionDelta;
-        [SerializeField] private float _interactionRadius;
         [SerializeField] private LayerMask _interactionLayer;
         [SerializeField] private LayerCheck _wallCheck;
-        [SerializeField] private float _damageVelocity;
+
+        //[SerializeField] private float _groundCheckRadius;
+        //[SerializeField] private Vector3 _groundCheckPositionDelta;
+
+        [SerializeField] private float _slamDownVelocity;
+        [SerializeField] private float _interactionRadius;
 
         [SerializeField] private AnimatorController _armed;
         [SerializeField] private AnimatorController _disarmed;
 
-        [SerializeField] private float _slamDownVelocity;
-
-        
-        
+        [SerializeField] private float _damageVelocity;
 
         [Space] [Header("Particles")]
+        [SerializeField] private ParticleSystem _hitParticles;
         //[SerializeField] private SpawnComponent _footStepParticles;
         //[SerializeField] private SpawnComponent _footJumpParticles;
         //[SerializeField] private SpawnComponent _footFallParticles;
         //[SerializeField] private SpawnComponent _SwordEffectsAttack1Particles;
-        [SerializeField] private ParticleSystem _hitParticles;
 
         private Collider2D[] _interactionResult = new Collider2D[1];
         
         private bool _allowDoubleJump;
         private bool _isOnWall;
-        private bool _isTakeDamage;
+        
         
         private GameSession _session;
         private float _defaultGravityScale;
@@ -73,15 +72,15 @@ namespace PixelCrew.Creatures
         {
             _session.Data.Hp = currentHealth;
         }
-        public void SaySomething()
-        {
-            Debug.Log("Say");
-        }
-        private bool IsGrounded()
-        {
-            var hit = Physics2D.CircleCast(transform.position + _groundCheckPositionDelta, _groundCheckRadius, Vector2.down, 0, _groundLayer);
-            return hit.collider != null;
-        }
+        //public void SaySomething()
+        //{
+        //    Debug.Log("Say");
+        //}
+        //private bool IsGrounded()
+        //{
+        //    var hit = Physics2D.CircleCast(transform.position + _groundCheckPositionDelta, _groundCheckRadius, Vector2.down, 0, _groundLayer);
+        //    return hit.collider != null;
+        //}
         protected override void FixedUpdate()
         {
             base.FixedUpdate();
@@ -147,41 +146,20 @@ namespace PixelCrew.Creatures
             return base.CalculateJumpVelocity(yVelocity);
         }
 
-        private void UpdateSpriteDirection()
-        {
-            if (_direction.x > 0)
-            {
-                transform.localScale = Vector3.one;
-            }
-            else if (_direction.x < 0)
-            {
-                transform.localScale = new Vector3(-1, 1, 1);
-            }
-        }
+ 
 
 
-#if UNITY_EDITOR
-        void OnDrawGizmos()
-        {
-            Handles.color = IsGrounded() ? HandlesUtils.TransparentGreen : HandlesUtils.TransparentRed;
-            Handles.DrawSolidDisc(transform.position + _groundCheckPositionDelta, Vector3.forward, _groundCheckRadius);
-        }
-#endif
-        public void OnTakeDamageFlag()
-        {
-            _isTakeDamage = true;
-        }
-        public void OffTakeDamageFlag()
-        {
-            _isTakeDamage = false;
-        }
-        public void TakeDamage()
-        {
-            _animator.SetTrigger(Hit);
-            var isJumpPressing = _direction.y > 0;
-            if (!isJumpPressing)
-                _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageJumpSpeed);
+//#if UNITY_EDITOR
+//        void OnDrawGizmos()
+//        {
+//            Handles.color = IsGrounded() ? HandlesUtils.TransparentGreen : HandlesUtils.TransparentRed;
+//            Handles.DrawSolidDisc(transform.position + _groundCheckPositionDelta, Vector3.forward, _groundCheckRadius);
+//        }
+//#endif
 
+        public override void TakeDamage()
+        {
+            base.TakeDamage();
             if (_session.Data.Coins > 0)
             {
                 SpawnCoins();
@@ -218,19 +196,19 @@ namespace PixelCrew.Creatures
             Debug.Log(_session.Data.Coins);
         }
 
-        public void SpawnFootDust()
-        {
-            _footStepParticles.Spawn();
-        }
+        //public void SpawnFootDust()
+        //{
+        //    _footStepParticles.Spawn();
+        //}
 
-        public void SpawnFootJumpDust()
-        {
-            _footJumpParticles.Spawn();
-        }
-        public void SpawnSwordEffectsAttack1()
-        {
-            _SwordEffectsAttack1Particles.Spawn();
-        }
+        //public void SpawnFootJumpDust()
+        //{
+        //    _footJumpParticles.Spawn();
+        //}
+        //public void SpawnSwordEffectsAttack1()
+        //{
+        //    _SwordEffectsAttack1Particles.Spawn();
+        //}
         public void OnCarry(List<GameObject> gameObject, bool isCarry)
         {
             if (gameObject.Count > 0)
@@ -270,7 +248,8 @@ namespace PixelCrew.Creatures
                 var contact = other.contacts[0];
                 if (contact.relativeVelocity.y >= _slamDownVelocity)
                 {
-                    _footFallParticles.Spawn();
+                    _particles.Spawn("SlamDown");
+                    //_footFallParticles.Spawn();
                 }
                 if(contact.relativeVelocity.y >= _damageVelocity)
                 {
@@ -279,25 +258,11 @@ namespace PixelCrew.Creatures
             }
         }
 
-        public void Attack()
+        public override void Attack()
         {
             if (!_session.Data.IsArmed) return;
 
-            _animator.SetTrigger(AttackKey);
-        }
-
-        public void OnDoAttack()
-        {
-            var gos = _attackRange.GetObjectsInRange();
-            foreach (var go in gos)
-            {
-                var hp = go.GetComponent<HealthComponent>();
-                if (hp != null && go.CompareTag("Enemy"))
-                {
-                    if (hp.Health > 0)
-                        hp.ModifyHealth(-_damage);
-                }
-            }
+            base.Attack();
         }
 
         public void ArmHero()

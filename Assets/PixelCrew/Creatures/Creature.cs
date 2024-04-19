@@ -10,21 +10,24 @@ namespace PixelCrew.Creatures
 {
     public class Creature : MonoBehaviour
     {
+        [Header("Params")]
         [SerializeField] private float _speed;
         [SerializeField] protected float _jumpSpeed;
         [SerializeField] private float _damageVelocity;
         [SerializeField] private int _damage;
-        [SerializeField] private LayerMask _groundLayer;
 
+        [Header("Checkers")]
+        [SerializeField] protected LayerMask _groundLayer;
         [SerializeField] private LayerCheck _groundCheck;
         [SerializeField] private CheckCircleOverlap _attackRange;
         [SerializeField] protected SpawnListComponent _particles;
 
         protected Rigidbody2D _rigidbody;
         protected Vector2 _direction;
-        private Animator _animator;
+        protected Animator _animator;
         protected bool _isGrounded;
         private bool _isJumping;
+        private bool _isTakeDamage;
 
         private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
         private static readonly int IsRunning = Animator.StringToHash("is-running");
@@ -97,6 +100,55 @@ namespace PixelCrew.Creatures
             }
 
             return yVelocity;
+        }
+
+        private void UpdateSpriteDirection()
+        {
+            if (_direction.x > 0)
+            {
+                transform.localScale = Vector3.one;
+            }
+            else if (_direction.x < 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+        }
+
+        public virtual void TakeDamage()
+        {
+            _isJumping = false;//? is in video
+            _animator.SetTrigger(Hit);
+            //isJumpPressing is not in the lection
+            var isJumpPressing = _direction.y > 0;
+            if (!isJumpPressing)
+                _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageVelocity);
+        }
+        public void OnTakeDamageFlag()
+        {
+            _isTakeDamage = true;
+        }
+        public void OffTakeDamageFlag()
+        {
+            _isTakeDamage = false;
+        }
+
+        public virtual void Attack()
+        {
+            _animator.SetTrigger(AttackKey);
+        }
+
+        public void OnDoAttack()
+        {
+            var gos = _attackRange.GetObjectsInRange();
+            foreach (var go in gos)
+            {
+                var hp = go.GetComponent<HealthComponent>();
+                if (hp != null && go.CompareTag("Enemy"))
+                {
+                    if (hp.Health > 0)
+                        hp.ModifyHealth(-_damage);
+                }
+            }
         }
     }
 }
