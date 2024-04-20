@@ -80,8 +80,8 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.1
-    functionName: SpawnSwordEffectsAttack1
-    data: 
+    functionName: Spawn
+    data: SwordEffectsAttack1
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

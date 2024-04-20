@@ -224,6 +224,134 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 1310496346}
   _prefab: {fileID: 2927321490344230816, guid: 51a2844a46d29974eacf3630241f70a6, type: 3}
+--- !u!1 &1792506893
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1792506894}
+  - component: {fileID: 1792506896}
+  - component: {fileID: 1792506895}
+  m_Layer: 0
+  m_Name: WallCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1792506894
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792506893}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8759803221388157378}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1792506896
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792506893}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.37
+--- !u!114 &1792506895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792506893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 971b4b1f80131214b874db8266563fa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _layer:
+    serializedVersion: 2
+    m_Bits: 8192
+  _isTouchingLayer: 0
+--- !u!1 &1970870462
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1970870465}
+  - component: {fileID: 1970870464}
+  - component: {fileID: 1970870463}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1970870465
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970870462}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.135, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8759803221388157378}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1970870464
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970870462}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.3
+--- !u!114 &1970870463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970870462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 971b4b1f80131214b874db8266563fa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _layer:
+    serializedVersion: 2
+    m_Bits: 1024
+  _isTouchingLayer: 0
 --- !u!1 &2075160674
 GameObject:
   m_ObjectHideFlags: 0
@@ -5054,6 +5182,8 @@ GameObject:
   - component: {fileID: 8759803221388157403}
   - component: {fileID: 7881726506497201624}
   - component: {fileID: 412492402}
+  - component: {fileID: 2127112547}
+  - component: {fileID: 2127112548}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Player
@@ -5078,6 +5208,8 @@ Transform:
   - {fileID: 1226417820}
   - {fileID: 590092371}
   - {fileID: 1293370898}
+  - {fileID: 1970870465}
+  - {fileID: 1792506894}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5145,26 +5277,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 4
   _jumpSpeed: 18
-  _damageJumpSpeed: 14
+  _damageVelocity: 15
+  _damage: 1
   _groundLayer:
     serializedVersion: 2
     m_Bits: 1024
-  _groundCheckRadius: 0.31
-  _groundCheckPositionDelta: {x: 0, y: -0.12, z: 0}
-  _interactionRadius: 0.4
+  _groundCheck: {fileID: 1970870463}
+  _attackRange: {fileID: 590092370}
+  _particles: {fileID: 2127112548}
   _interactionLayer:
     serializedVersion: 2
     m_Bits: 2048
-  _damageVelocity: 40
+  _wallCheck: {fileID: 1792506895}
+  _slamDownVelocity: 20
+  _interactionRadius: 0.4
   _armed: {fileID: 9100000, guid: 0b663d7555527e74f9be596308bb0196, type: 2}
   _disarmed: {fileID: 9100000, guid: ab68c4cdade1bfc4faf33163e4bccd12, type: 2}
-  _slamDownVelocity: 20
-  _attackRange: {fileID: 590092370}
-  _damage: 1
-  _footStepParticles: {fileID: 1310496347}
-  _footJumpParticles: {fileID: 574688312}
-  _footFallParticles: {fileID: 1226417821}
-  _SwordEffectsAttack1Particles: {fileID: 1293370899}
+  _fallVelocityforDamage: 40
   _hitParticles: {fileID: 2075160677}
 --- !u!114 &8759803221388157405
 MonoBehaviour:
@@ -5258,18 +5387,7 @@ MonoBehaviour:
     m_ActionId: 71b55e6e-4744-4855-a6da-e8882d12e020
     m_ActionName: Hero/HorizontalMovement[/Keyboard/space,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8759803221388157405}
-        m_MethodName: OnSay
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 0dcf3974-6219-4001-974b-d3fb031687be
     m_ActionName: Hero/SaySomething[/Mouse/leftButton]
   - m_PersistentCalls:
@@ -5411,3 +5529,40 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _hero: {fileID: 8759803221388157404}
+--- !u!114 &2127112547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8759803221388157376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 971b4b1f80131214b874db8266563fa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _layer:
+    serializedVersion: 2
+    m_Bits: 1024
+  _isTouchingLayer: 0
+--- !u!114 &2127112548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8759803221388157376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 470555babfa2b0941ad9edde49701e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawners:
+  - Id: SpamDown
+    Component: {fileID: 1226417821}
+  - Id: Jump
+    Component: {fileID: 574688312}
+  - Id: Run
+    Component: {fileID: 1310496347}
+  - Id: SwordEffectsAttack1
+    Component: {fileID: 1293370899}

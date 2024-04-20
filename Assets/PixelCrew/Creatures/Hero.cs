@@ -25,9 +25,9 @@ namespace PixelCrew.Creatures
         [SerializeField] private AnimatorController _armed;
         [SerializeField] private AnimatorController _disarmed;
 
-        //[SerializeField] private float _damageVelocity;
+        [SerializeField] private float _fallVelocityforDamage;
 
-        [Space] [Header("Particles")]
+        [Space] [Header("Particles")] 
         [SerializeField] private ParticleSystem _hitParticles;
         //[SerializeField] private SpawnComponent _footStepParticles;
         //[SerializeField] private SpawnComponent _footJumpParticles;
@@ -248,10 +248,10 @@ namespace PixelCrew.Creatures
                 var contact = other.contacts[0];
                 if (contact.relativeVelocity.y >= _slamDownVelocity)
                 {
-                    _particles.Spawn("SlamDown");
+                    _particles.Spawn("SpamDown");
                     //_footFallParticles.Spawn();
                 }
-                if(contact.relativeVelocity.y >= _damageVelocity)
+                if(contact.relativeVelocity.y >= _fallVelocityforDamage)
                 {
                     healthComponent.ModifyHealth(-1);
                 }

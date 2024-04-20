@@ -17,11 +17,11 @@ namespace PixelCrew.Components
             spawner?.Component.Spawn();
         }
 
-        [Serializable]
-        public class SpawnData
-        {
-            public string Id;
-            public SpawnComponent Component;
-        }
+    }
+    [Serializable]
+    public class SpawnData
+    {
+        public string Id;
+        public SpawnComponent Component;
     }
 }
