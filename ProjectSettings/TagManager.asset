@@ -9,6 +9,7 @@ TagManager:
   - CoinGold
   - CoinDestroy
   - Barrel
+  - Interactable
   layers:
   - Default
   - TransparentFX

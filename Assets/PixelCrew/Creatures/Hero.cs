@@ -13,8 +13,11 @@ namespace PixelCrew.Creatures
 {
     public class Hero : Creature
     {
-        [SerializeField] private LayerMask _interactionLayer;
+        //private Collider2D[] _interactionResult = new Collider2D[1];
+        [SerializeField] private CheckCircleOverlap _interationCheck;
         [SerializeField] private LayerCheck _wallCheck;
+
+        [SerializeField] private LayerMask _interactionLayer;
 
         [SerializeField] private float _slamDownVelocity;
         [SerializeField] private float _interactionRadius;
@@ -27,7 +30,6 @@ namespace PixelCrew.Creatures
         [Space] [Header("Particles")] 
         [SerializeField] private ParticleSystem _hitParticles;
 
-        private Collider2D[] _interactionResult = new Collider2D[1];
         
         private bool _allowDoubleJump;
         private bool _isOnWall;
@@ -137,16 +139,17 @@ namespace PixelCrew.Creatures
 
         public void Interact()
         {
-            var size = Physics2D.OverlapCircleNonAlloc(transform.position, _interactionRadius,
-                                                       _interactionResult, _interactionLayer);
-            for (int i = 0; i < size; i++)
-            {
-                var interactable = _interactionResult[i].GetComponent<InteractableComponent>();
-                if (interactable != null)
-                {
-                    interactable.Interact(gameObject);
-                }
-            }
+            _interationCheck.Check();
+            //var size = Physics2D.OverlapCircleNonAlloc(transform.position, _interactionRadius,
+            //                                           _interactionResult, _interactionLayer);
+            //for (int i = 0; i < size; i++)
+            //{
+            //    var interactable = _interactionResult[i].GetComponent<InteractableComponent>();
+            //    if (interactable != null)
+            //    {
+            //        interactable.Interact(gameObject);
+            //    }
+            //}
         }
         public void SayCoins()
         {
