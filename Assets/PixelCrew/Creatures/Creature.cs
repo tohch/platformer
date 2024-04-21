@@ -23,9 +23,9 @@ namespace PixelCrew.Creatures
         [SerializeField] protected SpawnListComponent _particles;
 
         protected Rigidbody2D _rigidbody;
-        protected Vector2 _direction;
-        protected Animator _animator;
-        protected bool _isGrounded;
+        protected Vector2 Direction;
+        protected Animator Animator;
+        protected bool IsGrounded;
         private bool _isJumping;
         private bool _isTakeDamage = false;
 
@@ -38,41 +38,39 @@ namespace PixelCrew.Creatures
         protected virtual void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
-            _animator = GetComponent<Animator>();
+            Animator = GetComponent<Animator>();
         }
 
         public void SetDirection(Vector2 direction)
         {
-            _direction = direction;
+            Direction = direction;
         }
 
         protected virtual void Update()
         {
-            _isGrounded = _groundCheck.IsTouchingLayer;
+            IsGrounded = _groundCheck.IsTouchingLayer;
         }
         protected virtual void FixedUpdate()
         {
-            var xVelocity = _direction.x * _speed;
+            var xVelocity = Direction.x * _speed;
             var yVelocity = CalculateYVelocity();
             _rigidbody.velocity = new Vector2(xVelocity, yVelocity);
-            _animator.SetBool(IsGroundKey, _isGrounded);
-            _animator.SetFloat(VerticalVelocity, _rigidbody.velocity.y);
-            _animator.SetBool(IsRunning, _direction.x != 0);
+            Animator.SetBool(IsGroundKey, IsGrounded);
+            Animator.SetFloat(VerticalVelocity, _rigidbody.velocity.y);
+            Animator.SetBool(IsRunning, Direction.x != 0);
             UpdateSpriteDirection();
         }
-
 
         protected virtual float CalculateYVelocity()
         {
             var yVelocity = _rigidbody.velocity.y;
-            var isJumpPressing = _direction.y > 0;
+            var isJumpPressing = Direction.y > 0;
 
-            if (_isGrounded) 
+            if (IsGrounded) 
             {
                 _isJumping = false;
             } 
             
-
             if (isJumpPressing)
             {
                 _isJumping = true;
@@ -80,9 +78,6 @@ namespace PixelCrew.Creatures
                 var isFalling = _rigidbody.velocity.y <= 0.001f;
                 yVelocity = isFalling ? CalculateJumpVelocity(yVelocity) : yVelocity;
             }
-
-            //else if (_rigidbody.velocity.y > 0 && !_isTakeDamage)
-            //else if (_rigidbody.velocity.y > 0 && _isJumping)
             else if (_rigidbody.velocity.y > 0 && !_isTakeDamage && _isJumping)
             {
                 yVelocity *= 0.5f;
@@ -93,7 +88,7 @@ namespace PixelCrew.Creatures
         protected virtual float CalculateJumpVelocity(float yVelocity)
         {
 
-            if (_isGrounded)
+            if (IsGrounded)
             {
                 yVelocity += _jumpSpeed;
                 _particles.Spawn("Jump");
@@ -104,11 +99,11 @@ namespace PixelCrew.Creatures
 
         private void UpdateSpriteDirection()
         {
-            if (_direction.x > 0)
+            if (Direction.x > 0)
             {
                 transform.localScale = Vector3.one;
             }
-            else if (_direction.x < 0)
+            else if (Direction.x < 0)
             {
                 transform.localScale = new Vector3(-1, 1, 1);
             }
@@ -117,9 +112,8 @@ namespace PixelCrew.Creatures
         public virtual void TakeDamage()
         {
             _isJumping = false;//? is in video
-            _animator.SetTrigger(Hit);
-            //isJumpPressing is not in the lection
-            var isJumpPressing = _direction.y > 0;
+            Animator.SetTrigger(Hit);
+            var isJumpPressing = Direction.y > 0;
             if (!isJumpPressing)
                 _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageVelocity);
         }
@@ -134,7 +128,7 @@ namespace PixelCrew.Creatures
 
         public virtual void Attack()
         {
-            _animator.SetTrigger(AttackKey);
+            Animator.SetTrigger(AttackKey);
         }
 
         public void OnDoAttack()

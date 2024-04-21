@@ -16,9 +16,6 @@ namespace PixelCrew.Creatures
         [SerializeField] private LayerMask _interactionLayer;
         [SerializeField] private LayerCheck _wallCheck;
 
-        //[SerializeField] private float _groundCheckRadius;
-        //[SerializeField] private Vector3 _groundCheckPositionDelta;
-
         [SerializeField] private float _slamDownVelocity;
         [SerializeField] private float _interactionRadius;
 
@@ -29,10 +26,6 @@ namespace PixelCrew.Creatures
 
         [Space] [Header("Particles")] 
         [SerializeField] private ParticleSystem _hitParticles;
-        //[SerializeField] private SpawnComponent _footStepParticles;
-        //[SerializeField] private SpawnComponent _footJumpParticles;
-        //[SerializeField] private SpawnComponent _footFallParticles;
-        //[SerializeField] private SpawnComponent _SwordEffectsAttack1Particles;
 
         private Collider2D[] _interactionResult = new Collider2D[1];
         
@@ -72,15 +65,7 @@ namespace PixelCrew.Creatures
         {
             _session.Data.Hp = currentHealth;
         }
-        //public void SaySomething()
-        //{
-        //    Debug.Log("Say");
-        //}
-        //private bool IsGrounded()
-        //{
-        //    var hit = Physics2D.CircleCast(transform.position + _groundCheckPositionDelta, _groundCheckRadius, Vector2.down, 0, _groundLayer);
-        //    return hit.collider != null;
-        //}
+
         protected override void FixedUpdate()
         {
             base.FixedUpdate();
@@ -90,7 +75,7 @@ namespace PixelCrew.Creatures
         {
             base.Update();
 
-            if (_wallCheck.IsTouchingLayer && _direction.x == transform.localScale.x)
+            if (_wallCheck.IsTouchingLayer && Direction.x == transform.localScale.x)
             {
                 _isOnWall = true;
                 _rigidbody.gravityScale = 0;
@@ -103,23 +88,9 @@ namespace PixelCrew.Creatures
         }
         protected override float CalculateYVelocity()
         {
-            //var yVelocity = _rigidbody.velocity.y;
-            //var isJumpPressing = _direction.y > 0;
+            var isJumpPressing = Direction.y > 0;
 
-            //if (_isGrounded) _allowDoubleJump = true;
-
-            //if (isJumpPressing)
-            //{
-            //    yVelocity = CalculateJumpVelocity(yVelocity);
-            //}
-            //else if (_rigidbody.velocity.y > 0 && !_isTakeDamage)
-            //{
-            //    yVelocity *= 0.5f;
-            //}
-            //return yVelocity;
-            var isJumpPressing = _direction.y > 0;
-
-            if (_isGrounded || _isOnWall)
+            if (IsGrounded || _isOnWall)
             {
                 _allowDoubleJump = true;
             }
@@ -128,16 +99,13 @@ namespace PixelCrew.Creatures
             {
                 return 0f;
             }
-
-
             return base.CalculateYVelocity();
         }
 
         protected override float CalculateJumpVelocity(float yVelocity)
         {
-            if (!_isGrounded && _allowDoubleJump)
+            if (!IsGrounded && _allowDoubleJump)
             {
-                //SpawnFootJumpDust();
                 _particles.Spawn("Jump");
                 _allowDoubleJump = false;
                 return _jumpSpeed;
@@ -145,17 +113,6 @@ namespace PixelCrew.Creatures
 
             return base.CalculateJumpVelocity(yVelocity);
         }
-
- 
-
-
-//#if UNITY_EDITOR
-//        void OnDrawGizmos()
-//        {
-//            Handles.color = IsGrounded() ? HandlesUtils.TransparentGreen : HandlesUtils.TransparentRed;
-//            Handles.DrawSolidDisc(transform.position + _groundCheckPositionDelta, Vector3.forward, _groundCheckRadius);
-//        }
-//#endif
 
         public override void TakeDamage()
         {
@@ -196,19 +153,6 @@ namespace PixelCrew.Creatures
             Debug.Log(_session.Data.Coins);
         }
 
-        //public void SpawnFootDust()
-        //{
-        //    _footStepParticles.Spawn();
-        //}
-
-        //public void SpawnFootJumpDust()
-        //{
-        //    _footJumpParticles.Spawn();
-        //}
-        //public void SpawnSwordEffectsAttack1()
-        //{
-        //    _SwordEffectsAttack1Particles.Spawn();
-        //}
         public void OnCarry(List<GameObject> gameObject, bool isCarry)
         {
             if (gameObject.Count > 0)
@@ -249,7 +193,6 @@ namespace PixelCrew.Creatures
                 if (contact.relativeVelocity.y >= _slamDownVelocity)
                 {
                     _particles.Spawn("SpamDown");
-                    //_footFallParticles.Spawn();
                 }
                 if(contact.relativeVelocity.y >= _fallVelocityforDamage)
                 {
@@ -273,7 +216,7 @@ namespace PixelCrew.Creatures
 
         private void UpdateHeroWeapon()
         {
-            _animator.runtimeAnimatorController = _session.Data.IsArmed ? _armed : _disarmed;
+            Animator.runtimeAnimatorController = _session.Data.IsArmed ? _armed : _disarmed;
         }
     }
 }
