@@ -5395,7 +5395,7 @@ MonoBehaviour:
   _groundCheck: {fileID: 1970870463}
   _attackRange: {fileID: 590092370}
   _particles: {fileID: 2127112548}
-  _interationCheck: {fileID: 0}
+  _interationCheck: {fileID: 844320121}
   _wallCheck: {fileID: 1792506895}
   _interactionLayer:
     serializedVersion: 2
