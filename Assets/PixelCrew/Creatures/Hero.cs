@@ -140,16 +140,6 @@ namespace PixelCrew.Creatures
         public void Interact()
         {
             _interationCheck.Check();
-            //var size = Physics2D.OverlapCircleNonAlloc(transform.position, _interactionRadius,
-            //                                           _interactionResult, _interactionLayer);
-            //for (int i = 0; i < size; i++)
-            //{
-            //    var interactable = _interactionResult[i].GetComponent<InteractableComponent>();
-            //    if (interactable != null)
-            //    {
-            //        interactable.Interact(gameObject);
-            //    }
-            //}
         }
         public void SayCoins()
         {

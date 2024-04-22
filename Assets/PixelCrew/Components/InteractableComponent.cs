@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PixelCrew.Creatures;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 

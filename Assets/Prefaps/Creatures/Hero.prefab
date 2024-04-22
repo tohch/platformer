@@ -172,6 +172,7 @@ MonoBehaviour:
     m_Bits: 2048
   _tags:
   - Interactable
+  - Barrel
   _onOverlap:
     m_PersistentCalls:
       m_Calls:
