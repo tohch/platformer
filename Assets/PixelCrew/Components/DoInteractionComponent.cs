@@ -13,7 +13,7 @@ namespace PixelCrew.Components
         {
             var interactable = go.GetComponent<InteractableComponent>();
             if (interactable != null)
-                interactable.Interact();
+                interactable.Interact(gameObject);// my add f(myParam)
         }
     }
 }
