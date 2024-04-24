@@ -17,20 +17,6 @@ namespace PixelCrew.Components
         [SerializeField] private string[] _tags;
         [SerializeField] private OnOverlapEvent _onOverlap;
         private Collider2D[] _interactionResult = new Collider2D[10];
-        //public GameObject[] GetObjectsInRange()
-        //{
-        //    var size = Physics2D.OverlapCircleNonAlloc(
-        //                transform.position,
-        //                _radius,
-        //                _interactionResult);
-
-        //    var overlaps = new List<GameObject>();
-        //    for (int i = 0; i < size; i++)
-        //    {
-        //        overlaps.Add(_interactionResult[i].gameObject);
-        //    }
-        //    return overlaps.ToArray();
-        //}
 
         private void OnDrawGizmosSelected()
         {
@@ -46,7 +32,6 @@ namespace PixelCrew.Components
                        _interactionResult,
                        _mask);
 
-            //var overlaps = new List<GameObject>();
             for (int i = 0; i < size; i++)
             {
                 var overlapResult = _interactionResult[i];
@@ -55,7 +40,6 @@ namespace PixelCrew.Components
                 {
                     _onOverlap?.Invoke(_interactionResult[i].gameObject);
                 }
-                //overlaps.Add(_interactionResult[i].gameObject);
             }
         }
 

@@ -99,11 +99,11 @@ MonoBehaviour:
   _clips:
   - _name: fall
     _sprites:
-    - {fileID: -6784715419038016767, guid: de922c461ed8e864288f9e757e734225, type: 3}
-    - {fileID: 2128312404120890604, guid: de922c461ed8e864288f9e757e734225, type: 3}
-    - {fileID: 1103456944805627683, guid: de922c461ed8e864288f9e757e734225, type: 3}
-    - {fileID: -5803742920081399561, guid: de922c461ed8e864288f9e757e734225, type: 3}
-    - {fileID: 3014928004304150907, guid: de922c461ed8e864288f9e757e734225, type: 3}
+    - {fileID: 21300000, guid: c051ef29b00cfac4b9fdcf6bd3d8ab3a, type: 3}
+    - {fileID: 21300000, guid: 03fb3fc294cb8f0459d1f0ae20b0281a, type: 3}
+    - {fileID: 21300000, guid: a7580676af7883440a3ec012adcb5307, type: 3}
+    - {fileID: 21300000, guid: 930a0287af7bc1644bc08e658f283efc, type: 3}
+    - {fileID: 21300000, guid: f26599c08f358f64eac1996b2c081313, type: 3}
     _loop: 0
     _allowNextClip: 0
     _onComplete:
