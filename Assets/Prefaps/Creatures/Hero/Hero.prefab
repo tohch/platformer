@@ -5386,6 +5386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 374f93268e403a94d840cc4ad61ae3fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _invertScale: 0
   _speed: 4
   _jumpSpeed: 18
   _damageVelocity: 15

@@ -9,19 +9,6 @@ namespace PixelCrew
 {
     public class LayerCheck : MonoBehaviour
     {
-        //[SerializeField] LayerMask _groundLayers;
-        //[SerializeField] private bool _isTouchingLayer;
-        //public bool IsTouchingLayer 
-        //{
-        //    get => _isTouchingLayer;
-        //    set => _isTouchingLayer = value;
-        //}
-        //private void Update()
-        //{
-        //    var hit = Physics2D.CircleCast(transform.position + gameObject.GetComponent<Transform>().localPosition, gameObject.GetComponent<CircleCollider2D>().radius, Vector2.down, 0, _groundLayers);
-        //    _isTouchingLayer = hit.collider != null;
-
-        //}
         [SerializeField] private LayerMask _layer;
         [SerializeField] private bool _isTouchingLayer;
         private Collider2D _collider;
