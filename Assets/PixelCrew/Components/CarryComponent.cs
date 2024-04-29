@@ -13,7 +13,7 @@ namespace PixelCrew.Components
         [SerializeField] GameObject _barrel;
         public void SwitchCarry(GameObject target)
         {
-            var hero = target.GetComponent<Hero>();
+            var hero = target.GetComponent<HeroCarryComponent>();
             if (hero != null)
             {
                 hero.SwitchCarry(_barrel);
