@@ -476,6 +476,7 @@ GameObject:
   - component: {fileID: 2127112548}
   - component: {fileID: 4890881432534148665}
   - component: {fileID: 464229643}
+  - component: {fileID: 6144206119186183297}
   m_Layer: 0
   m_Name: Sharky
   m_TagString: Enemy
@@ -642,7 +643,18 @@ MonoBehaviour:
       m_Calls: []
   _onDie:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 464229643}
+        m_MethodName: OnDie
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onChange:
     m_PersistentCalls:
       m_Calls: []
@@ -708,7 +720,7 @@ MonoBehaviour:
     Component: {fileID: 574688312}
   - Id: Exclamation
     Component: {fileID: 7489886292681476947}
-  - Id: Miss
+  - Id: MissHero
     Component: {fileID: 6371817711801539422}
 --- !u!114 &4890881432534148665
 MonoBehaviour:
@@ -749,3 +761,20 @@ MonoBehaviour:
   _canAttack: {fileID: 464229644}
   _alarmDelay: 0.5
   _attackCooldown: 0.5
+  _missHeroCooldown: 0.5
+--- !u!114 &6144206119186183297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8759803221388157376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76279dae8e61f614cb933e177c3d85cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _points:
+  - {fileID: 0}
+  - {fileID: 0}
+  _treshold: 1
