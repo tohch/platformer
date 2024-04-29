@@ -64,7 +64,8 @@ namespace PixelCrew.Creatures
             }
             _particles.Spawn("MissHero");
             yield return new WaitForSeconds(_missHeroCooldown);
-            StartState(_patrol.DoPatrol());// my do
+            if (!_isDead)
+                StartState(_patrol.DoPatrol());// my do
             //_creature.SetDirection(Vector2.zero);
         }
 
