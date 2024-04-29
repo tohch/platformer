@@ -629,25 +629,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 464229643, guid: ee788518ffff32c44a2b1dde6befe85e, type: 3}
-      propertyPath: _attackCooldown
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5552080836604693364, guid: ee788518ffff32c44a2b1dde6befe85e,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5552080836604693364, guid: ee788518ffff32c44a2b1dde6befe85e,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: -1.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6144206119186183297, guid: ee788518ffff32c44a2b1dde6befe85e,
-        type: 3}
-      propertyPath: _treshold
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 6144206119186183297, guid: ee788518ffff32c44a2b1dde6befe85e,
         type: 3}
       propertyPath: _points.Array.data[0]

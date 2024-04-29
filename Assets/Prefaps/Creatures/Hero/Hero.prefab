@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 844320119}
   - component: {fileID: 844320121}
   - component: {fileID: 1541236940416700077}
+  - component: {fileID: 167503908}
   m_Layer: 14
   m_Name: InteractionCheck
   m_TagString: Untagged
