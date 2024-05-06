@@ -5546,6 +5546,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 2be5902c-2c82-44ca-9b84-8d51797aa079
     m_ActionName: Hero/Attack[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 50a246bf-cda5-4571-809f-0bc69cbefb64
+    m_ActionName: Hero/Throw[/Keyboard/shift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero
@@ -5561,7 +5565,7 @@ Animator:
   m_GameObject: {fileID: 8759803221388157376}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ab68c4cdade1bfc4faf33163e4bccd12, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0b663d7555527e74f9be596308bb0196, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

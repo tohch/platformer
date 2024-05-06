@@ -13,7 +13,6 @@ namespace PixelCrew.Creatures
 {
     public class Hero : Creature
     {
-        //private Collider2D[] _interactionResult = new Collider2D[1];
         [SerializeField] private CheckCircleOverlap _interationCheck;
         [SerializeField] private LayerCheck _wallCheck;
 
@@ -30,7 +29,15 @@ namespace PixelCrew.Creatures
         [Space] [Header("Particles")] 
         [SerializeField] private ParticleSystem _hitParticles;
 
-        
+        public void OnDoThrow()
+        {
+
+        }
+        public void Throw()
+        {
+            
+        }
+
         private bool _allowDoubleJump;
         private bool _isOnWall;
         
@@ -43,14 +50,11 @@ namespace PixelCrew.Creatures
             set { _session = value; }
         }
 
-        //private bool _isCarry = false;
-        //private List<GameObject> _objectCarry;
         private HealthComponent healthComponent;
 
         protected override void Awake()
         {
             base.Awake();
-            //_objectCarry = new List<GameObject>();
             healthComponent = GetComponent<HealthComponent>();
             _defaultGravityScale = _rigidbody.gravityScale;//Возможно лишний
         }
@@ -71,7 +75,6 @@ namespace PixelCrew.Creatures
         protected override void FixedUpdate()
         {
             base.FixedUpdate();
-            //OnCarry(_objectCarry, _isCarry);
         }
         protected override void Update()
         {
@@ -145,38 +148,6 @@ namespace PixelCrew.Creatures
         {
             Debug.Log(_session.Data.Coins);
         }
-
-        //public void OnCarry(List<GameObject> gameObject, bool isCarry)
-        //{
-        //    if (gameObject.Count > 0)
-        //    {
-        //        var collider = gameObject[0].GetComponent<Collider2D>();
-        //        var rigidbody = gameObject[0].GetComponent<Rigidbody2D>();
-        //        if (isCarry)
-        //        {
-        //            collider.enabled = false;
-        //            rigidbody.isKinematic = true; ;
-        //            gameObject[0].transform.position = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 0.1f);
-        //        }
-        //        else if (!isCarry)
-        //        {
-        //            foreach (var objectCarry in _objectCarry)
-        //            {
-        //                if (objectCarry != null && !_isCarry)
-        //                {
-        //                    objectCarry.GetComponent<Collider2D>().enabled = true;
-        //                    objectCarry.GetComponent<Rigidbody2D>().isKinematic = false;
-        //                }
-        //            }
-        //            _objectCarry.Clear();
-        //        }
-        //    }
-        //}
-        //public void SwitchCarry(GameObject gameObject)
-        //{
-        //    _isCarry = !_isCarry;
-        //    _objectCarry.Add(gameObject);
-        //}
 
         private void OnCollisionEnter2D(Collision2D other)
         {
