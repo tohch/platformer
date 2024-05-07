@@ -802,7 +802,7 @@ MonoBehaviour:
   _data:
     Coins: 0
     Hp: 10
-    IsArmed: 0
+    IsArmed: 1
 --- !u!4 &739876110
 Transform:
   m_ObjectHideFlags: 0

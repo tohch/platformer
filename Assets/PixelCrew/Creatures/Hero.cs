@@ -29,13 +29,14 @@ namespace PixelCrew.Creatures
         [Space] [Header("Particles")] 
         [SerializeField] private ParticleSystem _hitParticles;
 
+        private static readonly int ThrowKey = Animator.StringToHash("throw");
         public void OnDoThrow()
         {
-
+            _particles.Spawn("Throw");
         }
         public void Throw()
         {
-            
+            Animator.SetTrigger(ThrowKey);
         }
 
         private bool _allowDoubleJump;
