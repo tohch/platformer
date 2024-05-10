@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6337556086836549830}
   - component: {fileID: 6337556086836549829}
   - component: {fileID: 1421596328}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DestructableBarrel
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2112414681
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 7ba553fbfd08c4a4ca670cbcb8e21916, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

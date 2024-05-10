@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7229876973821837757}
   - component: {fileID: 1318579052769378833}
   m_Layer: 0
-  m_Name: PotionsLarg
+  m_Name: HealPotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -132869169
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 1
   m_Sprite: {fileID: 3714227102187029162, guid: dbd11a2559caca34889889cfbe268df5,
     type: 3}
@@ -158,6 +158,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 16384
   _action:
     m_PersistentCalls:
       m_Calls:

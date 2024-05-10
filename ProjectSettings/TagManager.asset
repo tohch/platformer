@@ -53,6 +53,9 @@ TagManager:
   - name: DecorBack
     uniqueID: 1646838471
     locked: 0
+  - name: TileMap
+    uniqueID: 3113736867
+    locked: 0
   - name: Level
     uniqueID: 2112414681
     locked: 0
