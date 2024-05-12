@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 574688313}
   _prefab: {fileID: 8998524652103983389, guid: 8b2918af067f5574dae2fbbbb104e3b2, type: 3}
+  _invertXScale: 0
 --- !u!1 &590092369
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,6 +258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 1226417820}
   _prefab: {fileID: 285603860685032791, guid: aa9224fe0f3a5454eb1d8a31d6334eb4, type: 3}
+  _invertXScale: 0
 --- !u!1 &1293370897
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,6 +304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 1293370898}
   _prefab: {fileID: 2927321490344230816, guid: ec602dfc3ee71414f87ad41c19771b09, type: 3}
+  _invertXScale: 0
 --- !u!1 &1310496345
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,6 +350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 1310496346}
   _prefab: {fileID: 2927321490344230816, guid: 51a2844a46d29974eacf3630241f70a6, type: 3}
+  _invertXScale: 0
 --- !u!1 &1792506893
 GameObject:
   m_ObjectHideFlags: 0
@@ -5262,7 +5266,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2112414681
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 6
   m_RenderMode: 0
   m_SortMode: 0
@@ -5332,6 +5336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 8903817526092155391}
   _prefab: {fileID: 285603860685032791, guid: 64ee3e515994fa14fb112fc8f44e644a, type: 3}
+  _invertXScale: 0
 --- !u!1 &8759803221388157376
 GameObject:
   m_ObjectHideFlags: 0
@@ -5420,7 +5425,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -132869169
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e51075965524e27429a1d22715bada43, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5463,6 +5468,8 @@ MonoBehaviour:
     m_Bits: 2048
   _slamDownVelocity: 20
   _interactionRadius: 0.4
+  _throwCooldown:
+    _value: 1
   _armed: {fileID: 9100000, guid: 0b663d7555527e74f9be596308bb0196, type: 2}
   _disarmed: {fileID: 9100000, guid: ab68c4cdade1bfc4faf33163e4bccd12, type: 2}
   _fallVelocityforDamage: 40

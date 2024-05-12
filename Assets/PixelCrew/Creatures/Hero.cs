@@ -21,6 +21,7 @@ namespace PixelCrew.Creatures
         [SerializeField] private float _slamDownVelocity;
         [SerializeField] private float _interactionRadius;
 
+        [SerializeField] private Cooldown _throwCooldown;
         [SerializeField] private AnimatorController _armed;
         [SerializeField] private AnimatorController _disarmed;
 
@@ -36,7 +37,11 @@ namespace PixelCrew.Creatures
         }
         public void Throw()
         {
-            Animator.SetTrigger(ThrowKey);
+            if (_throwCooldown.IsReady)
+            {
+                Animator.SetTrigger(ThrowKey);
+                _throwCooldown.Reset();
+            }
         }
 
         private bool _allowDoubleJump;
