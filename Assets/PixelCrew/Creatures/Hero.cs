@@ -30,6 +30,19 @@ namespace PixelCrew.Creatures
         [Space] [Header("Particles")] 
         [SerializeField] private ParticleSystem _hitParticles;
 
+        private bool _allowDoubleJump;
+        private bool _isOnWall;
+
+        private GameSession _session;
+        private float _defaultGravityScale;
+        public GameSession Session
+        {
+            get { return _session; }
+            set { _session = value; }
+        }
+
+        private HealthComponent healthComponent;
+
         private static readonly int ThrowKey = Animator.StringToHash("throw");
         public void OnDoThrow()
         {
@@ -43,20 +56,6 @@ namespace PixelCrew.Creatures
                 _throwCooldown.Reset();
             }
         }
-
-        private bool _allowDoubleJump;
-        private bool _isOnWall;
-        
-        
-        private GameSession _session;
-        private float _defaultGravityScale;
-        public GameSession Session 
-        {
-            get { return _session; }
-            set { _session = value; }
-        }
-
-        private HealthComponent healthComponent;
 
         protected override void Awake()
         {
@@ -187,6 +186,15 @@ namespace PixelCrew.Creatures
         private void UpdateHeroWeapon()
         {
             Animator.runtimeAnimatorController = _session.Data.IsArmed ? _armed : _disarmed;
+        }
+
+        public void ModifyAmountSwords(int amountSwords)
+        {
+            _session.Data.AmountSwords += amountSwords;
+        }
+        public bool IsAmountSwords()
+        {
+            return _session.Data.AmountSwords > 1 ? true : false;
         }
     }
 }

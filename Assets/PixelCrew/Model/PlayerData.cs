@@ -12,18 +12,20 @@ namespace PixelCrew.Model
         public int Coins;
         public int Hp;
         public bool IsArmed;
+        public int AmountSwords;
 
         public PlayerData() { }
-        public PlayerData(int coins, int hp, bool isArmed)
+        public PlayerData(int coins, int hp, bool isArmed, int amountSwords)
         {
             Coins = coins;
             Hp = hp;
             IsArmed = isArmed;
+            AmountSwords = amountSwords;
         }
 
         public PlayerData Clone()
         {
-            return new PlayerData(Coins, Hp, IsArmed);
+            return new PlayerData(Coins, Hp, IsArmed, AmountSwords);
         }
 
         

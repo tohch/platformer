@@ -10,12 +10,22 @@ namespace PixelCrew.Components
 {
     public class ArmHeroComponent : MonoBehaviour
     {
+        [SerializeField] int _amountSwords;
         public void ArmHero(GameObject go)
         {
             var hero = go.GetComponent<Hero>();
             if (hero != null)
             {
                 hero.ArmHero();
+            }
+        }
+
+        public void PickupAmountSwords(GameObject go)
+        {
+            var hero = go.GetComponent<Hero>();
+            if (hero != null)
+            {
+                hero.ModifyAmountSwords(_amountSwords);
             }
         }
     }
