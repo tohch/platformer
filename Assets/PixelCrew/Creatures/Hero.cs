@@ -2,6 +2,7 @@
 using PixelCrew.Model;
 using PixelCrew.Utils;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEditor;
@@ -30,6 +31,8 @@ namespace PixelCrew.Creatures
         [Space] [Header("Particles")] 
         [SerializeField] private ParticleSystem _hitParticles;
 
+        [SerializeField] private int _numberThrowRow;
+
         private bool _allowDoubleJump;
         private bool _isOnWall;
 
@@ -42,21 +45,47 @@ namespace PixelCrew.Creatures
         }
 
         private HealthComponent healthComponent;
-
         private static readonly int ThrowKey = Animator.StringToHash("throw");
         public void OnDoThrow()
         {
             _particles.Spawn("Throw");
         }
-        public void Throw()
+        public void Throw(double duration)
         {
-            if (_throwCooldown.IsReady && IsAmountSwords())
+            if (duration >= 1d)
             {
-                ModifyAmountSwords(-1);
-                Animator.SetTrigger(ThrowKey);
+                StartCoroutine(ThrowRow());
+            }
+            else
+            {
+                ThrowOne();
+            }
+        }
+        private void ThrowOne()
+        {
+            if (_throwCooldown.IsReady)
+            {
+                OnThrow();
                 _throwCooldown.Reset();
             }
         }
+        private IEnumerator ThrowRow()
+        {
+            for (int i = 0; i < _numberThrowRow; i++)
+            {
+                OnThrow();
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
+        private void OnThrow()
+        {
+            if (IsAmountSwords())
+            {
+                ModifyAmountSwords(-1);
+                Animator.SetTrigger(ThrowKey);
+            }
+        }
+
 
         protected override void Awake()
         {

@@ -31,9 +31,9 @@ namespace PixelCrew
 
         public void OnThrow(InputAction.CallbackContext context)
         {
-            if (context.performed)
+            if (context.canceled)
             {
-                _hero.Throw();
+                _hero.Throw(context.duration);
             }
         }
     }
