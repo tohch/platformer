@@ -64,20 +64,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   _isTouchingLayer: 0
---- !u!114 &7328404974029585464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5025493802188796605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8ae22e2f51c8bb459c543d1407afb52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  platformCheck: {fileID: 1646127817}
-  _waitForTurn: 0.3
 --- !u!114 &4336739265498266142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,6 +80,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   _isTouchingLayer: 0
+--- !u!114 &7328404974029585464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5025493802188796605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8ae22e2f51c8bb459c543d1407afb52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platformCheck: {fileID: 1646127817}
 --- !u!1001 &4336739267272905597
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -104,6 +103,11 @@ PrefabInstance:
     - target: {fileID: 464229643, guid: ee788518ffff32c44a2b1dde6befe85e, type: 3}
       propertyPath: _missHeroCooldown
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7881726506497201624, guid: ee788518ffff32c44a2b1dde6befe85e,
+        type: 3}
+      propertyPath: _health
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8759803221388157376, guid: ee788518ffff32c44a2b1dde6befe85e,
         type: 3}

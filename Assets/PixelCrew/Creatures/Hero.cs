@@ -50,8 +50,9 @@ namespace PixelCrew.Creatures
         }
         public void Throw()
         {
-            if (_throwCooldown.IsReady)
+            if (_throwCooldown.IsReady && IsAmountSwords())
             {
+                ModifyAmountSwords(-1);
                 Animator.SetTrigger(ThrowKey);
                 _throwCooldown.Reset();
             }

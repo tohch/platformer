@@ -192,6 +192,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7100117572676625220}
+        m_MethodName: PickupAmountSwords
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 5421384485193401881}
         m_MethodName: DestoryObject
         m_Mode: 1
@@ -215,3 +226,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49ddd005e7775cc4ba3240504adfa8c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _amountSwords: 1
