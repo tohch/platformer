@@ -7,16 +7,18 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace PixelCrew.Components
+namespace PixelCrew.Components.Collectables
 {
     public class CoinsComponent : MonoBehaviour
     {
         [SerializeField] private UnityEvent _onSayCoins;
-        [SerializeField] private Hero _hero;
-
+        private Hero _hero;
+        public void Start()
+        {
+            _hero = gameObject.GetComponent<Hero>();
+        }
         public void ApplyCoin(int coinValue)
         {
-            //_hero._coins += coinValue;
             _hero.Session.Data.Coins += coinValue;
             _onSayCoins?.Invoke();
         }

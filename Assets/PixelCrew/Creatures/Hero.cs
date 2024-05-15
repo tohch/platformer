@@ -9,6 +9,7 @@ using UnityEditor;
 using UnityEditor.Animations;
 using UnityEditor.UIElements;
 using UnityEngine;
+using PixelCrew.Components.ColliderBased;
 
 namespace PixelCrew.Creatures
 {

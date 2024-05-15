@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using PixelCrew.Components.ColliderBased;
 
 namespace PixelCrew.Creatures
 {
@@ -50,7 +51,7 @@ namespace PixelCrew.Creatures
 
         private IEnumerator GoToHero()
         {
-            while (_vision.IsTouchingLayer)
+            while (_vision.IsTouchingLayer && !_isDead)
             {
                 if (_canAttack.IsTouchingLayer)
                 {
@@ -62,11 +63,13 @@ namespace PixelCrew.Creatures
                 }
                 yield return null;
             }
-            _creature.SetDirection(Vector2.zero);
-            _particles.Spawn("MissHero");
-            yield return new WaitForSeconds(_missHeroCooldown);
             if (!_isDead)
+            {
+                _creature.SetDirection(Vector2.zero);
+                _particles.Spawn("MissHero");
+                yield return new WaitForSeconds(_missHeroCooldown);
                 StartState(_patrol.DoPatrol());
+            }
         }
 
         private IEnumerator Attack()

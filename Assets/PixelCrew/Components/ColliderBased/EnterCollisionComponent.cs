@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UIElements;
 
-namespace PixelCrew.Components
+namespace PixelCrew.Components.ColliderBased
 {
     public class EnterCollisionComponent : MonoBehaviour
     {

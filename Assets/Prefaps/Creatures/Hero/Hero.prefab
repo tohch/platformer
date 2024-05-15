@@ -5718,7 +5718,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _hero: {fileID: 8759803221388157404}
 --- !u!114 &2127112547
 MonoBehaviour:
   m_ObjectHideFlags: 0

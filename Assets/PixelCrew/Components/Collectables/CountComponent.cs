@@ -1,12 +1,11 @@
-﻿using PixelCrew.Components.Collectables;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace PixelCrew.Components
+namespace PixelCrew.Components.Collectables
 {
     public class CountComponent : MonoBehaviour
     {
