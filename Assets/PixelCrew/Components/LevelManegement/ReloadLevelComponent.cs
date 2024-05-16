@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace PixelCrew.Components
+namespace PixelCrew.Components.LevelManegement
 {
     public class ReloadLevelComponent : MonoBehaviour
     {

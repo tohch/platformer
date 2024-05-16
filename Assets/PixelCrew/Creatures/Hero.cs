@@ -10,6 +10,7 @@ using UnityEditor.Animations;
 using UnityEditor.UIElements;
 using UnityEngine;
 using PixelCrew.Components.ColliderBased;
+using PixelCrew.Components.Health;
 
 namespace PixelCrew.Creatures
 {

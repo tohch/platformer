@@ -7,9 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using PixelCrew.Components.ColliderBased;
-using PixelCrew.Creatures.Mobs.Patrolling;
 
-namespace PixelCrew.Creatures
+namespace PixelCrew.Creatures.Mobs.Patrolling
 {
     public class PlatformPatrol : Patrol
     {
@@ -29,7 +28,7 @@ namespace PixelCrew.Creatures
             {
                 if (!platformCheck.IsTouchingLayer)
                 {
-                    _creature.SetDirection(new Vector2(0,0));
+                    _creature.SetDirection(new Vector2(0, 0));
                     pointIndex *= -1f;
                 }
                 _direction = _creature.transform.position * pointIndex;

@@ -7,8 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using PixelCrew.Components.ColliderBased;
+using PixelCrew.Components.GoBased;
+using PixelCrew.Creatures.Mobs.Patrolling;
 
-namespace PixelCrew.Creatures
+namespace PixelCrew.Creatures.Mobs
 {
     public class MobAI : MonoBehaviour
     {
@@ -23,7 +25,7 @@ namespace PixelCrew.Creatures
         private GameObject _target;
 
         private static readonly int IsDeadKey = Animator.StringToHash("is-dead");
-        
+
         private SpawnListComponent _particles;
         private Creature _creature;
         private Animator _animator;

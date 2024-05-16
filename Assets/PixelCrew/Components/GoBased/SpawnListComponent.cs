@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace PixelCrew.Components
+namespace PixelCrew.Components.GoBased
 {
     public class SpawnListComponent : MonoBehaviour
     {

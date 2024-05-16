@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace PixelCrew
+namespace PixelCrew.Components.GoBased
 {
     public class DestroyObjectComponent : MonoBehaviour
     {
