@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 627532593}
   - component: {fileID: 627532594}
   m_Layer: 10
-  m_Name: DropSpawner
+  m_Name: Drop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &627532592
 Transform:
   m_ObjectHideFlags: 0
@@ -44,11 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dabd58f2f294dd40aade62a3a611c4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _count: 3
+  _count: 10
   _drop:
-  - Drop: {fileID: 4799093483141499183, guid: 8cdb21bbf9b096448b716193943b15c5, type: 3}
+  - Drop: {fileID: 4799093483141499183, guid: 42b9aa035d936f249bf113bdc87bd522, type: 3}
     Probability: 70
-  - Drop: {fileID: 8580913151660578690, guid: 59ad8c81e7d74d441b644447f8205127, type: 3}
+  - Drop: {fileID: 8580913151660578690, guid: 98cc2d2b8582174408776e95ffcb319b, type: 3}
     Probability: 30
   _onDropCalculated:
     m_PersistentCalls:
@@ -64,7 +64,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _spawnOnEnable: 0
+  _spawnOnEnable: 1
 --- !u!114 &627532594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,10 +77,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27aa2f80acac6cd46affa9aee186a8d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sectorAngel: 60
-  _sectorRotaion: 0
+  _sectorAngle: 60
+  _sectorRotation: 0
   _waitTime: 0.1
   _speed: 6
+--- !u!1 &2917777529417148827
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7900169246406168937}
+  - component: {fileID: 1310116791}
+  m_Layer: 10
+  m_Name: DropSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7900169246406168937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2917777529417148827}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.393, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6337556086836549825}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1310116791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2917777529417148827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6369a0dda57c85947a9b2f2661b7af59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 7900169246406168937}
+  _prefab: {fileID: 627532591}
 --- !u!1 &6337556086836549837
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,6 +142,7 @@ GameObject:
   - component: {fileID: 6337556086836549831}
   - component: {fileID: 6337556086836549830}
   - component: {fileID: 6337556086836549829}
+  - component: {fileID: 49879598}
   m_Layer: 10
   m_Name: DestructableBarrel
   m_TagString: Enemy
@@ -116,6 +162,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 627532592}
+  - {fileID: 7900169246406168937}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -224,8 +271,8 @@ MonoBehaviour:
     _onComplete:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 6337556086836549829}
-          m_MethodName: Spawn
+        - m_Target: {fileID: 49879598}
+          m_MethodName: SpawnAll
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -233,7 +280,7 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 0
+            m_BoolArgument: 1
           m_CallState: 2
         - m_Target: {fileID: 6337556086836549836}
           m_MethodName: DestoryObject
@@ -244,18 +291,7 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 627532593}
-          m_MethodName: CalculateDrop
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
+            m_BoolArgument: 1
           m_CallState: 2
 --- !u!114 &6337556086836549836
 MonoBehaviour:
@@ -312,17 +348,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: destroy
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6337556086836549837}
-        m_MethodName: set_tag
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Untagged
           m_BoolArgument: 0
         m_CallState: 2
   _onChange:
@@ -389,3 +414,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 6337556086836549825}
   _prefab: {fileID: 433903809757353451, guid: b45124dc787680e45a20ca42d2618b20, type: 3}
+--- !u!114 &49879598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6337556086836549837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 470555babfa2b0941ad9edde49701e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawners:
+  - Id: 
+    Component: {fileID: 6337556086836549829}
+  - Id: 
+    Component: {fileID: 1310116791}

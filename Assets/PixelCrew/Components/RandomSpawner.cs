@@ -1,28 +1,99 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEditor;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace PixelCrew.Components
 {
     public class RandomSpawner : MonoBehaviour
     {
-        [SerializeField] private float _sectorAngel;
-        [SerializeField] private float _sectorRotaion;
-        [SerializeField] private float _waitTime;
-        [SerializeField] private float _speed;
+        [Header("Spawn bound:")]
+        [SerializeField] private float _sectorAngle = 60;
+        [SerializeField] private float _sectorRotation;
+        [SerializeField] private float _waitTime = 0.1f;
+        [SerializeField] private float _speed = 6;
 
-        public void StartDrop(GameObject[] objectDrop)
+        private Coroutine _routine;
+        public void StartDrop(GameObject[] items)
         {
-            for (int i = 0; i < objectDrop.Length; i++)
+            //for (int i = 0; i < items.Length; i++)
+            //{
+            //    //int indexItem = GetRandomIndex(_typeItems);
+            //    var _positionNextItem = gameObject.transform.transform;
+            //    _positionNextItem.position = new Vector3(_positionNextItem.position.x + 0.2f, _positionNextItem.position.y, _positionNextItem.position.z);
+            //    var instance = Instantiate(items[i], _positionNextItem.position, Quaternion.identity);
+            //}
+            TryStopRoutine();
+
+            _routine = StartCoroutine(StartSpwn(items));
+        }
+
+        private IEnumerator StartSpwn(GameObject[] particles)
+        {
+            for (var i = 0; i < particles.Length; i++)
             {
-                //int indexItem = GetRandomIndex(_typeItems);
-                var _positionNextItem = gameObject.transform.transform;
-                _positionNextItem.position = new Vector3(_positionNextItem.position.x + 0.2f, _positionNextItem.position.y, _positionNextItem.position.z);
-                var instance = Instantiate(objectDrop[i], _positionNextItem.position, Quaternion.identity);
+                Spawn(particles[i]);
+                yield return new WaitForSeconds(_waitTime);
             }
+        }
+
+        private void Spawn(GameObject particle)
+        {
+            var instance = Instantiate(particle, transform.position, Quaternion.identity);
+            var rigidBody = instance.GetComponent<Rigidbody2D>();
+
+            var randomAngle = Random.Range(0, _sectorAngle);
+            var forceVector = AngleToVectorInSector(randomAngle);
+            rigidBody.AddForce(forceVector * _speed, ForceMode2D.Impulse);
+        }
+        private void OnDrawGizmosSelected()
+        {
+            var position = transform.position;
+
+            var middleAngleDelta = (180 - _sectorRotation - _sectorAngle) / 2;
+            var rightBound = GetUnitOnCircle(middleAngleDelta);
+            Handles.DrawLine(position, position + rightBound);
+
+            var leftBound = GetUnitOnCircle(middleAngleDelta + _sectorAngle);
+            Handles.DrawLine(position, position + leftBound);
+            Handles.DrawWireArc(position, Vector3.forward, rightBound, _sectorAngle, 1);
+
+            Handles.color = new Color(1f, 1f, 1f, 0.1f);
+            Handles.DrawSolidArc(position, Vector3.forward, rightBound, _sectorAngle, 1);
+        }
+
+        private Vector3 GetUnitOnCircle(float angleDegrees)
+        {
+            var angleRadians = angleDegrees * Mathf.PI / 180.0f;
+
+            var x = Mathf.Cos(angleRadians);
+            var y = Mathf.Sin(angleRadians);
+
+            return new Vector3(x, y, 0);
+        }
+
+        private Vector2 AngleToVectorInSector(float angle)
+        {
+            var angleMiddleDelta = (180 - _sectorRotation - _sectorAngle) / 2;
+            return GetUnitOnCircle(angle + angleMiddleDelta);
+        }
+        private void OnDisable()
+        {
+            TryStopRoutine();
+        }
+        private void OnDestroy()
+        {
+            TryStopRoutine();
+        }
+        private void TryStopRoutine()
+        {
+            if (_routine != null)
+                StopCoroutine(_routine);
         }
     }
 }
