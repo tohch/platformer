@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-namespace PixelCrew
+namespace PixelCrew.Utils
 {
     public class CheatController : MonoBehaviour
     {
