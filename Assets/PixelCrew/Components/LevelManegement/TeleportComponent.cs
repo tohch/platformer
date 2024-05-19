@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Assets.PixelCrew.Components
+namespace PixelCrew.Components.LevelManegement
 {
     internal class TeleportComponent : MonoBehaviour
     {
