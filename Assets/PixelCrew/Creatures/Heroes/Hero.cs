@@ -12,7 +12,7 @@ using UnityEngine;
 using PixelCrew.Components.ColliderBased;
 using PixelCrew.Components.Health;
 
-namespace PixelCrew.Creatures
+namespace PixelCrew.Creatures.Heroes
 {
     public class Hero : Creature
     {
@@ -22,7 +22,7 @@ namespace PixelCrew.Creatures
         [SerializeField] private LayerMask _interactionLayer;
 
         [SerializeField] private float _slamDownVelocity;
-        [SerializeField] private float _interactionRadius;
+        //[SerializeField] private float _interactionRadius;
 
         [SerializeField] private Cooldown _throwCooldown;
         [SerializeField] private AnimatorController _armed;
@@ -48,6 +48,7 @@ namespace PixelCrew.Creatures
 
         private HealthComponent healthComponent;
         private static readonly int ThrowKey = Animator.StringToHash("throw");
+        private static readonly int IsOnWall = Animator.StringToHash("is-on-wall");
         public void OnDoThrow()
         {
             _particles.Spawn("Throw");
@@ -117,7 +118,8 @@ namespace PixelCrew.Creatures
         {
             base.Update();
 
-            if (_wallCheck.IsTouchingLayer && Direction.x == transform.localScale.x)
+            var moveToSameDirection = Direction.x * transform.lossyScale.x > 0;
+            if (_wallCheck.IsTouchingLayer && moveToSameDirection)
             {
                 _isOnWall = true;
                 _rigidbody.gravityScale = 0;
@@ -127,11 +129,18 @@ namespace PixelCrew.Creatures
                 _isOnWall = false;
                 _rigidbody.gravityScale = _defaultGravityScale;
             }
+            Animator.SetBool(IsOnWall, _isOnWall);
         }
         protected override float CalculateYVelocity()
         {
             var isJumpPressing = Direction.y > 0;
-
+            //my
+            if (_isOnWall)
+            {
+                _allowDoubleJump = true;
+                return 0f;
+            }
+            //
             if (IsGrounded || _isOnWall)
             {
                 _allowDoubleJump = true;
@@ -146,7 +155,8 @@ namespace PixelCrew.Creatures
 
         protected override float CalculateJumpVelocity(float yVelocity)
         {
-            if (!IsGrounded && _allowDoubleJump)
+
+            if (!IsGrounded && _allowDoubleJump && !_isOnWall)
             {
                 _particles.Spawn("Jump");
                 _allowDoubleJump = false;

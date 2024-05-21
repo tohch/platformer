@@ -1,6 +1,7 @@
 ﻿using PixelCrew.Creatures;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using PixelCrew.Creatures.Heroes; 
 
 namespace PixelCrew.Creatures
 {

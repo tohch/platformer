@@ -21,13 +21,6 @@ namespace PixelCrew.Components
         private Coroutine _routine;
         public void StartDrop(GameObject[] items)
         {
-            //for (int i = 0; i < items.Length; i++)
-            //{
-            //    //int indexItem = GetRandomIndex(_typeItems);
-            //    var _positionNextItem = gameObject.transform.transform;
-            //    _positionNextItem.position = new Vector3(_positionNextItem.position.x + 0.2f, _positionNextItem.position.y, _positionNextItem.position.z);
-            //    var instance = Instantiate(items[i], _positionNextItem.position, Quaternion.identity);
-            //}
             TryStopRoutine();
 
             _routine = StartCoroutine(StartSpwn(items));
