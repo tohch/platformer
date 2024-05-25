@@ -737,12 +737,12 @@ PrefabInstance:
     - target: {fileID: 8759803221388157378, guid: ee788518ffff32c44a2b1dde6befe85e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.07304
+      value: -5.929
       objectReference: {fileID: 0}
     - target: {fileID: 8759803221388157378, guid: ee788518ffff32c44a2b1dde6befe85e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5488213
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 8759803221388157378, guid: ee788518ffff32c44a2b1dde6befe85e,
         type: 3}
@@ -880,7 +880,7 @@ PrefabInstance:
     - target: {fileID: 6337556086836549825, guid: 4a2afdfcca8234845839c135ea6bcd72,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.9303665
+      value: -9.605
       objectReference: {fileID: 0}
     - target: {fileID: 6337556086836549825, guid: 4a2afdfcca8234845839c135ea6bcd72,
         type: 3}
@@ -5409,10 +5409,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 771253501}
     m_Modifications:
+    - target: {fileID: 980730757, guid: 5436b9e8d7c06774493968d43a1ef311, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 980730758, guid: 5436b9e8d7c06774493968d43a1ef311, type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: open
+      objectReference: {fileID: 0}
     - target: {fileID: 2903260430979965785, guid: 5436b9e8d7c06774493968d43a1ef311,
         type: 3}
       propertyPath: m_Name
-      value: DoorClosing
+      value: WoodenDoor(Enter)
       objectReference: {fileID: 0}
     - target: {fileID: 2903260430979965791, guid: 5436b9e8d7c06774493968d43a1ef311,
         type: 3}
