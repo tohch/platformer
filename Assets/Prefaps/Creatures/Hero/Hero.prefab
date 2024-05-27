@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 1792506894}
   - component: {fileID: 1792506896}
   - component: {fileID: 1792506895}
-  m_Layer: 14
+  m_Layer: 0
   m_Name: WallCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -392,9 +392,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0017160773, y: 0}
   serializedVersion: 2
-  m_Radius: 0.37
+  m_Radius: 0.37171608
 --- !u!114 &1792506895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5462,7 +5462,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   _slamDownVelocity: 20
-  _interactionRadius: 0.4
   _throwCooldown:
     _value: 1
   _armed: {fileID: 9100000, guid: 0b663d7555527e74f9be596308bb0196, type: 2}
@@ -5625,7 +5624,7 @@ Animator:
   m_GameObject: {fileID: 8759803221388157376}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0b663d7555527e74f9be596308bb0196, type: 2}
+  m_Controller: {fileID: 9100000, guid: ab68c4cdade1bfc4faf33163e4bccd12, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
