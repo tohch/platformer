@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1646127816}
   - component: {fileID: 1646127818}
   - component: {fileID: 1646127817}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: PlatformCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,6 +104,37 @@ PrefabInstance:
       propertyPath: _missHeroCooldown
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 574688311, guid: ee788518ffff32c44a2b1dde6befe85e, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 590092369, guid: ee788518ffff32c44a2b1dde6befe85e, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310496345, guid: ee788518ffff32c44a2b1dde6befe85e, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970870462, guid: ee788518ffff32c44a2b1dde6befe85e, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631358064995717813, guid: ee788518ffff32c44a2b1dde6befe85e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5264355595958028754, guid: ee788518ffff32c44a2b1dde6befe85e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5771181897978208199, guid: ee788518ffff32c44a2b1dde6befe85e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7881726506497201624, guid: ee788518ffff32c44a2b1dde6befe85e,
         type: 3}
       propertyPath: _health
@@ -113,6 +144,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sharky Platfor Patrol
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759803221388157376, guid: ee788518ffff32c44a2b1dde6befe85e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8759803221388157378, guid: ee788518ffff32c44a2b1dde6befe85e,
         type: 3}

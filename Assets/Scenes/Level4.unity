@@ -144,6 +144,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 590092370, guid: 417838e26f8fdc046b0bedcc954262c2, type: 3}
+      propertyPath: _mask.m_Bits
+      value: 48951
+      objectReference: {fileID: 0}
     - target: {fileID: 7881726506497201624, guid: 417838e26f8fdc046b0bedcc954262c2,
         type: 3}
       propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -714,37 +718,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 298405271}
     m_Modifications:
-    - target: {fileID: 574688311, guid: ee788518ffff32c44a2b1dde6befe85e, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 590092369, guid: ee788518ffff32c44a2b1dde6befe85e, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1310496345, guid: ee788518ffff32c44a2b1dde6befe85e, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1970870462, guid: ee788518ffff32c44a2b1dde6befe85e, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1631358064995717813, guid: ee788518ffff32c44a2b1dde6befe85e,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5264355595958028754, guid: ee788518ffff32c44a2b1dde6befe85e,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5771181897978208199, guid: ee788518ffff32c44a2b1dde6befe85e,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6144206119186183297, guid: ee788518ffff32c44a2b1dde6befe85e,
         type: 3}
       propertyPath: _points.Array.data[0]
@@ -759,11 +732,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sharky
-      objectReference: {fileID: 0}
-    - target: {fileID: 8759803221388157376, guid: ee788518ffff32c44a2b1dde6befe85e,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8759803221388157378, guid: ee788518ffff32c44a2b1dde6befe85e,
         type: 3}
