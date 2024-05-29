@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1314236263}
   - component: {fileID: 8865641691199757112}
   - component: {fileID: 2070615741079321110}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coins_Silver_Drop
   m_TagString: CoinSilver
   m_Icon: {fileID: 0}

@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 1792506894}
   - component: {fileID: 1792506896}
   - component: {fileID: 1792506895}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: WallCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}

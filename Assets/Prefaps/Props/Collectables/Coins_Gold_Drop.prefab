@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7717395033830840561}
   - component: {fileID: 2205815529450841130}
   - component: {fileID: -7535885949393744426}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coins_Gold_Drop
   m_TagString: CoinGold
   m_Icon: {fileID: 0}

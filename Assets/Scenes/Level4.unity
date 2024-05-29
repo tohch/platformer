@@ -140,14 +140,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 298405271}
     m_Modifications:
-    - target: {fileID: 590092369, guid: 417838e26f8fdc046b0bedcc954262c2, type: 3}
-      propertyPath: m_Layer
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 590092370, guid: 417838e26f8fdc046b0bedcc954262c2, type: 3}
-      propertyPath: _mask.m_Bits
-      value: 48951
-      objectReference: {fileID: 0}
     - target: {fileID: 7881726506497201624, guid: 417838e26f8fdc046b0bedcc954262c2,
         type: 3}
       propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1070,7 +1062,7 @@ GameObject:
   m_Component:
   - component: {fileID: 894568362}
   - component: {fileID: 894568361}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: ConfinerCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1362,7 +1354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1550317953}
   - component: {fileID: 1550317952}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2088,7 +2080,7 @@ GameObject:
   - component: {fileID: 1845700965}
   - component: {fileID: 1845700967}
   - component: {fileID: 1845700966}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5521,7 +5513,7 @@ PrefabInstance:
     - target: {fileID: 2961963976943289673, guid: ea8661cb8e5ef194d8047ce9b52078a4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.06
+      value: -9.761
       objectReference: {fileID: 0}
     - target: {fileID: 2961963976943289673, guid: ea8661cb8e5ef194d8047ce9b52078a4,
         type: 3}
