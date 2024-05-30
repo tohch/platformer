@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 590092371}
   - component: {fileID: 590092370}
   - component: {fileID: 1225053170}
-  m_Layer: 14
+  m_Layer: 18
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 844320121}
   - component: {fileID: 1541236940416700077}
   - component: {fileID: 167503908}
-  m_Layer: 14
+  m_Layer: 18
   m_Name: InteractionCheck
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 1792506894}
   - component: {fileID: 1792506896}
   - component: {fileID: 1792506895}
-  m_Layer: 2
+  m_Layer: 18
   m_Name: WallCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -422,7 +422,7 @@ GameObject:
   - component: {fileID: 1970870465}
   - component: {fileID: 1970870464}
   - component: {fileID: 1970870463}
-  m_Layer: 14
+  m_Layer: 18
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
