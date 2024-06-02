@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1111875136005887654}
   - component: {fileID: 1111875136005887655}
   - component: {fileID: 1111875136005887652}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: OuOfLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,6 +72,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 16384
   _action:
     m_PersistentCalls:
       m_Calls:

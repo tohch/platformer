@@ -17,9 +17,9 @@ GameObject:
   - component: {fileID: 7081097516324319788}
   - component: {fileID: 168530725906378729}
   - component: {fileID: 1757009386028014511}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: WoodSpike
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
