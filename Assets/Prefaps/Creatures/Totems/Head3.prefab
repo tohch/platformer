@@ -136,7 +136,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2996820708827128179}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.672, y: -0.241, z: 0}
+  m_LocalPosition: {x: -0.345, y: -0.302, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3662005566925384910}
@@ -420,7 +420,7 @@ MonoBehaviour:
   _meleeAttack: {fileID: 789335400509973770}
   _meleeCanAttack: {fileID: 7434619289115573842}
   _rangeCooldown:
-    _value: 3
+    _value: 4
   _rangeAttack: {fileID: 9144824665839239803}
 --- !u!1 &5440056789009247985
 GameObject:
@@ -517,7 +517,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -2.1102352, y: -0.16869694}
+  m_Offset: {x: -2.1102352, y: -0.18914503}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -528,7 +528,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.8763924, y: 0.2877239}
+  m_Size: {x: 4.8763924, y: 0.49902093}
   m_EdgeRadius: 0
 --- !u!114 &9144824667057352356
 MonoBehaviour:
