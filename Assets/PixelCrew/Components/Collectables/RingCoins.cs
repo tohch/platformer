@@ -37,21 +37,21 @@ namespace PixelCrew.Components.Collectables
 
         public void FixedUpdate()
         {
-            float count = 1f;
-
             if (_isCircle)
             {
                 foreach (Transform child in transform)
                 {
-                    var degreeAdd = 360 * Mathf.Deg2Rad / transform.childCount * count;
-                    var rigidbodyCoin = child.GetComponent<Rigidbody2D>();
-                    _angle += Time.deltaTime;
+                    RingCoin coin = child.GetComponent<RingCoin>();
+                    coin.Rotate(_speed, _radius);
+                    //var degreeAdd = 360 * Mathf.Deg2Rad / transform.childCount * count;
+                    //var rigidbodyCoin = child.GetComponent<Rigidbody2D>();
+                    //_angle += Time.deltaTime;
 
-                    var x = Mathf.Cos((_angle * _speed) + degreeAdd) * _radius;
-                    var y = Mathf.Sin((_angle * _speed) + degreeAdd) * _radius;
+                    //var x = Mathf.Cos((_angle * _speed) + degreeAdd) * _radius;
+                    //var y = Mathf.Sin((_angle * _speed) + degreeAdd) * _radius;
 
-                    rigidbodyCoin.MovePosition(new Vector3(x, y, transform.position.z) + transform.position);
-                    count++;
+                    //rigidbodyCoin.MovePosition(new Vector3(x, y, transform.position.z) + transform.position);
+                    //count++;
                 }
             }
         }
