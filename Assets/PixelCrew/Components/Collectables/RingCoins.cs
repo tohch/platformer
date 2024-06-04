@@ -50,7 +50,7 @@ namespace PixelCrew.Components.Collectables
                     var x = Mathf.Cos((_angle * _speed) + degreeAdd) * _radius;
                     var y = Mathf.Sin((_angle * _speed) + degreeAdd) * _radius;
 
-                    rigidbodyCoin.MovePosition(new Vector3(x , y , transform.position.z) + transform.position);
+                    rigidbodyCoin.MovePosition(new Vector3(x, y, transform.position.z) + transform.position);
                     count++;
                 }
             }
