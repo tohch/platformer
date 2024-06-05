@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace PixelCrew.Model
 {
@@ -25,6 +26,8 @@ namespace PixelCrew.Model
 
         public PlayerData Clone()
         {
+            //var json = JsonUtility.ToJson(this);
+            //return JsonUtility.FromJson<PlayerData>(json);
             return new PlayerData(Coins, Hp, IsArmed, AmountSwords);
         }
 
