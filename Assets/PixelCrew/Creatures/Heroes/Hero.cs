@@ -40,11 +40,11 @@ namespace PixelCrew.Creatures.Heroes
 
         private GameSession _session;
         private float _defaultGravityScale;
-        public GameSession Session
-        {
-            get { return _session; }
-            set { _session = value; }
-        }
+        //public GameSession Session
+        //{
+            //get { return _session; }
+            //set { _session = value; }
+        //}
 
         private HealthComponent healthComponent;
         private static readonly int ThrowKey = Animator.StringToHash("throw");
@@ -172,7 +172,7 @@ namespace PixelCrew.Creatures.Heroes
 
         public void AddInInventory(string id, int value)
         {
-
+            _session.Data.Inventory.Add(id, value);
         }
 
         public override void TakeDamage()
