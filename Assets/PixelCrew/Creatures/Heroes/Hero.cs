@@ -49,6 +49,10 @@ namespace PixelCrew.Creatures.Heroes
         private HealthComponent healthComponent;
         private static readonly int ThrowKey = Animator.StringToHash("throw");
         private static readonly int IsOnWall = Animator.StringToHash("is-on-wall");
+
+        private int CoinCount => _session.Data.Inventory.Count("Coin");
+        private int SwordCount => _session.Data.Inventory.Count("Sword");
+
         public void OnDoThrow()
         {
             _particles.Spawn("Throw");
@@ -166,18 +170,23 @@ namespace PixelCrew.Creatures.Heroes
             return base.CalculateJumpVelocity(yVelocity);
         }
 
+        public void AddInInventory(string id, int value)
+        {
+
+        }
+
         public override void TakeDamage()
         {
             base.TakeDamage();
-            if (_session.Data.Coins > 0)
+            if (CoinCount > 0)
             {
                 SpawnCoins();
             }
         }
         private void SpawnCoins()
         {
-            var numCoinsToDispose = Mathf.Min(_session.Data.Coins, 5);
-            _session.Data.Coins -= numCoinsToDispose;
+            var numCoinsToDispose = Mathf.Min(CoinCount, 5);
+            _session.Data.Inventory.Remove("Coin", numCoinsToDispose);
 
             var burst = _hitParticles.emission.GetBurst(0);
             burst.count = numCoinsToDispose;
@@ -193,7 +202,8 @@ namespace PixelCrew.Creatures.Heroes
         }
         public void SayCoins()
         {
-            Debug.Log(_session.Data.Coins);
+            //Debug.Log(_session.Data.Coins);
+            Debug.Log(CoinCount);
         }
 
         private void OnCollisionEnter2D(Collision2D other)
@@ -214,29 +224,30 @@ namespace PixelCrew.Creatures.Heroes
 
         public override void Attack()
         {
-            if (!_session.Data.IsArmed) return;
+            if (SwordCount <= 0) return;
 
             base.Attack();
         }
 
-        public void ArmHero()
-        {
-            _session.Data.IsArmed = true;
-            UpdateHeroWeapon();
-        }
+        //public void ArmHero()
+        //{
+        //    _session.Data.IsArmed = true;
+        //    UpdateHeroWeapon();
+        //}
 
         private void UpdateHeroWeapon()
         {
-            Animator.runtimeAnimatorController = _session.Data.IsArmed ? _armed : _disarmed;
+            Animator.runtimeAnimatorController = SwordCount > 0 ? _armed : _disarmed;
         }
 
         public void ModifyAmountSwords(int amountSwords)
         {
-            _session.Data.AmountSwords += amountSwords;
+            //_session.Data.AmountSwords += amountSwords;
+            _session.Data.Inventory.Add("Sword", amountSwords);
         }
         public bool IsAmountSwords()
         {
-            return _session.Data.AmountSwords > 1 ? true : false;
+            return SwordCount > 1 ? true : false;
         }
     }
 }

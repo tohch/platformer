@@ -20,7 +20,8 @@ namespace PixelCrew.Components.Collectables
         }
         public void ApplyCoin(int coinValue)
         {
-            _hero.Session.Data.Coins += coinValue;
+            _hero.Session.Data.Inventory.Add("Coin", coinValue);
+            //_hero.Session.Data.Coins += coinValue;
             _onSayCoins?.Invoke();
         }
     }

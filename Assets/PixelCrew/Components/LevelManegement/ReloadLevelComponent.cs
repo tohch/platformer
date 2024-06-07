@@ -17,8 +17,6 @@ namespace PixelCrew.Components.LevelManegement
         public void Reload()
         {
             var session = FindObjectOfType<GameSession>();
-            //DestroyImmediate(session);
-            //Destroy(session);
             session.Data = _playerData;
 
             var scene = SceneManager.GetActiveScene();
