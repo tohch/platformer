@@ -89,7 +89,7 @@ namespace PixelCrew.Creatures.Heroes
             if (IsAmountSwords())
             {
                 //ModifyAmountSwords(-1);
-                _session.Data.Inventory.Remove(this.gameObject, "Sword", 1);
+                _session.Data.Inventory.Remove("Sword", 1);
                 Animator.SetTrigger(ThrowKey);
             }
         }
@@ -116,11 +116,10 @@ namespace PixelCrew.Creatures.Heroes
         {
             _session.Data.Inventory.OnChanged -= OnInentoryChanged;
         }
-        private void OnInentoryChanged(GameObject sender, string id, int value)
+        private void OnInentoryChanged(string id, int value)
         {
-            var hero = sender.GetComponent<Hero>();
             if (id == "Sword")
-                hero?.UpdateHeroWeapon();
+                UpdateHeroWeapon();
         }
         public void OnHealthChanged(int currentHealth)
         {
@@ -185,7 +184,7 @@ namespace PixelCrew.Creatures.Heroes
 
         public void AddInInventory(string id, int value)
         {
-            _session.Data.Inventory.Add(this.gameObject, id, value);
+            _session.Data.Inventory.Add(id, value);
         }
 
         public override void TakeDamage()
@@ -199,7 +198,7 @@ namespace PixelCrew.Creatures.Heroes
         private void SpawnCoins()
         {
             var numCoinsToDispose = Mathf.Min(CoinCount, 5);
-            _session.Data.Inventory.Remove(this.gameObject,"Coin", numCoinsToDispose);
+            _session.Data.Inventory.Remove("Coin", numCoinsToDispose);
 
             var burst = _hitParticles.emission.GetBurst(0);
             burst.count = numCoinsToDispose;

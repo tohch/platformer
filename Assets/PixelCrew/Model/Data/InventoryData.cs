@@ -11,11 +11,11 @@ namespace PixelCrew.Model.Data
     {
         [SerializeField] private List<InventoryItemData> _inventory = new List<InventoryItemData>();
 
-        public delegate void OnInvenotryChanged(GameObject sender,string id, int value);
+        public delegate void OnInvenotryChanged(string id, int value);
 
         public OnInvenotryChanged OnChanged;
 
-        public void Add(GameObject sender, string id, int value)
+        public void Add(string id, int value)
         {
             if (value <= 0) return;
 
@@ -31,11 +31,11 @@ namespace PixelCrew.Model.Data
             }
             item.Value += value;
 
-            OnChanged?.Invoke(sender, id, Count(id));
+            OnChanged?.Invoke(id, Count(id));
 
         }
 
-        public void Remove(GameObject sender, string id, int value)
+        public void Remove(string id, int value)
         {
             var itemDef = DefsFacade.I.Items.Get(id);
             if (itemDef.IsVoid) return;
@@ -48,7 +48,7 @@ namespace PixelCrew.Model.Data
             if(item.Value <= 0)
                 _inventory.Remove(item);
 
-            OnChanged?.Invoke(sender, id, Count(id));
+            OnChanged?.Invoke(id, Count(id));
         }
 
         private InventoryItemData GetItem(string id)
