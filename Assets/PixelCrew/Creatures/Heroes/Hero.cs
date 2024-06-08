@@ -88,7 +88,8 @@ namespace PixelCrew.Creatures.Heroes
         {
             if (IsAmountSwords())
             {
-                ModifyAmountSwords(-1);
+                //ModifyAmountSwords(-1);
+                _session.Data.Inventory.Remove(this.gameObject, "Sword", 1);
                 Animator.SetTrigger(ThrowKey);
             }
         }
@@ -247,11 +248,11 @@ namespace PixelCrew.Creatures.Heroes
             Animator.runtimeAnimatorController = SwordCount > 0 ? _armed : _disarmed;
         }
 
-        public void ModifyAmountSwords(int amountSwords)
-        {
+        //public void ModifyAmountSwords(int amountSwords)
+        //{
             //_session.Data.AmountSwords += amountSwords;
-            _session.Data.Inventory.Add(this.gameObject,"Sword", amountSwords);
-        }
+            //_session.Data.Inventory.Add(this.gameObject,"Sword", amountSwords);
+        //}
         public bool IsAmountSwords()
         {
             return SwordCount > 1 ? true : false;
