@@ -18,6 +18,7 @@ namespace PixelCrew.Components.LevelManegement
         {
             var session = FindObjectOfType<GameSession>();
             session.Data = _playerData;
+            //session.LoadLastSave();
 
             var scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);

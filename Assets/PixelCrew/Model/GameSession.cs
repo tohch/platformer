@@ -11,6 +11,7 @@ namespace PixelCrew.Model
     public class GameSession : MonoBehaviour
     {
         [SerializeField] private PlayerData _data;
+        //private PlayerData _save;
         public PlayerData Data 
         {
             get => _data;
@@ -39,5 +40,14 @@ namespace PixelCrew.Model
             }
             return false;
         }
+
+        //public void Save()
+        //{
+        //    _save = _data.Clone();
+        //}
+        //public void LoadLastSave()
+        //{
+        //    _data = _save.Clone();
+        //}
     }
 }
