@@ -111,6 +111,11 @@ namespace PixelCrew.Creatures.Heroes
             health.SetHealth(_session.Data.Hp);
             UpdateHeroWeapon();
         }
+
+        private void OnDestroy()
+        {
+            _session.Data.Inventory.OnChanged -= OnInentoryChanged;
+        }
         private void OnInentoryChanged(GameObject sender, string id, int value)
         {
             var hero = sender.GetComponent<Hero>();
