@@ -104,10 +104,16 @@ namespace PixelCrew.Creatures.Heroes
         private void Start()
         {
             _session = FindObjectOfType<GameSession>();
-
             var health = GetComponent<HealthComponent>();
+            _session.Data.Inventory.OnChanged += OnInentoryChanged;
+
             health.SetHealth(_session.Data.Hp);
             UpdateHeroWeapon();
+        }
+        private void OnInentoryChanged(string id, int value)
+        {
+            if (id == "Sword")
+                UpdateHeroWeapon();
         }
         public void OnHealthChanged(int currentHealth)
         {
