@@ -1,5 +1,7 @@
 ﻿using PixelCrew.Model;
+using PixelCrew.Model.Data;
 using PixelCrew.Model.Definitions;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,8 +10,9 @@ namespace PixelCrew.Components.Interactions
 {
     public class RequireItemComponent : MonoBehaviour
     {
-        [InventoryId] [SerializeField] private string _id;
-        [SerializeField] private int _count;
+        [SerializeField] private InventoryItemData[] _required;
+        //[InventoryId] [SerializeField] private string _id;
+        //[SerializeField] private int _count;
         [SerializeField] private bool _removeAfterUse;
 
         [SerializeField] private UnityEvent _onSuccess;
@@ -17,11 +20,22 @@ namespace PixelCrew.Components.Interactions
         public void Check()
         {
             var session = FindObjectOfType<GameSession>();
-            var numItems = session.Data.Inventory.Count(_id);
-            if (numItems >= _count)
+            var areAllRequirementsMet = true;
+            foreach (var item in _required)
+            {
+                var numItems = session.Data.Inventory.Count(item.Id);
+                if (numItems < item.Value)
+                    areAllRequirementsMet = false;
+            }
+            if (areAllRequirementsMet)
             {
                 if (_removeAfterUse)
-                    session.Data.Inventory.Remove(_id, _count);
+                {
+                    foreach (var item in _required)
+                    {
+                        session.Data.Inventory.Remove(item.Id, item.Value);
+                    }
+                }
                 _onSuccess?.Invoke();
             }
             else
