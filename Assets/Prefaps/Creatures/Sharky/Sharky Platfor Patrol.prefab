@@ -102,7 +102,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 464229643, guid: ee788518ffff32c44a2b1dde6befe85e, type: 3}
       propertyPath: _missHeroCooldown
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 574688311, guid: ee788518ffff32c44a2b1dde6befe85e, type: 3}
       propertyPath: m_Layer

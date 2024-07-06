@@ -5468,6 +5468,8 @@ MonoBehaviour:
   _fallVelocityforDamage: 40
   _hitParticles: {fileID: 2075160677}
   _numberThrowRow: 3
+  _healPotion: {fileID: 1318579052769378833, guid: 3342ff1c7de331046a66b3be2116f5ca,
+    type: 3}
 --- !u!114 &8759803221388157405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5608,6 +5610,21 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 50a246bf-cda5-4571-809f-0bc69cbefb64
     m_ActionName: Hero/Throw[/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8759803221388157405}
+        m_MethodName: OnUsePotion
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f4ef360a-4a57-4102-b215-43c4a738697e
+    m_ActionName: Hero/UseHealPotion[/Keyboard/r]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero

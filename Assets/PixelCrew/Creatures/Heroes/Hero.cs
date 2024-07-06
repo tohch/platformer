@@ -22,7 +22,6 @@ namespace PixelCrew.Creatures.Heroes
         [SerializeField] private LayerMask _interactionLayer;
 
         [SerializeField] private float _slamDownVelocity;
-        //[SerializeField] private float _interactionRadius;
 
         [SerializeField] private Cooldown _throwCooldown;
         [SerializeField] private AnimatorController _armed;
@@ -35,16 +34,15 @@ namespace PixelCrew.Creatures.Heroes
 
         [SerializeField] private int _numberThrowRow;
 
+        [SerializeField] private ModifyHealthComponent _healPotion;
+
         private bool _allowDoubleJump;
+
+
         private bool _isOnWall;
 
         private GameSession _session;
         private float _defaultGravityScale;
-        //public GameSession Session
-        //{
-            //get { return _session; }
-            //set { _session = value; }
-        //}
 
         private HealthComponent healthComponent;
         private static readonly int ThrowKey = Animator.StringToHash("throw");
@@ -52,6 +50,7 @@ namespace PixelCrew.Creatures.Heroes
 
         private int CoinCount => _session.Data.Inventory.Count("Coin");
         private int SwordCount => _session.Data.Inventory.Count("Sword");
+        
 
         public void OnDoThrow()
         {
@@ -88,7 +87,6 @@ namespace PixelCrew.Creatures.Heroes
         {
             if (IsAmountSwords())
             {
-                //ModifyAmountSwords(-1);
                 _session.Data.Inventory.Remove("Sword", 1);
                 Animator.SetTrigger(ThrowKey);
             }
@@ -214,7 +212,6 @@ namespace PixelCrew.Creatures.Heroes
         }
         public void SayCoins()
         {
-            //Debug.Log(_session.Data.Coins);
             Debug.Log(CoinCount);
         }
 
@@ -241,25 +238,24 @@ namespace PixelCrew.Creatures.Heroes
             base.Attack();
         }
 
-        //public void ArmHero()
-        //{
-        //    _session.Data.IsArmed = true;
-        //    UpdateHeroWeapon();
-        //}
-
         private void UpdateHeroWeapon()
         {
             Animator.runtimeAnimatorController = SwordCount > 0 ? _armed : _disarmed;
         }
 
-        //public void ModifyAmountSwords(int amountSwords)
-        //{
-            //_session.Data.AmountSwords += amountSwords;
-            //_session.Data.Inventory.Add(this.gameObject,"Sword", amountSwords);
-        //}
         public bool IsAmountSwords()
         {
             return SwordCount > 1 ? true : false;
+        }
+        public void UseHealPotion()
+        {
+            int numRemoveHealPotion = 1;
+
+            if (_session.Data.Inventory.Count("HealPotion") > 0)
+            {
+                _healPotion.Apply(this.gameObject);
+                _session.Data.Inventory.Remove("HealPotion", numRemoveHealPotion);
+            }
         }
     }
 }
