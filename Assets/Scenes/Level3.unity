@@ -12282,7 +12282,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1874889749}
   - component: {fileID: 1874889748}
-  - component: {fileID: 1874889747}
   - component: {fileID: 1874889746}
   - component: {fileID: 1874889745}
   - component: {fileID: 1874889744}
@@ -12391,14 +12390,6 @@ MonoBehaviour:
   m_CropFrameX: 1
   m_CropFrameY: 1
   m_StretchFill: 1
---- !u!81 &1874889747
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1874889743}
-  m_Enabled: 1
 --- !u!20 &1874889748
 Camera:
   m_ObjectHideFlags: 0

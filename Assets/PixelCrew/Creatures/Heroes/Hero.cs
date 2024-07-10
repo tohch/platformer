@@ -54,6 +54,7 @@ namespace PixelCrew.Creatures.Heroes
 
         public void OnDoThrow()
         {
+            Sounds.Play("Range");
             _particles.Spawn("Throw");
         }
         public void Throw(double duration)
@@ -172,8 +173,8 @@ namespace PixelCrew.Creatures.Heroes
 
             if (!IsGrounded && _allowDoubleJump && !_isOnWall)
             {
-                _particles.Spawn("Jump");
                 _allowDoubleJump = false;
+                DoJumpVfx();
                 return _jumpSpeed;
             }
 
