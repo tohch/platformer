@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PixelCrew.Components.Audio;
+using PixelCrew.Creatures;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +18,14 @@ namespace PixelCrew.Components.Health
         [SerializeField] private UnityEvent _onDie;
         [SerializeField] private HealthCangeEven _onChange;
 
+        private PlaySoundsComponent _sounds;
+
         public int Health => _health;
+
+        public void Awake()
+        {
+            _sounds = GetComponent<PlaySoundsComponent>();
+        }
 
         public void ModifyHealth(int healthDelta)
         {
@@ -31,7 +40,7 @@ namespace PixelCrew.Components.Health
                 _onHeal?.Invoke();
 
             if (_health <= 0)
-             {
+            {
                 _onDie?.Invoke();
             }
         }

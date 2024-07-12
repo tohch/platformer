@@ -1,4 +1,5 @@
-﻿using PixelCrew.Components.ColliderBased;
+﻿using PixelCrew.Components.Audio;
+using PixelCrew.Components.ColliderBased;
 using PixelCrew.Components.GoBased;
 using PixelCrew.Utils;
 using System;
@@ -26,11 +27,14 @@ namespace PixelCrew.Creatures.Mobs
         private static readonly int Melee = Animator.StringToHash("melee");
         private static readonly int Range = Animator.StringToHash("range");
 
+        private PlaySoundsComponent _sounds;
+
         private Animator _animator;
 
         private void Awake()
         {
-            _animator = GetComponent<Animator>();   
+            _animator = GetComponent<Animator>();
+            _sounds = GetComponent<PlaySoundsComponent>();
         }
         private void Update()
         {
@@ -65,7 +69,7 @@ namespace PixelCrew.Creatures.Mobs
         public void OnRangeAttack()
         {
             _rangeAttack.Spawn();
-
+            _sounds.Play("Range");
         }
     }
 }

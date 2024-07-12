@@ -5513,7 +5513,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 69ddcfb6c478ba14aa94889de0edae01, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.647
+  m_Volume: 0.513
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -5972,6 +5972,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 735264142}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Die
+          m_BoolArgument: 0
+        m_CallState: 2
   _onChange:
     m_PersistentCalls:
       m_Calls:
@@ -6047,3 +6058,5 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: ad6a4da2951e8094785715fead0db397, type: 3}
   - _id: Hurt
     _clip: {fileID: 8300000, guid: 27c999bd079fcf04bafef9a0d1fce725, type: 3}
+  - _id: Die
+    _clip: {fileID: 8300000, guid: f8b08f168f9013d4dbab6d677cd38a96, type: 3}
