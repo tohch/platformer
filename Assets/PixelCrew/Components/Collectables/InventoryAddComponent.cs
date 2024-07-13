@@ -15,6 +15,7 @@ namespace PixelCrew.Components.Collectables
             var hero = go.GetComponent<Hero>();
             if (hero != null)
                 hero.AddInInventory(_id, _count);
+
         }
     }
 }
