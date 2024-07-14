@@ -11,10 +11,11 @@ using UnityEditor.UIElements;
 using UnityEngine;
 using PixelCrew.Components.ColliderBased;
 using PixelCrew.Components.Health;
+using PixelCrew.Model.Data;
 
 namespace PixelCrew.Creatures.Heroes
 {
-    public class Hero : Creature
+    public class Hero : Creature, ICanAddInInventory
     {
         [SerializeField] private CheckCircleOverlap _interationCheck;
         [SerializeField] private LayerCheck _wallCheck;
