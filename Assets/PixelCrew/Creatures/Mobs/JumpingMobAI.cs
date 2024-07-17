@@ -20,6 +20,8 @@ namespace PixelCrew.Creatures.Mobs
         [SerializeField] private float _alarmDelay = 0.5f;
         [SerializeField] private float _attackCooldown = 1f;
         [SerializeField] private float _missHeroCooldown = 0.5f;
+        [SerializeField] private float _hightJumpAttack;
+        [SerializeField] private LayerCheck _platformCheck;
 
         private Coroutine _current;
         private GameObject _target;
@@ -59,7 +61,7 @@ namespace PixelCrew.Creatures.Mobs
                 {
                     StartState(Attack());
                 }
-                else
+                else if (_platformCheck.IsTouchingLayer)
                 {
                     SetDirectionToTarget();
                 }
@@ -107,7 +109,7 @@ namespace PixelCrew.Creatures.Mobs
         private Vector2 GetDirectionToTarget()
         {
             var direction = _target.transform.position - transform.position;
-            direction.y = 0;
+            direction.y = _target.transform.position.y - transform.position.y + _hightJumpAttack;
             return direction.normalized;
         }
 
