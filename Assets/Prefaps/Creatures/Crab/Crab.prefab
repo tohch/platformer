@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65238893}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.404, z: 0}
+  m_LocalPosition: {x: 0, y: -0.091, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6571048884632992707}
@@ -531,7 +531,7 @@ MonoBehaviour:
   _action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2495025783060614922}
+      - m_Target: {fileID: 5422003560335985746}
         m_MethodName: OnHeroInVision
         m_Mode: 0
         m_Arguments:
@@ -559,7 +559,7 @@ GameObject:
   - component: {fileID: 2495025784753124194}
   - component: {fileID: 2495025784753124197}
   - component: {fileID: 7025608842627988536}
-  - component: {fileID: 2495025783060614922}
+  - component: {fileID: 5422003560335985746}
   - component: {fileID: 8639177673621433984}
   - component: {fileID: 5093830104370402396}
   m_Layer: 15
@@ -742,7 +742,7 @@ MonoBehaviour:
   _onDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2495025783060614922}
+      - m_Target: {fileID: 5422003560335985746}
         m_MethodName: OnDie
         m_Mode: 1
         m_Arguments:
@@ -829,7 +829,7 @@ MonoBehaviour:
   _groundCheck: {fileID: 2495025784894669502}
   _attackRange: {fileID: 2495025783991648851}
   _particles: {fileID: 2495025784753124197}
---- !u!114 &2495025783060614922
+--- !u!114 &5422003560335985746
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -838,7 +838,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6571048884632992705}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b00aef74e831ea4dbce1ae1f01f9cb1, type: 3}
+  m_Script: {fileID: 11500000, guid: 60b067a29d06ac34f980070a28fe052b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _vision: {fileID: 6797604202943310355}
