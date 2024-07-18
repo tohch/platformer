@@ -108,7 +108,8 @@ namespace PixelCrew.Creatures.Mobs
         }
         private Vector2 GetDirectionToTarget()
         {
-            var direction = _target.transform.position - transform.position;
+            var direction = new Vector3();
+            direction.x = _target.transform.position.x - transform.position.x;
             direction.y = _target.transform.position.y - transform.position.y + _hightJumpAttack;
             return direction.normalized;
         }
