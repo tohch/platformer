@@ -143,9 +143,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.28782272, y: -0.39798117}
+  m_Offset: {x: 0.170475, y: -0.316741}
   serializedVersion: 2
-  m_Radius: 0.19337273
+  m_Radius: 0.3378029
 --- !u!114 &3405982073968746547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,8 +198,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _required:
-  - Id: Coin
-    Value: 2
   - Id: Key
     Value: 1
   _removeAfterUse: 1

@@ -109,8 +109,12 @@ namespace PixelCrew.Creatures.Mobs
         private Vector2 GetDirectionToTarget()
         {
             var direction = new Vector3();
+            var distanceForJumping = 2f;
+
             direction.x = _target.transform.position.x - transform.position.x;
-            direction.y = _target.transform.position.y - transform.position.y + _hightJumpAttack;
+            if (Math.Abs(direction.x) >= distanceForJumping)
+                direction.y = _target.transform.position.y - transform.position.y + _hightJumpAttack;
+
             return direction.normalized;
         }
 
