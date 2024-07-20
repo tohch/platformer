@@ -1,13 +1,15 @@
 ﻿using PixelCrew.Creatures;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using PixelCrew.Creatures.Heroes; 
+using PixelCrew.Creatures.Heroes;
+using System;
 
 namespace PixelCrew.Creatures
 {
     public class HeroInputReader : MonoBehaviour
     {
         [SerializeField] private Hero _hero;
+
         public void OnMovement(InputAction.CallbackContext context)
         {
             var direction = context.ReadValue<Vector2>();
@@ -29,6 +31,7 @@ namespace PixelCrew.Creatures
                 _hero.Attack();
             }
         }
+
 
         public void OnThrow(InputAction.CallbackContext context)
         {
