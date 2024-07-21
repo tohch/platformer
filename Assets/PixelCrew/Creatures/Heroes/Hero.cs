@@ -99,7 +99,7 @@ namespace PixelCrew.Creatures.Heroes
         {
             base.Awake();
             healthComponent = GetComponent<HealthComponent>();
-            _defaultGravityScale = _rigidbody.gravityScale;//Возможно лишний
+            _defaultGravityScale = _rigidbody.gravityScale;
         }
 
         private void Start()
