@@ -22,6 +22,7 @@ namespace PixelCrew.Components.Interactions
         private void OnValidate()
         {
             _gameObjects = _action.ToGameObjects();
+            //_gameObjects = UnityEventExtensions.TryExtractRelations(this);
         }
 
         public void OnDrawGizmos()
