@@ -23,7 +23,7 @@ namespace PixelCrew.Creatures.Mobs
         [SerializeField] private float _hightJumpAttack;
         [SerializeField] private LayerCheck _platformCheck;
 
-        private Coroutine _current;
+        private IEnumerator _current;
         private GameObject _target;
 
         private static readonly int IsDeadKey = Animator.StringToHash("is-dead");
@@ -128,7 +128,8 @@ namespace PixelCrew.Creatures.Mobs
 
             if (_current != null)
                 StopCoroutine(_current);
-            _current = StartCoroutine(coroutine);
+            _current = coroutine;
+            StartCoroutine(coroutine);
         }
 
         public void OnDie()
