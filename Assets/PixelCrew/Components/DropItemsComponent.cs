@@ -11,11 +11,7 @@ namespace PixelCrew.Components
         [SerializeField] private int _totalNumberDropItems;
         [SerializeField] private Item[] _typeItems;
         private Transform _positionNextItem;
-        private Transform _trarget;
-        private void Awake()
-        {
-            _trarget = gameObject.transform.transform;
-        }
+
         public void DropItems()
         {
             for (int i = 0; i < _totalNumberDropItems; i++)
@@ -23,7 +19,7 @@ namespace PixelCrew.Components
                 int indexItem = GetRandomIndex(_typeItems);
                 _positionNextItem = gameObject.transform.transform;
                 _positionNextItem.position = new Vector3(_positionNextItem.position.x + 0.2f, _positionNextItem.position.y, _positionNextItem.position.z);
-                var instance = Instantiate(_typeItems[indexItem].Prefab, _positionNextItem.position, Quaternion.identity);
+                _ = Instantiate(_typeItems[indexItem].Prefab, _positionNextItem.position, Quaternion.identity);
             }
         }
         private int GetRandomIndex(Item[] typeItems)

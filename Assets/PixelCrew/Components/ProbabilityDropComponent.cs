@@ -45,7 +45,6 @@ namespace PixelCrew.Components
                     }
                 }
             }
-
             _onDropCalculated?.Invoke(itemsToDrop);
         }
     }

@@ -247,7 +247,7 @@ namespace PixelCrew.Creatures.Heroes
 
         public bool IsAmountSwords()
         {
-            return SwordCount > 1 ? true : false;
+            return SwordCount > 1;
         }
         public void UseHealPotion()
         {
