@@ -18,7 +18,7 @@ namespace PixelCrew.Creatures.Heroes
     public class Hero : Creature, ICanAddInInventory
     {
         [SerializeField] private CheckCircleOverlap _interationCheck;
-        [SerializeField] private LayerCheck _wallCheck;
+        [SerializeField] private ColliderCheck _wallCheck;
 
         [SerializeField] private LayerMask _interactionLayer;
 

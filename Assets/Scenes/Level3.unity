@@ -13083,6 +13083,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1646127815, guid: b58a8701635ffd04cb5892f7fc801713, type: 3}
+      propertyPath: m_Name
+      value: PatrolGroundChick
+      objectReference: {fileID: 0}
     - target: {fileID: 5025493802188796605, guid: b58a8701635ffd04cb5892f7fc801713,
         type: 3}
       propertyPath: m_Name
@@ -13143,7 +13147,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1646127817, guid: b58a8701635ffd04cb5892f7fc801713, type: 3}
+    - {fileID: 1646127818, guid: b58a8701635ffd04cb5892f7fc801713, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b58a8701635ffd04cb5892f7fc801713, type: 3}
 --- !u!1001 &6890277531761836862
 PrefabInstance:

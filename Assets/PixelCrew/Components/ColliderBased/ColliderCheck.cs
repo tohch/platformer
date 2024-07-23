@@ -1,21 +1,29 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace PixelCrew.Components.ColliderBased
 {
     public class ColliderCheck : LayerCheck
     {
+        private Collider2D _collider;
 
-        // Use this for initialization
-        void Start()
+
+        private void Awake()
         {
-
+            _collider = GetComponent<Collider2D>();
         }
 
-        // Update is called once per frame
-        void Update()
+        private void OnTriggerStay2D(Collider2D collision)
         {
-
+            _isTouchingLayer = _collider.IsTouchingLayers(_layer);
+        }
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            _isTouchingLayer = _collider.IsTouchingLayers(_layer);
         }
     }
 }
