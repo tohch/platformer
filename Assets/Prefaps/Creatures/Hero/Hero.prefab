@@ -357,7 +357,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1792506894}
   - component: {fileID: 1792506896}
-  - component: {fileID: 1792506895}
+  - component: {fileID: 1475826312968374053}
   m_Layer: 18
   m_Name: WallCheck
   m_TagString: Untagged
@@ -395,7 +395,7 @@ CircleCollider2D:
   m_Offset: {x: 0.0017160773, y: 0}
   serializedVersion: 2
   m_Radius: 0.37171608
---- !u!114 &1792506895
+--- !u!114 &1475826312968374053
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -404,7 +404,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1792506893}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 971b4b1f80131214b874db8266563fa5, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bef244aa14dac94ab457e7a9eecedb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _layer:
@@ -558,7 +558,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1970870465}
   - component: {fileID: 1970870464}
-  - component: {fileID: 1970870463}
+  - component: {fileID: 8096021060309919401}
   m_Layer: 18
   m_Name: GroundCheck
   m_TagString: Untagged
@@ -596,7 +596,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.3
---- !u!114 &1970870463
+--- !u!114 &8096021060309919401
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -605,7 +605,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1970870462}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 971b4b1f80131214b874db8266563fa5, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bef244aa14dac94ab457e7a9eecedb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _layer:
@@ -5720,11 +5720,11 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 1024
-  _groundCheck: {fileID: 1970870463}
+  _groundCheck: {fileID: 8096021060309919401}
   _attackRange: {fileID: 590092370}
   _particles: {fileID: 2127112548}
   _interationCheck: {fileID: 844320121}
-  _wallCheck: {fileID: 1792506895}
+  _wallCheck: {fileID: 1475826312968374053}
   _interactionLayer:
     serializedVersion: 2
     m_Bits: 2048

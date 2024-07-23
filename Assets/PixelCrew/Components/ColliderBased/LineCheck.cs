@@ -9,7 +9,7 @@ namespace PixelCrew.Components.ColliderBased
         private readonly RaycastHit2D[] _result = new RaycastHit2D[1];
         private void Update()
         {
-            _isTouchingLayer = Physics2D.LinecastNonAlloc(transform.position, _target.position, _result) > 0;
+            _isTouchingLayer = Physics2D.LinecastNonAlloc(transform.position, _target.position, _result, _layer) > 0;
         }
 #if UNITY_EDITOR
         private void OnDrawGizmosSelected()

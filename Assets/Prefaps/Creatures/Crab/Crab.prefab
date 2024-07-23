@@ -54,8 +54,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1197975194}
-  - component: {fileID: 1197975196}
   - component: {fileID: 1197975195}
+  - component: {fileID: 193219523092896795}
   m_Layer: 15
   m_Name: PlatforChecking
   m_TagString: Untagged
@@ -77,22 +77,6 @@ Transform:
   m_Father: {fileID: 6571048884632992707}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1197975196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1197975193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 971b4b1f80131214b874db8266563fa5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _layer:
-    serializedVersion: 2
-    m_Bits: 1024
-  _isTouchingLayer: 0
 --- !u!58 &1197975195
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -109,6 +93,22 @@ CircleCollider2D:
   m_Offset: {x: -0.22206116, y: -0.10797453}
   serializedVersion: 2
   m_Radius: 0.16996431
+--- !u!114 &193219523092896795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197975193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bef244aa14dac94ab457e7a9eecedb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _layer:
+    serializedVersion: 2
+    m_Bits: 1024
+  _isTouchingLayer: 0
 --- !u!1 &2495025783991648848
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 2495025783991648851}
   - component: {fileID: 2495025784430496243}
   - component: {fileID: 2495025783060614924}
-  - component: {fileID: 2495025783060614925}
+  - component: {fileID: 8698038408245554697}
   m_Layer: 15
   m_Name: AttackRange
   m_TagString: Untagged
@@ -204,7 +204,7 @@ CircleCollider2D:
   m_Offset: {x: -0.23553085, y: 0}
   serializedVersion: 2
   m_Radius: 0.7167511
---- !u!114 &2495025783060614925
+--- !u!114 &8698038408245554697
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2495025783991648848}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 971b4b1f80131214b874db8266563fa5, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bef244aa14dac94ab457e7a9eecedb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _layer:
@@ -447,7 +447,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2495025784894669504}
   - component: {fileID: 2495025784894669505}
-  - component: {fileID: 2495025784894669502}
+  - component: {fileID: 7510031816579493019}
   m_Layer: 15
   m_Name: GroundCheck
   m_TagString: Untagged
@@ -485,7 +485,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.002516508}
   serializedVersion: 2
   m_Radius: 0.2974835
---- !u!114 &2495025784894669502
+--- !u!114 &7510031816579493019
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -494,7 +494,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2495025784894669503}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 971b4b1f80131214b874db8266563fa5, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bef244aa14dac94ab457e7a9eecedb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _layer:
@@ -511,8 +511,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8677609221274429147}
   - component: {fileID: 8047062415973339509}
-  - component: {fileID: 6797604202943310355}
   - component: {fileID: 8352695158914913330}
+  - component: {fileID: 3587172350838226537}
   m_Layer: 15
   m_Name: Vision
   m_TagString: Untagged
@@ -560,22 +560,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.595669, y: 6.0855794}
   m_EdgeRadius: 0
---- !u!114 &6797604202943310355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3748018807338600628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 971b4b1f80131214b874db8266563fa5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _layer:
-    serializedVersion: 2
-    m_Bits: 16384
-  _isTouchingLayer: 0
 --- !u!114 &8352695158914913330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -606,6 +590,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3587172350838226537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3748018807338600628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bef244aa14dac94ab457e7a9eecedb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _layer:
+    serializedVersion: 2
+    m_Bits: 16384
+  _isTouchingLayer: 0
 --- !u!1 &6571048884632992705
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,7 +891,7 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 1024
-  _groundCheck: {fileID: 2495025784894669502}
+  _groundCheck: {fileID: 7510031816579493019}
   _attackRange: {fileID: 2495025783991648851}
   _particles: {fileID: 2495025784753124197}
 --- !u!114 &5422003560335985746
@@ -906,13 +906,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b067a29d06ac34f980070a28fe052b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vision: {fileID: 6797604202943310355}
-  _canAttack: {fileID: 2495025783060614925}
+  _vision: {fileID: 3587172350838226537}
+  _canAttack: {fileID: 8698038408245554697}
   _alarmDelay: 0.5
   _attackCooldown: 1
   _missHeroCooldown: 0.5
   _hightJumpAttack: 1.2
-  _platformCheck: {fileID: 1197975196}
+  _platformCheck: {fileID: 193219523092896795}
 --- !u!114 &8639177673621433984
 MonoBehaviour:
   m_ObjectHideFlags: 0
