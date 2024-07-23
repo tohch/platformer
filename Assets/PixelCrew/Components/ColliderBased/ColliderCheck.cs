@@ -11,7 +11,6 @@ namespace PixelCrew.Components.ColliderBased
     {
         private Collider2D _collider;
 
-
         private void Awake()
         {
             _collider = GetComponent<Collider2D>();

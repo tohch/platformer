@@ -13,7 +13,7 @@ namespace PixelCrew.Creatures.Mobs.Patrolling
 {
     public class PlatformPatrol : Patrol
     {
-        [SerializeField] private ColliderCheck platformCheck;
+        [SerializeField] private LayerCheck platformCheck;
         [SerializeField] private int _direction;
         [SerializeField] private Creature _creature;
 
