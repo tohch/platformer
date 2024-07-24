@@ -24,7 +24,6 @@ namespace PixelCrew.Creatures.Mobs.Patrolling
             {
                 if (!_platformCheck.IsTouchingLayer || _obstacleCheck.IsTouchingLayer)
                 {
-                    //_creature.SetDirection(new Vector2(0,0));
                     _direction = -_direction;
                 }
                 _creature.SetDirection(new Vector2(_direction, 0));
