@@ -33,16 +33,14 @@ namespace PixelCrew.Creatures.Heroes
         [SerializeField] private double _pressTimeForSuperThrow;
         [SerializeField] private int _numberThrowRow;
         [SerializeField] private float _superThrowDelay;
+        [Space]
 
-        [Space] [Header("Particles")] 
-        [SerializeField] private ParticleSystem _hitParticles;
-
+        [SerializeField] private ProbabilityDropComponent _hitDrop;
+        [SerializeField] private int _maxNumCoinsToDispose;
 
         [SerializeField] private ModifyHealthComponent _healPotion;
 
         private bool _allowDoubleJump;
-
-
         private bool _isOnWall;
 
         private GameSession _session;
@@ -200,15 +198,11 @@ namespace PixelCrew.Creatures.Heroes
         }
         private void SpawnCoins()
         {
-            var numCoinsToDispose = Mathf.Min(CoinCount, 5);
+            var numCoinsToDispose = Mathf.Min(CoinCount, _maxNumCoinsToDispose);
             _session.Data.Inventory.Remove("Coin", numCoinsToDispose);
 
-            var burst = _hitParticles.emission.GetBurst(0);
-            burst.count = numCoinsToDispose;
-            _hitParticles.emission.SetBurst(0, burst);
-
-            _hitParticles.gameObject.SetActive(true);
-            _hitParticles.Play();
+            _hitDrop.SetCount(numCoinsToDispose);
+            _hitDrop.CalculateDrop();
         }
 
         public void Interact()
