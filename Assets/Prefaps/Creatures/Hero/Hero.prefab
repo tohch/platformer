@@ -5734,8 +5734,10 @@ MonoBehaviour:
   _armed: {fileID: 9100000, guid: 0b663d7555527e74f9be596308bb0196, type: 2}
   _disarmed: {fileID: 9100000, guid: ab68c4cdade1bfc4faf33163e4bccd12, type: 2}
   _fallVelocityforDamage: 40
-  _hitParticles: {fileID: 2075160677}
+  _pressTimeForSuperThrow: 1
   _numberThrowRow: 3
+  _superThrowDelay: 0.1
+  _hitParticles: {fileID: 2075160677}
   _healPotion: {fileID: 1318579052769378833, guid: 3342ff1c7de331046a66b3be2116f5ca,
     type: 3}
 --- !u!114 &8759803221388157405

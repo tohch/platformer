@@ -27,13 +27,16 @@ namespace PixelCrew.Creatures.Heroes
         [SerializeField] private Cooldown _throwCooldown;
         [SerializeField] private AnimatorController _armed;
         [SerializeField] private AnimatorController _disarmed;
-
         [SerializeField] private float _fallVelocityforDamage;
+
+        [Header("Super throw")]
+        [SerializeField] private double _pressTimeForSuperThrow;
+        [SerializeField] private int _numberThrowRow;
+        [SerializeField] private float _superThrowDelay;
 
         [Space] [Header("Particles")] 
         [SerializeField] private ParticleSystem _hitParticles;
 
-        [SerializeField] private int _numberThrowRow;
 
         [SerializeField] private ModifyHealthComponent _healPotion;
 
@@ -60,7 +63,7 @@ namespace PixelCrew.Creatures.Heroes
         }
         public void Throw(double duration)
         {
-            if (duration >= 1d)
+            if (duration >= _pressTimeForSuperThrow)
             {
                 StartCoroutine(ThrowRow());
             }
@@ -82,7 +85,7 @@ namespace PixelCrew.Creatures.Heroes
             for (int i = 0; i < _numberThrowRow; i++)
             {
                 OnThrow();
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(_superThrowDelay);
             }
         }
         private void OnThrow()
