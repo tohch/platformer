@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 2961963976142141115}
   - component: {fileID: 2961963976142141112}
   - component: {fileID: 2961963976142141113}
-  - component: {fileID: 2961963976142141094}
+  - component: {fileID: 242691953298760926}
   m_Layer: 15
   m_Name: AttackRange
   m_TagString: Untagged
@@ -222,7 +222,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.4
---- !u!114 &2961963976142141094
+--- !u!114 &242691953298760926
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -231,7 +231,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2961963976142141092}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 971b4b1f80131214b874db8266563fa5, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bef244aa14dac94ab457e7a9eecedb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _layer:
@@ -248,8 +248,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2961963976515852232}
   - component: {fileID: 2961963976515852237}
-  - component: {fileID: 2961963976515852234}
   - component: {fileID: 2961963976515852235}
+  - component: {fileID: 365850200341700986}
   m_Layer: 15
   m_Name: Vision
   m_TagString: Untagged
@@ -297,22 +297,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.84242, y: 2}
   m_EdgeRadius: 0
---- !u!114 &2961963976515852234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2961963976515852233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 971b4b1f80131214b874db8266563fa5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _layer:
-    serializedVersion: 2
-    m_Bits: 16384
-  _isTouchingLayer: 0
 --- !u!114 &2961963976515852235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,6 +327,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &365850200341700986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2961963976515852233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bef244aa14dac94ab457e7a9eecedb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _layer:
+    serializedVersion: 2
+    m_Bits: 16384
+  _isTouchingLayer: 0
 --- !u!1 &2961963976943289718
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,11 +499,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5330ff394bb6839438258059593b5022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vision: {fileID: 2961963976515852234}
+  _vision: {fileID: 365850200341700986}
   _meleeCooldown:
     _value: 2
   _meleeAttack: {fileID: 2961963976142141115}
-  _meleeCanAttack: {fileID: 2961963976142141094}
+  _meleeCanAttack: {fileID: 242691953298760926}
   _rangeCooldown:
     _value: 2
   _rangeAttack: {fileID: 2961963977352962824}

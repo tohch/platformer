@@ -284,9 +284,9 @@ GameObject:
   m_Component:
   - component: {fileID: 997476248990754667}
   - component: {fileID: 465087904680731188}
-  m_Layer: 15
+  m_Layer: 12
   m_Name: SeashellDead
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 590092370}
   - component: {fileID: 1225053170}
   - component: {fileID: 464229645}
-  - component: {fileID: 464229644}
+  - component: {fileID: 7256633444672474550}
   m_Layer: 15
   m_Name: AttackRange
   m_TagString: Untagged
@@ -140,7 +140,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.4
---- !u!114 &464229644
+--- !u!114 &7256633444672474550
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 590092369}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 971b4b1f80131214b874db8266563fa5, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bef244aa14dac94ab457e7a9eecedb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _layer:
@@ -258,7 +258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1970870465}
   - component: {fileID: 1970870464}
-  - component: {fileID: 1970870463}
+  - component: {fileID: 7009475271579535240}
   m_Layer: 15
   m_Name: GroundCheck
   m_TagString: Untagged
@@ -296,7 +296,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.002516508}
   serializedVersion: 2
   m_Radius: 0.2974835
---- !u!114 &1970870463
+--- !u!114 &7009475271579535240
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1970870462}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 971b4b1f80131214b874db8266563fa5, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bef244aa14dac94ab457e7a9eecedb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _layer:
@@ -449,8 +449,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6542906893052427482}
   - component: {fileID: 5552080836604693364}
-  - component: {fileID: 9004364417332949010}
   - component: {fileID: 5857678180198960691}
+  - component: {fileID: 8153118745607167266}
   m_Layer: 15
   m_Name: Vision
   m_TagString: Untagged
@@ -498,22 +498,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4, y: 2}
   m_EdgeRadius: 0
---- !u!114 &9004364417332949010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1631358064995717813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 971b4b1f80131214b874db8266563fa5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _layer:
-    serializedVersion: 2
-    m_Bits: 16384
-  _isTouchingLayer: 0
 --- !u!114 &5857678180198960691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -544,6 +528,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8153118745607167266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631358064995717813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bef244aa14dac94ab457e7a9eecedb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _layer:
+    serializedVersion: 2
+    m_Bits: 16384
+  _isTouchingLayer: 0
 --- !u!1 &5264355595958028754
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,7 +669,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8759803221388157376}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: 0.48, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1310496346}
@@ -938,7 +938,7 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 1024
-  _groundCheck: {fileID: 1970870463}
+  _groundCheck: {fileID: 7009475271579535240}
   _attackRange: {fileID: 590092370}
   _particles: {fileID: 2127112548}
 --- !u!114 &464229643
@@ -953,8 +953,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b00aef74e831ea4dbce1ae1f01f9cb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vision: {fileID: 9004364417332949010}
-  _canAttack: {fileID: 464229644}
+  _vision: {fileID: 8153118745607167266}
+  _canAttack: {fileID: 7256633444672474550}
   _alarmDelay: 0.5
   _attackCooldown: 1
   _missHeroCooldown: 0.5
