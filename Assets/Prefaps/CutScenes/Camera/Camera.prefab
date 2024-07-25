@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1669084236100691836}
   - component: {fileID: 1669084236100691837}
   - component: {fileID: 1669084236100691838}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: ShowTargetCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 1669084236229051129}
   - component: {fileID: 1669084236229051130}
   - component: {fileID: 1669084236229051131}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: MainCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1669084236229051108}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -21.930397, y: 0.6610899, z: 10.640625}
+  m_LocalPosition: {x: -21.930397, y: 0.6610899, z: 17.474854}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1669084236833423820}
@@ -285,7 +285,7 @@ GameObject:
   - component: {fileID: 1669084236611895360}
   - component: {fileID: 1669084236611895361}
   - component: {fileID: 1669084236611895362}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: FollowCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -380,7 +380,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1669084236833423820}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 1669084237055889088}
   - component: {fileID: 1669084237055889089}
   - component: {fileID: 1669084237055889095}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: CM StateDrivenCamera1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -532,7 +532,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1669084237463128385}
   - component: {fileID: 1669084237463128386}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: ConfinerCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -596,7 +596,7 @@ GameObject:
   - component: {fileID: 1669084238043260215}
   - component: {fileID: 1669084238043260213}
   - component: {fileID: 1669084238043260214}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -667,7 +667,7 @@ GameObject:
   - component: {fileID: 1669084238043900069}
   - component: {fileID: 1669084238043900091}
   - component: {fileID: 1669084238043900068}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
