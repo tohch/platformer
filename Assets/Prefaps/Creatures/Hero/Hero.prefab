@@ -71,7 +71,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 590092369}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.66, y: 0, z: 0}
+  m_LocalPosition: {x: 0.718, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8759803221388157378}
@@ -92,7 +92,7 @@ MonoBehaviour:
   _radius: 0.3
   _mask:
     serializedVersion: 2
-    m_Bits: 48951
+    m_Bits: 573239
   _tags:
   - Enemy
   _onOverlap:

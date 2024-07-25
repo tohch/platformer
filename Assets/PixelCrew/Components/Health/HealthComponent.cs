@@ -15,7 +15,7 @@ namespace PixelCrew.Components.Health
         [SerializeField] private int _health;
         [SerializeField] private UnityEvent _onDamage;
         [SerializeField] private UnityEvent _onHeal;
-        [SerializeField] private UnityEvent _onDie;
+        public UnityEvent _onDie;
         [SerializeField] private HealthCangeEven _onChange;
 
         private PlaySoundsComponent _sounds;
@@ -58,6 +58,11 @@ namespace PixelCrew.Components.Health
         internal void SetHealth(int health)
         {
             _health = health;
+        }
+
+        private void OnDestroy()
+        {
+            _onDie.RemoveAllListeners();
         }
     }
 }

@@ -63,6 +63,5 @@ namespace PixelCrew.Components
     [Serializable]
     class DropeEvent : UnityEvent<GameObject[]>
     {
-
     }
 }
