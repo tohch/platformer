@@ -46,7 +46,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   _isTouchingLayer: 0
---- !u!114 &7328404974029585464
+--- !u!114 &8910676516676673448
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,12 +55,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5025493802188796605}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8ae22e2f51c8bb459c543d1407afb52, type: 3}
+  m_Script: {fileID: 11500000, guid: ec6d2329f4c329748982985cfdb1cca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _platformCheck: {fileID: 7531538699985126598}
   _obstacleCheck: {fileID: 6517297825822542256}
-  _direction: 1
+  _direction: 0
   _creature: {fileID: 9219105781642327364}
 --- !u!114 &4843959428833399713
 MonoBehaviour:
