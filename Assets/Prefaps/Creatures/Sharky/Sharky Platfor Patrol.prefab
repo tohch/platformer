@@ -60,7 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _platformCheck: {fileID: 7531538699985126598}
   _obstacleCheck: {fileID: 6517297825822542256}
-  _direction: 0
+  _direction: 1
   _creature: {fileID: 9219105781642327364}
 --- !u!114 &4843959428833399713
 MonoBehaviour:
