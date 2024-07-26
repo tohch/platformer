@@ -249,7 +249,6 @@ namespace PixelCrew.Creatures.Heroes
         public void UseHealPotion()
         {
             int numRemoveHealPotion = 1;
-
             if (_session.Data.Inventory.Count("HealPotion") > 0)
             {
                 _healPotion.Apply(this.gameObject);
