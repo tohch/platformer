@@ -38,9 +38,8 @@ namespace PixelCrew.UI.MainMenu
 
         public override void OnCLoseAnimationComplete()
         {
-            base.OnCLoseAnimationComplete();
             _closeAction?.Invoke();
-           
+            base.OnCLoseAnimationComplete();
         }
     }
 }
