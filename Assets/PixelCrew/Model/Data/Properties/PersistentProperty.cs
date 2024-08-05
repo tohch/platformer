@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace PixelCrew.Model.Data.Properties
 {
     public abstract class PersistentProperty<TPropertyType>
     {
-        [NonSerialized] private TPropertyType _value;
+        [SerializeField] private TPropertyType _value;
+        private TPropertyType _stored;
         private TPropertyType _defaultValue;
 
         public PersistentProperty(TPropertyType defaultValue)
@@ -20,10 +22,10 @@ namespace PixelCrew.Model.Data.Properties
         public event OnPropertyChanged OnChanged;
         public TPropertyType Value
         {
-            get => _value;
+            get => _stored;
             set
             {
-                var isEquals = _value.Equals(value);
+                var isEquals = _stored.Equals(value);
                 if (isEquals) return;
 
                 var oldValue = _value;
@@ -35,9 +37,15 @@ namespace PixelCrew.Model.Data.Properties
         }
         protected void Init()
         {
-            _value = Read(_defaultValue);
+            _stored = _value = Read(_defaultValue);
         }
         protected abstract void Write(TPropertyType value);
         protected abstract TPropertyType Read(TPropertyType defaultValue);
+        
+        public void Validate()
+        {
+            if (!_stored.Equals(_value))
+                Value = _value;
+        }
     }
 }

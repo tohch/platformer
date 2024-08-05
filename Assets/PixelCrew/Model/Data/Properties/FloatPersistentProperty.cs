@@ -7,6 +7,7 @@ using UnityEngine;
 
 namespace PixelCrew.Model.Data.Properties
 {
+    [Serializable]
     public class FloatPersistentProperty : PrefsPersistentProperty<float>
     {
         public FloatPersistentProperty(float defaultValue, string key) : base (defaultValue, key)
@@ -22,6 +23,5 @@ namespace PixelCrew.Model.Data.Properties
         {
             return PlayerPrefs.GetFloat(Key, defaultValue);
         }
-
     }
 }

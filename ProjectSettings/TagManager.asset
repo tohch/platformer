@@ -10,6 +10,7 @@ TagManager:
   - CoinDestroy
   - Barrel
   - Interactable
+  - SfxAudioSource
   layers:
   - Default
   - TransparentFX
