@@ -7,10 +7,12 @@ using UnityEngine;
 
 namespace PixelCrew.Model.Data.Properties
 {
+    [Serializable]
     public abstract class PersistentProperty<TPropertyType>
     {
         [SerializeField] private TPropertyType _value;
         private TPropertyType _stored;
+
         private TPropertyType _defaultValue;
 
         public PersistentProperty(TPropertyType defaultValue)
@@ -28,9 +30,9 @@ namespace PixelCrew.Model.Data.Properties
                 var isEquals = _stored.Equals(value);
                 if (isEquals) return;
 
-                var oldValue = _value;
+                var oldValue = _stored;
                 Write(value);
-                _value = value;
+                _stored = _value = value;
 
                 OnChanged?.Invoke(value, oldValue);
             }
