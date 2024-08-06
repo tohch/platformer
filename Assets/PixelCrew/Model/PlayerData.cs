@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PixelCrew.Model.Data.Properties;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,10 +13,8 @@ namespace PixelCrew.Model.Data
     {
         [SerializeField] private InventoryData _inventory;
 
-        //public int Coins;
-        public int Hp;
-        //public bool IsArmed;
-        //public int AmountSwords;
+        //public int Hp;
+        public IntProperty Hp = new IntProperty();
 
         public InventoryData Inventory => _inventory;
 
