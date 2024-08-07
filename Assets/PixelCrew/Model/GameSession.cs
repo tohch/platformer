@@ -5,13 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace PixelCrew.Model
 {
     public class GameSession : MonoBehaviour
     {
         [SerializeField] private PlayerData _data;
-        //private PlayerData _save;
+
         public PlayerData Data 
         {
             get => _data;
@@ -20,6 +21,8 @@ namespace PixelCrew.Model
 
         private void Awake()
         {
+            LoadHud();
+
             if (IsSessionExit())
             {
                 DestroyImmediate(gameObject);
@@ -28,6 +31,11 @@ namespace PixelCrew.Model
             {
                 DontDestroyOnLoad(this);
             }
+        }
+
+        private void LoadHud()
+        {
+            SceneManager.LoadScene("Hud", LoadSceneMode.Additive);
         }
 
         private bool IsSessionExit()

@@ -26,5 +26,10 @@ namespace PixelCrew.UI.Hud
             var value = (float)newValue / maxHealth;
             _healthBar.SetProgress(value);
         }
+
+        private void OnDestroy()
+        {
+            _session.Data.Hp.OnChanged -= OnHealthChanged;
+        }
     }
 }
