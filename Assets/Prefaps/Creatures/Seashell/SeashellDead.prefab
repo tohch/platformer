@@ -284,6 +284,7 @@ GameObject:
   m_Component:
   - component: {fileID: 997476248990754667}
   - component: {fileID: 465087904680731188}
+  - component: {fileID: 28065787562342890}
   m_Layer: 12
   m_Name: SeashellDead
   m_TagString: Enemy
@@ -405,6 +406,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &28065787562342890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126668129653375311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5253ef6fb98e13418e727abc0030eb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mode: 1
 --- !u!1 &2442549998430945580
 GameObject:
   m_ObjectHideFlags: 0

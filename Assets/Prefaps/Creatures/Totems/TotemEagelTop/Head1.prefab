@@ -426,11 +426,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5330ff394bb6839438258059593b5022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vision: {fileID: 9144824667057352357}
+  _vision: {fileID: 0}
   _meleeCooldown:
     _value: 2
   _meleeAttack: {fileID: 789335400509973770}
-  _meleeCanAttack: {fileID: 7434619289115573842}
+  _meleeCanAttack: {fileID: 0}
   _rangeCooldown:
     _value: 2
   _rangeAttack: {fileID: 9144824665839239803}
@@ -446,7 +446,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7601e472536c1848b323112fb039ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _source: {fileID: 2287204199075573159}
   _sounds: []
 --- !u!1 &6448321712457804318
 GameObject:
@@ -601,6 +600,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8380690660759088107}
   - component: {fileID: 2287204199075573159}
+  - component: {fileID: 7018921932071496575}
   m_Layer: 15
   m_Name: Vfx
   m_TagString: Untagged
@@ -718,3 +718,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7018921932071496575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8229312652526994597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5253ef6fb98e13418e727abc0030eb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mode: 1

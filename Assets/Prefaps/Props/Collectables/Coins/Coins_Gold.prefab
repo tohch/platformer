@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 1126552235139294315}
   - component: {fileID: 5226932582681382992}
   - component: {fileID: -2526689557145857035}
+  - component: {fileID: 8833790090117748746}
   m_Layer: 16
   m_Name: Coins_Gold
   m_TagString: CoinGold
@@ -375,3 +376,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8833790090117748746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8580913151660578690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5253ef6fb98e13418e727abc0030eb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mode: 1

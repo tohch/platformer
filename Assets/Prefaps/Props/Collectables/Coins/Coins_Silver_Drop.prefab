@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2070615741079321110}
   - component: {fileID: 7562890807994079429}
   - component: {fileID: 5677218345088048606}
+  - component: {fileID: 4967623434131566753}
   m_Layer: 16
   m_Name: Coins_Silver_Drop
   m_TagString: CoinSilver
@@ -356,3 +357,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4967623434131566753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4799093483141499183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5253ef6fb98e13418e727abc0030eb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mode: 1
