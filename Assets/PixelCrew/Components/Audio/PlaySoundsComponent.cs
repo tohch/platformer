@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PixelCrew.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,7 @@ namespace PixelCrew.Components.Audio
                 if (audiData.Id != id) continue;
 
                 if (_source == null)
-                    _source = GameObject.FindWithTag("SfxAudioSource").GetComponent<AudioSource>();
+                    _source = AudioUtils.FindSfxSource();
 
 
                 _source.PlayOneShot(audiData.Clip);
