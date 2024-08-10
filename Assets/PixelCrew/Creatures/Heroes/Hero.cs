@@ -255,5 +255,11 @@ namespace PixelCrew.Creatures.Heroes
                 _session.Data.Inventory.Remove("HealPotion", numRemoveHealPotion);
             }
         }
+
+        private bool _isDashing;
+        public void SetDash(bool isDashing)
+        {
+            _isDashing = isDashing;
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PixelCrew.Utils.Disposables;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,10 +8,8 @@ using UnityEngine;
 
 namespace PixelCrew.Model.Data.Properties
 {
-    [Serializable]
-    public abstract class PersistentProperty<TPropertyType>
+    public abstract class PersistentProperty<TPropertyType> : ObservableProperty<TPropertyType>
     {
-        [SerializeField] protected TPropertyType _value;
         protected TPropertyType _stored;
 
         private TPropertyType _defaultValue;
@@ -20,10 +19,7 @@ namespace PixelCrew.Model.Data.Properties
             _defaultValue = defaultValue;
         }
 
-        public delegate void OnPropertyChanged(TPropertyType newValue, TPropertyType oldValue);
-        
-        public event OnPropertyChanged OnChanged;
-        public TPropertyType Value
+        public override TPropertyType Value
         {
             get => _stored;
             set
@@ -35,7 +31,7 @@ namespace PixelCrew.Model.Data.Properties
                 Write(value);
                 _stored = _value = value;
 
-                OnChanged?.Invoke(value, oldValue);
+                InvokeChangedEvent(value, oldValue);
             }
         }
         protected void Init()

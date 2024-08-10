@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PixelCrew.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,7 @@ namespace PixelCrew.Components.GoBased
         [ContextMenu("Spawn")]
         public void Spawn()
         {
-            var instantiate = Instantiate(_prefab, _target.position, Quaternion.identity);
+            var instantiate = SpawnUtils.Spawn(_prefab, _target.position);
             
             var scale = _target.lossyScale;
             instantiate.transform.localScale = scale;

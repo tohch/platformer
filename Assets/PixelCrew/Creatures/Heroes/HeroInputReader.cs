@@ -32,12 +32,24 @@ namespace PixelCrew.Creatures
             }
         }
 
-
         public void OnThrow(InputAction.CallbackContext context)
         {
             if (context.canceled)
             {
                 _hero.Throw(context.duration);
+            }
+        }
+
+        public void OnDash(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                _hero.SetDash(true);
+            }
+
+            if (context.canceled)
+            {
+                _hero.SetDash(false);
             }
         }
 
