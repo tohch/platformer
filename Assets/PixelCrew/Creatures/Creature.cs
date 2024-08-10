@@ -26,7 +26,7 @@ namespace PixelCrew.Creatures
         [SerializeField] private CheckCircleOverlap _attackRange;
         [SerializeField] protected SpawnListComponent _particles;
 
-        protected Rigidbody2D _rigidbody;
+        protected Rigidbody2D Rigidbody;
         protected Vector2 Direction;
         protected Animator Animator;
         protected PlaySoundsComponent Sounds;
@@ -42,7 +42,7 @@ namespace PixelCrew.Creatures
 
         protected virtual void Awake()
         {
-            _rigidbody = GetComponent<Rigidbody2D>();
+            Rigidbody = GetComponent<Rigidbody2D>();
             Animator = GetComponent<Animator>();
             Sounds = GetComponent<PlaySoundsComponent>();
         }
@@ -58,18 +58,23 @@ namespace PixelCrew.Creatures
         }
         protected virtual void FixedUpdate()
         {
-            var xVelocity = Direction.x * _speed;
+            var xVelocity = CalculateXVelocity();
             var yVelocity = CalculateYVelocity();
-            _rigidbody.velocity = new Vector2(xVelocity, yVelocity);
+            Rigidbody.velocity = new Vector2(xVelocity, yVelocity);
             Animator.SetBool(IsGroundKey, IsGrounded);
-            Animator.SetFloat(VerticalVelocity, _rigidbody.velocity.y);
+            Animator.SetFloat(VerticalVelocity, Rigidbody.velocity.y);
             Animator.SetBool(IsRunning, Direction.x != 0);
             UpdateSpriteDirection(Direction);
         }
 
+        protected virtual float CalculateXVelocity()
+        {
+            return Direction.x * _speed;
+        }
+
         protected virtual float CalculateYVelocity()
         {
-            var yVelocity = _rigidbody.velocity.y;
+            var yVelocity = Rigidbody.velocity.y;
             var isJumpPressing = Direction.y > 0;
 
             if (IsGrounded) 
@@ -81,10 +86,10 @@ namespace PixelCrew.Creatures
             {
                 _isJumping = true;
 
-                var isFalling = _rigidbody.velocity.y <= 0.001f;
+                var isFalling = Rigidbody.velocity.y <= 0.001f;
                 yVelocity = isFalling ? CalculateJumpVelocity(yVelocity) : yVelocity;
             }
-            else if (_rigidbody.velocity.y > 0 && !_isTakeDamage && _isJumping)
+            else if (Rigidbody.velocity.y > 0 && !_isTakeDamage && _isJumping)
             {
                 yVelocity *= 0.5f;
             }
@@ -127,7 +132,7 @@ namespace PixelCrew.Creatures
             Animator.SetTrigger(Hit);
             var isJumpPressing = Direction.y > 0;
             if (!isJumpPressing)
-                _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageVelocity);
+                Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, _damageVelocity);
         }
         public void OnTakeDamageFlag()
         {

@@ -100,7 +100,7 @@ namespace PixelCrew.Creatures.Heroes
         {
             base.Awake();
             healthComponent = GetComponent<HealthComponent>();
-            _defaultGravityScale = _rigidbody.gravityScale;
+            _defaultGravityScale = Rigidbody.gravityScale;
         }
 
         private void Start()
@@ -139,14 +139,20 @@ namespace PixelCrew.Creatures.Heroes
             if (_wallCheck.IsTouchingLayer && moveToSameDirection)
             {
                 _isOnWall = true;
-                _rigidbody.gravityScale = 0;
+                Rigidbody.gravityScale = 0;
             }
             else
             {
                 _isOnWall = false;
-                _rigidbody.gravityScale = _defaultGravityScale;
+                Rigidbody.gravityScale = _defaultGravityScale;
             }
             Animator.SetBool(IsOnWall, _isOnWall);
+        }
+
+        protected override float CalculateXVelocity()
+        {
+            var modifier = _isDashing ? 10 : 1;
+            return base.CalculateXVelocity() * modifier;
         }
         protected override float CalculateYVelocity()
         {
@@ -260,6 +266,12 @@ namespace PixelCrew.Creatures.Heroes
         public void SetDash(bool isDashing)
         {
             _isDashing = isDashing;
+        }
+
+        public void Dash()
+        {
+            //var newPosition = Rigidbody.position + new Vector2(_dashDelta * transform.localPosition.x, 0);
+            //Rigidbody.MovePosition(newPosition);
         }
     }
 }

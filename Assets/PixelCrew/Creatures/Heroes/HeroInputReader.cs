@@ -42,14 +42,9 @@ namespace PixelCrew.Creatures
 
         public void OnDash(InputAction.CallbackContext context)
         {
-            if (context.started)
+            if (context.performed)
             {
-                _hero.SetDash(true);
-            }
-
-            if (context.canceled)
-            {
-                _hero.SetDash(false);
+                _hero.Dash();
             }
         }
 
