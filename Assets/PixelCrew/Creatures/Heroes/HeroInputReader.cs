@@ -55,5 +55,13 @@ namespace PixelCrew.Creatures
                 _hero.UseHealPotion();
             }
         }
+
+        public void OnDrop(InputAction.CallbackContext contex)
+        {
+            if (contex.performed)
+            {
+                _hero.DropFromPlatform();
+            }
+        }
     }
 }

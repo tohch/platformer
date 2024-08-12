@@ -33,6 +33,7 @@ namespace PixelCrew.Creatures.Heroes
         [SerializeField] private double _pressTimeForSuperThrow;
         [SerializeField] private int _numberThrowRow;
         [SerializeField] private float _superThrowDelay;
+        [SerializeField] private float _meleeAttackCooldown;
         [Space]
 
         [SerializeField] private ProbabilityDropComponent _hitDrop;
@@ -45,6 +46,7 @@ namespace PixelCrew.Creatures.Heroes
 
         private GameSession _session;
         private float _defaultGravityScale;
+        private float _nextMeleeAttackTime;
 
         private HealthComponent healthComponent;
         private static readonly int ThrowKey = Animator.StringToHash("throw");
@@ -240,7 +242,12 @@ namespace PixelCrew.Creatures.Heroes
         {
             if (SwordCount <= 0) return;
 
-            base.Attack();
+            if(_nextMeleeAttackTime < Time.time)
+            {
+                base.Attack();
+                _nextMeleeAttackTime = Time.time + _meleeAttackCooldown;
+            }
+
         }
 
         private void UpdateHeroWeapon()
@@ -272,6 +279,20 @@ namespace PixelCrew.Creatures.Heroes
         {
             //var newPosition = Rigidbody.position + new Vector2(_dashDelta * transform.localPosition.x, 0);
             //Rigidbody.MovePosition(newPosition);
+        }
+
+        public void DropFromPlatform()
+        {
+            var position = transform.position;
+            var endPosition = position + new Vector3(0, -1);
+            var hit = Physics2D.Linecast(position, endPosition, _groundLayer);
+
+            if (hit.collider == null) return;
+
+            var component = hit.collider.GetComponent<TmpDisableColliderComponent>();
+            if (component == null) return;
+
+            component.DisableCollider();
         }
     }
 }

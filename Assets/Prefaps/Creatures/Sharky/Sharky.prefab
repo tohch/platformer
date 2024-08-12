@@ -668,6 +668,7 @@ GameObject:
   - component: {fileID: 464229643}
   - component: {fileID: 6144206119186183297}
   - component: {fileID: 7210535436523867741}
+  - component: {fileID: 731777914542376038}
   m_Layer: 15
   m_Name: Sharky
   m_TagString: Enemy
@@ -895,6 +896,7 @@ MonoBehaviour:
   _onChange:
     m_PersistentCalls:
       m_Calls: []
+  _immune: 0
 --- !u!114 &2127112547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1007,3 +1009,16 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: b0d49be3634ef33429a6ccf02d2b05b0, type: 3}
   - _id: Hurt
     _clip: {fileID: 8300000, guid: 3ed99d472fbfd334f8ed7c092f077d3e, type: 3}
+--- !u!114 &731777914542376038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8759803221388157376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b736c5428eadfe744af4bf3de08c7a39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _immuneTime: 1

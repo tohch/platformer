@@ -65,6 +65,14 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""OnDrop"",
+                    ""type"": ""Button"",
+                    ""id"": ""0090f4c2-5458-4d58-8594-afe6eead0147"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -232,6 +240,39 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""action"": ""UseHealPotion"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""drop"",
+                    ""id"": ""fcbec267-c20e-4eea-8fc8-02e5cf3ac28a"",
+                    ""path"": ""ButtonWithOneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OnDrop"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""8b3791dd-7c17-4045-b75e-d8ba9242a5b3"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OnDrop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""button"",
+                    ""id"": ""b43e1ff4-e029-4b7b-ab9a-5f338e7d87c4"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OnDrop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -246,6 +287,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         m_Hero_Attack = m_Hero.FindAction("Attack", throwIfNotFound: true);
         m_Hero_Throw = m_Hero.FindAction("Throw", throwIfNotFound: true);
         m_Hero_UseHealPotion = m_Hero.FindAction("UseHealPotion", throwIfNotFound: true);
+        m_Hero_OnDrop = m_Hero.FindAction("OnDrop", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -301,6 +343,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
     private readonly InputAction m_Hero_Attack;
     private readonly InputAction m_Hero_Throw;
     private readonly InputAction m_Hero_UseHealPotion;
+    private readonly InputAction m_Hero_OnDrop;
     public struct HeroActions
     {
         private @HeroInputAction m_Wrapper;
@@ -311,6 +354,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         public InputAction @Attack => m_Wrapper.m_Hero_Attack;
         public InputAction @Throw => m_Wrapper.m_Hero_Throw;
         public InputAction @UseHealPotion => m_Wrapper.m_Hero_UseHealPotion;
+        public InputAction @OnDrop => m_Wrapper.m_Hero_OnDrop;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -338,6 +382,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @UseHealPotion.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseHealPotion;
                 @UseHealPotion.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseHealPotion;
                 @UseHealPotion.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseHealPotion;
+                @OnDrop.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnOnDrop;
+                @OnDrop.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnOnDrop;
+                @OnDrop.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnOnDrop;
             }
             m_Wrapper.m_HeroActionsCallbackInterface = instance;
             if (instance != null)
@@ -360,6 +407,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @UseHealPotion.started += instance.OnUseHealPotion;
                 @UseHealPotion.performed += instance.OnUseHealPotion;
                 @UseHealPotion.canceled += instance.OnUseHealPotion;
+                @OnDrop.started += instance.OnOnDrop;
+                @OnDrop.performed += instance.OnOnDrop;
+                @OnDrop.canceled += instance.OnOnDrop;
             }
         }
     }
@@ -372,5 +422,6 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnThrow(InputAction.CallbackContext context);
         void OnUseHealPotion(InputAction.CallbackContext context);
+        void OnOnDrop(InputAction.CallbackContext context);
     }
 }

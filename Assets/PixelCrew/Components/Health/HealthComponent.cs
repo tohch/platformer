@@ -13,14 +13,21 @@ namespace PixelCrew.Components.Health
     public class HealthComponent : MonoBehaviour
     {
         [SerializeField] private int _health;
-        [SerializeField] private UnityEvent _onDamage;
+        [SerializeField] public UnityEvent _onDamage;
         [SerializeField] private UnityEvent _onHeal;
         public UnityEvent _onDie;
         [SerializeField] private HealthCangeEven _onChange;
+        [SerializeField] private bool _immune;
 
         private PlaySoundsComponent _sounds;
 
         public int Health => _health;
+
+        public bool Immune
+        {
+            get => _immune;
+            set => _immune = value;
+        }
 
         public void Awake()
         {
@@ -29,6 +36,8 @@ namespace PixelCrew.Components.Health
 
         public void ModifyHealth(int healthDelta)
         {
+            if (healthDelta < 0 && _immune) return;
+
             if (_health <= 0) return;
             _health += healthDelta;
             _onChange?.Invoke(_health);

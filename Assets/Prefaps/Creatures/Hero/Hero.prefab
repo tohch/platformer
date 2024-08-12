@@ -698,6 +698,7 @@ MonoBehaviour:
   _pressTimeForSuperThrow: 1
   _numberThrowRow: 3
   _superThrowDelay: 0.1
+  _meleeAttackCooldown: 0
   _hitDrop: {fileID: 5963906634257800899}
   _maxNumCoinsToDispose: 5
   _healPotion: {fileID: 1318579052769378833, guid: 3342ff1c7de331046a66b3be2116f5ca,
@@ -857,6 +858,21 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: f4ef360a-4a57-4102-b215-43c4a738697e
     m_ActionName: Hero/UseHealPotion[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8759803221388157405}
+        m_MethodName: OnDrop
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0090f4c2-5458-4d58-8594-afe6eead0147
+    m_ActionName: Hero/OnDrop[/Keyboard/space,/Keyboard/s]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero
@@ -961,6 +977,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _immune: 0
 --- !u!114 &2127112547
 MonoBehaviour:
   m_ObjectHideFlags: 0
