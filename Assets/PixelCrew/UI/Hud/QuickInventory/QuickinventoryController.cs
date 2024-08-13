@@ -1,5 +1,4 @@
 ﻿using PixelCrew.Model;
-using PixelCrew.Model.Data;
 using PixelCrew.Utils.Disposables;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,31 +13,32 @@ namespace PixelCrew.UI.Hud.QuickInventory
         private readonly CompositeDisposable _trash = new CompositeDisposable();
 
         private GameSession _session;
-        private InventoryItemData[] _inventory;
+        //private InventoryItemData[] _inventory;
         private List<InventoryItemWidget> _createdItem = new List<InventoryItemWidget>();
 
         private void Start()
         {
             _session = FindObjectOfType<GameSession>();
+            _trash.Retain(_session.QuickInventory.Subscribe(Rebuild));
             Rebuild();
         }
 
         private void Rebuild()
         {
-            _inventory = _session.Data.Inventory.GetAll();
-            for(var i = _createdItem.Count; i < _inventory.Length; i++)
+            var inventory = _session.QuickInventory.Inventory;
+            for(var i = _createdItem.Count; i < inventory.Length; i++)
             {
                 var item = Instantiate(_prefab, _container);
                 _createdItem.Add(item);
             }
 
-            for(int i =0; i < _inventory.Length; i++)
+            for(int i =0; i < inventory.Length; i++)
             {
-                _createdItem[i].SetData(_inventory[i], i);
+                _createdItem[i].SetData(inventory[i], i);
                 _createdItem[i].gameObject.SetActive(true);
             }
 
-            for(var i = _inventory.Length; i < _createdItem.Count; i++)
+            for(var i = inventory.Length; i < _createdItem.Count; i++)
             {
                 _createdItem[i].gameObject.SetActive(false);
             }
