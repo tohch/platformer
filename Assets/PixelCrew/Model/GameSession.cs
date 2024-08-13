@@ -1,4 +1,5 @@
 ﻿using PixelCrew.Model.Data;
+using PixelCrew.Model.Data.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace PixelCrew.Model
     public class GameSession : MonoBehaviour
     {
         [SerializeField] private PlayerData _data;
+
+        public QuickInventoryModel QuickInventory { get; private set; }
 
         public PlayerData Data 
         {
@@ -29,8 +32,15 @@ namespace PixelCrew.Model
             }
             else
             {
+                //Save();
+                InitModels();
                 DontDestroyOnLoad(this);
             }
+        }
+
+        private void InitModels()
+        {
+            QuickInventory = new QuickInventoryModel(Data);
         }
 
         private void LoadHud()
