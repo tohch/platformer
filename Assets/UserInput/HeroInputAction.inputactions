@@ -60,6 +60,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "NextItem",
+                    "type": "Button",
+                    "id": "18d0a94a-34a0-438a-9711-e805c81ad809",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -220,7 +228,7 @@
                 {
                     "name": "",
                     "id": "a40d0514-16e0-43f3-b357-53be1ba5babd",
-                    "path": "<Keyboard>/r",
+                    "path": "<Keyboard>/h",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -260,6 +268,17 @@
                     "action": "OnDrop",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "987fe8e2-e99b-4213-ba02-9869c2ee6d14",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextItem",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

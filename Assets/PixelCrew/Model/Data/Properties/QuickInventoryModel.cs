@@ -15,6 +15,8 @@ namespace PixelCrew.Model.Data.Properties
 
         public event Action Onchanged;
 
+        public InventoryItemData SelectedItem => Inventory[SelectedIndex.Value];
+
         public QuickInventoryModel(PlayerData data)
         {
             _data = data;
@@ -34,10 +36,15 @@ namespace PixelCrew.Model.Data.Properties
             var indexFound = Array.FindIndex(Inventory, x => x.Id == id);
             if (indexFound != -1)
             {
-                Inventory = _data.Inventory.GetAll();
+                Inventory = _data.Inventory.GetAll(ItemTag.Usable);
                 SelectedIndex.Value = Mathf.Clamp(SelectedIndex.Value, 0, Inventory.Length - 1);
                 Onchanged?.Invoke();
             }
+        }
+
+        public void SetNextItem()
+        {
+            SelectedIndex.Value = (int)Mathf.Repeat(SelectedIndex.Value + 1, Inventory.Length);
         }
     }
 }

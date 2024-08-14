@@ -12,6 +12,8 @@ using UnityEngine;
 using PixelCrew.Components.ColliderBased;
 using PixelCrew.Components.Health;
 using PixelCrew.Model.Data;
+using PixelCrew.Components.GoBased;
+using PixelCrew.Model.Definitions;
 
 namespace PixelCrew.Creatures.Heroes
 {
@@ -37,6 +39,7 @@ namespace PixelCrew.Creatures.Heroes
         [Space]
 
         [SerializeField] private ProbabilityDropComponent _hitDrop;
+        [SerializeField] private SpawnComponent _throwSpawner;
         [SerializeField] private int _maxNumCoinsToDispose;
 
         [SerializeField] private ModifyHealthComponent _healPotion;
@@ -50,7 +53,10 @@ namespace PixelCrew.Creatures.Heroes
 
         private HealthComponent healthComponent;
         private static readonly int ThrowKey = Animator.StringToHash("throw");
+
         private static readonly int IsOnWall = Animator.StringToHash("is-on-wall");
+
+        private string ThrowableId => _session.QuickInventory.SelectedItem.Id;
 
         private int CoinCount => _session.Data.Inventory.Count("Coin");
         private int SwordCount => _session.Data.Inventory.Count("Sword");
@@ -59,7 +65,12 @@ namespace PixelCrew.Creatures.Heroes
         public void OnDoThrow()
         {
             Sounds.Play("Range");
-            _particles.Spawn("Throw");
+            var throwableId = _session.QuickInventory.SelectedItem.Id;
+            var throwableDef = DefsFacade.I.Throwable.Get(throwableId);
+            _throwSpawner.SetPrefab(throwableDef.Projectile);
+
+            _throwSpawner.Spawn();
+            //_particles.Spawn("Throw");
         }
         public void Throw(double duration)
         {
@@ -151,11 +162,6 @@ namespace PixelCrew.Creatures.Heroes
             Animator.SetBool(IsOnWall, _isOnWall);
         }
 
-        protected override float CalculateXVelocity()
-        {
-            var modifier = _isDashing ? 10 : 1;
-            return base.CalculateXVelocity() * modifier;
-        }
         protected override float CalculateYVelocity()
         {
             var isJumpPressing = Direction.y > 0;
@@ -269,18 +275,6 @@ namespace PixelCrew.Creatures.Heroes
             }
         }
 
-        private bool _isDashing;
-        public void SetDash(bool isDashing)
-        {
-            _isDashing = isDashing;
-        }
-
-        public void Dash()
-        {
-            //var newPosition = Rigidbody.position + new Vector2(_dashDelta * transform.localPosition.x, 0);
-            //Rigidbody.MovePosition(newPosition);
-        }
-
         public void DropFromPlatform()
         {
             var position = transform.position;
@@ -293,6 +287,11 @@ namespace PixelCrew.Creatures.Heroes
             if (component == null) return;
 
             component.DisableCollider();
+        }
+
+        public void NextItem()
+        {
+            _session.QuickInventory.SetNextItem();
         }
     }
 }

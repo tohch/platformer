@@ -525,7 +525,7 @@ GameObject:
   - component: {fileID: 8903817526092155391}
   - component: {fileID: 6158554291841095203}
   m_Layer: 14
-  m_Name: ThrowSwordSpawnPosition
+  m_Name: ThrowSpawnPosition
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -700,6 +700,7 @@ MonoBehaviour:
   _superThrowDelay: 0.1
   _meleeAttackCooldown: 0
   _hitDrop: {fileID: 5963906634257800899}
+  _throwSpawner: {fileID: 6158554291841095203}
   _maxNumCoinsToDispose: 5
   _healPotion: {fileID: 1318579052769378833, guid: 3342ff1c7de331046a66b3be2116f5ca,
     type: 3}
@@ -873,6 +874,21 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 0090f4c2-5458-4d58-8594-afe6eead0147
     m_ActionName: Hero/OnDrop[/Keyboard/space,/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8759803221388157405}
+        m_MethodName: OnNextItem
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 18d0a94a-34a0-438a-9711-e805c81ad809
+    m_ActionName: Hero/NextItem[/Keyboard/q]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero

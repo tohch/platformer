@@ -40,14 +40,6 @@ namespace PixelCrew.Creatures
             }
         }
 
-        public void OnDash(InputAction.CallbackContext context)
-        {
-            if (context.performed)
-            {
-                _hero.Dash();
-            }
-        }
-
         public void OnUsePotion(InputAction.CallbackContext contex)
         {
             if (contex.performed)
@@ -62,6 +54,12 @@ namespace PixelCrew.Creatures
             {
                 _hero.DropFromPlatform();
             }
+        }
+
+        public void OnNextItem(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+                _hero.NextItem();
         }
     }
 }
