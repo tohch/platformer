@@ -56,8 +56,6 @@ namespace PixelCrew.Creatures.Heroes
 
         private static readonly int IsOnWall = Animator.StringToHash("is-on-wall");
 
-        private string ThrowableId => _session.QuickInventory.SelectedItem.Id;
-
         private int CoinCount => _session.Data.Inventory.Count("Coin");
         private int SwordCount => _session.Data.Inventory.Count("Sword");
         
@@ -101,9 +99,10 @@ namespace PixelCrew.Creatures.Heroes
         }
         private void OnThrow()
         {
-            if (IsAmountSwords())
+            var throwableId = _session.QuickInventory.SelectedItem.Id;
+            if (IsAmountSwords() || throwableId != "Sword")
             {
-                _session.Data.Inventory.Remove("Sword", 1);
+                _session.Data.Inventory.Remove(throwableId, 1);
                 Animator.SetTrigger(ThrowKey);
             }
         }
