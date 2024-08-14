@@ -14,6 +14,8 @@ namespace PixelCrew.Model
     {
         [SerializeField] private PlayerData _data;
 
+        //private PlayerData _save;//
+
         public QuickInventoryModel QuickInventory { get; private set; }
 
         public PlayerData Data 
@@ -32,7 +34,7 @@ namespace PixelCrew.Model
             }
             else
             {
-                //Save();
+                //Save();//
                 InitModels();
                 DontDestroyOnLoad(this);
             }

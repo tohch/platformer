@@ -56,6 +56,7 @@ namespace PixelCrew.Creatures.Heroes
 
         private static readonly int IsOnWall = Animator.StringToHash("is-on-wall");
 
+        private const string SwordId = "Sword";
         private int CoinCount => _session.Data.Inventory.Count("Coin");
         private int SwordCount => _session.Data.Inventory.Count("Sword");
         
