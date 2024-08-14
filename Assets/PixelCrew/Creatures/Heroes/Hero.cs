@@ -58,19 +58,33 @@ namespace PixelCrew.Creatures.Heroes
 
         private const string SwordId = "Sword";
         private int CoinCount => _session.Data.Inventory.Count("Coin");
-        private int SwordCount => _session.Data.Inventory.Count("Sword");
-        
+        private int SwordCount => _session.Data.Inventory.Count(SwordId);
 
-        public void OnDoThrow()
+        private string SelectedItemId => _session.QuickInventory.SelectedItem.Id;
+
+        private bool CanThrow
         {
-            Sounds.Play("Range");
-            var throwableId = _session.QuickInventory.SelectedItem.Id;
-            var throwableDef = DefsFacade.I.Throwable.Get(throwableId);
-            _throwSpawner.SetPrefab(throwableDef.Projectile);
+            get
+            {
+                if (SelectedItemId == SwordId)
+                    return SwordCount > 1;
 
-            _throwSpawner.Spawn();
-            //_particles.Spawn("Throw");
+                var def = DefsFacade.I.Items.Get(SelectedItemId);
+                return def.HasTag(ItemTag.Throwable);
+            }
         }
+
+        //public void OnDoThrow()
+        //{
+            //Sounds.Play("Range");
+           // var throwableId = _session.QuickInventory.SelectedItem.Id;
+            //var throwableDef = DefsFacade.I.Throwable.Get(throwableId);
+            //_throwSpawner.SetPrefab(throwableDef.Projectile);
+
+            //_throwSpawner.Spawn();
+
+            //_particles.Spawn("Throw");
+        //}
         public void Throw(double duration)
         {
             if (duration >= _pressTimeForSuperThrow)
@@ -86,7 +100,7 @@ namespace PixelCrew.Creatures.Heroes
         {
             if (_throwCooldown.IsReady)
             {
-                OnThrow();
+                ThrowAndRemoveFromInventory();
                 _throwCooldown.Reset();
             }
         }
@@ -94,15 +108,24 @@ namespace PixelCrew.Creatures.Heroes
         {
             for (int i = 0; i < _numberThrowRow; i++)
             {
-                OnThrow();
+                ThrowAndRemoveFromInventory();
                 yield return new WaitForSeconds(_superThrowDelay);
             }
         }
-        private void OnThrow()
+        private void ThrowAndRemoveFromInventory()
         {
-            var throwableId = _session.QuickInventory.SelectedItem.Id;
-            if (IsAmountSwords() || throwableId != "Sword")
+            //var throwableId = _session.QuickInventory.SelectedItem.Id;
+
+            //if (IsAmountSwords() || throwableId != "Sword")
+            if (CanThrow)
             {
+                Sounds.Play("Range");
+
+                var throwableId = _session.QuickInventory.SelectedItem.Id;
+                var throwableDef = DefsFacade.I.Throwable.Get(throwableId);
+                _throwSpawner.SetPrefab(throwableDef.Projectile);
+                _throwSpawner.Spawn();
+
                 _session.Data.Inventory.Remove(throwableId, 1);
                 Animator.SetTrigger(ThrowKey);
             }
@@ -132,7 +155,7 @@ namespace PixelCrew.Creatures.Heroes
         }
         private void OnInentoryChanged(string id, int value)
         {
-            if (id == "Sword")
+            if (id == SwordId)
                 UpdateHeroWeapon();
         }
         public void OnHealthChanged(int currentHealth)
@@ -261,10 +284,10 @@ namespace PixelCrew.Creatures.Heroes
             Animator.runtimeAnimatorController = SwordCount > 0 ? _armed : _disarmed;
         }
 
-        public bool IsAmountSwords()
-        {
-            return SwordCount > 1;
-        }
+        //public bool IsAmountSwords()
+       // {
+            //return SwordCount > 1;
+        //}
         public void UseHealPotion()
         {
             int numRemoveHealPotion = 1;
