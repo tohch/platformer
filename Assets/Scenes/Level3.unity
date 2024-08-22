@@ -12700,6 +12700,8 @@ MonoBehaviour:
       _inventory:
       - Id: PearlProjectile
         Value: 10
+      - Id: Sword
+        Value: 10
     Hp:
       _value: 10
 --- !u!4 &1533253397
