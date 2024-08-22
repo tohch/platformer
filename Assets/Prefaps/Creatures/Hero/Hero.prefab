@@ -698,7 +698,7 @@ MonoBehaviour:
   _pressTimeForSuperThrow: 1
   _numberThrowRow: 3
   _superThrowDelay: 0.1
-  _meleeAttackCooldown: 0
+  _meleeAttackCooldown: 0.4
   _hitDrop: {fileID: 5963906634257800899}
   _throwSpawner: {fileID: 6158554291841095203}
   _maxNumCoinsToDispose: 5

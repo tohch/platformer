@@ -1006,11 +1006,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8759803221388157404, guid: 417838e26f8fdc046b0bedcc954262c2,
-        type: 3}
-      propertyPath: _meleeAttackCooldown
-      value: 0.4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 417838e26f8fdc046b0bedcc954262c2, type: 3}
 --- !u!1001 &183949538
@@ -12704,8 +12699,6 @@ MonoBehaviour:
     _inventory:
       _inventory:
       - Id: PearlProjectile
-        Value: 10
-      - Id: Sword
         Value: 10
     Hp:
       _value: 10
