@@ -19,3 +19,6 @@ MonoBehaviour:
   - _id: PearlProjectile
     _projectile: {fileID: 7930592466190292458, guid: 0256c6ad308071b46ad39f6784f945d8,
       type: 3}
+  - _id: PearlProjectile
+    _projectile: {fileID: 7930592466190292458, guid: 0256c6ad308071b46ad39f6784f945d8,
+      type: 3}
