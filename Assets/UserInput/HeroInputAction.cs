@@ -241,7 +241,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""a40d0514-16e0-43f3-b357-53be1ba5babd"",
-                    ""path"": ""<Keyboard>/h"",
+                    ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

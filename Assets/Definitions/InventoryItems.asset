@@ -24,11 +24,14 @@ MonoBehaviour:
     _icon: {fileID: 21300000, guid: 20ac13e521373844a95129413a080a8e, type: 3}
     _tags: 
   - _id: HealPotion
-    _icon: {fileID: 3714227102187029162, guid: dbd11a2559caca34889889cfbe268df5, type: 3}
-    _tags: 
+    _icon: {fileID: 21300000, guid: 8a96d9671bafbc34e8f30460b9e40ec5, type: 3}
+    _tags: 01000000
   - _id: PearlProjectile
     _icon: {fileID: 21300000, guid: 42086bf3586bb044aaf4094321a8db41, type: 3}
     _tags: 000000000100000002000000
   - _id: BallProjectile
     _icon: {fileID: 21300000, guid: a075255d87db6f348b99f3202d744fd9, type: 3}
     _tags: 000000000100000002000000
+  - _id: SmallHealPotion
+    _icon: {fileID: 21300000, guid: 0efc6f2c721ae674aa344f096620da35, type: 3}
+    _tags: 01000000

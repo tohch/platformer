@@ -74,17 +74,15 @@ namespace PixelCrew.Creatures.Heroes
             }
         }
 
-        //public void OnDoThrow()
-        //{
-            //Sounds.Play("Range");
-           // var throwableId = _session.QuickInventory.SelectedItem.Id;
-            //var throwableDef = DefsFacade.I.Throwable.Get(throwableId);
-            //_throwSpawner.SetPrefab(throwableDef.Projectile);
-
-            //_throwSpawner.Spawn();
-
-            //_particles.Spawn("Throw");
-        //}
+        private bool CanUsePotion
+        {
+            get
+            {
+                if (SelectedItemId == "HealPotion" || SelectedItemId == "SmallHealPotion")
+                    return true;
+                return false;
+            }
+        }
         public void Throw(double duration)
         {
             if (duration >= _pressTimeForSuperThrow)
@@ -114,9 +112,6 @@ namespace PixelCrew.Creatures.Heroes
         }
         private void ThrowAndRemoveFromInventory()
         {
-            //var throwableId = _session.QuickInventory.SelectedItem.Id;
-
-            //if (IsAmountSwords() || throwableId != "Sword")
             if (CanThrow)
             {
                 Sounds.Play("Range");
@@ -284,17 +279,18 @@ namespace PixelCrew.Creatures.Heroes
             Animator.runtimeAnimatorController = SwordCount > 0 ? _armed : _disarmed;
         }
 
-        //public bool IsAmountSwords()
-       // {
-            //return SwordCount > 1;
-        //}
         public void UseHealPotion()
         {
-            int numRemoveHealPotion = 1;
-            if (_session.Data.Inventory.Count("HealPotion") > 0)
+            if (CanUsePotion)
             {
-                _healPotion.Apply(this.gameObject);
-                _session.Data.Inventory.Remove("HealPotion", numRemoveHealPotion);
+                var usableId = _session.QuickInventory.SelectedItem.Id;
+                var usableDef = DefsFacade.I.Items.Get(usableId);
+                string namePotion = "Potions/" + usableDef.Id;
+                var potion = Resources.Load<ModifyHealthComponent>(namePotion);
+
+                potion.Apply(this.gameObject);
+
+                _session.Data.Inventory.Remove(usableId, 1);
             }
         }
 
