@@ -46,6 +46,7 @@ namespace PixelCrew.Creatures.Heroes
 
         private bool _allowDoubleJump;
         private bool _isOnWall;
+        //private bool _isPreviousExhaust;
 
         private GameSession _session;
         private float _defaultGravityScale;
@@ -66,6 +67,13 @@ namespace PixelCrew.Creatures.Heroes
         {
             get
             {
+                //fix bug throwing when use potion
+                //if (_isPreviousExhaust)
+                //{
+                //    _isPreviousExhaust = false;
+                //    return false;
+                //}
+
                 if (SelectedItemId == SwordId)
                     return SwordCount > 1;
 
@@ -291,6 +299,9 @@ namespace PixelCrew.Creatures.Heroes
                 potion.Apply(this.gameObject);
 
                 _session.Data.Inventory.Remove(usableId, 1);
+
+                //fix bug throwing when use potion
+                //_isPreviousExhaust = _session.Data.Inventory.Count(usableId) == 0;
             }
         }
 
