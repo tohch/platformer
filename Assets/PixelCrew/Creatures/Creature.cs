@@ -40,6 +40,12 @@ namespace PixelCrew.Creatures
         private static readonly int Hit = Animator.StringToHash("hit");
         private static readonly int AttackKey = Animator.StringToHash("attack");
 
+        public float Speed
+        {
+            get => _speed;
+            protected set => _speed = value;
+        }
+
         protected virtual void Awake()
         {
             Rigidbody = GetComponent<Rigidbody2D>();

@@ -35,3 +35,6 @@ MonoBehaviour:
   - _id: SmallHealPotion
     _icon: {fileID: 21300000, guid: 0efc6f2c721ae674aa344f096620da35, type: 3}
     _tags: 01000000
+  - _id: SpeedPotion
+    _icon: {fileID: 21300000, guid: 0c6c2936e7f15524e8a7e2ccbcb924b5, type: 3}
+    _tags: 01000000

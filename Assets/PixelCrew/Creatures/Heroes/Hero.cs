@@ -14,6 +14,9 @@ using PixelCrew.Components.Health;
 using PixelCrew.Model.Data;
 using PixelCrew.Components.GoBased;
 using PixelCrew.Model.Definitions;
+using PixelCrew.Components.ModifyParam;
+using PixelCrew.Animations;
+using UnityEngine.Events;
 
 namespace PixelCrew.Creatures.Heroes
 {
@@ -63,6 +66,8 @@ namespace PixelCrew.Creatures.Heroes
 
         private string SelectedItemId => _session.QuickInventory.SelectedItem.Id;
 
+        public delegate IEnumerator OnRunCoroutine();
+
         private bool CanThrow
         {
             get
@@ -86,9 +91,19 @@ namespace PixelCrew.Creatures.Heroes
         {
             get
             {
-                if (SelectedItemId == "HealPotion" || SelectedItemId == "SmallHealPotion")
-                    return true;
-                return false;
+                //if (SelectedItemId == "HealPotion" || SelectedItemId == "SmallHealPotion")
+                //    return true;
+                //return false;
+
+                switch (SelectedItemId)
+                {
+                    case "HealPotion":
+                    case "SmallHealPotion":
+                    case "SpeedPotion":
+                        return true;
+                    default:
+                        return false;
+                }
             }
         }
         public void Throw(double duration)
@@ -294,7 +309,7 @@ namespace PixelCrew.Creatures.Heroes
                 var usableId = _session.QuickInventory.SelectedItem.Id;
                 var usableDef = DefsFacade.I.Items.Get(usableId);
                 string namePotion = "Potions/" + usableDef.Id;
-                var potion = Resources.Load<ModifyHealthComponent>(namePotion);
+                var potion = Resources.Load<ModifyComponent>(namePotion);
 
                 potion.Apply(this.gameObject);
 
@@ -322,6 +337,16 @@ namespace PixelCrew.Creatures.Heroes
         public void NextItem()
         {
             _session.QuickInventory.SetNextItem();
+        }
+
+        public void ChangeSpeed(float speed)
+        {
+            Speed = speed;
+        }
+
+        public void StartCoroutine(OnRunCoroutine action)
+        {
+            StartCoroutine(action());
         }
     }
 }
