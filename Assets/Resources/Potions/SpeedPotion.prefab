@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8923632391446101386}
   - component: {fileID: 769942937095487631}
-  - component: {fileID: 1927122289788511855}
   - component: {fileID: 1972775020346905085}
   - component: {fileID: 4300439659619547849}
   - component: {fileID: 7229876973821837757}
@@ -19,6 +18,7 @@ GameObject:
   - component: {fileID: 1251810823492434405}
   - component: {fileID: 4417557618037346824}
   - component: {fileID: 5858776174504218525}
+  - component: {fileID: 6651590718007674237}
   m_Layer: 16
   m_Name: SpeedPotion
   m_TagString: Untagged
@@ -90,25 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1927122289788511855
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2237519285749428517}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 201d5b099c8871143816260b5df7ec28, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!61 &1972775020346905085
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -167,20 +148,9 @@ MonoBehaviour:
   _action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1927122289788511855}
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: interact
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: -4848403714471982531}
-        m_MethodName: Add
-        m_Mode: 0
+      - m_Target: {fileID: 1972775020346905085}
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -198,6 +168,28 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: -4848403714471982531}
+        m_MethodName: Add
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5858776174504218525}
+        m_MethodName: SetClip
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: destroyt
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &-4848403714471982531
@@ -228,34 +220,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speedDelta: 2
   _duringTime: 5
-  _onStart:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5858776174504218525}
-        m_MethodName: SetClip
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: use
-          m_BoolArgument: 0
-        m_CallState: 2
-  _onComplicte:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5858776174504218525}
-        m_MethodName: SetClip
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: complite
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!82 &1251810823492434405
 AudioSource:
   m_ObjectHideFlags: 0
@@ -379,7 +343,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _clips:
-  - _name: use
+  - _name: idle
+    _sprites:
+    - {fileID: 21300000, guid: 0c6c2936e7f15524e8a7e2ccbcb924b5, type: 3}
+    - {fileID: 21300000, guid: 02030f6cde4c2c34d8259a9309a20da9, type: 3}
+    - {fileID: 21300000, guid: 9f66e54200b5d4241af7dcd7f886a038, type: 3}
+    - {fileID: 21300000, guid: dea1c5053d048064aaf74b70692be083, type: 3}
+    - {fileID: 21300000, guid: a88b74f67277dc847bb7455ad7fba044, type: 3}
+    - {fileID: 21300000, guid: 201321b40c09b4c47a097dffad7baa65, type: 3}
+    - {fileID: 21300000, guid: 8c3ff95a64dbd7440803ae8d3a167e52, type: 3}
+    _loop: 1
+    _allowNextClip: 0
+    _onComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - _name: destroyt
     _sprites:
     - {fileID: 21300000, guid: 32a92c138701abb4f8aa9c1f067eae0f, type: 3}
     - {fileID: 21300000, guid: 5ffbcd56357682e44bf52cfa9cd99470, type: 3}
@@ -389,13 +367,28 @@ MonoBehaviour:
     _allowNextClip: 0
     _onComplete:
       m_PersistentCalls:
-        m_Calls: []
-  - _name: complite
-    _sprites:
-    - {fileID: 21300000, guid: 66ab2968193397345a5b84aed0aa2421, type: 3}
-    - {fileID: 21300000, guid: 82bf9133f928e3d47b73604554412426, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
-      m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 4300439659619547849}
+          m_MethodName: DestoryObject
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &6651590718007674237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2237519285749428517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f92d58dd6d932d949b981a3278ec964a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectToDestory: {fileID: 2237519285749428517}
