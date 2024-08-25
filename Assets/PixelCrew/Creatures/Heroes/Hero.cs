@@ -125,6 +125,7 @@ namespace PixelCrew.Creatures.Heroes
                 _throwCooldown.Reset();
             }
         }
+
         private IEnumerator ThrowRow()
         {
             for (int i = 0; i < _numberThrowRow; i++)
@@ -133,12 +134,16 @@ namespace PixelCrew.Creatures.Heroes
                 yield return new WaitForSeconds(_superThrowDelay);
             }
         }
+
+        public void OnDoSoundThrow()
+        {
+            Sounds.Play("Range");
+        }
+
         private void ThrowAndRemoveFromInventory()
         {
             if (CanThrow)
             {
-                Sounds.Play("Range");
-
                 var throwableId = _session.QuickInventory.SelectedItem.Id;
                 var throwableDef = DefsFacade.I.Throwable.Get(throwableId);
                 _throwSpawner.SetPrefab(throwableDef.Projectile);
@@ -148,7 +153,6 @@ namespace PixelCrew.Creatures.Heroes
                 Animator.SetTrigger(ThrowKey);
             }
         }
-
 
         protected override void Awake()
         {
@@ -171,11 +175,13 @@ namespace PixelCrew.Creatures.Heroes
         {
             _session.Data.Inventory.OnChanged -= OnInentoryChanged;
         }
+
         private void OnInentoryChanged(string id, int value)
         {
             if (id == SwordId)
                 UpdateHeroWeapon();
         }
+
         public void OnHealthChanged(int currentHealth)
         {
             _session.Data.Hp.Value = currentHealth;
@@ -185,6 +191,7 @@ namespace PixelCrew.Creatures.Heroes
         {
             base.FixedUpdate();
         }
+
         protected override void Update()
         {
             base.Update();

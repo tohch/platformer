@@ -12928,7 +12928,7 @@ MonoBehaviour:
       - Id: PearlProjectile
         Value: 10
       - Id: Sword
-        Value: 10
+        Value: 15
     Hp:
       _value: 10
 --- !u!4 &1533253397
