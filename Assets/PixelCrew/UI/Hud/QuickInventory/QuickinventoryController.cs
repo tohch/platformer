@@ -13,7 +13,7 @@ namespace PixelCrew.UI.Hud.QuickInventory
         private readonly CompositeDisposable _trash = new CompositeDisposable();
 
         private GameSession _session;
-        //private InventoryItemData[] _inventory;
+
         private List<InventoryItemWidget> _createdItem = new List<InventoryItemWidget>();
 
         private void Start()
@@ -42,6 +42,11 @@ namespace PixelCrew.UI.Hud.QuickInventory
             {
                 _createdItem[i].gameObject.SetActive(false);
             }
+        }
+
+        private void OnDestroy()
+        {
+            _trash.Dispose();
         }
     }
 }
