@@ -16,9 +16,8 @@ namespace PixelCrew.Components.Dialogs.Editor
         public override void OnInspectorGUI()
         {
             EditorGUILayout.PropertyField(_modeProperty);
-            ShowDialogComponent.Mode mode;
 
-            if(_modeProperty.GetEnum(out mode))
+            if(_modeProperty.GetEnum(out ShowDialogComponent.Mode mode))
             {
                 switch (mode)
                 {

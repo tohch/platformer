@@ -29,3 +29,6 @@ MonoBehaviour:
   - _id: PearlProjectile
     _icon: {fileID: 21300000, guid: 42086bf3586bb044aaf4094321a8db41, type: 3}
     _tags: 000000000100000002000000
+  - _id: GreenDiamond
+    _icon: {fileID: 21300000, guid: 6ef074a02f8108c47bfb0436a23749e6, type: 3}
+    _tags: 0100000000000000

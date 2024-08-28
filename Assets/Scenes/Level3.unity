@@ -14066,6 +14066,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 923505636}
     m_Modifications:
+    - target: {fileID: 2208135711312987052, guid: dfb2e3bcfc9501d498d0e032c6bd6d0d,
+        type: 3}
+      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2208135711312987052, guid: dfb2e3bcfc9501d498d0e032c6bd6d0d,
+        type: 3}
+      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2208135711312987052, guid: dfb2e3bcfc9501d498d0e032c6bd6d0d,
+        type: 3}
+      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3405982073744726541}
+    - target: {fileID: 2208135711312987052, guid: dfb2e3bcfc9501d498d0e032c6bd6d0d,
+        type: 3}
+      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2208135711312987052, guid: dfb2e3bcfc9501d498d0e032c6bd6d0d,
+        type: 3}
+      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Show
+      objectReference: {fileID: 0}
+    - target: {fileID: 2208135711312987052, guid: dfb2e3bcfc9501d498d0e032c6bd6d0d,
+        type: 3}
+      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3405982073968746556, guid: dfb2e3bcfc9501d498d0e032c6bd6d0d,
         type: 3}
       propertyPath: m_RootOrder
@@ -14152,11 +14182,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d44614ea3d056344b96e1be85539882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mode: 1
+  _mode: 0
   _bound:
     _sentences:
-    - 
-    - 
+    - You need a key..
+    - Try to search upper floor.
   _external: {fileID: 0}
 --- !u!1001 &5357952004603818922
 PrefabInstance:
