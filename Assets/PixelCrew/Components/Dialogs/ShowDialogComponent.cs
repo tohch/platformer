@@ -4,6 +4,7 @@ using PixelCrew.UI.Hud.Dialogs;
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace PixelCrew.Components.Dialogs
 {
@@ -12,6 +13,7 @@ namespace PixelCrew.Components.Dialogs
         [SerializeField] private Mode _mode;
         [SerializeField] private DialogData _bound;
         [SerializeField] private DialogDef _external;
+        [SerializeField] private Sprite _avatar;
 
         private DialogBoxController _dialogBox;
         public void Show()

@@ -23,6 +23,7 @@ namespace PixelCrew.Components.Dialogs.Editor
                 {
                     case ShowDialogComponent.Mode.Bound:
                         EditorGUILayout.PropertyField(serializedObject.FindProperty("_bound"));
+                        EditorGUILayout.PropertyField(serializedObject.FindProperty("_avatar"));
                         break;
                     case ShowDialogComponent.Mode.External:
                         EditorGUILayout.PropertyField(serializedObject.FindProperty("_external"));

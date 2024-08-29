@@ -16,3 +16,5 @@ MonoBehaviour:
     _sentences:
     - Get me a Green Gem..
     - And I will show you a miracle.
+    _avatar: {fileID: 8388748351631217864, guid: 4857f073690793c42bc9d265addd2602,
+      type: 3}

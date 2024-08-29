@@ -7,6 +7,8 @@ namespace PixelCrew.Model.Data.Properties
     public class DialogData
     {
         [SerializeField] private string[] _sentences;
+        [SerializeField] private Sprite _avatar;
         public string[] Sentences => _sentences;
+        public Sprite Avatar => _avatar;
     }
 }

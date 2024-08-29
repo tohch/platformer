@@ -12,6 +12,7 @@ namespace PixelCrew.UI.Hud.Dialogs
 
         [SerializeField] private Text _text;
         [SerializeField] private GameObject _container;
+        [SerializeField] private GameObject _face;
         [SerializeField] private Animator _animator;
 
         [Space] [SerializeField] private float _textSpeed = 0.09f;
@@ -21,7 +22,8 @@ namespace PixelCrew.UI.Hud.Dialogs
         [SerializeField] private AudioClip _close;
 
         private static readonly int IsOpen = Animator.StringToHash("IsOpen");
-        
+
+        private Image _faceAvatar;
         private DialogData _data;
         private int _currentSencence;
         private AudioSource _sfxSource;
@@ -29,6 +31,7 @@ namespace PixelCrew.UI.Hud.Dialogs
 
         private void Start()
         {
+            _faceAvatar = _face.GetComponent<Image>();
             _sfxSource = AudioUtils.FindSfxSource();
         }
 
@@ -37,8 +40,10 @@ namespace PixelCrew.UI.Hud.Dialogs
             _data = data;
             _currentSencence = 0;
             _text.text = string.Empty;
+            _faceAvatar.sprite = _data.Avatar;
 
             _container.SetActive(true);
+            _face.SetActive(true);
             _sfxSource.PlayOneShot(_open);
             _animator.SetBool(IsOpen, true);
         }
