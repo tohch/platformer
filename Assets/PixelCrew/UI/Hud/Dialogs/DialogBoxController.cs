@@ -21,7 +21,8 @@ namespace PixelCrew.UI.Hud.Dialogs
         [SerializeField] private AudioClip _open;
         [SerializeField] private AudioClip _close;
 
-        private static readonly int IsOpen = Animator.StringToHash("IsOpen");
+        private static readonly int IsOpenRight = Animator.StringToHash("IsOpenRight");
+        private static readonly int IsOpenLeft = Animator.StringToHash("IsOpenLeft");
 
         private Image _faceAvatar;
         private DialogData _data;
@@ -45,7 +46,21 @@ namespace PixelCrew.UI.Hud.Dialogs
             _container.SetActive(true);
             _face.SetActive(true);
             _sfxSource.PlayOneShot(_open);
-            _animator.SetBool(IsOpen, true);
+            //_animator.SetBool(IsOpenRight, true);
+            StartAnimation();
+        }
+
+        private void StartAnimation()
+        {
+            switch (_data.PositionDialogContainer)
+            {
+                case DialogData.PositionDialog.Left:
+                    _animator.SetBool(IsOpenLeft, true);
+                    break;
+                case DialogData.PositionDialog.Right:
+                    _animator.SetBool(IsOpenRight, true);
+                    break;
+            }
         }
 
         private IEnumerator TypeDialogText()
@@ -88,7 +103,8 @@ namespace PixelCrew.UI.Hud.Dialogs
 
         private void HideDialogBox()
         {
-            _animator.SetBool(IsOpen, false);
+            _animator.SetBool(IsOpenRight, false);
+            _animator.SetBool(IsOpenLeft, false);
             _sfxSource.PlayOneShot(_close);
         }
 

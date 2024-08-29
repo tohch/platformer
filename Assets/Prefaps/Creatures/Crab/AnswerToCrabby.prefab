@@ -12,13 +12,11 @@ GameObject:
   - component: {fileID: 3405982073968746559}
   - component: {fileID: 3405982073968746546}
   - component: {fileID: 3405982073968746557}
-  - component: {fileID: 3405982073968746547}
-  - component: {fileID: 2208135711312987052}
   - component: {fileID: 2527446426433378423}
   - component: {fileID: 4290587529249956183}
-  - component: {fileID: 3447843044573343895}
+  - component: {fileID: 5525707372022138979}
   m_Layer: 11
-  m_Name: CrabbyNPC
+  m_Name: AnswerToCrabby
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,8 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: -132869169
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1237259564474456676, guid: 4857f073690793c42bc9d265addd2602,
-    type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -86,7 +83,7 @@ SpriteRenderer:
   m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &3405982073968746546
@@ -105,16 +102,8 @@ MonoBehaviour:
   _clips:
   - _name: idle
     _sprites:
-    - {fileID: 1237259564474456676, guid: 4857f073690793c42bc9d265addd2602, type: 3}
-    - {fileID: 6781877334341790625, guid: 4857f073690793c42bc9d265addd2602, type: 3}
-    - {fileID: -7988024427863313899, guid: 4857f073690793c42bc9d265addd2602, type: 3}
-    - {fileID: -8339802707405750284, guid: 4857f073690793c42bc9d265addd2602, type: 3}
-    - {fileID: 6233811717460821285, guid: 4857f073690793c42bc9d265addd2602, type: 3}
-    - {fileID: 8388748351631217864, guid: 4857f073690793c42bc9d265addd2602, type: 3}
-    - {fileID: -565611628317543566, guid: 4857f073690793c42bc9d265addd2602, type: 3}
-    - {fileID: 6729741187243169404, guid: 4857f073690793c42bc9d265addd2602, type: 3}
-    - {fileID: 3505128172380155607, guid: 4857f073690793c42bc9d265addd2602, type: 3}
-    _loop: 1
+    - {fileID: 0}
+    _loop: 0
     _allowNextClip: 0
     _onComplete:
       m_PersistentCalls:
@@ -135,102 +124,6 @@ CircleCollider2D:
   m_Offset: {x: 0.04185486, y: 0.003281355}
   serializedVersion: 2
   m_Radius: 0.49133563
---- !u!114 &3405982073968746547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3405982073968746558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 170e49ecf98f787439c63d338f55a541, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _action:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2208135711312987052}
-        m_MethodName: Check
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &2208135711312987052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3405982073968746558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b688ab2cd342a1041b052bfe9e604a2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _required:
-  - Id: GreenDiamond
-    Value: 1
-  _removeAfterUse: 1
-  _onSuccess:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2527446426433378423}
-        m_MethodName: Show
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 866706d8ef2354742a295d00c831894e,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: PixelCrew.Model.Definitions.DialogDef,
-            Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 3447843044573343895}
-        m_MethodName: Spawn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 4290587529249956183}
-        m_MethodName: DestoryObject
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _onFail:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2527446426433378423}
-        m_MethodName: Show
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: e3609a403deab964084819619ff9950b,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: PixelCrew.Model.Definitions.DialogDef,
-            Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &2527446426433378423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestory: {fileID: 3405982073968746558}
---- !u!114 &3447843044573343895
+--- !u!114 &5525707372022138979
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -272,8 +165,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3405982073968746558}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6369a0dda57c85947a9b2f2661b7af59, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c6ff58f5f278a5469e170ad6d2c1954, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 3405982073968746556}
-  _prefab: {fileID: 3405982073968746558, guid: 34659264bb7898642a066455e4e7969c, type: 3}
+  _showDialogComponent: {fileID: 2527446426433378423}
+  _dialog: {fileID: 11400000, guid: 8a1a811387bb7584d83e767610dd87f9, type: 2}
