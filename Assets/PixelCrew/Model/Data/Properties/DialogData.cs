@@ -16,7 +16,8 @@ namespace PixelCrew.Model.Data.Properties
             Right
         }
 
-        [Serializable] public class Sentence
+        [Serializable] 
+        public class Sentence
         {
             public string SentenceText;
             public Sprite Avatar;
