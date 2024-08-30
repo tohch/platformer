@@ -246,8 +246,6 @@ MonoBehaviour:
   _mode: 1
   _bound:
     _sentences: []
-    _avatar: {fileID: 0}
-    _positionDialog: 0
   _external: {fileID: 0}
   _avatar: {fileID: 0}
 --- !u!114 &4290587529249956183
@@ -276,4 +274,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 3405982073968746556}
-  _prefab: {fileID: 3405982073968746558, guid: 34659264bb7898642a066455e4e7969c, type: 3}
+  _prefab: {fileID: 285603860685032791, guid: c1b6d1b7df7a1c9449acb6caeb93d9bf, type: 3}

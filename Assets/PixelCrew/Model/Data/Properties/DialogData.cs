@@ -6,12 +6,9 @@ namespace PixelCrew.Model.Data.Properties
     [Serializable]
     public class DialogData
     {
-        [SerializeField] private string[] _sentences;
-        [SerializeField] private Sprite _avatar;
-        [SerializeField] private PositionDialog _positionDialog;
-        public string[] Sentences => _sentences;
-        public Sprite Avatar => _avatar;
-        public PositionDialog PositionDialogContainer => _positionDialog;
+        [SerializeField] private Sentence[] _sentences;
+
+        public Sentence[] Sentences => _sentences;
 
         public enum PositionDialog
         {
@@ -19,5 +16,11 @@ namespace PixelCrew.Model.Data.Properties
             Right
         }
 
+        [Serializable] public class Sentence
+        {
+            public string SentenceText;
+            public Sprite Avatar;
+            public PositionDialog PositionDialog;
+        }
     }
 }

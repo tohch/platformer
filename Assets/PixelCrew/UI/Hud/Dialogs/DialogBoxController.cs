@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using static PixelCrew.Model.Data.Properties.DialogData;
 
 namespace PixelCrew.UI.Hud.Dialogs
 {
@@ -29,6 +30,7 @@ namespace PixelCrew.UI.Hud.Dialogs
         private int _currentSencence;
         private AudioSource _sfxSource;
         private Coroutine _typingRoutine;
+        private PositionDialog _starPositionDialog;
 
         private void Start()
         {
@@ -41,18 +43,21 @@ namespace PixelCrew.UI.Hud.Dialogs
             _data = data;
             _currentSencence = 0;
             _text.text = string.Empty;
-            _faceAvatar.sprite = _data.Avatar;
+            _faceAvatar.sprite = _data.Sentences[_currentSencence].Avatar;
 
             _container.SetActive(true);
             _face.SetActive(true);
             _sfxSource.PlayOneShot(_open);
             //_animator.SetBool(IsOpenRight, true);
             StartAnimation();
+            _starPositionDialog = _data.Sentences[_currentSencence].PositionDialog;
         }
 
         private void StartAnimation()
         {
-            switch (_data.PositionDialogContainer)
+            var sentences = _data.Sentences[_currentSencence];
+
+            switch (sentences.PositionDialog)
             {
                 case DialogData.PositionDialog.Left:
                     _animator.SetBool(IsOpenLeft, true);
@@ -63,11 +68,27 @@ namespace PixelCrew.UI.Hud.Dialogs
             }
         }
 
+        private void CheckPositionAndCloseDialog()
+        {
+            if (_starPositionDialog != _data.Sentences[_currentSencence].PositionDialog)
+            {
+                StopTypeAnimation();
+                HideDialogBox();
+            }
+        }
+
         private IEnumerator TypeDialogText()
         {
+            CheckPositionAndCloseDialog();
+
             _text.text = string.Empty;
             var sentences = _data.Sentences[_currentSencence];
-            foreach(var letter in sentences)
+
+            StartAnimation();
+
+            _faceAvatar.sprite = _data.Sentences[_currentSencence].Avatar;
+
+            foreach (var letter in sentences.SentenceText)
             {
                 _text.text += letter;
                 _sfxSource.PlayOneShot(_typing);
@@ -75,6 +96,7 @@ namespace PixelCrew.UI.Hud.Dialogs
             }
 
             _typingRoutine = null;
+
         }
 
         public void OnSkip()
@@ -82,7 +104,7 @@ namespace PixelCrew.UI.Hud.Dialogs
             if (_typingRoutine == null) return;
 
             StopTypeAnimation();
-            _text.text = _data.Sentences[_currentSencence];
+            _text.text = _data.Sentences[_currentSencence].SentenceText;
         }
 
         public void OnContinue()
