@@ -73,6 +73,14 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""NextItem"",
+                    ""type"": ""Button"",
+                    ""id"": ""18d0a94a-34a0-438a-9711-e805c81ad809"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -233,7 +241,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""a40d0514-16e0-43f3-b357-53be1ba5babd"",
-                    ""path"": ""<Keyboard>/r"",
+                    ""path"": ""<Keyboard>/h"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -273,6 +281,17 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""action"": ""OnDrop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""987fe8e2-e99b-4213-ba02-9869c2ee6d14"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextItem"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -288,6 +307,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         m_Hero_Throw = m_Hero.FindAction("Throw", throwIfNotFound: true);
         m_Hero_UseHealPotion = m_Hero.FindAction("UseHealPotion", throwIfNotFound: true);
         m_Hero_OnDrop = m_Hero.FindAction("OnDrop", throwIfNotFound: true);
+        m_Hero_NextItem = m_Hero.FindAction("NextItem", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -344,6 +364,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
     private readonly InputAction m_Hero_Throw;
     private readonly InputAction m_Hero_UseHealPotion;
     private readonly InputAction m_Hero_OnDrop;
+    private readonly InputAction m_Hero_NextItem;
     public struct HeroActions
     {
         private @HeroInputAction m_Wrapper;
@@ -355,6 +376,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         public InputAction @Throw => m_Wrapper.m_Hero_Throw;
         public InputAction @UseHealPotion => m_Wrapper.m_Hero_UseHealPotion;
         public InputAction @OnDrop => m_Wrapper.m_Hero_OnDrop;
+        public InputAction @NextItem => m_Wrapper.m_Hero_NextItem;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -385,6 +407,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @OnDrop.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnOnDrop;
                 @OnDrop.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnOnDrop;
                 @OnDrop.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnOnDrop;
+                @NextItem.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnNextItem;
+                @NextItem.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnNextItem;
+                @NextItem.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnNextItem;
             }
             m_Wrapper.m_HeroActionsCallbackInterface = instance;
             if (instance != null)
@@ -410,6 +435,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @OnDrop.started += instance.OnOnDrop;
                 @OnDrop.performed += instance.OnOnDrop;
                 @OnDrop.canceled += instance.OnOnDrop;
+                @NextItem.started += instance.OnNextItem;
+                @NextItem.performed += instance.OnNextItem;
+                @NextItem.canceled += instance.OnNextItem;
             }
         }
     }
@@ -423,5 +451,6 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         void OnThrow(InputAction.CallbackContext context);
         void OnUseHealPotion(InputAction.CallbackContext context);
         void OnOnDrop(InputAction.CallbackContext context);
+        void OnNextItem(InputAction.CallbackContext context);
     }
 }

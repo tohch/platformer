@@ -1,9 +1,6 @@
 ﻿using PixelCrew.Model.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PixelCrew.Model.Data.Properties;
+using PixelCrew.Utils.Disposables;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,6 +9,11 @@ namespace PixelCrew.Model
     public class GameSession : MonoBehaviour
     {
         [SerializeField] private PlayerData _data;
+
+        //private PlayerData _save;//
+        private readonly CompositeDisposable _trash = new CompositeDisposable();
+
+        public QuickInventoryModel QuickInventory { get; private set; }
 
         public PlayerData Data 
         {
@@ -29,8 +31,16 @@ namespace PixelCrew.Model
             }
             else
             {
+                //Save();//
+                InitModels();
                 DontDestroyOnLoad(this);
             }
+        }
+
+        private void InitModels()
+        {
+            QuickInventory = new QuickInventoryModel(Data);
+            _trash.Retain(QuickInventory);
         }
 
         private void LoadHud()
@@ -49,6 +59,10 @@ namespace PixelCrew.Model
             return false;
         }
 
+        private void OnDestroy()
+        {
+            _trash.Dispose();
+        }
         //public void Save()
         //{
         //    _save = _data.Clone();

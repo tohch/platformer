@@ -1006,11 +1006,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8759803221388157404, guid: 417838e26f8fdc046b0bedcc954262c2,
-        type: 3}
-      propertyPath: _meleeAttackCooldown
-      value: 0.4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 417838e26f8fdc046b0bedcc954262c2, type: 3}
 --- !u!1001 &183949538
@@ -12702,7 +12697,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data:
     _inventory:
-      _inventory: []
+      _inventory:
+      - Id: PearlProjectile
+        Value: 10
+      - Id: Sword
+        Value: 15
     Hp:
       _value: 10
 --- !u!4 &1533253397
@@ -14067,6 +14066,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 923505636}
     m_Modifications:
+    - target: {fileID: 2208135711312987052, guid: dfb2e3bcfc9501d498d0e032c6bd6d0d,
+        type: 3}
+      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2208135711312987052, guid: dfb2e3bcfc9501d498d0e032c6bd6d0d,
+        type: 3}
+      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2208135711312987052, guid: dfb2e3bcfc9501d498d0e032c6bd6d0d,
+        type: 3}
+      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3405982073744726541}
+    - target: {fileID: 2208135711312987052, guid: dfb2e3bcfc9501d498d0e032c6bd6d0d,
+        type: 3}
+      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2208135711312987052, guid: dfb2e3bcfc9501d498d0e032c6bd6d0d,
+        type: 3}
+      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Show
+      objectReference: {fileID: 0}
+    - target: {fileID: 2208135711312987052, guid: dfb2e3bcfc9501d498d0e032c6bd6d0d,
+        type: 3}
+      propertyPath: _onFail.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3405982073968746556, guid: dfb2e3bcfc9501d498d0e032c6bd6d0d,
         type: 3}
       propertyPath: m_RootOrder
@@ -14135,6 +14164,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3405982073744726538}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3405982073744726540 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3405982073968746558, guid: dfb2e3bcfc9501d498d0e032c6bd6d0d,
+    type: 3}
+  m_PrefabInstance: {fileID: 3405982073744726538}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3405982073744726541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3405982073744726540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d44614ea3d056344b96e1be85539882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mode: 0
+  _bound:
+    _sentences:
+    - You need a key..
+    - Try to search upper floor.
+  _external: {fileID: 0}
 --- !u!1001 &5357952004603818922
 PrefabInstance:
   m_ObjectHideFlags: 0
