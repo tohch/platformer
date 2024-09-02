@@ -15,8 +15,8 @@ namespace PixelCrew.Components.Health
         [SerializeField] private int _health;
         [SerializeField] public UnityEvent _onDamage;
         [SerializeField] private UnityEvent _onHeal;
-        public UnityEvent _onDie;
-        [SerializeField] private HealthCangeEven _onChange;
+        [SerializeField] public UnityEvent _onDie;
+        [SerializeField] public HealthCangeEven _onChange;
         [SerializeField] private bool _immune;
 
         private PlaySoundsComponent _sounds;
