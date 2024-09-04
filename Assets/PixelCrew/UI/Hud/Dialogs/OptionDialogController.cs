@@ -37,6 +37,7 @@ namespace PixelCrew.UI.Hud.Dialogs
     
     }
 
+    [Serializable]
     public class OptionDialogData
     {
         public string DialogText;
