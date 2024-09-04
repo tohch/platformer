@@ -10,16 +10,18 @@ namespace PixelCrew.Model
     {
         [SerializeField] private PlayerData _data;
 
-        //private PlayerData _save;//
+        public PlayerData Data => _data;
+        private PlayerData _save;
+
         private readonly CompositeDisposable _trash = new CompositeDisposable();
 
         public QuickInventoryModel QuickInventory { get; private set; }
 
-        public PlayerData Data 
-        {
-            get => _data;
-            set => _data = value;
-        }
+        //public PlayerData Data 
+        //{
+            //get => _data;
+            //set => _data = value;
+        //}
 
         private void Awake()
         {
@@ -27,11 +29,12 @@ namespace PixelCrew.Model
 
             if (IsSessionExit())
             {
-                DestroyImmediate(gameObject);
+                //DestroyImmediate(gameObject);
+                Destroy(gameObject);
             }
             else
             {
-                //Save();//
+                Save();
                 InitModels();
                 DontDestroyOnLoad(this);
             }
@@ -39,7 +42,8 @@ namespace PixelCrew.Model
 
         private void InitModels()
         {
-            QuickInventory = new QuickInventoryModel(Data);
+            //QuickInventory = new QuickInventoryModel(Data);
+            QuickInventory = new QuickInventoryModel(_data);
             _trash.Retain(QuickInventory);
         }
 
@@ -59,17 +63,22 @@ namespace PixelCrew.Model
             return false;
         }
 
+        public void Save()
+        {
+            _save = _data.Clone();
+        }
+
+        public void LoadLastSave()
+        {
+            _data = _save.Clone();
+
+            _trash.Dispose();
+            InitModels();
+        }
+
         private void OnDestroy()
         {
             _trash.Dispose();
         }
-        //public void Save()
-        //{
-        //    _save = _data.Clone();
-        //}
-        //public void LoadLastSave()
-        //{
-        //    _data = _save.Clone();
-        //}
     }
 }
