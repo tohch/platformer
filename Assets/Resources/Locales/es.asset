@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0aa316a771533448954f1f300a6928d, type: 3}
+  m_Name: es
+  m_EditorClassIdentifier: 
+  _url: https://docs.google.com/spreadsheets/d/e/2PACX-1vSYMZgu95J7c6emUwvs8enT8quRateiVfB6nJRx-uOiJ2_N5TTDkU3J3NjDxYYqagWZlgZBnV0aAX51/pub?gid=2009360454&single=true&output=tsv
+  _localeItems:
+  - Key: menu_title
+    Value: "menu\r"
+  - Key: button_start
+    Value: "inicio\r"
+  - Key: button_option
+    Value: "opci\xF3n\r"
+  - Key: button_exit
+    Value: "salida\r"
+  - Key: selected_language
+    Value: idioma {0}
