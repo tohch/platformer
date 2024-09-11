@@ -18,6 +18,17 @@ namespace PixelCrew.Model.Definitions.Localization
 
         private UnityWebRequest _request;
 
+        public Dictionary<string, string> GetData()
+        {
+            var dictionary = new Dictionary<string, string>();
+            foreach (var localeItem in _localeItems)
+            {
+                dictionary.Add(localeItem.Key, localeItem.Value);
+            }
+
+            return dictionary;
+        }
+
         [ContextMenu("Update locale")]
         public void UpdateLocale()
         {
