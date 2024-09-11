@@ -10,6 +10,7 @@ namespace PixelCrew.UI.Localization
     public class LocalizaText : MonoBehaviour
     {
         [SerializeField] private string _key;
+        [SerializeField] private bool _capitalize;
 
         private Text _text;
 
@@ -28,7 +29,8 @@ namespace PixelCrew.UI.Localization
 
         private void Localize()
         {
-            _text.text = LocalizationManager.I.Localize(_key);
+            var localized = LocalizationManager.I.Localize(_key);
+            _text.text = _capitalize ? localized.ToUpper() : localized;
         }
     }
 }
