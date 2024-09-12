@@ -27,4 +27,6 @@ MonoBehaviour:
   - Key: button_back
     Value: "atr\xE1s\r"
   - Key: button_locales
-    Value: seleccionar idioma
+    Value: "seleccionar idioma\r"
+  - Key: button_restart
+    Value: de nuevo

@@ -27,4 +27,6 @@ MonoBehaviour:
   - Key: button_back
     Value: "back\r"
   - Key: button_locales
-    Value: languages
+    Value: "languages\r"
+  - Key: button_restart
+    Value: restart
