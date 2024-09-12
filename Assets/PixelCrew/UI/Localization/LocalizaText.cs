@@ -1,6 +1,4 @@
 ﻿using PixelCrew.Model.Definitions.Localization;
-using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,7 +12,7 @@ namespace PixelCrew.UI.Localization
 
         private Text _text;
 
-        public void Awake()
+        private void Awake()
         {
             _text = GetComponent<Text>();
 
@@ -31,6 +29,11 @@ namespace PixelCrew.UI.Localization
         {
             var localized = LocalizationManager.I.Localize(_key);
             _text.text = _capitalize ? localized.ToUpper() : localized;
+        }
+
+        private void OnDestroy()
+        {
+            LocalizationManager.I.OnLocaleChanged -= OnLocaleChanged;
         }
     }
 }
