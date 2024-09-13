@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -37,16 +39,38 @@ namespace PixelCrew.Model.Definitions.Localization
             _request.SendWebRequest().completed += OnDataLoaded;
         }
 
+        [ContextMenu("Update locale from a file")]
+        public void UpdateLocaleFromFile()
+        {
+            var path = EditorUtility.OpenFilePanel("Open a localization file", "", "tsv");
+
+            if (path.Length == 0) return;
+            
+            string[] rows;
+            
+            using (StreamReader reader = new StreamReader(path))
+            { 
+                rows = reader.ReadToEnd().Split('\n');
+            }
+            
+            ClearAndAddLocaleItem(rows);
+        }
+
         private void OnDataLoaded(AsyncOperation operation)
         {
             if (operation.isDone)
             {
                 var rows = _request.downloadHandler.text.Split('\n');
-                _localeItems.Clear();
-                foreach (var row in rows)
-                {
-                    AddLocaleItem(row);
-                }
+                ClearAndAddLocaleItem(rows);
+            }
+        }
+
+        private void ClearAndAddLocaleItem(string[] rows)
+        {
+            _localeItems.Clear();
+            foreach (var row in rows)
+            {
+                AddLocaleItem(row);
             }
         }
 
