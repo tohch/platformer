@@ -1329,6 +1329,7 @@ MonoBehaviour:
       _inventory: []
     Hp:
       _value: 10
+  _defaultCkeckPoint: 
 --- !u!4 &739876110
 Transform:
   m_ObjectHideFlags: 0
@@ -6139,7 +6140,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1874889743}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.713039, y: -0.027178764, z: -8.96467}
+  m_LocalPosition: {x: -15.623634, y: -0.027704716, z: -8.96467}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 175006653}

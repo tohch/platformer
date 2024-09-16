@@ -957,7 +957,8 @@ MonoBehaviour:
   _onDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1111875136005887652, guid: 339e167ee54ac454f86717bdbaa713a4,
+          type: 3}
         m_MethodName: Reload
         m_Mode: 1
         m_Arguments:
