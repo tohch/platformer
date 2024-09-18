@@ -1,6 +1,8 @@
 ﻿using PixelCrew.Components.GoBased;
 using PixelCrew.Model;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -24,11 +26,23 @@ namespace PixelCrew.Components.LevelManegement
                 _setChecked?.Invoke();
             else
                 _setUnchecked?.Invoke();
+
+            
+        }
+
+        private ItemsStatusComponent[] FindAllItemsStatus()
+        {
+            return FindObjectsOfType<ItemsStatusComponent>();
         }
 
         public void Check()
         {
+            var items = FindAllItemsStatus();
+
             _session.SetChecked(_id);
+
+            _session.SetItemsStatus(items);
+
             _setChecked?.Invoke();
         }
 

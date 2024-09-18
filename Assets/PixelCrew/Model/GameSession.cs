@@ -23,6 +23,8 @@ namespace PixelCrew.Model
         public QuickInventoryModel QuickInventory { get; private set; }
 
         private readonly List<string> _checkpoints = new List<string>();
+        private List<ItemsStatusComponent> _itemsStatus = new List<ItemsStatusComponent>();
+
 
         private void Awake()
         {
@@ -109,6 +111,10 @@ namespace PixelCrew.Model
                 Save();
                 _checkpoints.Add(id);
             }
+        }
+        public void SetItemsStatus(IEnumerable<ItemsStatusComponent> items)
+        {
+            _itemsStatus = items as List<ItemsStatusComponent>;
         }
 
         private void OnDestroy()

@@ -1014,90 +1014,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1001 &183949538
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1221219531}
-    m_Modifications:
-    - target: {fileID: 2964872882276039172, guid: b58a8701635ffd04cb5892f7fc801713,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 33
-      objectReference: {fileID: 0}
-    - target: {fileID: 2964872882276039172, guid: b58a8701635ffd04cb5892f7fc801713,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5025493802188796605, guid: b58a8701635ffd04cb5892f7fc801713,
-        type: 3}
-      propertyPath: m_Name
-      value: Sharky Platfor Patrol
-      objectReference: {fileID: 0}
-    - target: {fileID: 5025493802188796607, guid: b58a8701635ffd04cb5892f7fc801713,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5025493802188796607, guid: b58a8701635ffd04cb5892f7fc801713,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.6761322
-      objectReference: {fileID: 0}
-    - target: {fileID: 5025493802188796607, guid: b58a8701635ffd04cb5892f7fc801713,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.53
-      objectReference: {fileID: 0}
-    - target: {fileID: 5025493802188796607, guid: b58a8701635ffd04cb5892f7fc801713,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5025493802188796607, guid: b58a8701635ffd04cb5892f7fc801713,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5025493802188796607, guid: b58a8701635ffd04cb5892f7fc801713,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5025493802188796607, guid: b58a8701635ffd04cb5892f7fc801713,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5025493802188796607, guid: b58a8701635ffd04cb5892f7fc801713,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5025493802188796607, guid: b58a8701635ffd04cb5892f7fc801713,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5025493802188796607, guid: b58a8701635ffd04cb5892f7fc801713,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5025493802188796607, guid: b58a8701635ffd04cb5892f7fc801713,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8554296731188496574, guid: b58a8701635ffd04cb5892f7fc801713,
-        type: 3}
-      propertyPath: _hp
-      value: 
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b58a8701635ffd04cb5892f7fc801713, type: 3}
 --- !u!1001 &188004258
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1346,7 +1262,7 @@ Transform:
   m_Children:
   - {fileID: 2057092531}
   m_Father: {fileID: 954727114}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &216685888
 MonoBehaviour:
@@ -1525,12 +1441,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7740852174945613451, guid: dba57507954a6ea42b9670d5559a063d,
     type: 3}
   m_PrefabInstance: {fileID: 288890894}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &291502845 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5025493802188796607, guid: b58a8701635ffd04cb5892f7fc801713,
-    type: 3}
-  m_PrefabInstance: {fileID: 183949538}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &327837535
 GameObject:
@@ -9730,7 +9640,7 @@ Transform:
   m_Children:
   - {fileID: 2029438336}
   m_Father: {fileID: 954727114}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &912035385
 MonoBehaviour:
@@ -9931,8 +9841,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1296621668}
-  - {fileID: 912035384}
   - {fileID: 216685887}
+  - {fileID: 912035384}
   - {fileID: 223789954}
   - {fileID: 188004259}
   - {fileID: 2057223049}
@@ -10858,7 +10768,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1616171266}
-  - {fileID: 291502845}
+  - {fileID: 2088903595}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14788,6 +14698,64 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2057223048}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2088903594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2088903595}
+  - component: {fileID: 2088903597}
+  - component: {fileID: 2088903596}
+  m_Layer: 0
+  m_Name: Spawn Sharky Platfor Patrol
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2088903595
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088903594}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.6761322, y: 0.53, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1221219531}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2088903596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088903594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62ef796ca43f75b4d8f54751fef0bc67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2088903597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088903594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6369a0dda57c85947a9b2f2661b7af59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 2088903595}
+  _prefab: {fileID: 5025493802188796605, guid: b58a8701635ffd04cb5892f7fc801713, type: 3}
 --- !u!1 &2097266309
 GameObject:
   m_ObjectHideFlags: 0
