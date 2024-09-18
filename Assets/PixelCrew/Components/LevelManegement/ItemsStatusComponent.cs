@@ -1,5 +1,8 @@
 ﻿using PixelCrew.Components.GoBased;
+using PixelCrew.Model;
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace PixelCrew.Components.LevelManegement
@@ -7,19 +10,49 @@ namespace PixelCrew.Components.LevelManegement
     [RequireComponent(typeof(SpawnComponent))]
     public class ItemsStatusComponent : MonoBehaviour
     {
-        private SpawnComponent _spawner;
+        [SerializeField] private SpawnComponent _spawner;
+        [SerializeField] private bool _isDistroy;
+        [SerializeField] private Transform _target;
+        private DataForSpawnItems _dataSpawn;
 
-        // Use this for initialization
-        void Start()
+        private void Start()
         {
-            _spawner = GetComponent<SpawnComponent>();
+            _dataSpawn = new DataForSpawnItems(_isDistroy, GetName());
+        }
+        public DataForSpawnItems DataForSpawn
+        {
+            get
+            {
+                return _dataSpawn;
+            }
+        }
+
+        public bool IsDistroy => _isDistroy;
+
+        public void SpawnItem()
+        {
             _spawner.Spawn();
         }
 
-        // Update is called once per frame
-        void Update()
+        public string GetName()
         {
-
+            return gameObject.name;
         }
+    }
+
+    [Serializable]
+    public class DataForSpawnItems : ICloneable
+    {
+        public bool IsDistroy;
+        public string Name;
+
+        public object Clone() => new DataForSpawnItems(IsDistroy, Name);
+
+        public DataForSpawnItems(bool isDistroy, string name)
+        {
+            IsDistroy = isDistroy;
+            Name = name;
+        }
+        public DataForSpawnItems() { }
     }
 }

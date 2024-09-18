@@ -14742,6 +14742,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62ef796ca43f75b4d8f54751fef0bc67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spawner: {fileID: 2088903597}
+  _isDistroy: 0
+  _target: {fileID: 2088903595}
 --- !u!114 &2088903597
 MonoBehaviour:
   m_ObjectHideFlags: 0

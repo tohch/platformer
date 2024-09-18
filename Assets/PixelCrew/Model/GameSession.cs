@@ -23,8 +23,7 @@ namespace PixelCrew.Model
         public QuickInventoryModel QuickInventory { get; private set; }
 
         private readonly List<string> _checkpoints = new List<string>();
-        private List<ItemsStatusComponent> _itemsStatus = new List<ItemsStatusComponent>();
-
+        private List<DataForSpawnItems> _itemsStatus = new List<DataForSpawnItems>();
 
         private void Awake()
         {
@@ -48,6 +47,7 @@ namespace PixelCrew.Model
             SetChecked(_defaultCkeckPoint);
             LoadHud();
             SpawnHero();
+            LoadItemsStatus();
         }
 
         private void SpawnHero()
@@ -60,6 +60,23 @@ namespace PixelCrew.Model
                 {
                     checkPoint.SpawnHero();
                     break;
+                }
+            }
+        }
+
+        private void LoadItemsStatus()
+        {
+            if (IsItemsStatusChecked())
+            {
+                var items = FindObjectsOfType<ItemsStatusComponent>();
+                for (int i = 0; i < items.Length; i++)
+                {
+                    //if (items[i].DataForSpawn.Name != _itemsStatus[i].Name) continue;
+
+                    items[i].DataForSpawn.IsDistroy = _itemsStatus[i].IsDistroy;
+
+                    if (!items[i].IsDistroy)
+                        items[i].SpawnItem();
                 }
             }
         }
@@ -104,6 +121,11 @@ namespace PixelCrew.Model
             return _checkpoints.Contains(id);
         }
 
+        public bool IsItemsStatusChecked()
+        {
+            return _itemsStatus.Count > 0;
+        }
+
         public void SetChecked(string id)
         {
             if (!_checkpoints.Contains(id))
@@ -112,9 +134,22 @@ namespace PixelCrew.Model
                 _checkpoints.Add(id);
             }
         }
-        public void SetItemsStatus(IEnumerable<ItemsStatusComponent> items)
+        public void SetItemsStatus(List<ItemsStatusComponent> items)
         {
-            _itemsStatus = items as List<ItemsStatusComponent>;
+            if (items != null)
+            {
+                Save();
+                foreach (var item in items)
+                {
+                    _itemsStatus.Add((DataForSpawnItems)item.DataForSpawn.Clone());
+                }
+            }
+
+        }
+
+        public List<DataForSpawnItems> GetItemsStatus()
+        {
+            return _itemsStatus;
         }
 
         private void OnDestroy()

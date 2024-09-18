@@ -26,13 +26,11 @@ namespace PixelCrew.Components.LevelManegement
                 _setChecked?.Invoke();
             else
                 _setUnchecked?.Invoke();
-
-            
         }
 
-        private ItemsStatusComponent[] FindAllItemsStatus()
+        private List<ItemsStatusComponent> FindAllItemsStatus()
         {
-            return FindObjectsOfType<ItemsStatusComponent>();
+            return FindObjectsOfType<ItemsStatusComponent>().ToList<ItemsStatusComponent>();
         }
 
         public void Check()
@@ -41,7 +39,7 @@ namespace PixelCrew.Components.LevelManegement
 
             _session.SetChecked(_id);
 
-            _session.SetItemsStatus(items);
+             _session.SetItemsStatus(items);
 
             _setChecked?.Invoke();
         }
