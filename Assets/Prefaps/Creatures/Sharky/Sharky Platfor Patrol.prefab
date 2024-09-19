@@ -281,6 +281,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1516140014684760441, guid: ee788518ffff32c44a2b1dde6befe85e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 1631358064995717813, guid: ee788518ffff32c44a2b1dde6befe85e,
         type: 3}
       propertyPath: m_Layer
@@ -305,6 +310,41 @@ PrefabInstance:
         type: 3}
       propertyPath: _health
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7881726506497201624, guid: ee788518ffff32c44a2b1dde6befe85e,
+        type: 3}
+      propertyPath: _onDamage.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7881726506497201624, guid: ee788518ffff32c44a2b1dde6befe85e,
+        type: 3}
+      propertyPath: _onDamage.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7881726506497201624, guid: ee788518ffff32c44a2b1dde6befe85e,
+        type: 3}
+      propertyPath: _onDamage.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7881726506497201624, guid: ee788518ffff32c44a2b1dde6befe85e,
+        type: 3}
+      propertyPath: _onDamage.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7881726506497201624, guid: ee788518ffff32c44a2b1dde6befe85e,
+        type: 3}
+      propertyPath: _onDamage.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SetDistroyStatus
+      objectReference: {fileID: 0}
+    - target: {fileID: 7881726506497201624, guid: ee788518ffff32c44a2b1dde6befe85e,
+        type: 3}
+      propertyPath: _onDamage.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7881726506497201624, guid: ee788518ffff32c44a2b1dde6befe85e,
+        type: 3}
+      propertyPath: _onDamage.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8759803221388157376, guid: ee788518ffff32c44a2b1dde6befe85e,
         type: 3}

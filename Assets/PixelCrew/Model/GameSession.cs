@@ -1,6 +1,9 @@
-﻿using PixelCrew.Components.LevelManegement;
+﻿using PixelCrew.Components.GoBased;
+using PixelCrew.Components.Health;
+using PixelCrew.Components.LevelManegement;
 using PixelCrew.Model.Data;
 using PixelCrew.Model.Data.Properties;
+using PixelCrew.Utils;
 using PixelCrew.Utils.Disposables;
 using System;
 using System.Collections.Generic;
@@ -23,7 +26,7 @@ namespace PixelCrew.Model
         public QuickInventoryModel QuickInventory { get; private set; }
 
         private readonly List<string> _checkpoints = new List<string>();
-        private List<DataForSpawnItems> _itemsStatus = new List<DataForSpawnItems>();
+        private DataForSpawnItems[] _itemsStatus;
 
         private void Awake()
         {
@@ -68,19 +71,20 @@ namespace PixelCrew.Model
         {
             if (IsItemsStatusChecked())
             {
-                var items = FindObjectsOfType<ItemsStatusComponent>();
-                for (int i = 0; i < items.Length; i++)
+                for (int i = 0; i < _itemsStatus.Length; i++)
                 {
-                    //if (items[i].DataForSpawn.Name != _itemsStatus[i].Name) continue;
+                    if (_itemsStatus[i].IsDistroy) continue;
 
-                    items[i].DataForSpawn.IsDistroy = _itemsStatus[i].IsDistroy;
-
-                    if (!items[i].IsDistroy)
-                        items[i].SpawnItem();
+                    SpawnComponent.SpawnAndDiscribeOnDie(_itemsStatus[i], SetDistroyStatus, i);
                 }
             }
         }
-
+        public void SetDistroyStatus(int i)
+        {
+            _itemsStatus[i].IsDistroy = true;
+            var allItemSpawn = FindObjectsOfType<ItemsStatusComponent>();
+            allItemSpawn[i].SetDistroyStatus(_itemsStatus[i].IsDistroy);
+        }
         private void InitModels()
         {
             QuickInventory = new QuickInventoryModel(_data);
@@ -123,7 +127,7 @@ namespace PixelCrew.Model
 
         public bool IsItemsStatusChecked()
         {
-            return _itemsStatus.Count > 0;
+            return _itemsStatus != null;
         }
 
         public void SetChecked(string id)
@@ -134,20 +138,21 @@ namespace PixelCrew.Model
                 _checkpoints.Add(id);
             }
         }
-        public void SetItemsStatus(List<ItemsStatusComponent> items)
+        public void SetItemsStatus(DataForSpawnItems[] items)
         {
             if (items != null)
             {
                 Save();
-                foreach (var item in items)
+                _itemsStatus = new DataForSpawnItems[items.Length];
+                for (int i = 0; i < items.Length; i++)
                 {
-                    _itemsStatus.Add((DataForSpawnItems)item.DataForSpawn.Clone());
+                    _itemsStatus[i] = (DataForSpawnItems)items[i].Clone();
                 }
             }
 
         }
 
-        public List<DataForSpawnItems> GetItemsStatus()
+        public DataForSpawnItems[] GetItemsStatus()
         {
             return _itemsStatus;
         }

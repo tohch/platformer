@@ -28,9 +28,17 @@ namespace PixelCrew.Components.LevelManegement
                 _setUnchecked?.Invoke();
         }
 
-        private List<ItemsStatusComponent> FindAllItemsStatus()
+        private DataForSpawnItems[] FindAllItemsStatus()
         {
-            return FindObjectsOfType<ItemsStatusComponent>().ToList<ItemsStatusComponent>();
+            
+            var itemsStatus = FindObjectsOfType<ItemsStatusComponent>();
+            DataForSpawnItems[] items = new DataForSpawnItems[itemsStatus.Length];
+            for (int i = 0; i < items.Length; i++)
+            {
+                items[i] = itemsStatus[i].DataForSpawn;
+            }
+
+            return items;
         }
 
         public void Check()
