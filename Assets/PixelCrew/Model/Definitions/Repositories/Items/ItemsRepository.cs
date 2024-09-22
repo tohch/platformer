@@ -11,25 +11,8 @@ namespace PixelCrew.Model.Definitions.DefRepositories.Items
     [CreateAssetMenu(menuName = "Defs/Items", fileName = "Items")]
     public class ItemsRepository : DefRepository<ItemDef>
     {
-        [SerializeField] private ItemDef[] _items;
-
-        private void OnEnable()
-        {
-            _collection = _items;
-        }
-
-        public ItemDef Get(string id)
-        {
-            foreach(var itemDef in _items)
-            {
-                if (itemDef.Id == id)
-                    return itemDef;
-            }
-
-            return default;
-        }
 #if UNITY_EDITOR
-        public ItemDef[] ItemsForEditor => _items;
+        public ItemDef[] ItemsForEditor => _collection;
 #endif
     }
 

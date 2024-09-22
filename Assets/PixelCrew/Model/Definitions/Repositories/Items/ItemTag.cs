@@ -7,6 +7,7 @@ namespace PixelCrew.Model.Definitions.Repositories.Items
     {
         Stackable,
         Usable,
-        Throwable
+        Throwable,
+        Potion
     }
 }
