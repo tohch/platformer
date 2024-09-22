@@ -13295,8 +13295,10 @@ MonoBehaviour:
   _data:
     _inventory:
       _inventory:
-      - Id: PearlProjectile
-        Value: 10
+      - Id: SmallHealthPotion
+        Value: 1
+      - Id: LargeHealthPotion
+        Value: 1
       - Id: Sword
         Value: 15
     Hp:
