@@ -1,15 +1,22 @@
-﻿using System;
+﻿using PixelCrew.Model.Definitions.Repositories;
+using PixelCrew.Model.Definitions.Repositories.Items;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace PixelCrew.Model.Definitions
+namespace PixelCrew.Model.Definitions.DefRepositories.Items
 {
-    [CreateAssetMenu(menuName = "Defs/InventoryItems", fileName = "InventoryItems")]
-    public class InventorysItemDef : ScriptableObject
+    [CreateAssetMenu(menuName = "Defs/Items", fileName = "Items")]
+    public class ItemsRepository : DefRepository<ItemDef>
     {
         [SerializeField] private ItemDef[] _items;
+
+        private void OnEnable()
+        {
+            _collection = _items;
+        }
 
         public ItemDef Get(string id)
         {
@@ -27,7 +34,7 @@ namespace PixelCrew.Model.Definitions
     }
 
     [Serializable]
-    public struct ItemDef
+    public struct ItemDef : IHaveId
     {
         [SerializeField] private string _id;
         //[SerializeField] private bool _isStackable;

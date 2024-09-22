@@ -14,6 +14,7 @@ using PixelCrew.Components.Health;
 using PixelCrew.Model.Data;
 using PixelCrew.Components.GoBased;
 using PixelCrew.Model.Definitions;
+using PixelCrew.Model.Definitions.Repositories.Items;
 
 namespace PixelCrew.Creatures.Heroes
 {

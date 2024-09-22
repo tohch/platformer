@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace PixelCrew.Model.Definitions.Repository
+namespace PixelCrew.Model.Definitions.Repositories
 {
     public class DefRepository<TDefType> : ScriptableObject where TDefType : IHaveId
     {
