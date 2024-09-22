@@ -31,7 +31,7 @@ namespace PixelCrew.Model.Definitions.DefRepositories.Items
         
         public bool HasTag(ItemTag tag)
         {
-            return _tags.Contains(tag);
+            return _tags?.Contains(tag) ?? false;
         }
     }
 }

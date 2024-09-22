@@ -75,7 +75,29 @@ namespace PixelCrew.Creatures.Heroes
             }
         }
 
-        public void Throw(double duration)
+        public void UseInventory(double duration)
+        {
+            if (IsSelectedItem(ItemTag.Throwable))
+                PerformThrowing(duration);
+            else if (IsSelectedItem(ItemTag.Potion))
+                UsePotion();
+        }
+
+        private void UsePotion()
+        {
+            var potion = DefsFacade.I.Potions.Get(SelectedItemId);
+            
+            _session.Data.Hp.Value += (int)potion.Value;
+
+            _session.Data.Inventory.Remove(potion.Id, 1);
+        }
+
+        private bool IsSelectedItem(ItemTag tag)
+        {
+            return _session.QuickInventory.SelsetedDef.HasTag(tag);
+        }
+
+        private void PerformThrowing(double duration)
         {
             if (duration >= _pressTimeForSuperThrow)
             {
@@ -86,6 +108,7 @@ namespace PixelCrew.Creatures.Heroes
                 ThrowOne();
             }
         }
+
         private void ThrowOne()
         {
             if (_throwCooldown.IsReady)

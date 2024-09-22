@@ -1,4 +1,5 @@
 ﻿using PixelCrew.Model.Definitions;
+using PixelCrew.Model.Definitions.DefRepositories.Items;
 using PixelCrew.Model.Definitions.Repositories.Items;
 using PixelCrew.Utils.Disposables;
 using System;
@@ -16,7 +17,18 @@ namespace PixelCrew.Model.Data.Properties
 
         public event Action Onchanged;
 
-        public InventoryItemData SelectedItem => Inventory[SelectedIndex.Value];
+        public InventoryItemData SelectedItem
+        {
+            get
+            {
+                if (Inventory.Length > 0 && Inventory.Length > SelectedIndex.Value)
+                    return Inventory[SelectedIndex.Value];
+
+                return null;
+            }
+        }
+
+        public ItemDef SelsetedDef => DefsFacade.I.Items.Get(SelectedItem?.Id);
 
         public QuickInventoryModel(PlayerData data)
         {

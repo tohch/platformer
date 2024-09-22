@@ -36,7 +36,7 @@ namespace PixelCrew.Creatures
         {
             if (context.canceled)
             {
-                _hero.Throw(context.duration);
+                _hero.UseInventory(context.duration);
             }
         }
 
