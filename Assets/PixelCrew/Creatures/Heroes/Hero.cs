@@ -15,6 +15,7 @@ using PixelCrew.Model.Data;
 using PixelCrew.Components.GoBased;
 using PixelCrew.Model.Definitions;
 using PixelCrew.Model.Definitions.Repositories.Items;
+using PixelCrew.Model.Definitions.Repositories;
 
 namespace PixelCrew.Creatures.Heroes
 {
@@ -87,9 +88,29 @@ namespace PixelCrew.Creatures.Heroes
         {
             var potion = DefsFacade.I.Potions.Get(SelectedItemId);
             
-            _session.Data.Hp.Value += (int)potion.Value;
-
+            switch (potion.Effect)
+            {
+                case Effect.AddHp:
+                    _session.Data.Hp.Value += (int)potion.Value;
+                    break;
+                case Effect.SpeedUp:
+                    _speedUpCooldown.Value = _speedUpCooldown.TimeLasts + potion.Time;
+                    _additionalSpeed = Mathf.Max(potion.Value, _additionalSpeed);
+                    _speedUpCooldown.Reset();
+                    break;
+            }
             _session.Data.Inventory.Remove(potion.Id, 1);
+        }
+
+        private readonly Cooldown _speedUpCooldown = new Cooldown();
+        private float _additionalSpeed;
+
+        protected override float CalculateSpeed()
+        {
+            if (_speedUpCooldown.IsReady)
+                _additionalSpeed = 0f;
+
+            return base.CalculateSpeed() + _additionalSpeed;
         }
 
         private bool IsSelectedItem(ItemTag tag)
