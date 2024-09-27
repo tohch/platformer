@@ -7,7 +7,7 @@ namespace PixelCrew.UI.Widgets
 {
     public class DataGroup<TDataType, TItemType> where TItemType : MonoBehaviour, IItemRenderer<TDataType>
     {
-        private readonly List<TItemType> _createdItem = new List<TItemType>();
+        protected readonly List<TItemType> CreatedItem = new List<TItemType>();
         private readonly TItemType _prefab;
         private readonly Transform _container;
 
@@ -16,23 +16,23 @@ namespace PixelCrew.UI.Widgets
             _prefab = prefab;
             _container = container;
         }
-        public void SetData(IList<TDataType> data)
+        public virtual void SetData(IList<TDataType> data)
         {
-            for (var i = _createdItem.Count; i < data.Count(); i++)
+            for (var i = CreatedItem.Count; i < data.Count(); i++)
             {
                 var item = Object.Instantiate(_prefab, _container);
-                _createdItem.Add(item);
+                CreatedItem.Add(item);
             }
 
             for (int i = 0; i < data.Count; i++)
             {
-                _createdItem[i].SetData(data[i], i);
-                _createdItem[i].gameObject.SetActive(true);
+                CreatedItem[i].SetData(data[i], i);
+                CreatedItem[i].gameObject.SetActive(true);
             }
 
-            for (var i = data.Count; i < _createdItem.Count; i++)
+            for (var i = data.Count; i < CreatedItem.Count; i++)
             {
-                _createdItem[i].gameObject.SetActive(false);
+                CreatedItem[i].gameObject.SetActive(false);
             }
         }
     }
