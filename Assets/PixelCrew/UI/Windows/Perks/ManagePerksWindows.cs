@@ -18,14 +18,14 @@ namespace PixelCrew.UI.Windows.Perks
         [SerializeField] private Text _info;
         [SerializeField] private Transform _perksContainer;
 
-        private PredefinedDataGroup<string, PerkWidget> _dataGroup;
+        private PredefinedDataGroup<PerkDef, PerkWidget> _dataGroup;
         private readonly CompositeDisposable _trash = new CompositeDisposable();
 
         protected override void Start()
         {
             base.Start();
 
-            _dataGroup = new PredefinedDataGroup<string, PerkWidget>(_perksContainer);
+            _dataGroup = new PredefinedDataGroup<PerkDef, PerkWidget>(_perksContainer);
 
         }
     }

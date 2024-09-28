@@ -1,8 +1,8 @@
 ﻿using PixelCrew.Components.LevelManegement;
 using PixelCrew.Model.Data;
 using PixelCrew.Model.Data.Properties;
+using PixelCrew.Model.Models;
 using PixelCrew.Utils.Disposables;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -21,6 +21,7 @@ namespace PixelCrew.Model
         private readonly CompositeDisposable _trash = new CompositeDisposable();
 
         public QuickInventoryModel QuickInventory { get; private set; }
+        public PerksModel PerksModel { get; private set; }
 
         private readonly List<string> _checkpoints = new List<string>();
 
@@ -66,6 +67,9 @@ namespace PixelCrew.Model
         {
             QuickInventory = new QuickInventoryModel(_data);
             _trash.Retain(QuickInventory);
+
+            PerksModel = new PerksModel(_data);
+            _trash.Retain(PerksModel);
         }
 
         private void LoadHud()
