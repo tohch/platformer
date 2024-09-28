@@ -1,4 +1,5 @@
 ﻿using PixelCrew.Model.Definitions;
+using PixelCrew.Model.Definitions.Repositories;
 using PixelCrew.Model.Definitions.Repositories.Items;
 using System;
 using System.Collections;
@@ -133,6 +134,25 @@ namespace PixelCrew.Model.Data
                     count += item.Value;
             }
             return count;
+        }
+
+        internal bool IsEnough(params ItemWithCount[] items)
+        {
+            var joined = new Dictionary<string, int>();
+            foreach (var item in items)
+            {
+                if (joined.ContainsKey(item.ItemId))
+                    joined[item.ItemId] += item.Count;
+                else
+                    joined.Add(item.ItemId, item.Count);
+            }
+
+            foreach (var kvp in joined)
+            {
+                var count = Count(kvp.Key);
+                if (count < kvp.Value) return false;
+            }
+                return true;
         }
     }
 
