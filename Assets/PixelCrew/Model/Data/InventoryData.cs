@@ -152,7 +152,7 @@ namespace PixelCrew.Model.Data
                 var count = Count(kvp.Key);
                 if (count < kvp.Value) return false;
             }
-                return true;
+            return true;
         }
     }
 

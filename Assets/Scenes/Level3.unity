@@ -13295,14 +13295,18 @@ MonoBehaviour:
   _data:
     _inventory:
       _inventory:
-      - Id: SpeedUpPotion
-        Value: 30
+      - Id: GreenDiamond
+        Value: 20
       - Id: LargeHealthPotion
         Value: 1
       - Id: Sword
         Value: 15
     Hp:
       _value: 10
+    Perks:
+      _used:
+        _value: 0
+      _unlocked: []
   _defaultCkeckPoint: level3-checkpoint1
 --- !u!4 &1533253397
 Transform:

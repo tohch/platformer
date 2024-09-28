@@ -198,7 +198,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8407838052553745160}
-        m_MethodName: OnSelected
+        m_MethodName: OnSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 508abcfa0e2551642ae1a5b0c5b6ff74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _icon: {fileID: 8591284402404377874}
+  _icon: {fileID: 4552887387341503059}
   _isLocked: {fileID: 1086265707609697093}
   _isUsed: {fileID: 2849515591294645431}
   _isSelected: {fileID: 3045622596123008716}
@@ -498,7 +498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.22107512, g: 0.6792453, b: 0.3894624, a: 1}
+  m_Color: {r: 0.92156863, g: 0.93333334, b: 0.54901963, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1003,7 +1003,6 @@ GameObject:
   - component: {fileID: 890200835650552591}
   - component: {fileID: 890200835650552588}
   - component: {fileID: 890200835650552589}
-  - component: {fileID: 890200835650552590}
   m_Layer: 5
   m_Name: PriceLable
   m_TagString: Untagged
@@ -1071,20 +1070,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Price:'
---- !u!114 &890200835650552590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 890200835650552688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 003026be578bf7b42946909c06665005, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _key: button_start
-  _capitalize: 1
 --- !u!1 &890200835675685568
 GameObject:
   m_ObjectHideFlags: 0
@@ -1382,7 +1367,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 890200835896886770}
-        m_MethodName: OnSelected
+        m_MethodName: OnSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1404,7 +1389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 508abcfa0e2551642ae1a5b0c5b6ff74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _icon: {fileID: 890200836217479215}
+  _icon: {fileID: 890200836217479213}
   _isLocked: {fileID: 890200836892543658}
   _isUsed: {fileID: 890200835980430483}
   _isSelected: {fileID: 890200835641780740}
@@ -1825,11 +1810,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5f0192b404c9b4a835b993aaf1a47c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _container: {fileID: 890200835854439287}
   _buyButton: {fileID: 890200835535787427}
   _useButton: {fileID: 890200837259836538}
   _price: {fileID: 4466541731739645246}
-  _info: {fileID: 890200835622423455}
-  _perksContainer: {fileID: 890200835854439287}
+  _infoText: {fileID: 890200835622423455}
 --- !u!1 &890200836892543658
 GameObject:
   m_ObjectHideFlags: 0
@@ -2061,7 +2046,7 @@ GameObject:
   - component: {fileID: 890200837213613363}
   - component: {fileID: 890200837213613364}
   m_Layer: 5
-  m_Name: Info
+  m_Name: InfoPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2135,7 +2120,6 @@ GameObject:
   - component: {fileID: 890200837244203668}
   - component: {fileID: 890200837244203665}
   - component: {fileID: 890200837244203666}
-  - component: {fileID: 890200837244203667}
   m_Layer: 5
   m_Name: NormalText
   m_TagString: Untagged
@@ -2203,20 +2187,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: USE
---- !u!114 &890200837244203667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 890200837244203669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 003026be578bf7b42946909c06665005, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _key: button_start
-  _capitalize: 1
 --- !u!1 &890200837259836541
 GameObject:
   m_ObjectHideFlags: 0
@@ -2279,7 +2249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.92156863, g: 0.93333334, b: 0.54901963, a: 1}
+  m_Color: {r: 0.40856013, g: 0.8207547, b: 0.39101994, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2515,7 +2485,6 @@ GameObject:
   - component: {fileID: 890200837482976524}
   - component: {fileID: 890200837482976521}
   - component: {fileID: 890200837482976522}
-  - component: {fileID: 890200837482976523}
   m_Layer: 5
   m_Name: NormalText
   m_TagString: Untagged
@@ -2582,21 +2551,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: START
---- !u!114 &890200837482976523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 890200837482976525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 003026be578bf7b42946909c06665005, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _key: button_start
-  _capitalize: 1
+  m_Text: BUY
 --- !u!1 &890200837490968241
 GameObject:
   m_ObjectHideFlags: 0
@@ -3155,7 +3110,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 746332906244388921}
-        m_MethodName: OnSelected
+        m_MethodName: OnSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3177,7 +3132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 508abcfa0e2551642ae1a5b0c5b6ff74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _icon: {fileID: 6705770655261055011}
+  _icon: {fileID: 1954898216563491729}
   _isLocked: {fileID: 9050632856843066859}
   _isUsed: {fileID: 4541249672064812531}
   _isSelected: {fileID: 86568561228053590}
@@ -4119,7 +4074,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6601024523557902267}
-        m_MethodName: OnSelected
+        m_MethodName: OnSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4141,7 +4096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 508abcfa0e2551642ae1a5b0c5b6ff74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _icon: {fileID: 636250473847552553}
+  _icon: {fileID: 4640654513095910689}
   _isLocked: {fileID: 1086648512134750157}
   _isUsed: {fileID: 524544001997661594}
   _isSelected: {fileID: 8288867516476507867}
@@ -4343,7 +4298,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7011579464662544112}
-        m_MethodName: OnSelected
+        m_MethodName: OnSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4365,7 +4320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 508abcfa0e2551642ae1a5b0c5b6ff74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _icon: {fileID: 5887295983517111296}
+  _icon: {fileID: 5300880423222911155}
   _isLocked: {fileID: 5577040365231871459}
   _isUsed: {fileID: 1861003293719335166}
   _isSelected: {fileID: 4896892286696178482}
@@ -4641,7 +4596,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1448779637522284699}
-        m_MethodName: OnSelected
+        m_MethodName: OnSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4663,7 +4618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 508abcfa0e2551642ae1a5b0c5b6ff74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _icon: {fileID: 7092157926628184762}
+  _icon: {fileID: 4584740987883130168}
   _isLocked: {fileID: 6291698561590228432}
   _isUsed: {fileID: 8978282056546821365}
   _isSelected: {fileID: 6785386997758881458}
@@ -4939,7 +4894,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 528559295645519796}
-        m_MethodName: OnSelected
+        m_MethodName: OnSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4961,7 +4916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 508abcfa0e2551642ae1a5b0c5b6ff74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _icon: {fileID: 7370994678816744852}
+  _icon: {fileID: 2443060900268501075}
   _isLocked: {fileID: 1239186540563040264}
   _isUsed: {fileID: 9021214520723787604}
   _isSelected: {fileID: 4048390247479419264}

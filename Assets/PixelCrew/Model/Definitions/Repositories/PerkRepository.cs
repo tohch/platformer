@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace PixelCrew.Model.Definitions.Repositories
 {
+    [CreateAssetMenu(menuName = "Defs/Repository/Perks", fileName = "Perks")]
     public class PerkRepository : DefRepository<PerkDef>
     {
 

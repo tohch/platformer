@@ -18,7 +18,9 @@ namespace PixelCrew.UI.Windows.InGameMenu
 
         public void OnShowSettings()
         {
-            WindowUtils.CreateWindow("UI/SettingWindow");
+            WindowUtils.CreateWindow("UI/ManagePerksWindow");
+            Close();
+            //WindowUtils.CreateWindow("UI/SettingWindow");
         }
 
         public void OnExit()
