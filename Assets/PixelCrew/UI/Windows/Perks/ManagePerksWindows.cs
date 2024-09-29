@@ -64,5 +64,10 @@ namespace PixelCrew.UI.Windows.Perks
             var selected = _session.PerksModel.InterfaceSelection.Value;
             _session.PerksModel.Unlock(selected);
         }
+
+        private void OnDestroy()
+        {
+            _trash.Dispose();
+        }
     }
 }

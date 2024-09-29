@@ -3051,9 +3051,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data:
     _inventory:
-      _inventory: []
+      _inventory:
+      - Id: GreenDiamond
+        Value: 15
+      - Id: Sword
+        Value: 9
     Hp:
       _value: 10
+    Perks:
+      _used:
+        _value: 
+      _unlocked: []
+  _defaultCkeckPoint: 
 --- !u!4 &739876110
 Transform:
   m_ObjectHideFlags: 0

@@ -120,7 +120,7 @@ namespace PixelCrew.Creatures.Heroes
 
         private void PerformThrowing(double duration)
         {
-            if (duration >= _pressTimeForSuperThrow)
+            if (duration >= _pressTimeForSuperThrow && _session.PerksModel.IsSuperThrowSupported)
             {
                 StartCoroutine(ThrowRow());
             }
@@ -248,7 +248,7 @@ namespace PixelCrew.Creatures.Heroes
         protected override float CalculateJumpVelocity(float yVelocity)
         {
 
-            if (!IsGrounded && _allowDoubleJump && !_isOnWall)
+            if (!IsGrounded && _allowDoubleJump && _session.PerksModel.IsDoubleJumpSupported && !_isOnWall)
             {
                 _allowDoubleJump = false;
                 DoJumpVfx();

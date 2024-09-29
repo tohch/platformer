@@ -15,6 +15,9 @@ namespace PixelCrew.Model.Models
 
         public event Action OnChanged;
 
+        public bool IsSuperThrowSupported => _data.Perks.Used.Value == "super-throw";
+        public bool IsDoubleJumpSupported => _data.Perks.Used.Value =="double-jump";
+
         public PerksModel(PlayerData data)
         {
             _data = data;

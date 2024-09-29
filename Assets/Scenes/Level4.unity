@@ -993,12 +993,12 @@ PrefabInstance:
     - target: {fileID: 1669084236229051134, guid: e8087a65f84a1e84da8bda3c8f8ade8d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.108685
+      value: -15.701954
       objectReference: {fileID: 0}
     - target: {fileID: 1669084236229051134, guid: e8087a65f84a1e84da8bda3c8f8ade8d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7538478
+      value: 0.78090996
       objectReference: {fileID: 0}
     - target: {fileID: 1669084236833423820, guid: e8087a65f84a1e84da8bda3c8f8ade8d,
         type: 3}
@@ -1319,6 +1319,10 @@ MonoBehaviour:
       _inventory: []
     Hp:
       _value: 10
+    Perks:
+      _used:
+        _value: 
+      _unlocked: []
   _defaultCkeckPoint: level4-checkpoint1
 --- !u!4 &739876110
 Transform:

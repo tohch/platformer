@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 3405982073968746557}
   - component: {fileID: 3405982073968746547}
   - component: {fileID: 2208135711312987052}
-  - component: {fileID: 2527446426433378423}
   - component: {fileID: 4290587529249956183}
   - component: {fileID: 3447843044573343895}
+  - component: {fileID: 4086496538181114329}
+  - component: {fileID: 1729287209805042225}
   m_Layer: 11
   m_Name: CrabbyNPC
   m_TagString: Interactable
@@ -150,8 +151,8 @@ MonoBehaviour:
   _action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2208135711312987052}
-        m_MethodName: Check
+      - m_Target: {fileID: 1729287209805042225}
+        m_MethodName: Show
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -180,7 +181,7 @@ MonoBehaviour:
   _onSuccess:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2527446426433378423}
+      - m_Target: {fileID: 0}
         m_MethodName: Show
         m_Mode: 2
         m_Arguments:
@@ -218,7 +219,7 @@ MonoBehaviour:
   _onFail:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2527446426433378423}
+      - m_Target: {fileID: 0}
         m_MethodName: Show
         m_Mode: 2
         m_Arguments:
@@ -231,22 +232,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2527446426433378423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3405982073968746558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d44614ea3d056344b96e1be85539882, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mode: 1
-  _bound:
-    _sentences: []
-  _external: {fileID: 0}
 --- !u!114 &4290587529249956183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,3 +259,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 3405982073968746556}
   _prefab: {fileID: 8998524652103983389, guid: 343147ddd1bcdef47875c74ea943beec, type: 3}
+--- !u!114 &4086496538181114329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3405982073968746558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54c438b19db7c414480d2791b4d99d82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _path: UI/ManagePerksWindow
+--- !u!114 &1729287209805042225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3405982073968746558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c85396d82bef674aab811ff31e34977, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    DialogText: I can teach you a new perk!
+    Options:
+    - Text: Ok!
+      OnSelect:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 4086496538181114329}
+            m_MethodName: Show
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    - Text: Not now
+      OnSelect:
+        m_PersistentCalls:
+          m_Calls: []
