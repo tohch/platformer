@@ -35,8 +35,9 @@ namespace PixelCrew.Creatures.Heroes
 
         [Header("Super throw")]
         [SerializeField] private double _pressTimeForSuperThrow;
-        private Cooldown _superThrowCooldown;
-        private bool _superThrow;
+        public Cooldown _superThrowCooldown;
+        public bool _superThrow;
+        private bool _superThrowTriger;
         [SerializeField] private int _numberThrowRow;
         [SerializeField] private float _superThrowDelay;
         [SerializeField] private float _meleeAttackCooldown;
@@ -122,20 +123,21 @@ namespace PixelCrew.Creatures.Heroes
 
         public void StartThrowing()
         {
-            SuperThrowCooldown.Reset();
+            _superThrowCooldown.Reset();
+            _superThrowTriger = true;
         }
-
         private void PerformThrowing()
         {
-            if (SuperThrowCooldown.IsReady && _session.PerksModel.IsSuperThrowSupported)
+            _superThrowTriger = false;
+            if (_superThrowCooldown.IsReady && _session.PerksModel.IsSuperThrowSupported)
             {
-                _superThrow = true;
                 StartCoroutine(ThrowRow());
             }
             else
             {
                 ThrowOne();
             }
+            _superThrow = false;
         }
 
         private void ThrowOne()
@@ -145,6 +147,7 @@ namespace PixelCrew.Creatures.Heroes
                 ThrowAndRemoveFromInventory();
                 _throwCooldown.Reset();
             }
+            _superThrow = false;
         }
 
         private IEnumerator ThrowRow()
@@ -181,7 +184,7 @@ namespace PixelCrew.Creatures.Heroes
             base.Awake();
             healthComponent = GetComponent<HealthComponent>();
             _defaultGravityScale = Rigidbody.gravityScale;
-            SuperThrowCooldown = new Cooldown() { Value = (float)_pressTimeForSuperThrow };
+            _superThrowCooldown = new Cooldown() { Value = (float)_pressTimeForSuperThrow };
         }
 
         private void Start()
@@ -213,6 +216,14 @@ namespace PixelCrew.Creatures.Heroes
         protected override void FixedUpdate()
         {
             base.FixedUpdate();
+            if (_superThrowCooldown.IsReady && _superThrowTriger)
+            {
+                _superThrow = true;
+                //_superThrowTriger = false;
+
+            }
+            else
+                _superThrow = false;
         }
 
         protected override void Update()
