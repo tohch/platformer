@@ -35,7 +35,7 @@ namespace PixelCrew.Creatures.Heroes
 
         [Header("Super throw")]
         [SerializeField] private double _pressTimeForSuperThrow;
-        private Cooldown _superThrowCooldown;
+        public Cooldown SuperThrowCooldown;
         [SerializeField] private int _numberThrowRow;
         [SerializeField] private float _superThrowDelay;
         [SerializeField] private float _meleeAttackCooldown;
@@ -121,12 +121,12 @@ namespace PixelCrew.Creatures.Heroes
 
         public void StartThrowing()
         {
-            _superThrowCooldown.Reset();
+            SuperThrowCooldown.Reset();
         }
 
         private void PerformThrowing()
         {
-            if (_superThrowCooldown.IsReady && _session.PerksModel.IsSuperThrowSupported)
+            if (SuperThrowCooldown.IsReady && _session.PerksModel.IsSuperThrowSupported)
             {
                 StartCoroutine(ThrowRow());
             }
@@ -178,7 +178,7 @@ namespace PixelCrew.Creatures.Heroes
             base.Awake();
             healthComponent = GetComponent<HealthComponent>();
             _defaultGravityScale = Rigidbody.gravityScale;
-            _superThrowCooldown = new Cooldown() { Value = (float)_pressTimeForSuperThrow };
+            SuperThrowCooldown = new Cooldown() { Value = (float)_pressTimeForSuperThrow };
         }
 
         private void Start()
