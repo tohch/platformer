@@ -43,7 +43,7 @@ namespace PixelCrew.UI.Widgets
 
         public void ShowIndicateSkill()
         {
-            Debug.Log(_hero.SuperThrowCooldown.IsReady);
+            Debug.Log(_hero.SuperThrowCooldown.TimeLasts);
         }
 
         public void OnDestroy()
