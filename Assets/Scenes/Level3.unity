@@ -13376,6 +13376,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1412128846}
     m_Modifications:
+    - target: {fileID: -4848403714471982531, guid: 3342ff1c7de331046a66b3be2116f5ca,
+        type: 3}
+      propertyPath: _id
+      value: LargeHealthPotion
+      objectReference: {fileID: 0}
     - target: {fileID: 2237519285749428517, guid: 3342ff1c7de331046a66b3be2116f5ca,
         type: 3}
       propertyPath: m_Name

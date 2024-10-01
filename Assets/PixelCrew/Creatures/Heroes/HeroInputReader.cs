@@ -34,9 +34,13 @@ namespace PixelCrew.Creatures
 
         public void OnThrow(InputAction.CallbackContext context)
         {
+            if (context.started)
+            {
+                _hero.StartThrowing();
+            }
             if (context.canceled)
             {
-                _hero.UseInventory(context.duration);
+                _hero.UseInventory();
             }
         }
 

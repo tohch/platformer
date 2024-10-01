@@ -231,7 +231,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""b8e62919-4da9-417e-98a6-60ef10ece55c"",
                     ""path"": ""<Keyboard>/shift"",
-                    ""interactions"": ""Press(behavior=2)"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Throw"",

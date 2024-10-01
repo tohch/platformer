@@ -35,6 +35,7 @@ namespace PixelCrew.Creatures.Heroes
 
         [Header("Super throw")]
         [SerializeField] private double _pressTimeForSuperThrow;
+        private Cooldown _superThrowCooldown;
         [SerializeField] private int _numberThrowRow;
         [SerializeField] private float _superThrowDelay;
         [SerializeField] private float _meleeAttackCooldown;
@@ -76,10 +77,10 @@ namespace PixelCrew.Creatures.Heroes
             }
         }
 
-        public void UseInventory(double duration)
+        public void UseInventory()
         {
             if (IsSelectedItem(ItemTag.Throwable))
-                PerformThrowing(duration);
+                PerformThrowing();
             else if (IsSelectedItem(ItemTag.Potion))
                 UsePotion();
         }
@@ -118,9 +119,14 @@ namespace PixelCrew.Creatures.Heroes
             return _session.QuickInventory.SelsetedDef.HasTag(tag);
         }
 
-        private void PerformThrowing(double duration)
+        public void StartThrowing()
         {
-            if (duration >= _pressTimeForSuperThrow && _session.PerksModel.IsSuperThrowSupported)
+            _superThrowCooldown.Reset();
+        }
+
+        private void PerformThrowing()
+        {
+            if (_superThrowCooldown.IsReady && _session.PerksModel.IsSuperThrowSupported)
             {
                 StartCoroutine(ThrowRow());
             }
@@ -172,6 +178,7 @@ namespace PixelCrew.Creatures.Heroes
             base.Awake();
             healthComponent = GetComponent<HealthComponent>();
             _defaultGravityScale = Rigidbody.gravityScale;
+            _superThrowCooldown = new Cooldown() { Value = (float)_pressTimeForSuperThrow };
         }
 
         private void Start()
