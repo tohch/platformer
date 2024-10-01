@@ -118,6 +118,14 @@ namespace PixelCrew.Creatures.Heroes
             return _session.QuickInventory.SelsetedDef.HasTag(tag);
         }
 
+        //public bool IsSuperThrowPerform(double duration)
+        //{
+        //    var isSuper = duration >= _pressTimeForSuperThrow && _session.PerksModel.IsSuperThrowSupported;
+
+        //    return isSuper;
+        //}
+        public double Duration;
+
         private void PerformThrowing(double duration)
         {
             if (duration >= _pressTimeForSuperThrow && _session.PerksModel.IsSuperThrowSupported)
