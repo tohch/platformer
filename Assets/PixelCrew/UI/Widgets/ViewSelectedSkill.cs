@@ -43,7 +43,10 @@ namespace PixelCrew.UI.Widgets
 
         public void ShowIndicateSkill()
         {
-            Debug.Log(_hero._superThrow);
+            if (_hero.IsSuperSkillReady)
+                _skillIcon.color = new Color(1f, 1f, 1f, 1f);
+            else
+                _skillIcon.color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
         }
 
         public void OnDestroy()

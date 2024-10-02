@@ -35,8 +35,8 @@ namespace PixelCrew.Creatures.Heroes
 
         [Header("Super throw")]
         [SerializeField] private double _pressTimeForSuperThrow;
-        public Cooldown _superThrowCooldown;
-        public bool _superThrow;
+        private Cooldown _superThrowCooldown;
+        private bool _superThrow;
         private bool _superThrowTriger;
         [SerializeField] private int _numberThrowRow;
         [SerializeField] private float _superThrowDelay;
@@ -67,7 +67,7 @@ namespace PixelCrew.Creatures.Heroes
 
         private string SelectedItemId => _session.QuickInventory.SelectedItem.Id;
 
-        private bool CanThrow
+        public bool CanThrow
         {
             get
             {
@@ -79,6 +79,19 @@ namespace PixelCrew.Creatures.Heroes
             }
         }
 
+        public bool IsSuperSkillReady
+        {
+            get
+            {
+                if (_session.PerksModel.IsSuperThrowSupported && CanThrow && SwordCount > 2)
+                    return _superThrow;
+
+                if (_session.PerksModel.IsDoubleJumpSupported)
+                    return _allowDoubleJump;
+
+                return false;
+            }
+        }
         public void UseInventory()
         {
             if (IsSelectedItem(ItemTag.Throwable))
@@ -213,17 +226,22 @@ namespace PixelCrew.Creatures.Heroes
             _session.Data.Hp.Value = currentHealth;
         }
 
-        protected override void FixedUpdate()
+        private void CheckSuperThrowForIcon()
         {
-            base.FixedUpdate();
-            if (_superThrowCooldown.IsReady && _superThrowTriger)
+            if (!CanThrow)
+                _superThrowTriger = false;
+            if (_superThrowCooldown.IsReady && _superThrowTriger && _session.PerksModel.IsSuperThrowSupported && CanThrow)
             {
                 _superThrow = true;
-                //_superThrowTriger = false;
-
             }
             else
                 _superThrow = false;
+        }
+
+        protected override void FixedUpdate()
+        {
+            base.FixedUpdate();
+            CheckSuperThrowForIcon();
         }
 
         protected override void Update()
