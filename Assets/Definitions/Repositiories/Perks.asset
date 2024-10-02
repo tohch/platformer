@@ -25,3 +25,9 @@ MonoBehaviour:
     _price:
       _itemId: GreenDiamond
       _count: 10
+  - _id: magic-shield
+    _icon: {fileID: 21300000, guid: 7cdbfe3999df7e542830e0402b3c344a, type: 3}
+    _info: This is magic shield
+    _price:
+      _itemId: GreenDiamond
+      _count: 7

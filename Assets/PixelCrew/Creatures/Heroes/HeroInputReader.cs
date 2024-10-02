@@ -44,6 +44,18 @@ namespace PixelCrew.Creatures
             }
         }
 
+        public void OnMagicShield(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                _hero.StartChargetMagicShield();
+            }
+            if (context.canceled)
+            {
+                _hero.ActivateMagicShield();
+            }
+        }
+
         public void OnUsePotion(InputAction.CallbackContext contex)
         {
             if (contex.performed)

@@ -29,6 +29,8 @@ namespace PixelCrew.Creatures.Heroes
         [SerializeField] private float _slamDownVelocity;
 
         [SerializeField] private Cooldown _throwCooldown;
+        [SerializeField] private Cooldown _timeChargingMagicShield;
+        [SerializeField] private Cooldown _magicShieldCooldown;
         [SerializeField] private AnimatorController _armed;
         [SerializeField] private AnimatorController _disarmed;
         [SerializeField] private float _fallVelocityforDamage;
@@ -36,6 +38,7 @@ namespace PixelCrew.Creatures.Heroes
         [Header("Super throw")]
         [SerializeField] private double _pressTimeForSuperThrow;
         private Cooldown _superThrowCooldown;
+
         private bool _superThrow;
         private bool _superThrowTriger;
         [SerializeField] private int _numberThrowRow;
@@ -92,6 +95,20 @@ namespace PixelCrew.Creatures.Heroes
                 return false;
             }
         }
+
+        public void StartChargetMagicShield()
+        {
+            _timeChargingMagicShield.Reset();
+        }
+
+        public void ActivateMagicShield()
+        {
+            if (_timeChargingMagicShield.IsReady && _session.PerksModel.IsMagicShieldSupported)
+            {
+                healthComponent.Immune = true;
+            }
+        }
+
         public void UseInventory()
         {
             if (IsSelectedItem(ItemTag.Throwable))

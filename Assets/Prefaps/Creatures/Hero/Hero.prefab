@@ -692,6 +692,10 @@ MonoBehaviour:
   _slamDownVelocity: 20
   _throwCooldown:
     _value: 1
+  _timeChargingMagicShield:
+    _value: 1
+  _magicShieldCooldown:
+    _value: 5
   _armed: {fileID: 9100000, guid: 0b663d7555527e74f9be596308bb0196, type: 2}
   _disarmed: {fileID: 9100000, guid: ab68c4cdade1bfc4faf33163e4bccd12, type: 2}
   _fallVelocityforDamage: 40
@@ -833,6 +837,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8759803221388157405}
         m_MethodName: OnThrow
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8759803221388157405}
+        m_MethodName: OnMagicShield
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
