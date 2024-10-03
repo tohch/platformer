@@ -54,6 +54,8 @@ namespace PixelCrew.Creatures.Heroes
 
         private bool _allowDoubleJump;
         private bool _isOnWall;
+        private SpriteRenderer _spriteRenderer;
+        private Color _defaultColor;
 
         private GameSession _session;
         private float _defaultGravityScale;
@@ -92,6 +94,9 @@ namespace PixelCrew.Creatures.Heroes
                 if (_session.PerksModel.IsDoubleJumpSupported)
                     return _allowDoubleJump;
 
+                if (_timeChargingMagicShield.IsReady && _session.PerksModel.IsMagicShieldSupported && !healthComponent.Immune)
+                    return _magicShield;
+
                 return false;
             }
         }
@@ -99,14 +104,56 @@ namespace PixelCrew.Creatures.Heroes
         public void StartChargetMagicShield()
         {
             _timeChargingMagicShield.Reset();
+            _magicShieldTriget = true;
         }
 
         public void ActivateMagicShield()
         {
-            if (_timeChargingMagicShield.IsReady && _session.PerksModel.IsMagicShieldSupported)
+            if (_timeChargingMagicShield.IsReady && _session.PerksModel.IsMagicShieldSupported && !healthComponent.Immune)
             {
+                _defaultColor = _spriteRenderer.color;
                 healthComponent.Immune = true;
+                StartCoroutine(AnimateMagicShield());
+                _magicShieldCooldown.Reset();
+                _magicShieldTriget = false;
+
+
             }
+        }
+
+        private IEnumerator AnimateMagicShield()
+        {
+
+            while (healthComponent.Immune)
+            {
+        
+                for (float ft = 1f; ft >= 0; ft -= 0.1f)
+                {
+                    var color = new Color(_spriteRenderer.color.r, ft, ft, _spriteRenderer.color.a);
+                    _spriteRenderer.color = color;
+                    if (!healthComponent.Immune)
+                    {
+                        if (_defaultColor != null)
+                            _spriteRenderer.color = _defaultColor;
+                        break;
+                    }
+                    yield return new WaitForSeconds(.1f);
+                }
+                for (float ft = 0f; ft <= 1; ft += 0.1f)
+                {
+                    var color = new Color(_spriteRenderer.color.r, ft, ft, _spriteRenderer.color.a);
+                    _spriteRenderer.color = color;
+                    if (!healthComponent.Immune)
+                    {
+                        if (_defaultColor != null)
+                            _spriteRenderer.color = _defaultColor;
+                        break;
+                    }
+                    yield return new WaitForSeconds(.1f);
+                }
+                yield return null;
+            }
+
         }
 
         public void UseInventory()
@@ -137,6 +184,8 @@ namespace PixelCrew.Creatures.Heroes
 
         private readonly Cooldown _speedUpCooldown = new Cooldown();
         private float _additionalSpeed;
+        private bool _magicShield;
+        private bool _magicShieldTriget;
 
         protected override float CalculateSpeed()
         {
@@ -215,6 +264,7 @@ namespace PixelCrew.Creatures.Heroes
             healthComponent = GetComponent<HealthComponent>();
             _defaultGravityScale = Rigidbody.gravityScale;
             _superThrowCooldown = new Cooldown() { Value = (float)_pressTimeForSuperThrow };
+            _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         private void Start()
@@ -259,6 +309,26 @@ namespace PixelCrew.Creatures.Heroes
         {
             base.FixedUpdate();
             CheckSuperThrowForIcon();
+            CheckMagicShield();
+        }
+
+        private void CheckMagicShield()
+        {
+            if (_magicShieldCooldown.IsReady && _session.PerksModel.IsMagicShieldSupported && healthComponent.Immune)
+            {
+                _magicShield = false;
+                StopCoroutine(AnimateMagicShield());
+                if (_defaultColor != null)
+                {
+                    _spriteRenderer.color = _defaultColor;
+                }
+                healthComponent.Immune = false;
+                //_magicShieldCooldown.Reset();
+            }
+            else if (_magicShieldCooldown.IsReady && _timeChargingMagicShield.IsReady && _session.PerksModel.IsMagicShieldSupported && _magicShieldTriget)
+            {
+                _magicShield = true;
+            }
         }
 
         protected override void Update()
