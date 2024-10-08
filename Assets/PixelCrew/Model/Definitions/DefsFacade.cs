@@ -1,4 +1,5 @@
 ﻿using PixelCrew.Model.Definitions.DefRepositories.Items;
+using PixelCrew.Model.Definitions.Player;
 using PixelCrew.Model.Definitions.Repositories;
 using System;
 using UnityEditor;
