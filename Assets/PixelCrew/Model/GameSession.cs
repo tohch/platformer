@@ -22,6 +22,7 @@ namespace PixelCrew.Model
 
         public QuickInventoryModel QuickInventory { get; private set; }
         public PerksModel PerksModel { get; private set; }
+        public StatsModel StatsModel { get; private set; }
 
         private readonly List<string> _checkpoints = new List<string>();
 
@@ -70,6 +71,9 @@ namespace PixelCrew.Model
 
             PerksModel = new PerksModel(_data);
             _trash.Retain(PerksModel);
+
+            StatsModel = new StatsModel(_data);
+            _trash.Retain(StatsModel);
         }
 
         private void LoadHud()
