@@ -1,11 +1,6 @@
 ﻿using PixelCrew.UI.Widgets;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 namespace PixelCrew.UI.Windows.PlayerStats
 {

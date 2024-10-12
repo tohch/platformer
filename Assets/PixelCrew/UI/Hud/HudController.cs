@@ -37,5 +37,10 @@ namespace PixelCrew.UI.Hud
         {
             _session.Data.Hp.OnChanged -= OnHealthChanged;
         }
+
+        public void OnDebug()
+        {
+            WindowUtils.CreateWindow("UI/PlayerStatsWindow");
+        }
     }
 }

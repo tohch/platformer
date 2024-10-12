@@ -13307,6 +13307,8 @@ MonoBehaviour:
       _used:
         _value: 0
       _unlocked: []
+    Levels:
+      _progress: []
   _defaultCkeckPoint: level3-checkpoint1
 --- !u!4 &1533253397
 Transform:
