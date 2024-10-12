@@ -3062,6 +3062,8 @@ MonoBehaviour:
       _used:
         _value: 
       _unlocked: []
+    Levels:
+      _progress: []
   _defaultCkeckPoint: 
 --- !u!4 &739876110
 Transform:

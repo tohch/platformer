@@ -36,7 +36,7 @@ namespace PixelCrew.Creatures.Heroes
         [Header("Super throw")]
         [SerializeField] private double _pressTimeForSuperThrow;
         private Cooldown _superThrowCooldown;
-        private bool _superThrow;
+        //private bool _superThrow;
         [SerializeField] private int _numberThrowRow;
         [SerializeField] private float _superThrowDelay;
         [SerializeField] private float _meleeAttackCooldown;
@@ -129,7 +129,7 @@ namespace PixelCrew.Creatures.Heroes
         {
             if (_superThrowCooldown.IsReady && _session.PerksModel.IsSuperThrowSupported)
             {
-                _superThrow = true;
+                //_superThrow = true;
                 StartCoroutine(ThrowRow());
             }
             else
@@ -154,7 +154,7 @@ namespace PixelCrew.Creatures.Heroes
                 ThrowAndRemoveFromInventory();
                 yield return new WaitForSeconds(_superThrowDelay);
             }
-            _superThrow = false;
+            //_superThrow = false;
         }
 
         public void OnDoSoundThrow()
