@@ -17,7 +17,7 @@ namespace PixelCrew.Model.Definitions.Player
         public int InventorySize => _invenotrySize;
         public int MaxHealth => _maxHealth;
 
-        public StatDef[] Stats1 => _stats;
+        public StatDef[] Stats => _stats;
         public StatDef GetStat(StatId id) => _stats.FirstOrDefault(x => x.ID == id);
     }
 }
