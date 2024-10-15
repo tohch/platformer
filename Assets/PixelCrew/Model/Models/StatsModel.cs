@@ -47,13 +47,14 @@ namespace PixelCrew.Model.Models
             OnChanged?.Invoke();
         }
 
-        public float GetCurrentValue(StatId id)
+        public float GetValue(StatId id, int level = -1)
         {
-            return GetCurrentLevelDef(id).Value;
+            return GetLevelDef(id, level).Value;
         }
 
-        public StatLevelDef GetCurrentLevelDef(StatId id)
+        public StatLevelDef GetLevelDef(StatId id, int level = -1)
         {
+            if (level == -1) level = GetCurrentLevel(id);
             var def = DefsFacade.I.Player.GetStat(id);
             return def.Levels[GetCurrentLevel(id)];
         }

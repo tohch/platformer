@@ -22,13 +22,14 @@ namespace PixelCrew.UI.Windows.PlayerStats
         private GameSession _session;
         private readonly CompositeDisposable _trash = new CompositeDisposable();
 
-          protected override void Start()
+        protected override void Start()
         {
             base.Start();
 
             _dataGroup = new DataGroup<StatDef, StatWidget>(_prefab, _statsContainer);
 
             _session = FindObjectOfType<GameSession>();
+
             _session.StatsModel.InterfaceSelectedStat.Value = DefsFacade.I.Player.Stats[0].ID;
             _trash.Retain(_session.StatsModel.Subscribe(OnStatsChanged));
             _trash.Retain(_upgradeButton.onClick.Subscribe(OnUpgrade));
@@ -48,7 +49,7 @@ namespace PixelCrew.UI.Windows.PlayerStats
             _dataGroup.SetData(stats);
 
             var selected = _session.StatsModel.InterfaceSelectedStat.Value;
-            var def = _session.StatsModel.GetCurrentLevelDef(selected);
+            var def = _session.StatsModel.GetLevelDef(selected);
             _price.SetData(def.Price);
         }
 
