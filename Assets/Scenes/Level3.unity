@@ -13295,8 +13295,8 @@ MonoBehaviour:
   _data:
     _inventory:
       _inventory:
-      - Id: GreenDiamond
-        Value: 20
+      - Id: Coin
+        Value: 500
       - Id: LargeHealthPotion
         Value: 1
       - Id: Sword

@@ -37,7 +37,9 @@ namespace PixelCrew.Model.Models
         {
             var def = DefsFacade.I.Player.GetStat(id);
             var nextLevel = GetCurrentLevel(id) + 1;
-            if (def.Levels.Length >= nextLevel) return;
+
+            if (def.Levels.Length <= nextLevel) return;
+
             var price = def.Levels[nextLevel].Price;
             if (!_data.Inventory.IsEnough(price)) return;
 
@@ -56,7 +58,10 @@ namespace PixelCrew.Model.Models
         {
             if (level == -1) level = GetCurrentLevel(id);
             var def = DefsFacade.I.Player.GetStat(id);
-            return def.Levels[GetCurrentLevel(id)];
+            if (def.Levels.Length > level)
+                return def.Levels[level];
+
+            return default;
         }
 
         public int GetCurrentLevel(StatId id) => _data.Levels.GetLevel(id);
