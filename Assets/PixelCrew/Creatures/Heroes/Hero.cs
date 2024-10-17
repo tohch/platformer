@@ -1,13 +1,8 @@
 ﻿using PixelCrew.Components;
 using PixelCrew.Model;
 using PixelCrew.Utils;
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using UnityEditor;
 using UnityEditor.Animations;
-using UnityEditor.UIElements;
 using UnityEngine;
 using PixelCrew.Components.ColliderBased;
 using PixelCrew.Components.Health;
@@ -16,6 +11,7 @@ using PixelCrew.Components.GoBased;
 using PixelCrew.Model.Definitions;
 using PixelCrew.Model.Definitions.Repositories.Items;
 using PixelCrew.Model.Definitions.Repositories;
+using PixelCrew.Model.Definitions.Player;
 
 namespace PixelCrew.Creatures.Heroes
 {
@@ -48,6 +44,7 @@ namespace PixelCrew.Creatures.Heroes
 
         [SerializeField] private ModifyHealthComponent _healPotion;
 
+        private HealthComponent _health;
         private bool _allowDoubleJump;
         private bool _isOnWall;
 
@@ -112,7 +109,8 @@ namespace PixelCrew.Creatures.Heroes
             if (_speedUpCooldown.IsReady)
                 _additionalSpeed = 0f;
 
-            return base.CalculateSpeed() + _additionalSpeed;
+            var defaultSpeed = _session.StatsModel.GetValue(StatId.Speed);
+            return defaultSpeed + _additionalSpeed;
         }
 
         private bool IsSelectedItem(ItemTag tag)
@@ -187,11 +185,23 @@ namespace PixelCrew.Creatures.Heroes
         private void Start()
         {
             _session = FindObjectOfType<GameSession>();
-            var health = GetComponent<HealthComponent>();
+            _health = GetComponent<HealthComponent>();
             _session.Data.Inventory.OnChanged += OnInentoryChanged;
-
-            health.SetHealth(_session.Data.Hp.Value);
+            _session.StatsModel.OnUpgraded += OnHeroUpgraded;
+            
+            _health.SetHealth(_session.Data.Hp.Value);
             UpdateHeroWeapon();
+        }
+
+        private void OnHeroUpgraded(StatId statId)
+        {
+            switch (statId)
+            {
+                case StatId.Hp:
+                    var health = (int)_session.StatsModel.GetValue(statId);
+                    _health.SetHealth(health);
+                    break;
+            }
         }
 
         private void OnDestroy()

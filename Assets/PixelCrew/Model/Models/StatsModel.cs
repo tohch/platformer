@@ -14,8 +14,8 @@ namespace PixelCrew.Model.Models
     public class StatsModel : IDisposable
     {
         private readonly PlayerData _data;
-
         public event Action OnChanged;
+        public event Action<StatId> OnUpgraded;
 
         public readonly ObservableProperty<StatId> InterfaceSelectedStat = new ObservableProperty<StatId>();
 
@@ -47,6 +47,7 @@ namespace PixelCrew.Model.Models
             _data.Levels.LevelUp(id);
 
             OnChanged?.Invoke();
+            OnUpgraded?.Invoke(id);
         }
 
         public float GetValue(StatId id, int level = -1)
