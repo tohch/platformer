@@ -18,5 +18,17 @@ namespace PixelCrew.Components.Health
                 healthComponent.ModifyHealth(_hpDelta);
             }
         }
+
+        public void ChangeHpDelta(int change)
+        {
+            if (_hpDelta < 0)
+            {
+                _hpDelta = Math.Abs(change) * -1;
+            }
+            else
+            {
+                _hpDelta = Math.Abs(change);
+            }
+        }
     }
 }
