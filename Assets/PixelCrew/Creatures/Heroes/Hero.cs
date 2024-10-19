@@ -199,6 +199,7 @@ namespace PixelCrew.Creatures.Heroes
             {
                 case StatId.Hp:
                     var health = (int)_session.StatsModel.GetValue(statId);
+                    _session.Data.Hp.Value = health;
                     _health.SetHealth(health);
                     break;
             }
