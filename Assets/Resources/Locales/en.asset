@@ -37,4 +37,6 @@ MonoBehaviour:
   - Key: Range Damage
     Value: "Range Damage\r"
   - Key: level-up
-    Value: Upgrade
+    Value: "Upgrade\r"
+  - Key: Critical Damage Chance
+    Value: Critical Damage Chance

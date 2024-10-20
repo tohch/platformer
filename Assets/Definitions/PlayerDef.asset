@@ -75,3 +75,19 @@ MonoBehaviour:
       _price:
         _itemId: Coin
         _count: 100
+  - _name: Critical Damage Chance
+    _id: 3
+    _icon: {fileID: 21300000, guid: 30ee838db44f0864692069fb3a4e932b, type: 3}
+    _levels:
+    - _value: 1
+      _price:
+        _itemId: Coin
+        _count: 0
+    - _value: 2
+      _price:
+        _itemId: Coin
+        _count: 20
+    - _value: 3
+      _price:
+        _itemId: Coin
+        _count: 100

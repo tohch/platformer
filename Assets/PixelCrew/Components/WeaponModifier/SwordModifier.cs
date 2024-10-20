@@ -28,6 +28,7 @@ namespace PixelCrew.Components.WeaponModifier
             {
                 case StatId.RangeDamage:
                     var rangeDamage = (int)_session.StatsModel.GetValue(statId);
+                    rangeDamage *= CriticalDamageChanceCalculator.GetCriticalDamageChance();
                     _modifyHealth.ChangeHpDelta(rangeDamage);
                     break;
             }
