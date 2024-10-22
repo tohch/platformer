@@ -10,6 +10,8 @@ namespace PixelCrew.Components.Health
     public class ModifyHealthComponent : MonoBehaviour
     {
         [SerializeField] private int _hpDelta;
+
+        public int HpDelta => _hpDelta;
         public void Apply(GameObject target)
         {
             var healthComponent = target.GetComponent<HealthComponent>();

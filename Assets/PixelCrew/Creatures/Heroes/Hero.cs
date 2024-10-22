@@ -12,6 +12,7 @@ using PixelCrew.Model.Definitions;
 using PixelCrew.Model.Definitions.Repositories.Items;
 using PixelCrew.Model.Definitions.Repositories;
 using PixelCrew.Model.Definitions.Player;
+using PixelCrew.Components.WeaponModifier;
 
 namespace PixelCrew.Creatures.Heroes
 {
@@ -51,6 +52,7 @@ namespace PixelCrew.Creatures.Heroes
         private GameSession _session;
         private float _defaultGravityScale;
         private float _nextMeleeAttackTime;
+        private int _defMeleeDamage;
 
         private HealthComponent healthComponent;
         private static readonly int ThrowKey = Animator.StringToHash("throw");
@@ -180,6 +182,9 @@ namespace PixelCrew.Creatures.Heroes
             healthComponent = GetComponent<HealthComponent>();
             _defaultGravityScale = Rigidbody.gravityScale;
             _superThrowCooldown = new Cooldown() { Value = (float)_pressTimeForSuperThrow };
+
+            var modifyHealth = GetComponentInChildren<ModifyHealthComponent>();
+            _defMeleeDamage = modifyHealth.HpDelta;
         }
 
         private void Start()
@@ -332,6 +337,10 @@ namespace PixelCrew.Creatures.Heroes
 
             if(_nextMeleeAttackTime < Time.time)
             {
+                int ration = CriticalDamageChanceCalculator.GetCriticalDamageChance();
+                var modifyHealth = GetComponentInChildren<ModifyHealthComponent>();
+                modifyHealth.ChangeHpDelta(_defMeleeDamage * ration);
+
                 base.Attack();
                 _nextMeleeAttackTime = Time.time + _meleeAttackCooldown;
             }
