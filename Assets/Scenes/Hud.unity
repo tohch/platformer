@@ -552,12 +552,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 589627826}
-  - component: {fileID: 589627827}
   - component: {fileID: 589627828}
   - component: {fileID: 589627829}
   m_Layer: 5
   m_Name: PersonalizedDialogBox
-  m_TagString: Untagged
+  m_TagString: PersonalizedDialog
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -582,25 +581,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &589627827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 589627825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 067c81304d068cc4b97a098dcee9972d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _container: {fileID: 1095386813}
-  _animator: {fileID: 589627828}
-  _textSpeed: 0.09
-  _typing: {fileID: 8300000, guid: 3fdf8814741792d498b08333616c355b, type: 3}
-  _open: {fileID: 8300000, guid: 14b2310b5ea349447b19732626a68af0, type: 3}
-  _close: {fileID: 8300000, guid: a98e8f37a0c5a404bb1b6cbf020b3e88, type: 3}
-  _content: {fileID: 0}
 --- !u!95 &589627828
 Animator:
   serializedVersion: 3
@@ -679,7 +659,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 16.230042}
+  m_SizeDelta: {x: 100, y: 26.235443}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &642091500
 MonoBehaviour:
@@ -852,7 +832,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 589627827}
+      - m_Target: {fileID: 589627829}
         m_MethodName: OnSkip
         m_Mode: 1
         m_Arguments:
@@ -1423,7 +1403,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1041291757
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1624,7 +1604,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 589627827}
+      - m_Target: {fileID: 589627829}
         m_MethodName: OnSkip
         m_Mode: 1
         m_Arguments:
@@ -1690,7 +1670,7 @@ GameObject:
   - component: {fileID: 1127155971}
   m_Layer: 5
   m_Name: DialogBox
-  m_TagString: Untagged
+  m_TagString: SimpleDialog
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2243,7 +2223,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1464529894
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2644,8 +2624,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -9.115021}
-  m_SizeDelta: {x: 89.5017, y: 8.2300415}
+  m_AnchoredPosition: {x: 50, y: -14.117722}
+  m_SizeDelta: {x: 90, y: 18.235443}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1674547233
 MonoBehaviour:
@@ -2783,7 +2763,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 589627827}
+      - m_Target: {fileID: 589627829}
         m_MethodName: OnContinue
         m_Mode: 1
         m_Arguments:
@@ -2967,7 +2947,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 589627827}
+      - m_Target: {fileID: 589627829}
         m_MethodName: OnContinue
         m_Mode: 1
         m_Arguments:

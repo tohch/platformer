@@ -15232,8 +15232,13 @@ MonoBehaviour:
   _mode: 0
   _bound:
     _sentences:
-    - You need a key..
-    - Try to search upper floor.
+    - _valued: You need a key
+      _icon: {fileID: 0}
+      _side: 0
+    - _valued: Find one at upper floor
+      _icon: {fileID: 0}
+      _side: 0
+    _type: 0
   _external: {fileID: 0}
 --- !u!1001 &5357952004603818922
 PrefabInstance:

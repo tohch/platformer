@@ -11,6 +11,8 @@ TagManager:
   - Barrel
   - Interactable
   - SfxAudioSource
+  - SimpleDialog
+  - PersonalizedDialog
   layers:
   - Default
   - TransparentFX
