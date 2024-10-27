@@ -48,8 +48,10 @@ namespace PixelCrew.UI.Hud.Dialogs
         private IEnumerator TypeDialogText()
         {
             CurrentContent.Text.text = string.Empty;
-            var sentences = _data.Sentences[_currentSencence];
-            foreach(var letter in sentences.Valued)
+            var sentence = CurrentSentence;
+            CurrentContent.TrySetIcon(sentence.Icon);
+
+            foreach(var letter in sentence.Valued)
             {
                 CurrentContent.Text.text += letter;
                 _sfxSource.PlayOneShot(_typing);

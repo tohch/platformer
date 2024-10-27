@@ -279,7 +279,7 @@ MonoBehaviour:
       _icon: {fileID: 21300000, guid: d0852b0979ea5aa47838d91f928b2ece, type: 3}
       _side: 0
     - _valued: Let's go!
-      _icon: {fileID: 21300000, guid: 64aaeb9a7e9cf064baf1ce8787f81b89, type: 3}
+      _icon: {fileID: 21300000, guid: 50994ebcd3d36d4469d12a1a9f456c2b, type: 3}
       _side: 1
     _type: 1
   _external: {fileID: 0}
