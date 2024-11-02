@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 1087033174}
   - component: {fileID: 6634355279916706198}
   - component: {fileID: 424462806803937387}
+  - component: {fileID: 1245727338}
   m_Layer: 10
   m_Name: DestructableBarrel
   m_TagString: Enemy
@@ -310,6 +311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestory: {fileID: 6337556086836549837}
+  _state: {fileID: 1245727338}
 --- !u!114 &6337556086836549824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,6 +370,7 @@ MonoBehaviour:
   _onChange:
     m_PersistentCalls:
       m_Calls: []
+  _immune: 0
 --- !u!50 &6337556086836549831
 Rigidbody2D:
   serializedVersion: 4
@@ -572,6 +575,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mode: 1
+--- !u!114 &1245727338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6337556086836549837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96189bd13075a9648abdbbba17b06952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: destructalbe-barrel1
 --- !u!1 &8544557504895520764
 GameObject:
   m_ObjectHideFlags: 0

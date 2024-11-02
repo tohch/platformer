@@ -14,6 +14,7 @@ namespace PixelCrew.Model
     public class GameSession : MonoBehaviour
     {
         [SerializeField] private PlayerData _data;
+
         [SerializeField] private string _defaultCkeckPoint;
 
         public PlayerData Data => _data;
@@ -125,6 +126,19 @@ namespace PixelCrew.Model
         private void OnDestroy()
         {
             _trash.Dispose();
+        }
+
+        private readonly List<string> _removedItems = new List<string>();
+
+        public bool RestoreState(string itemId)
+        {
+            return _removedItems.Contains(itemId);
+        }
+
+        public void StoreState(string itemId)
+        {
+            if (!_removedItems.Contains(itemId))
+            _removedItems.Add(itemId);
         }
     }
 }
