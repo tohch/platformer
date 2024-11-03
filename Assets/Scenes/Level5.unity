@@ -3056,6 +3056,8 @@ MonoBehaviour:
         Value: 15
       - Id: Sword
         Value: 9
+      - Id: SpeedUpPotion
+        Value: 4
     Hp:
       _value: 10
     Perks:

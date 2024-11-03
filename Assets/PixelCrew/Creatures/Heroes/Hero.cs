@@ -25,6 +25,8 @@ namespace PixelCrew.Creatures.Heroes
         [SerializeField] private float _slamDownVelocity;
 
         [SerializeField] private Cooldown _throwCooldown;
+        [SerializeField] private Cooldown _timeChargingMagicShield;
+        [SerializeField] private Cooldown _magicShieldCooldown;
         [SerializeField] private AnimatorController _armed;
         [SerializeField] private AnimatorController _disarmed;
         [SerializeField] private float _fallVelocityforDamage;
@@ -32,7 +34,9 @@ namespace PixelCrew.Creatures.Heroes
         [Header("Super throw")]
         [SerializeField] private double _pressTimeForSuperThrow;
         private Cooldown _superThrowCooldown;
-        //private bool _superThrow;
+
+        private bool _superThrow;
+        private bool _superThrowTriger;
         [SerializeField] private int _numberThrowRow;
         [SerializeField] private float _superThrowDelay;
         [SerializeField] private float _meleeAttackCooldown;
@@ -47,6 +51,8 @@ namespace PixelCrew.Creatures.Heroes
         private HealthComponent _health;
         private bool _allowDoubleJump;
         private bool _isOnWall;
+        private SpriteRenderer _spriteRenderer;
+        private Color _defaultColor;
 
         private GameSession _session;
         private float _defaultGravityScale;
@@ -63,7 +69,7 @@ namespace PixelCrew.Creatures.Heroes
 
         private string SelectedItemId => _session.QuickInventory.SelectedItem.Id;
 
-        private bool CanThrow
+        public bool CanThrow
         {
             get
             {
@@ -73,6 +79,78 @@ namespace PixelCrew.Creatures.Heroes
                 var def = DefsFacade.I.Items.Get(SelectedItemId);
                 return def.HasTag(ItemTag.Throwable);
             }
+        }
+
+        public bool IsSuperSkillReady
+        {
+            get
+            {
+                if (_session.PerksModel.IsSuperThrowSupported && CanThrow && SwordCount > 2)
+                    return _superThrow;
+
+                if (_session.PerksModel.IsDoubleJumpSupported)
+                    return _allowDoubleJump;
+
+                if (_timeChargingMagicShield.IsReady && _session.PerksModel.IsMagicShieldSupported && !healthComponent.Immune)
+                    return _magicShield;
+
+                return false;
+            }
+        }
+
+        public void StartChargetMagicShield()
+        {
+            _timeChargingMagicShield.Reset();
+            _magicShieldTriget = true;
+        }
+
+        public void ActivateMagicShield()
+        {
+            if (_timeChargingMagicShield.IsReady && _session.PerksModel.IsMagicShieldSupported && !healthComponent.Immune)
+            {
+                _defaultColor = _spriteRenderer.color;
+                healthComponent.Immune = true;
+                StartCoroutine(AnimateMagicShield());
+                _magicShieldCooldown.Reset();
+                _magicShieldTriget = false;
+
+
+            }
+        }
+
+        private IEnumerator AnimateMagicShield()
+        {
+
+            while (healthComponent.Immune)
+            {
+        
+                for (float ft = 1f; ft >= 0; ft -= 0.1f)
+                {
+                    var color = new Color(_spriteRenderer.color.r, ft, ft, _spriteRenderer.color.a);
+                    _spriteRenderer.color = color;
+                    if (!healthComponent.Immune)
+                    {
+                        if (_defaultColor != null)
+                            _spriteRenderer.color = _defaultColor;
+                        break;
+                    }
+                    yield return new WaitForSeconds(.1f);
+                }
+                for (float ft = 0f; ft <= 1; ft += 0.1f)
+                {
+                    var color = new Color(_spriteRenderer.color.r, ft, ft, _spriteRenderer.color.a);
+                    _spriteRenderer.color = color;
+                    if (!healthComponent.Immune)
+                    {
+                        if (_defaultColor != null)
+                            _spriteRenderer.color = _defaultColor;
+                        break;
+                    }
+                    yield return new WaitForSeconds(.1f);
+                }
+                yield return null;
+            }
+
         }
 
         public void UseInventory()
@@ -103,6 +181,8 @@ namespace PixelCrew.Creatures.Heroes
 
         private readonly Cooldown _speedUpCooldown = new Cooldown();
         private float _additionalSpeed;
+        private bool _magicShield;
+        private bool _magicShieldTriget;
 
         protected override float CalculateSpeed()
         {
@@ -121,10 +201,11 @@ namespace PixelCrew.Creatures.Heroes
         public void StartThrowing()
         {
             _superThrowCooldown.Reset();
+            _superThrowTriger = true;
         }
-
         private void PerformThrowing()
         {
+            _superThrowTriger = false;
             if (_superThrowCooldown.IsReady && _session.PerksModel.IsSuperThrowSupported)
             {
                 //_superThrow = true;
@@ -134,6 +215,7 @@ namespace PixelCrew.Creatures.Heroes
             {
                 ThrowOne();
             }
+            _superThrow = false;
         }
 
         private void ThrowOne()
@@ -143,6 +225,7 @@ namespace PixelCrew.Creatures.Heroes
                 ThrowAndRemoveFromInventory();
                 _throwCooldown.Reset();
             }
+            _superThrow = false;
         }
 
         private IEnumerator ThrowRow()
@@ -152,7 +235,7 @@ namespace PixelCrew.Creatures.Heroes
                 ThrowAndRemoveFromInventory();
                 yield return new WaitForSeconds(_superThrowDelay);
             }
-            //_superThrow = false;
+            _superThrow = false;
         }
 
         public void OnDoSoundThrow()
@@ -180,6 +263,7 @@ namespace PixelCrew.Creatures.Heroes
             healthComponent = GetComponent<HealthComponent>();
             _defaultGravityScale = Rigidbody.gravityScale;
             _superThrowCooldown = new Cooldown() { Value = (float)_pressTimeForSuperThrow };
+            _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         private void Start()
@@ -221,9 +305,42 @@ namespace PixelCrew.Creatures.Heroes
             _session.Data.Hp.Value = currentHealth;
         }
 
+        private void CheckSuperThrowForIcon()
+        {
+            if (!CanThrow)
+                _superThrowTriger = false;
+            if (_superThrowCooldown.IsReady && _superThrowTriger && _session.PerksModel.IsSuperThrowSupported && CanThrow)
+            {
+                _superThrow = true;
+            }
+            else
+                _superThrow = false;
+        }
+
         protected override void FixedUpdate()
         {
             base.FixedUpdate();
+            CheckSuperThrowForIcon();
+            CheckMagicShield();
+        }
+
+        private void CheckMagicShield()
+        {
+            if (_magicShieldCooldown.IsReady && _session.PerksModel.IsMagicShieldSupported && healthComponent.Immune)
+            {
+                _magicShield = false;
+                StopCoroutine(AnimateMagicShield());
+                if (_defaultColor != null)
+                {
+                    _spriteRenderer.color = _defaultColor;
+                }
+                healthComponent.Immune = false;
+                //_magicShieldCooldown.Reset();
+            }
+            else if (_magicShieldCooldown.IsReady && _timeChargingMagicShield.IsReady && _session.PerksModel.IsMagicShieldSupported && _magicShieldTriget)
+            {
+                _magicShield = true;
+            }
         }
 
         protected override void Update()
