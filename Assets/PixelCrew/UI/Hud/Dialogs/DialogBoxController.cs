@@ -85,10 +85,12 @@ namespace PixelCrew.UI.Hud.Dialogs
             {
                 OnStartDialogAnimation();
             }
+            
         }
 
         private void HideDialogBox()
         {
+            _data.Sentences[_currentSencence-1].Action?.Invoke();
             _animator.SetBool(IsOpen, false);
             _sfxSource.PlayOneShot(_close);
         }

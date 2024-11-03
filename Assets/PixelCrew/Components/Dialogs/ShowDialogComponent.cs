@@ -4,6 +4,7 @@ using PixelCrew.UI.Hud.Dialogs;
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace PixelCrew.Components.Dialogs
 {
