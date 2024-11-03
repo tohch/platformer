@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25a2a1173e5ef734cba65c1a729f3881, type: 3}
   m_Name: PlayerDef
   m_EditorClassIdentifier: 
-  _invenotrySize: 3
+  _invenotrySize: 6
   _maxHealth: 10
   _stats:
   - _name: Health
