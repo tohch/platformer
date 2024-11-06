@@ -1254,6 +1254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _candle: {fileID: 6574970436803531986}
+  _secondForTurnoff: 10
 --- !u!1 &8924205268820795320
 GameObject:
   m_ObjectHideFlags: 0
