@@ -56,6 +56,16 @@ namespace PixelCrew.Model
         {
             var checkpoints = FindObjectsOfType<CheckPointComponent>();
             var lastCheckPoint = _checkpoints.Last();
+            //my fix load a leavel
+            for(int i = _checkpoints.Count; i > 0; --i)
+            {
+                if (checkpoints.Any(c => c.Id == _checkpoints[i - 1]))
+                {
+                    lastCheckPoint = _checkpoints[i - 1];
+                    break;
+                }
+            }
+            //
             foreach (var checkPoint in checkpoints)
             {
                 if (checkPoint.Id == lastCheckPoint)
