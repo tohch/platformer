@@ -46,14 +46,14 @@ namespace PixelCrew.Components
         {
             _light = _candle.GetComponentInChildren<Light2D>();
             
-            var defaultRaiousInner = _light.pointLightOuterRadius;
-            var defaultRaiousOut = _light.pointLightInnerRadius;
-            var innerRadiousDelta = _light.pointLightInnerRadius / _light.pointLightOuterRadius;
+            float defaultRaiousInner = _light.pointLightOuterRadius;
+            float defaultRaiousOut = _light.pointLightInnerRadius;
+            float innerRadiousDelta = _light.pointLightInnerRadius / (_light.pointLightOuterRadius / 0.05f);
             
             for (float f = _light.pointLightOuterRadius; f >= 0; f -= 0.05f)
             {
-                _light.pointLightOuterRadius = f;
                 _light.pointLightInnerRadius -= innerRadiousDelta;
+                _light.pointLightOuterRadius = f;
                 yield return new WaitForSeconds(Time.deltaTime);
             }
 
