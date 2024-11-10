@@ -68,3 +68,6 @@ TagManager:
   - name: Creatures
     uniqueID: 4162098127
     locked: 0
+  - name: Overlay
+    uniqueID: 3808751291
+    locked: 0

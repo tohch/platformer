@@ -12,6 +12,7 @@ using PixelCrew.Model.Definitions;
 using PixelCrew.Model.Definitions.Repositories.Items;
 using PixelCrew.Model.Definitions.Repositories;
 using PixelCrew.Model.Definitions.Player;
+using PixelCrew.Effects.CameraRelated;
 
 namespace PixelCrew.Creatures.Heroes
 {
@@ -51,6 +52,7 @@ namespace PixelCrew.Creatures.Heroes
         private GameSession _session;
         private float _defaultGravityScale;
         private float _nextMeleeAttackTime;
+        private CameraShakeEffect _cameraShake;
 
         private HealthComponent healthComponent;
         private static readonly int ThrowKey = Animator.StringToHash("throw");
@@ -184,6 +186,7 @@ namespace PixelCrew.Creatures.Heroes
 
         private void Start()
         {
+            _cameraShake = FindObjectOfType<CameraShakeEffect>();
             _session = FindObjectOfType<GameSession>();
             _health = GetComponent<HealthComponent>();
             _session.Data.Inventory.OnChanged += OnInentoryChanged;
@@ -287,6 +290,7 @@ namespace PixelCrew.Creatures.Heroes
         public override void TakeDamage()
         {
             base.TakeDamage();
+            _cameraShake.Shake();
             if (CoinCount > 0)
             {
                 SpawnCoins();
