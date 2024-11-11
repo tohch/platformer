@@ -39,7 +39,7 @@ namespace PixelCrew.Effects.CameraRelated
             _overlay.localScale = Vector3.one + _overScale * overlayModifier;
         }
 
-        private void OnDestory()
+        private void OnDestroy()
         {
             _trash.Dispose();
         }

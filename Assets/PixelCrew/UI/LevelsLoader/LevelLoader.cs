@@ -1,33 +1,45 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace PixelCrew.UI.LevelsLoader
 {
     public class LevelLoader : MonoBehaviour
     {
+        [SerializeField] private Animator _animator;
+        [SerializeField] private float _transitionTime;
+
+        private static readonly int Enabled = Animator.StringToHash("Enabled");
+
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         static void OnFaterSceneLoade()
         {
             InitLoader();
         }
 
-        private static LevelLoader Instance;
 
         private void Awake()
         {
-            Instance = this;
             DontDestroyOnLoad(gameObject);
         }
 
         private static void InitLoader()
         {
-            if (Instance != null)
-                SceneManager.LoadScene("LevelLoader", LoadSceneMode.Additive);
+            SceneManager.LoadScene("LevelLoader", LoadSceneMode.Additive);
         }
 
-        public void Show(string sceneName)
+        public void LoadLevel(string sceneName)
         {
+            StartCoroutine(StartAnimation(sceneName));
+        }
 
+        private IEnumerator StartAnimation(string sceneName)
+        {
+            _animator.SetBool(Enabled, true);
+            yield return new WaitForSeconds(_transitionTime);
+            SceneManager.LoadScene(sceneName);
+            _animator.SetBool(Enabled, false);
         }
     }
 }

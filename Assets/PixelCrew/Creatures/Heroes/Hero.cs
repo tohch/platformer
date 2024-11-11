@@ -290,7 +290,7 @@ namespace PixelCrew.Creatures.Heroes
         public override void TakeDamage()
         {
             base.TakeDamage();
-            _cameraShake.Shake();
+            _cameraShake?.Shake();
             if (CoinCount > 0)
             {
                 SpawnCoins();

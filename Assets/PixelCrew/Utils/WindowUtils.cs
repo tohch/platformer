@@ -9,12 +9,12 @@ namespace PixelCrew.Utils
         {
             var window = Resources.Load<GameObject>(resourcePath);
             //Урок
-            //var canvas = Object.FindObjectOfType<Canvas>();
-            //Object.Instantiate(window, canvas.transform);
+            var canvas = GameObject.FindWithTag("MainUICanvas").GetComponent<Canvas>();
+            Object.Instantiate(window, canvas.transform);
 
             //Мой
-            var canvas = Object.FindObjectsOfType<Canvas>().Where(i => i.gameObject.layer == 5); 
-            Object.Instantiate(window, canvas.First().transform);
+            //var canvas = Object.FindObjectsOfType<Canvas>().Where(i => i.gameObject.layer == 5); 
+            //Object.Instantiate(window, canvas.First().transform);
             //
         }
     }
