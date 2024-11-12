@@ -1,8 +1,10 @@
-﻿using PixelCrew.Model.Data.Properties;
+﻿using PixelCrew.Effects.CameraRelated;
+using PixelCrew.Model.Data.Properties;
 using PixelCrew.Utils;
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace PixelCrew.UI.Hud.Dialogs
 {
@@ -21,6 +23,8 @@ namespace PixelCrew.UI.Hud.Dialogs
         [Space] [SerializeField] protected DialogContent _content;
         
         private static readonly int IsOpen = Animator.StringToHash("IsOpen");
+
+        public event Action DoAfterOnClose;
 
         private DialogData _data;
         private int _currentSencence;
@@ -108,7 +112,7 @@ namespace PixelCrew.UI.Hud.Dialogs
 
         public void OnCloseAnimationComplete()
         {
-
+            DoAfterOnClose?.Invoke();
         }
     }
 }

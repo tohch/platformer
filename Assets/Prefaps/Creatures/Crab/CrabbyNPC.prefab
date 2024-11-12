@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4290587529249956183}
   - component: {fileID: 4086496538181114329}
   - component: {fileID: 7133880290810860569}
+  - component: {fileID: 988184041566694053}
   m_Layer: 11
   m_Name: CrabbyNPC
   m_TagString: Interactable
@@ -284,3 +285,16 @@ MonoBehaviour:
       _side: 1
     _type: 1
   _external: {fileID: 0}
+--- !u!114 &988184041566694053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3405982073968746558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46c23bf56698d314084eeee7e3af76d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _volume: {fileID: 0}

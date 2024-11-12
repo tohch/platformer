@@ -1,9 +1,11 @@
-﻿using PixelCrew.Model.Data.Properties;
+﻿using PixelCrew.Effects.CameraRelated;
+using PixelCrew.Model.Data.Properties;
 using PixelCrew.Model.Definitions;
 using PixelCrew.UI.Hud.Dialogs;
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace PixelCrew.Components.Dialogs
 {
@@ -13,12 +15,23 @@ namespace PixelCrew.Components.Dialogs
         [SerializeField] private DialogData _bound;
         [SerializeField] private DialogDef _external;
 
+        private SpeakEffect _speakEffect;
+
+        private void Start()
+        {
+            _speakEffect = GetComponent<SpeakEffect>();
+        }
+
         private DialogBoxController _dialogBox;
         public void Show()
         {
+            _speakEffect?.StartEffect();
+
             _dialogBox = FindDialogController();
 
             _dialogBox.ShowDialog(Data);
+            
+            _dialogBox.DoAfterOnClose += _speakEffect.StotEffect;
         }
 
         private DialogBoxController FindDialogController()
@@ -61,6 +74,12 @@ namespace PixelCrew.Components.Dialogs
                         throw new ArgumentOutOfRangeException();
                 }
             }
+        }
+
+        public void OnDestroy()
+        {
+            if (_dialogBox != null) return;
+            _dialogBox.DoAfterOnClose -= _speakEffect.StotEffect;
         }
 
         public enum Mode
