@@ -3,6 +3,7 @@ using PixelCrew.Utils;
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace PixelCrew.UI.Hud.Dialogs
 {
@@ -21,7 +22,7 @@ namespace PixelCrew.UI.Hud.Dialogs
         [Space] [SerializeField] protected DialogContent _content;
         
         private static readonly int IsOpen = Animator.StringToHash("IsOpen");
-
+        private UnityEvent _onComplete;
         private DialogData _data;
         private int _currentSencence;
         private AudioSource _sfxSource;
@@ -34,8 +35,9 @@ namespace PixelCrew.UI.Hud.Dialogs
             _sfxSource = AudioUtils.FindSfxSource();
         }
 
-        public void ShowDialog(DialogData data)
+        public void ShowDialog(DialogData data, UnityEvent onComplete)
         {
+            _onComplete = onComplete;
             _data = data;
             _currentSencence = 0;
             CurrentContent.Text.text = string.Empty;
@@ -80,6 +82,7 @@ namespace PixelCrew.UI.Hud.Dialogs
             if (isDialogCompleted)
             {
                 HideDialogBox();
+                _onComplete?.Invoke();
             }
             else
             {

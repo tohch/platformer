@@ -37,6 +37,7 @@ namespace PixelCrew.Creatures.Heroes
         [SerializeField] private int _numberThrowRow;
         [SerializeField] private float _superThrowDelay;
         [SerializeField] private float _meleeAttackCooldown;
+        [SerializeField] private ShieldComponent _shield;
         [Space]
 
         [SerializeField] private ProbabilityDropComponent _hitDrop;
@@ -95,7 +96,7 @@ namespace PixelCrew.Creatures.Heroes
                     _session.Data.Hp.Value += (int)potion.Value;
                     break;
                 case Effect.SpeedUp:
-                    _speedUpCooldown.Value = _speedUpCooldown.TimeLasts + potion.Time;
+                    _speedUpCooldown.Value = _speedUpCooldown.RemainingTime + potion.Time;
                     _additionalSpeed = Mathf.Max(potion.Value, _additionalSpeed);
                     _speedUpCooldown.Reset();
                     break;
@@ -131,6 +132,7 @@ namespace PixelCrew.Creatures.Heroes
             {
                 //_superThrow = true;
                 StartCoroutine(ThrowRow());
+                _session.PerksModel.Cooldown.Reset();
             }
             else
             {
@@ -169,11 +171,19 @@ namespace PixelCrew.Creatures.Heroes
                 var throwableId = _session.QuickInventory.SelectedItem.Id;
                 var throwableDef = DefsFacade.I.Throwable.Get(throwableId);
                 _throwSpawner.SetPrefab(throwableDef.Projectile);
-                _throwSpawner.Spawn();
+                var instance = _throwSpawner.SpawnInstance();
+                ApplyDamgeStat(instance);
 
                 _session.Data.Inventory.Remove(throwableId, 1);
                 Animator.SetTrigger(ThrowKey);
             }
+        }
+
+        private void ApplyDamgeStat(GameObject projectile)
+        {
+            var hpModify = projectile.GetComponent<ModifyHealthComponent>();
+            var damageValue = (int)_session.StatsModel.GetValue(StatId.RangeDamage);
+            hpModify.SetDelta(-damageValue);
         }
 
         protected override void Awake()
@@ -274,6 +284,7 @@ namespace PixelCrew.Creatures.Heroes
 
             if (!IsGrounded && _allowDoubleJump && _session.PerksModel.IsDoubleJumpSupported && !_isOnWall)
             {
+                _session.PerksModel.Cooldown.Reset();
                 _allowDoubleJump = false;
                 DoJumpVfx();
                 return _jumpSpeed;
@@ -374,6 +385,15 @@ namespace PixelCrew.Creatures.Heroes
         public void NextItem()
         {
             _session.QuickInventory.SetNextItem();
+        }
+
+        public void UsePerk()
+        {
+            if (_session.PerksModel.IsShieldSUpported)
+            {
+                _shield.Use();
+                _session.PerksModel.Cooldown.Reset();
+            }
         }
     }
 }

@@ -81,6 +81,14 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""UsePerk"",
+                    ""type"": ""Button"",
+                    ""id"": ""0feeaa53-4d04-476f-b8c8-b0f86cdeaf34"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -292,6 +300,17 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""action"": ""NextItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""572d331d-f52c-48bb-80db-519c6c49ee65"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UsePerk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -308,6 +327,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         m_Hero_UseHealPotion = m_Hero.FindAction("UseHealPotion", throwIfNotFound: true);
         m_Hero_OnDrop = m_Hero.FindAction("OnDrop", throwIfNotFound: true);
         m_Hero_NextItem = m_Hero.FindAction("NextItem", throwIfNotFound: true);
+        m_Hero_UsePerk = m_Hero.FindAction("UsePerk", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -365,6 +385,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
     private readonly InputAction m_Hero_UseHealPotion;
     private readonly InputAction m_Hero_OnDrop;
     private readonly InputAction m_Hero_NextItem;
+    private readonly InputAction m_Hero_UsePerk;
     public struct HeroActions
     {
         private @HeroInputAction m_Wrapper;
@@ -377,6 +398,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         public InputAction @UseHealPotion => m_Wrapper.m_Hero_UseHealPotion;
         public InputAction @OnDrop => m_Wrapper.m_Hero_OnDrop;
         public InputAction @NextItem => m_Wrapper.m_Hero_NextItem;
+        public InputAction @UsePerk => m_Wrapper.m_Hero_UsePerk;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -410,6 +432,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @NextItem.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnNextItem;
                 @NextItem.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnNextItem;
                 @NextItem.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnNextItem;
+                @UsePerk.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsePerk;
+                @UsePerk.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsePerk;
+                @UsePerk.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsePerk;
             }
             m_Wrapper.m_HeroActionsCallbackInterface = instance;
             if (instance != null)
@@ -438,6 +463,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @NextItem.started += instance.OnNextItem;
                 @NextItem.performed += instance.OnNextItem;
                 @NextItem.canceled += instance.OnNextItem;
+                @UsePerk.started += instance.OnUsePerk;
+                @UsePerk.performed += instance.OnUsePerk;
+                @UsePerk.canceled += instance.OnUsePerk;
             }
         }
     }
@@ -452,5 +480,6 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         void OnUseHealPotion(InputAction.CallbackContext context);
         void OnOnDrop(InputAction.CallbackContext context);
         void OnNextItem(InputAction.CallbackContext context);
+        void OnUsePerk(InputAction.CallbackContext context);
     }
 }

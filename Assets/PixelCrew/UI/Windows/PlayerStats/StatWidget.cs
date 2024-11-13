@@ -41,11 +41,13 @@ namespace PixelCrew.UI.Windows.PlayerStats
             
             _icon.sprite = _data.Icon;
             _name.text = LocalizationManager.I.Localize(_data.Name);
-            _currentValue.text = _session.StatsModel.GetValue(_data.ID).ToString(CultureInfo.InvariantCulture);
+            var currentLevelValue = statsModel.GetValue(_data.ID);
+            _currentValue.text = currentLevelValue.ToString(CultureInfo.InvariantCulture);
 
             var currentLevel = statsModel.GetCurrentLevel(_data.ID);
             var nextLevel = currentLevel + 1;
-            var increaseValue = statsModel.GetValue(_data.ID, nextLevel);
+            var nextLEvelValue = statsModel.GetValue(_data.ID, nextLevel);
+            var increaseValue = nextLEvelValue - currentLevelValue;
             _increaseValue.text = $"+ {increaseValue}";
             _increaseValue.gameObject.SetActive(increaseValue > 0);
 

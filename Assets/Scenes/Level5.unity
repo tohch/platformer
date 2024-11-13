@@ -624,6 +624,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &199907496 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4086496538181114329, guid: 2e78a0b1f058a6c4eadd98284e38b920,
+    type: 3}
+  m_PrefabInstance: {fileID: 1102773084}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54c438b19db7c414480d2791b4d99d82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &203718470
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3176,6 +3188,8 @@ MonoBehaviour:
         Value: 15
       - Id: Sword
         Value: 9
+      - Id: Coin
+        Value: 200
     Hp:
       _value: 10
     Perks:
@@ -4563,6 +4577,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CrabbyNPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 7133880290810860569, guid: 2e78a0b1f058a6c4eadd98284e38b920,
+        type: 3}
+      propertyPath: _onComplete.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7133880290810860569, guid: 2e78a0b1f058a6c4eadd98284e38b920,
+        type: 3}
+      propertyPath: _onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7133880290810860569, guid: 2e78a0b1f058a6c4eadd98284e38b920,
+        type: 3}
+      propertyPath: _onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 199907496}
+    - target: {fileID: 7133880290810860569, guid: 2e78a0b1f058a6c4eadd98284e38b920,
+        type: 3}
+      propertyPath: _onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7133880290810860569, guid: 2e78a0b1f058a6c4eadd98284e38b920,
+        type: 3}
+      propertyPath: _onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Show
+      objectReference: {fileID: 0}
+    - target: {fileID: 7133880290810860569, guid: 2e78a0b1f058a6c4eadd98284e38b920,
+        type: 3}
+      propertyPath: _onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e78a0b1f058a6c4eadd98284e38b920, type: 3}
