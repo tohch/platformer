@@ -93,7 +93,8 @@ namespace PixelCrew.Creatures.Heroes
             switch (potion.Effect)
             {
                 case Effect.AddHp:
-                    _session.Data.Hp.Value += (int)potion.Value;
+                    _session.Data.Hp.Value += (int)potion.Value; 
+                    _health.SetHealth(_session.Data.Hp.Value);
                     break;
                 case Effect.SpeedUp:
                     _speedUpCooldown.Value = _speedUpCooldown.RemainingTime + potion.Time;
@@ -183,7 +184,19 @@ namespace PixelCrew.Creatures.Heroes
         {
             var hpModify = projectile.GetComponent<ModifyHealthComponent>();
             var damageValue = (int)_session.StatsModel.GetValue(StatId.RangeDamage);
+            damageValue = ModifyDamageByCrit(damageValue);
             hpModify.SetDelta(-damageValue);
+        }
+
+        private int ModifyDamageByCrit(int damage)
+        {
+            var critChange = _session.StatsModel.GetValue(StatId.CriticalDamage);
+            if (Random.value * 100 <= critChange)
+            {
+                return damage * 2;
+            }
+
+            return damage;
         }
 
         protected override void Awake()

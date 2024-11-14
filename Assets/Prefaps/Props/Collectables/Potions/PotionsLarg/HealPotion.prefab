@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16d88719b44c02f418f9ee4080e80a57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: HealPotion
+  _id: LargeHealthPotion
   _count: 1
 --- !u!82 &1251810823492434405
 AudioSource:
