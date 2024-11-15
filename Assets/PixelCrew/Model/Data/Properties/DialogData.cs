@@ -19,7 +19,7 @@ namespace PixelCrew.Model.Data.Properties
         [SerializeField] private Sprite _icon;
         [SerializeField] private Side _side;
 
-        public string Valued => _valued;
+        public string Value => _valued;
         public Sprite Icon => _icon;
         public Side Side => _side;
     }

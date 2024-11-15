@@ -43,4 +43,10 @@ MonoBehaviour:
   - Key: some-icon
     Value: "some-icon/resource/1\r"
   - Key: shield-info
-    Value: Use shield for self protection
+    Value: "Use shield for self protection\r"
+  - Key: crabby-teacher-sentence-0
+    Value: "I can teach you!\r"
+  - Key: crabby-teacher-sentence-1
+    Value: "Good!\r"
+  - Key: crabby-teacher-sentence-2
+    Value: Let's go!

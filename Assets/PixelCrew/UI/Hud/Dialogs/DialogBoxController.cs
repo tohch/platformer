@@ -1,4 +1,5 @@
 ﻿using PixelCrew.Model.Data.Properties;
+using PixelCrew.Model.Definitions.Localization;
 using PixelCrew.Utils;
 using System;
 using System.Collections;
@@ -53,7 +54,9 @@ namespace PixelCrew.UI.Hud.Dialogs
             var sentence = CurrentSentence;
             CurrentContent.TrySetIcon(sentence.Icon);
 
-            foreach(var letter in sentence.Valued)
+            var localizeSentence = sentence.Value.Localize();
+
+            foreach(var letter in localizeSentence)
             {
                 CurrentContent.Text.text += letter;
                 _sfxSource.PlayOneShot(_typing);
@@ -70,7 +73,8 @@ namespace PixelCrew.UI.Hud.Dialogs
             if (_typingRoutine == null) return;
 
             StopTypeAnimation();
-            CurrentContent.Text.text = _data.Sentences[_currentSencence].Valued;
+            var sentence = _data.Sentences[_currentSencence].Value;
+            CurrentContent.Text.text = sentence.Localize();
         }
 
         public void OnContinue()
