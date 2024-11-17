@@ -983,7 +983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _invertScale: 0
   _speed: 4
-  _jumpSpeed: 18
+  _jumpSpeed: 20
   _damageVelocity: 15
   _damage: 1
   _groundLayer:
