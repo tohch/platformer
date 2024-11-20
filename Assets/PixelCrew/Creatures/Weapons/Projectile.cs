@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace PixelCrew.Creatures.Weapons
 {
-    class Projectile : BaseProjectile
+    public class Projectile : BaseProjectile
     {
         protected override void Start()
         {
