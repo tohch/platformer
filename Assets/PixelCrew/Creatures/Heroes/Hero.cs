@@ -216,6 +216,7 @@ namespace PixelCrew.Creatures.Heroes
             _session.StatsModel.OnUpgraded += OnHeroUpgraded;
             
             _health.SetHealth(_session.Data.Hp.Value);
+            healthComponent.SetHealth(_session.Data.Hp.Value);
             UpdateHeroWeapon();
         }
 

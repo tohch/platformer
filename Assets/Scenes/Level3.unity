@@ -15362,6 +15362,9 @@ MonoBehaviour:
       _side: 0
     _type: 0
   _external: {fileID: 0}
+  _onComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &5357952004603818922
 PrefabInstance:
   m_ObjectHideFlags: 0

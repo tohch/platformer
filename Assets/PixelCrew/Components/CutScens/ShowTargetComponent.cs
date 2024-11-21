@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace PixelCrew.Components.CutScens
 {
@@ -8,6 +9,7 @@ namespace PixelCrew.Components.CutScens
         [SerializeField] private Transform _target;
         [SerializeField] private CameraStateController _controller;
         [SerializeField] private float _delay = 0.5f;
+        [SerializeField] private UnityEvent OnDelay;
 
         private void OnValidate()
         {
@@ -30,6 +32,8 @@ namespace PixelCrew.Components.CutScens
         private void MoveBack()
         {
             _controller.SetState(false);
+
+            OnDelay?.Invoke();
         }
     }
 }
