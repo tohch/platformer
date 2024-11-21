@@ -12,7 +12,7 @@ namespace PixelCrew.Components.GoBased
 {
     public class CircularProjectileSpawner : MonoBehaviour
     {
-        [SerializeField] private CircularProjectileSettings[] _settings;
+        [SerializeField] protected FormationProjectileSettings[] _settings;
 
         public int Stage { get; set; }
 
@@ -22,7 +22,7 @@ namespace PixelCrew.Components.GoBased
             StartCoroutine(SpawnProjectiles());
         }
 
-        private IEnumerator SpawnProjectiles()
+        protected virtual IEnumerator SpawnProjectiles()
         {
             var setting = _settings[Stage];
             var sectorAngle = 2 * Mathf.PI / setting.BurstCount;
@@ -41,7 +41,7 @@ namespace PixelCrew.Components.GoBased
     }
 
     [Serializable]
-    public struct CircularProjectileSettings
+    public struct FormationProjectileSettings
     {
         [SerializeField] private DirectionalProjectile _projectile;
         [SerializeField] private int _burstCount;
