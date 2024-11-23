@@ -1171,6 +1171,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2141885843}
+        m_MethodName: DestoryObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &365169594
 Transform:
   m_ObjectHideFlags: 0
@@ -1343,15 +1354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 236d8c5cc70f0f74c85fdfbd3a69ba6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _settings:
-  - _projectile: {fileID: -6003769772071948231, guid: 7967a4cb6790d9442998ecd3ee080105,
-      type: 3}
-    _burstCount: 10
-    _delay: 0.1
-  - _projectile: {fileID: -6003769772071948231, guid: 7967a4cb6790d9442998ecd3ee080105,
-      type: 3}
-    _burstCount: 20
-    _delay: 0.03
+  _settings: []
 --- !u!114 &396914018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13496,6 +13499,7 @@ GameObject:
   - component: {fileID: 2141885840}
   - component: {fileID: 2141885839}
   - component: {fileID: 2141885843}
+  - component: {fileID: 2141885844}
   m_Layer: 0
   m_Name: Enter
   m_TagString: Untagged
@@ -13584,6 +13588,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2141885844}
+        m_MethodName: Set
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!58 &2141885841
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -13628,6 +13643,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectToDestory: {fileID: 2141885838}
   _state: {fileID: 0}
+--- !u!114 &2141885844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141885838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b0e70943b1c7f54cb824920ee778cba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _profile: {fileID: 11400000, guid: 1bc3e8211f9bb634c9899697dff8d663, type: 2}
 --- !u!1001 &862887902912386674
 PrefabInstance:
   m_ObjectHideFlags: 0
