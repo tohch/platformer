@@ -13,6 +13,7 @@ using PixelCrew.Model.Definitions.Repositories.Items;
 using PixelCrew.Model.Definitions.Repositories;
 using PixelCrew.Model.Definitions.Player;
 using PixelCrew.Effects.CameraRelated;
+using PixelCrew.Creatures.Heroes.Features;
 
 namespace PixelCrew.Creatures.Heroes
 {
@@ -37,7 +38,8 @@ namespace PixelCrew.Creatures.Heroes
         [SerializeField] private int _numberThrowRow;
         [SerializeField] private float _superThrowDelay;
         [SerializeField] private float _meleeAttackCooldown;
-        [SerializeField] private ShieldComponent _shield;
+        [SerializeField] private HeroShield _shield;
+        [SerializeField] private HeroFlashLight _flashLight;
         [Space]
 
         [SerializeField] private ProbabilityDropComponent _hitDrop;
@@ -408,6 +410,12 @@ namespace PixelCrew.Creatures.Heroes
                 _shield.Use();
                 _session.PerksModel.Cooldown.Reset();
             }
+        }
+
+        public void ToggleFlashLight()
+        {
+            var isActive = _flashLight.gameObject.activeSelf;
+            _flashLight.gameObject.SetActive(!isActive);
         }
     }
 }

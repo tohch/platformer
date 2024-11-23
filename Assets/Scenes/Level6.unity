@@ -1223,6 +1223,8 @@ MonoBehaviour:
       _inventory: []
     Hp:
       _value: 10
+    Fuel:
+      _value: 100
     Perks:
       _used:
         _value: 

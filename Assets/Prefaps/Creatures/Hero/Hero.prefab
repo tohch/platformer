@@ -567,7 +567,7 @@ MonoBehaviour:
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 10
-  m_AlphaBlendOnOverlap: 0
+  m_AlphaBlendOnOverlap: 1
   m_ShadowIntensity: 0
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 360
@@ -597,6 +597,7 @@ GameObject:
   - component: {fileID: 1713585655645351357}
   - component: {fileID: 1713585655645351354}
   - component: {fileID: 5771030908324318448}
+  - component: {fileID: 1057954970471081407}
   m_Layer: 0
   m_Name: Candle
   m_TagString: Untagged
@@ -696,6 +697,20 @@ MonoBehaviour:
     _onComplete:
       m_PersistentCalls:
         m_Calls: []
+--- !u!114 &1057954970471081407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713585655645351355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0dd85c6a3c62ff469b5227eabbe0265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _consumPerSecond: 5
+  _light: {fileID: 6949071854079454953}
 --- !u!1 &1867859780882423938
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,6 +1023,7 @@ MonoBehaviour:
   _superThrowDelay: 0.1
   _meleeAttackCooldown: 0.4
   _shield: {fileID: 8999689972903820106}
+  _flashLight: {fileID: 1057954970471081407}
   _hitDrop: {fileID: 5963906634257800899}
   _throwSpawner: {fileID: 6158554291841095203}
   _maxNumCoinsToDispose: 5
@@ -1213,6 +1229,21 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 0feeaa53-4d04-476f-b8c8-b0f86cdeaf34
     m_ActionName: Hero/UsePerk[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8759803221388157405}
+        m_MethodName: OnToggleFlashLight
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 863d7309-2293-460c-870b-c6c0a5e9aa00
+    m_ActionName: Hero/UseFlashLight[/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero

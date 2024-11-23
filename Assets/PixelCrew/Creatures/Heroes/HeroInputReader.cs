@@ -71,5 +71,11 @@ namespace PixelCrew.Creatures
             if (context.performed)
                 _hero.UsePerk();
         }
+
+        public void OnToggleFlashLight(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+                _hero.ToggleFlashLight();
+        }
     }
 }

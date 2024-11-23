@@ -89,6 +89,14 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""UseFlashLight"",
+                    ""type"": ""Button"",
+                    ""id"": ""863d7309-2293-460c-870b-c6c0a5e9aa00"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -311,6 +319,17 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""action"": ""UsePerk"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a5ec7747-637d-4b4a-885e-69fc3309d4c6"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseFlashLight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -328,6 +347,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         m_Hero_OnDrop = m_Hero.FindAction("OnDrop", throwIfNotFound: true);
         m_Hero_NextItem = m_Hero.FindAction("NextItem", throwIfNotFound: true);
         m_Hero_UsePerk = m_Hero.FindAction("UsePerk", throwIfNotFound: true);
+        m_Hero_UseFlashLight = m_Hero.FindAction("UseFlashLight", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -386,6 +406,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
     private readonly InputAction m_Hero_OnDrop;
     private readonly InputAction m_Hero_NextItem;
     private readonly InputAction m_Hero_UsePerk;
+    private readonly InputAction m_Hero_UseFlashLight;
     public struct HeroActions
     {
         private @HeroInputAction m_Wrapper;
@@ -399,6 +420,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         public InputAction @OnDrop => m_Wrapper.m_Hero_OnDrop;
         public InputAction @NextItem => m_Wrapper.m_Hero_NextItem;
         public InputAction @UsePerk => m_Wrapper.m_Hero_UsePerk;
+        public InputAction @UseFlashLight => m_Wrapper.m_Hero_UseFlashLight;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -435,6 +457,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @UsePerk.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsePerk;
                 @UsePerk.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsePerk;
                 @UsePerk.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsePerk;
+                @UseFlashLight.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseFlashLight;
+                @UseFlashLight.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseFlashLight;
+                @UseFlashLight.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseFlashLight;
             }
             m_Wrapper.m_HeroActionsCallbackInterface = instance;
             if (instance != null)
@@ -466,6 +491,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @UsePerk.started += instance.OnUsePerk;
                 @UsePerk.performed += instance.OnUsePerk;
                 @UsePerk.canceled += instance.OnUsePerk;
+                @UseFlashLight.started += instance.OnUseFlashLight;
+                @UseFlashLight.performed += instance.OnUseFlashLight;
+                @UseFlashLight.canceled += instance.OnUseFlashLight;
             }
         }
     }
@@ -481,5 +509,6 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         void OnOnDrop(InputAction.CallbackContext context);
         void OnNextItem(InputAction.CallbackContext context);
         void OnUsePerk(InputAction.CallbackContext context);
+        void OnUseFlashLight(InputAction.CallbackContext context);
     }
 }

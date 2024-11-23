@@ -76,6 +76,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "UseFlashLight",
+                    "type": "Button",
+                    "id": "863d7309-2293-460c-870b-c6c0a5e9aa00",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -296,6 +304,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "UsePerk",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a5ec7747-637d-4b4a-885e-69fc3309d4c6",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseFlashLight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
