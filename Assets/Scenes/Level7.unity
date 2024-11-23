@@ -1116,6 +1116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 365169594}
   - component: {fileID: 365169593}
+  - component: {fileID: 365169595}
   m_Layer: 15
   m_Name: StartDialogs
   m_TagString: Untagged
@@ -1182,6 +1183,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 365169595}
+        m_MethodName: Set
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &365169594
 Transform:
   m_ObjectHideFlags: 0
@@ -1196,6 +1208,19 @@ Transform:
   m_Father: {fileID: 396914013}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &365169595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365169592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b0e70943b1c7f54cb824920ee778cba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _profile: {fileID: 11400000, guid: 1079656eeddcc2c4db2d4d088ab045ed, type: 2}
 --- !u!1 &396914011
 GameObject:
   m_ObjectHideFlags: 0
@@ -1354,7 +1379,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 236d8c5cc70f0f74c85fdfbd3a69ba6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _settings: []
+  _settings:
+  - _projectile: {fileID: -6003769772071948231, guid: 7967a4cb6790d9442998ecd3ee080105,
+      type: 3}
+    _burstCount: 10
+    _delay: 0.1
+  - _projectile: {fileID: -6003769772071948231, guid: 7967a4cb6790d9442998ecd3ee080105,
+      type: 3}
+    _burstCount: 20
+    _delay: 0.03
 --- !u!114 &396914018
 MonoBehaviour:
   m_ObjectHideFlags: 0
