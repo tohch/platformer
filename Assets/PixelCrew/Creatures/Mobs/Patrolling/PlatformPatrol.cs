@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using PixelCrew.Components.ColliderBased;
 using PixelCrew.Creatures.Mobs.Patrolling;
+using UnityEngine.Events;
 
 namespace PixelCrew.Creatures.Mobs.Patrolling
 {
@@ -15,8 +16,8 @@ namespace PixelCrew.Creatures.Mobs.Patrolling
     {
         [SerializeField] private LayerCheck _platformCheck;
         [SerializeField] private LayerCheck _obstacleCheck;
+        [SerializeField] private OnChangeDirection _onChangeDirection;
         [SerializeField] private int _direction;
-        [SerializeField] private Creature _creature;
 
         public override IEnumerator DoPatrol()
         {
@@ -27,9 +28,16 @@ namespace PixelCrew.Creatures.Mobs.Patrolling
                     _direction = -_direction;
                 }
 
-                _creature.SetDirection(new Vector2(_direction, 0));
+                //_creature.SetDirection(new Vector2(_direction, 0));
+                _onChangeDirection?.Invoke(new Vector2(_direction, 0));
                 yield return null;
             }
+        }
+
+        [Serializable]
+        public class OnChangeDirection : UnityEvent<Vector2>
+        {
+
         }
     }
 }

@@ -30,22 +30,51 @@ Transform:
   m_Father: {fileID: 3896290144471784448}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3100640909371307872
+--- !u!114 &4336739265498266142
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3065982567925924296}
+  m_GameObject: {fileID: 5025493802188796605}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bef244aa14dac94ab457e7a9eecedb5, type: 3}
+  m_Script: {fileID: 11500000, guid: 971b4b1f80131214b874db8266563fa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _layer:
     serializedVersion: 2
-    m_Bits: 16384
+    m_Bits: 1024
   _isTouchingLayer: 0
+--- !u!114 &8910676516676673448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5025493802188796605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec6d2329f4c329748982985cfdb1cca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _platformCheck: {fileID: 7531538699985126598}
+  _obstacleCheck: {fileID: 6517297825822542256}
+  _onChangeDirection:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9219105781642327364}
+        m_MethodName: SetDirection
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _direction: 1
 --- !u!114 &4843959428833399713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,38 +107,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16384
   _isTouchingLayer: 0
---- !u!114 &4336739265498266142
+--- !u!114 &3100640909371307872
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5025493802188796605}
+  m_GameObject: {fileID: 3065982567925924296}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 971b4b1f80131214b874db8266563fa5, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bef244aa14dac94ab457e7a9eecedb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _layer:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 16384
   _isTouchingLayer: 0
---- !u!114 &8910676516676673448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5025493802188796605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec6d2329f4c329748982985cfdb1cca2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _platformCheck: {fileID: 7531538699985126598}
-  _obstacleCheck: {fileID: 6517297825822542256}
-  _direction: 1
-  _creature: {fileID: 9219105781642327364}
 --- !u!1 &6287643694883109599
 GameObject:
   m_ObjectHideFlags: 0
