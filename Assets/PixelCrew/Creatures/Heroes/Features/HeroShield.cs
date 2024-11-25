@@ -12,7 +12,7 @@ namespace PixelCrew.Components
 
         public void Use()
         {
-            _health.Immune = true;
+            _health.Immune.Retain(this);
             _cooldown.Reset();
             gameObject.SetActive(true);
         }
@@ -25,7 +25,7 @@ namespace PixelCrew.Components
 
         private void OnDisable()
         {
-            _health.Immune = false;
+            _health.Immune.Release(this);
         }
     }
 }

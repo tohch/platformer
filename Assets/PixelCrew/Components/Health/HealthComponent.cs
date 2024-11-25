@@ -1,4 +1,5 @@
 ﻿using PixelCrew.Components.Audio;
+using PixelCrew.Utils;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
@@ -12,17 +13,13 @@ namespace PixelCrew.Components.Health
         [SerializeField] private UnityEvent _onHeal;
         [SerializeField] public UnityEvent _onDie;
         [SerializeField] public HealthCangeEven _onChange;
-        [SerializeField] private bool _immune;
+        private Lock _immune = new Lock();
 
         private PlaySoundsComponent _sounds;
 
         public int Health => _health;
 
-        public bool Immune
-        {
-            get => _immune;
-            set => _immune = value;
-        }
+        public Lock Immune => _immune;
 
         public void Awake()
         {
@@ -31,7 +28,7 @@ namespace PixelCrew.Components.Health
 
         public void ModifyHealth(int healthDelta)
         {
-            if (healthDelta < 0 && _immune) return;
+            if (healthDelta < 0 && Immune.IsLocked) return;
 
             if (_health <= 0) return;
             _health += healthDelta;

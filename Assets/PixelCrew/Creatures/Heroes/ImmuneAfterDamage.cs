@@ -1,26 +1,30 @@
-﻿using System;
+﻿using PixelCrew.Components.Health;
+using PixelCrew.Utils.Disposables;
+using System;
 using System.Collections;
 using UnityEngine;
 
-namespace PixelCrew.Components.Health
+namespace PixelCrew.Creatures.Heroes
 {
     [RequireComponent(typeof(HealthComponent))]
-    public class ImmuneAfterHit : MonoBehaviour
+    public class ImmuneAfterDamage : MonoBehaviour
     {
-        [SerializeField] private float _immuneTime;
+        [SerializeField] private float _immunteTime;
         private HealthComponent _health;
         private Coroutine _coroutine;
+        private readonly CompositeDisposable _trash = new CompositeDisposable();
 
         private void Awake()
         {
             _health = GetComponent<HealthComponent>();
-            _health._onDamage.AddListener(OnDamage);
+            _trash.Retain(_health._onDamage.Subscribe(OnDamage));
         }
 
         private void OnDamage()
         {
             TryStop();
-            _coroutine = StartCoroutine(MakeImmune());
+            if (_immunteTime > 0)
+                _coroutine = StartCoroutine(MakeImmune());
         }
 
         private void TryStop()
@@ -33,9 +37,14 @@ namespace PixelCrew.Components.Health
         private IEnumerator MakeImmune()
         {
             _health.Immune.Retain(this);
-            yield return new WaitForSeconds(_immuneTime);
+            yield return new WaitForSeconds(_immunteTime);
             _health.Immune.Release(this);
-            _coroutine = null;
+        }
+
+        private void OnDestroy()
+        {
+            TryStop();
+            _trash.Dispose();
         }
     }
 }
