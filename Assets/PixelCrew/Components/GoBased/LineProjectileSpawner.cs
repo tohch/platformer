@@ -13,7 +13,7 @@ namespace PixelCrew.Components.GoBased
         public int BurstCount => _settings.BurstCount;
         public void LaunchProjectiles()
         {
-            var spawnPosition = new Vector3(_settings.PositionX, _settings.PositionY, transform.position.z);
+            var spawnPosition = _settings.Transform.position;
 
             SpawnUtils.Spawn(_settings.Prefab.gameObject, spawnPosition);
             spawnPosition.x += _settings.DistanceBetvine;
@@ -25,16 +25,14 @@ namespace PixelCrew.Components.GoBased
     public struct LineProjectileSettings
     {
         [SerializeField] private GameObject _projectile;
-        [SerializeField] private float _positionY;
-        [SerializeField] private float _positionX;
+        [SerializeField] private Transform _transform;
         [SerializeField] private float _distanceBetvine;
         [SerializeField] private int _burstCount;
         [SerializeField] private float _delay;
 
         public GameObject Prefab => _projectile;
         public int BurstCount => _burstCount;
-        public float PositionX => _positionX;
-        public float PositionY => _positionY;
+        public Transform Transform => _transform;
         public float DistanceBetvine => _distanceBetvine;
     }
 }

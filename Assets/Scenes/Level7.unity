@@ -215,6 +215,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &193005335
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 193005336}
+  m_Layer: 15
+  m_Name: SpawnTentacle
+  m_TagString: Untagged
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &193005336
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193005335}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.298, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 396914013}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &250032346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1194,6 +1224,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2141885845}
+        m_MethodName: SetInput
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2141885843}
+        m_MethodName: DestoryObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!4 &365169594
 Transform:
   m_ObjectHideFlags: 0
@@ -1239,6 +1291,7 @@ GameObject:
   - component: {fileID: 396914018}
   - component: {fileID: 396914020}
   - component: {fileID: 396914021}
+  - component: {fileID: 396914022}
   m_Layer: 15
   m_Name: PatricTheBoss
   m_TagString: Enemy
@@ -1309,6 +1362,7 @@ Transform:
   m_Children:
   - {fileID: 365169594}
   - {fileID: 1009990483}
+  - {fileID: 193005336}
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1483,11 +1537,24 @@ MonoBehaviour:
   _settings:
     _projectile: {fileID: 6413151387718432859, guid: 8284d519b76e5f14abab25fa9d7a2f42,
       type: 3}
-    _positionY: 0
-    _positionX: -8
+    _transform: {fileID: 193005336}
     _distanceBetvine: 2
     _burstCount: 3
     _delay: 0
+--- !u!114 &396914022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396914011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49dca29ba808e6a4bba3d804c2a20381, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _floodAnimator: {fileID: 1499366758}
+  _floodTime: 3
 --- !u!1 &406614196
 GameObject:
   m_ObjectHideFlags: 0
@@ -3284,6 +3351,7 @@ GameObject:
   - component: {fileID: 1499366760}
   - component: {fileID: 1499366759}
   - component: {fileID: 1499366758}
+  - component: {fileID: 1499366764}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -3466,6 +3534,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1499366764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499366757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25140021d1431e745aaa80b3570c1903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frameRate: 10
+  _clips:
+  - _name: idle
+    _sprites:
+    - {fileID: 21300000, guid: adc72051668d8da40b40ba212a00fad0, type: 3}
+    - {fileID: 21300000, guid: a0eaef67087ad7c439ffc44b1acb114f, type: 3}
+    - {fileID: 21300000, guid: 057be434c3963a44693bfa8dbd7f0b0e, type: 3}
+    - {fileID: 21300000, guid: 41d1d63c25c0c0d45b65c332d876bdf0, type: 3}
+    _loop: 1
+    _allowNextClip: 0
+    _onComplete:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &1550317951
 GameObject:
   m_ObjectHideFlags: 0
@@ -13842,6 +13935,7 @@ GameObject:
   - component: {fileID: 2141885839}
   - component: {fileID: 2141885843}
   - component: {fileID: 2141885844}
+  - component: {fileID: 2141885845}
   m_Layer: 0
   m_Name: Enter
   m_TagString: Untagged
@@ -13869,17 +13963,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 365169593}
         m_MethodName: Show
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2141885843}
-        m_MethodName: DestoryObject
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13933,6 +14016,17 @@ MonoBehaviour:
       - m_Target: {fileID: 2141885844}
         m_MethodName: Set
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2141885845}
+        m_MethodName: SetInput
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -13998,6 +14092,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _profile: {fileID: 11400000, guid: 1bc3e8211f9bb634c9899697dff8d663, type: 2}
+--- !u!114 &2141885845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141885838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7004125efdc3be84c86a17622ca1f371, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &862887902912386674
 PrefabInstance:
   m_ObjectHideFlags: 0
