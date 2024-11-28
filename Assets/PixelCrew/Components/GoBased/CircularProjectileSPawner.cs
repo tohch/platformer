@@ -16,6 +16,9 @@ namespace PixelCrew.Components.GoBased
 
         public int Stage { get; set; }
 
+        private CircularProjectileSettings _setting;
+        private float _sectorAngle;
+
         [ContextMenu("Launch!")]
         public void LaunchProjectiles()
         {
@@ -24,31 +27,51 @@ namespace PixelCrew.Components.GoBased
 
         private IEnumerator SpawnProjectiles()
         {
-            var setting = _settings[Stage];
-            var sectorAngle = 2 * Mathf.PI / setting.BurstCount;
-            for (int i = 0; i < setting.BurstCount; i++)
+            _setting = _settings[Stage];
+            _sectorAngle = 2 * Mathf.PI / _setting.BurstCount;
+            for (int i = 0; i < _setting.BurstCount; i++)
             {
-                var angle = sectorAngle * i;
-                var direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
-
-                var instance = SpawnUtils.Spawn(setting.Prefab.gameObject, transform.position);
-                var projectile = instance.GetComponent<DirectionalProjectile>();
-                projectile.Launch(direction);
-
-                yield return new WaitForSeconds(setting.Delay);
+                float summR = 0;
+                for (int j = 0; j < _setting.CountPerBurst; j++)
+                {
+                    summR += _setting.DeltaRPErBurst;
+                    ProjectileInstanceLaunch(i, summR);
+                }
+                    yield return new WaitForSeconds(_setting.Delay);
             }
         }
+
+        private void ProjectileInstanceLaunch(int count, float r)
+        {
+            count++;
+            
+            var x = Mathf.Cos((360 * Mathf.Deg2Rad) / _setting.BurstCount * count) * r;
+            var y = Mathf.Sin((360 * Mathf.Deg2Rad) / _setting.BurstCount * count) * r;
+            var postitionInstance = (new Vector3(x, y, transform.position.z) + transform.position);
+            
+            var instance = SpawnUtils.Spawn(_setting.Prefab.gameObject, postitionInstance);
+            var projectile = instance.GetComponent<DirectionalProjectile>();
+            
+            var angle = _sectorAngle * count;
+            var direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+            projectile.Launch(direction);
+        }
     }
+
 
     [Serializable]
     public struct CircularProjectileSettings
     {
         [SerializeField] private DirectionalProjectile _projectile;
         [SerializeField] private int _burstCount;
+        [SerializeField] private int _countPerBurst;
+        [SerializeField] private float _deltaRPerBurst;
         [SerializeField] private float _delay;
 
         public DirectionalProjectile Prefab => _projectile;
         public int BurstCount => _burstCount;
+        public int CountPerBurst => _countPerBurst;
+        public float DeltaRPErBurst => _deltaRPerBurst;
         public float Delay => _delay;
     }
 }

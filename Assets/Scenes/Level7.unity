@@ -1438,10 +1438,14 @@ MonoBehaviour:
   - _projectile: {fileID: -6003769772071948231, guid: 7967a4cb6790d9442998ecd3ee080105,
       type: 3}
     _burstCount: 10
+    _countPerBurst: 0
+    _deltaRPerBurst: 0
     _delay: 0.1
   - _projectile: {fileID: -6003769772071948231, guid: 7967a4cb6790d9442998ecd3ee080105,
       type: 3}
     _burstCount: 20
+    _countPerBurst: 3
+    _deltaRPerBurst: 0.3
     _delay: 0.03
 --- !u!114 &396914018
 MonoBehaviour:
