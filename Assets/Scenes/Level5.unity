@@ -3192,6 +3192,8 @@ MonoBehaviour:
         Value: 200
     Hp:
       _value: 10
+    Fuel:
+      _value: 0
     Perks:
       _used:
         _value: 
