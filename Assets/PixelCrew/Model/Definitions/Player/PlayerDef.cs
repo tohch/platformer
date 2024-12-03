@@ -1,10 +1,4 @@
-﻿using PixelCrew.Model.Definitions.Player;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PixelCrew.Model.Definitions.Player
 {
@@ -18,6 +12,17 @@ namespace PixelCrew.Model.Definitions.Player
         public int MaxHealth => _maxHealth;
 
         public StatDef[] Stats => _stats;
-        public StatDef GetStat(StatId id) => _stats.FirstOrDefault(x => x.ID == id);
+        public StatDef GetStat(StatId id)
+        {
+            foreach (var statDef in _stats)
+            {
+                if (statDef.ID == id)
+                {
+                    return statDef;
+                }
+            }
+
+            return default;
+        }
     }
 }
