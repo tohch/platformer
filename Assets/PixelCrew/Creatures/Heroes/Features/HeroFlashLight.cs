@@ -14,7 +14,7 @@ namespace PixelCrew.Creatures.Heroes.Features
 
         private void Start()
         {
-            _session = FindObjectOfType<GameSession>();
+            _session = GameSession.Instance;
             _defaultIntensity = _light.intensity;
         }
 

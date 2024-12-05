@@ -19,7 +19,7 @@ namespace PixelCrew.Components.Collectables
 
         public void DropInInvenotyr() 
         {
-            var session = FindObjectOfType<GameSession>();
+            var session = GameSession.Instance;
             foreach (var inventoryItemData in _items)
             {
                 session.Data.Inventory.Add(inventoryItemData.Id, inventoryItemData.Value);

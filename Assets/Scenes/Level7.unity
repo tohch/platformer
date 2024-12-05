@@ -1482,14 +1482,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _settings:
-  - _projectile: {fileID: -6003769772071948231, guid: 7967a4cb6790d9442998ecd3ee080105,
-      type: 3}
-    _burstCount: 10
-    _delay: 0.1
-  - _projectile: {fileID: -6003769772071948231, guid: 7967a4cb6790d9442998ecd3ee080105,
-      type: 3}
-    _burstCount: 20
-    _delay: 0.03
+  - _sequence:
+    - _projectile: {fileID: -6003769772071948231, guid: 7967a4cb6790d9442998ecd3ee080105,
+        type: 3}
+      _burstCount: 6
+      _itemPerBurst: 1
+      _delay: 0.2
+    - _projectile: {fileID: -6003769772071948231, guid: 7967a4cb6790d9442998ecd3ee080105,
+        type: 3}
+      _burstCount: 6
+      _itemPerBurst: 6
+      _delay: 0
+  - _sequence:
+    - _projectile: {fileID: -6003769772071948231, guid: 7967a4cb6790d9442998ecd3ee080105,
+        type: 3}
+      _burstCount: 10
+      _itemPerBurst: 1
+      _delay: 0.2
+    - _projectile: {fileID: -6003769772071948231, guid: 7967a4cb6790d9442998ecd3ee080105,
+        type: 3}
+      _burstCount: 10
+      _itemPerBurst: 10
+      _delay: 0
 --- !u!114 &396914018
 MonoBehaviour:
   m_ObjectHideFlags: 0

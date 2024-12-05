@@ -12,11 +12,11 @@ namespace PixelCrew.Components.LevelManegement
         private PlayerData _playerData;
         private void Start()
         {
-            _playerData = FindObjectOfType<GameSession>().Data.Clone();
+            _playerData = GameSession.Instance.Data.Clone();
         }
         public void Reload()
         {
-            var session = FindObjectOfType<GameSession>();
+            var session = GameSession.Instance;
             //session.Data = _playerData;
             session.LoadLastSave();
 

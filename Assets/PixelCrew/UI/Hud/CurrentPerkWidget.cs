@@ -16,7 +16,7 @@ namespace PixelCrew.UI.Hud
 
         private void Start()
         {
-            _session = FindObjectOfType<GameSession>();
+            _session = GameSession.Instance;
         }
 
         internal void Set(PerkDef perkDef)

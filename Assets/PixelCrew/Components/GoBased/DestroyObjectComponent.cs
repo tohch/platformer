@@ -12,7 +12,7 @@ namespace PixelCrew.Components.GoBased
         {
             Destroy(_objectToDestory);
             if (_state != null)
-                FindObjectOfType<GameSession>().StoreState(_state.Id);
+                GameSession.Instance.StoreState(_state.Id);
         }
         public void OnDisableCollide()
         {
