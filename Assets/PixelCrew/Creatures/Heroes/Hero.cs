@@ -2,7 +2,6 @@
 using PixelCrew.Model;
 using PixelCrew.Utils;
 using System.Collections;
-using UnityEditor.Animations;
 using UnityEngine;
 using PixelCrew.Components.ColliderBased;
 using PixelCrew.Components.Health;
@@ -27,8 +26,8 @@ namespace PixelCrew.Creatures.Heroes
         [SerializeField] private float _slamDownVelocity;
 
         [SerializeField] private Cooldown _throwCooldown;
-        [SerializeField] private AnimatorController _armed;
-        [SerializeField] private AnimatorController _disarmed;
+        [SerializeField] private RuntimeAnimatorController _armed;
+        [SerializeField] private RuntimeAnimatorController _disarmed;
         [SerializeField] private float _fallVelocityforDamage;
 
         [Header("Super throw")]
