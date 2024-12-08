@@ -199,6 +199,17 @@
                 },
                 {
                     "name": "",
+                    "id": "1cd9dcab-1aec-44b0-816c-b79e9c00baf6",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "StickDeadzone(min=0.4)",
+                    "groups": "",
+                    "action": "HorizontalMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "08fcea5a-de33-4c07-ba6e-4b29b2ae122f",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
@@ -221,6 +232,17 @@
                 },
                 {
                     "name": "",
+                    "id": "301a5f50-1ffa-4294-aea8-77818c79c895",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "0a4a6e4b-003e-42a2-9f50-e19fab3d1414",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -232,8 +254,30 @@
                 },
                 {
                     "name": "",
+                    "id": "902dd701-0bbd-4385-825b-7f5f6326b311",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "b8e62919-4da9-417e-98a6-60ef10ece55c",
                     "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3b3a1a65-cf19-42a8-b768-d8a9098a25c2",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -289,6 +333,17 @@
                     "name": "",
                     "id": "987fe8e2-e99b-4213-ba02-9869c2ee6d14",
                     "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextItem",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a040df57-4b6c-4b96-9b92-2e2f4dc11f60",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
